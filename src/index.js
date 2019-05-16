@@ -1,3 +1,3 @@
-import { theme } from './theme/mvp-corporate-design-theme'
+import { themeConfig } from './theme/theme-config'
 
-export default theme
+export default themeConfig

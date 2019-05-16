@@ -1,5 +1,3 @@
-import { createMuiTheme } from '@material-ui/core/styles'
-
 const COLORS = {
   INPUT: {
     NORMAL: '#D1D2E3',
@@ -25,7 +23,7 @@ const COLORS = {
   },
 }
 
-const theme = createMuiTheme({
+const themeConfig = {
   palette: {
     background: COLORS.BACKGROUND,
   },
@@ -120,6 +118,6 @@ const theme = createMuiTheme({
       },
     },
   },
-})
+}
 
-export { theme }
+export { themeConfig }
