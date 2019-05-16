@@ -79,7 +79,7 @@ const themeConfig = {
         },
         '&$focused $notchedOutline': {
           borderColor: COLORS.INPUT.ACTIVE,
-          borderWidth: 2,
+          borderWidth: 1,
         },
         '&$error $notchedOutline': {
           borderColor: COLORS.INPUT.ERROR,
