@@ -1,3 +1,3 @@
-import { mvpCorporateTheme } from '../theme/mvp-corporate-design-theme'
+import { theme } from '../theme/mvp-corporate-design-theme'
 
-export default mvpCorporateTheme
+export default theme

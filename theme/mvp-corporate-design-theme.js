@@ -12,7 +12,7 @@ const COLORS = {
   BACKGROUND: {},
 }
 
-const mvpCorporateTheme = createMuiTheme({
+const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
     fontFamily: [
@@ -83,4 +83,4 @@ const mvpCorporateTheme = createMuiTheme({
   },
 })
 
-export { mvpCorporateTheme }
+export { theme }
