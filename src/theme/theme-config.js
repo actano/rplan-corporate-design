@@ -35,6 +35,7 @@ const themeConfig = {
   },
   palette: {
     background: COLORS.BACKGROUND,
+    input: COLORS.INPUT,
   },
   typography: {
     useNextVariants: true,
