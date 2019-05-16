@@ -23,6 +23,9 @@ const COLORS = {
   },
 }
 
+// This is the default but we want to make sure to base our measurements on it here as well
+const SPACING = 8
+
 const themeConfig = {
   palette: {
     background: COLORS.BACKGROUND,
@@ -32,6 +35,9 @@ const themeConfig = {
     fontFamily: [
       'Open Sans',
     ].join(','),
+  },
+  spacing: {
+    unit: SPACING,
   },
   overrides: {
     MuiButton: {
