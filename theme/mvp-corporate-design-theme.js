@@ -14,6 +14,15 @@ const COLORS = {
     normal: '#F7F9FF',
     modal: '#FFF'
   },
+  BUTTONS: {
+    BACKGROUND: {
+      NORMAL: '#527BFE',
+      HOVER: '#7D9CFE',
+      PRESSED: '#354A90',
+      DISABLED: '#D1D2E3',
+    },
+    TEXT: '#F7F9FF',
+  },
 }
 
 const theme = createMuiTheme({
@@ -27,6 +36,31 @@ const theme = createMuiTheme({
     ].join(','),
   },
   overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: '2px',
+        fontSize: '16px',
+        fontFamily: 'Open Sans',
+        fontWeight: 600,
+        color: COLORS.BUTTONS.TEXT,
+        textAlign: 'center',
+        lineHeight: '24px',
+      },
+      contained: {
+        '&$disabled': {
+          backgroundColor: COLORS.BUTTONS.BACKGROUND.DISABLED,
+        },
+      },
+      containedPrimary: {
+        backgroundColor: COLORS.BUTTONS.BACKGROUND.NORMAL,
+        '&:active': {
+          backgroundColor: COLORS.BUTTONS.BACKGROUND.PRESSED,
+        },
+        '&:hover': {
+          backgroundColor: COLORS.BUTTONS.BACKGROUND.HOVER,
+        },
+      },
+    },
     MuiOutlinedInput: {
       root: {
         '& $notchedOutline': {
