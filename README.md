@@ -2,7 +2,7 @@
 A theme for Material UI to implement the corporate design across all components.
 ## How to use
 ```
-yarn add mvp-corporate-design @material-ui/core @material-ui/styles
+yarn add @rplan/corporate-design @material-ui/core @material-ui/styles
 ```
 In your react components you can use the theme with
 ```
