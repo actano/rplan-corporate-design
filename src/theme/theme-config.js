@@ -74,6 +74,11 @@ const themeConfig = {
         },
       },
     },
+    MuiIconButton: {
+      root: {
+        padding: 0,
+      },
+    },
     MuiOutlinedInput: {
       input: {
         padding: '14px',
