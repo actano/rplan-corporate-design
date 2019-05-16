@@ -1,7 +1,7 @@
 const COLORS = {
   INPUT: {
     NORMAL: '#D1D2E3',
-    ACTIVE: '#D1D2E3',
+    ACTIVE: '#527BFE',
     ERROR: '#F66D6D',
     VALIDATION: '#0ED08F',
     DISABLED: '#D1D2E3',
