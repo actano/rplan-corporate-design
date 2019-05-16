@@ -49,6 +49,7 @@ const themeConfig = {
         color: COLORS.BUTTONS.TEXT,
         textAlign: 'center',
         lineHeight: '24px',
+        textTransform: 'none',
       },
       contained: {
         '&$disabled': {
