@@ -7,7 +7,7 @@
   "module": "src/index.js",
   "repository": "https://github.com/actano/rplan-corporate-design.git",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "@material-ui/core": "^3.9.3"
   }
 }
