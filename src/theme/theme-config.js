@@ -101,6 +101,11 @@ const themeConfig = {
         },
       },
     },
+    MuiInputLabel: {
+      outlined: {
+        transform: 'translate(14px, 16px) scale(1)',
+      }
+    },
     MuiTypography: {
       h2: {
         fontFamily: 'Open Sans',
