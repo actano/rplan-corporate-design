@@ -74,6 +74,9 @@ const themeConfig = {
       },
     },
     MuiOutlinedInput: {
+      input: {
+        padding: '14px',
+      },
       root: {
         '& $notchedOutline': {
           borderColor: COLORS.INPUT.NORMAL,
