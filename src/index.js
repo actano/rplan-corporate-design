@@ -1,3 +1,3 @@
-import { theme } from '../theme/mvp-corporate-design-theme'
+import { theme } from './theme/mvp-corporate-design-theme'
 
 export default theme
