@@ -27,6 +27,12 @@ const COLORS = {
 const SPACING = 8
 
 const themeConfig = {
+  props: {
+    MuiButtonBase: {
+      // TODO: Talk to Marie and find out whether she wants the ripple effect or not
+      // disableRipple: true,
+    },
+  },
   palette: {
     background: COLORS.BACKGROUND,
   },
