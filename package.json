@@ -1,0 +1,12 @@
+{
+  "name": "mvp-corporate-design",
+  "version": "0.1.0",
+  "description": "Theme and components based on the corporate design for the MVP",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "repository": "https://github.com/actano/mvp-corporate-design.git",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^3.9.3"
+  }
+}
