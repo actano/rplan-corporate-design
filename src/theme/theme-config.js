@@ -50,6 +50,7 @@ const themeConfig = {
       root: {
         borderRadius: '2px',
         fontSize: '16px',
+        padding: '10.5px 16px',
         fontFamily: 'Open Sans',
         fontWeight: 600,
         color: COLORS.BUTTONS.TEXT,
