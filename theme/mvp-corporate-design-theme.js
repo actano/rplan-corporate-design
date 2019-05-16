@@ -9,10 +9,17 @@ const COLORS = {
     DISABLED: '#D1D2E3',
     DISABLED_BACKGROUND: '#F7F9FF',
   },
-  BACKGROUND: {},
+  BACKGROUND: {
+    special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
+    normal: '#F7F9FF',
+    modal: '#FFF'
+  },
 }
 
 const theme = createMuiTheme({
+  palette: {
+    background: COLORS.BACKGROUND,
+  },
   typography: {
     useNextVariants: true,
     fontFamily: [
