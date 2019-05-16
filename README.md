@@ -19,7 +19,7 @@ import { mvpCorporateTheme } from 'mvp-corporate-theme'
 Also the font `Open Sans` needs to be available on the website.  
 E.g. include the import of the font in your `index.html`: 
 ```
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet"> 
 ```
 For layout `Typography` should ge used.  
 For simplicity only variants `h2`, `h3`, `h5` and `body1` are supported.
