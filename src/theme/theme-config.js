@@ -10,7 +10,7 @@ const COLORS = {
   BACKGROUND: {
     special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
     normal: '#F7F9FF',
-    modal: '#FFF'
+    modal: '#FFF',
   },
   BUTTONS: {
     BACKGROUND: {
@@ -20,6 +20,11 @@ const COLORS = {
       DISABLED: '#D1D2E3',
     },
     TEXT: '#F7F9FF',
+  },
+  LINKS: {
+    NORMAL: '#527BFE',
+    HOVER: '#527BFE',
+    VISITED: '#354A90',
   },
 }
 
@@ -110,7 +115,7 @@ const themeConfig = {
     MuiInputLabel: {
       outlined: {
         transform: 'translate(14px, 16px) scale(1)',
-      }
+      },
     },
     MuiTypography: {
       h2: {
@@ -147,17 +152,14 @@ const themeConfig = {
     },
     MuiLink: {
       root: {
-        color: COLORS.BUTTONS.BACKGROUND.NORMAL,
+        color: COLORS.LINKS.NORMAL,
         '&:hover': {
-          color: COLORS.BUTTONS.BACKGROUND.HOVER,
+          color: COLORS.LINKS.HOVER,
         },
         '&:visited': {
-          color: COLORS.BUTTONS.BACKGROUND.PRESSED,
-        }
+          color: COLORS.LINKS.VISITED,
+        },
       },
-      underlineHover: {
-        textDecoration: 'underline',
-      }
     }
   },
 }
