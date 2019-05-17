@@ -145,6 +145,20 @@ const themeConfig = {
         lineHeight: '20px',
       },
     },
+    MuiLink: {
+      root: {
+        color: COLORS.BUTTONS.BACKGROUND.NORMAL,
+        '&:hover': {
+          color: COLORS.BUTTONS.BACKGROUND.HOVER,
+        },
+        '&:visited': {
+          color: COLORS.BUTTONS.BACKGROUND.PRESSED,
+        }
+      },
+      underlineHover: {
+        textDecoration: 'underline',
+      }
+    }
   },
 }
 
