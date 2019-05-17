@@ -160,7 +160,21 @@ const themeConfig = {
           color: COLORS.LINKS.VISITED,
         },
       },
-    }
+      button: {
+        fontFamily: 'Open Sans',
+        fontWeight: '600',
+        fontSize: '13px',
+        color: COLORS.LINKS.NORMAL,
+        letterSpacing: '0.46px',
+        lineHeight: '24px',
+        padding: '16px',
+        '&:hover': {
+          backgroundColor: '#EBF0FF',
+          borderRadius: '2px',
+          textDecoration: 'none',
+        },
+      },
+    },
   },
 }
 
