@@ -27,8 +27,9 @@ E.g. include the import of the font in your `index.html`:
 For layout `Typography` should be used.  
 For simplicity only variants `h2`, `h3`, `h5` and `body1` are supported.
 
-## Storybook
-To showcase the custom themed items there is a storybook present.
+## Available Compoents and usage
+To showcase the custom themed items there is a storybook present. Here you can see available components and their usage 
+in the sourceCode addon.
 ```
 yarn install
 yarn storybook

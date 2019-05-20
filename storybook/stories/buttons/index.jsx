@@ -4,9 +4,6 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import Button from '@material-ui/core/Button/index'
-import themeConfig from '../../../src'
-
-const theme = createMuiTheme(themeConfig)
 
 // storybook only shows what <a> tags look like, no interactivity needed
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -14,7 +11,7 @@ const buttonStories = () => {
   storiesOf('Buttons', module)
     .add('Contained Buttons', () =>
       (
-        <MuiThemeProvider theme={theme}>
+        <div>
           <Typography variant="h3" align='left'>
             Buttons
           </Typography>
@@ -96,7 +93,7 @@ const buttonStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </MuiThemeProvider>
+        </div>
       ),
     )
 }

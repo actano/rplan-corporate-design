@@ -68,6 +68,7 @@ const COLORS = {
 const SPACING = 8
 
 const themeConfig = {
+  themeName: 'MVP Corporate Design',
   props: {
     MuiButtonBase: {
       // TODO: Talk to Marie and find out whether she wants the ripple effect or not

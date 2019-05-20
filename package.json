@@ -16,7 +16,9 @@
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-options": "^5.0.11",
     "@storybook/react": "^5.0.11",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "storybook-addon-jsx": "^7.1.2",
+    "storybook-addon-material-ui": "^0.9.0-alpha.19"
   },
   "scripts": {
     "storybook": "start-storybook -c ./storybook/config -p 8085"
