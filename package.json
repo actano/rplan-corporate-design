@@ -8,5 +8,17 @@
   "license": "MIT",
   "peerDependencies": {
     "@material-ui/core": "^3.9.3"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "prop-types": "^15.7.2"
+  },
+  "scripts": {
+    "storybook": "start-storybook -c ./storybook/config -p 8085"
   }
 }
