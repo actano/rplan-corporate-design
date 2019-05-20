@@ -13,13 +13,49 @@ const COLORS = {
     modal: '#FFF',
   },
   BUTTONS: {
-    BACKGROUND: {
-      NORMAL: '#527BFE',
-      HOVER: '#7D9CFE',
-      PRESSED: '#354A90',
-      DISABLED: '#D1D2E3',
+    PRIMARY: {
+      BACKGROUND: {
+        NORMAL: '#527BFE',
+        HOVER: '#7D9CFE',
+        PRESSED: '#354A90',
+        DISABLED: '#D1D2E3',
+      },
+      TEXT: '#F7F9FF',
     },
-    TEXT: '#F7F9FF',
+    SECONDARY: {
+      BACKGROUND: {
+        NORMAL: '#FFFFFF',
+        HOVER: '#EAEFFE',
+        PRESSED: '#FFFFFF',
+        DISABLED: '#FFFFFF',
+      },
+      BORDER: {
+        NORMAL: '#527BFE',
+        DISABLED: '#D1D2E3',
+      },
+      TEXT: {
+        NORMAL: '#527BFE',
+        DISABLED: '#A3ABC7',
+      },
+    },
+    TERNARY: {
+      BACKGROUND: {
+        NORMAL: '#FFFFFF',
+        HOVER: '#F6F6FA',
+        PRESSED: '#F6F6FA',
+        DISABLED: '#FFFFFF',
+      },
+      BORDER: {
+        NORMAL: '#D1D2E3',
+        HOVER: '#D1D2E3',
+        PRESSED: '#A3ABC7',
+        DISABLED: '#D1D2E3',
+      },
+      TEXT: {
+        NORMAL: '#F6887',
+        DISABLED: '#A3ABC7',
+      },
+    },
   },
   LINKS: {
     NORMAL: '#527BFE',
@@ -35,7 +71,7 @@ const themeConfig = {
   props: {
     MuiButtonBase: {
       // TODO: Talk to Marie and find out whether she wants the ripple effect or not
-      // disableRipple: true,
+      disableRipple: true,
     },
   },
   palette: {
@@ -59,23 +95,59 @@ const themeConfig = {
         padding: '10.5px 16px',
         fontFamily: 'Open Sans',
         fontWeight: 600,
-        color: COLORS.BUTTONS.TEXT,
         textAlign: 'center',
         lineHeight: '24px',
         textTransform: 'none',
       },
       contained: {
+        color: COLORS.BUTTONS.TEXT,
         '&$disabled': {
-          backgroundColor: COLORS.BUTTONS.BACKGROUND.DISABLED,
+          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.DISABLED,
         },
       },
       containedPrimary: {
-        backgroundColor: COLORS.BUTTONS.BACKGROUND.NORMAL,
+        backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.NORMAL,
         '&:active': {
-          backgroundColor: COLORS.BUTTONS.BACKGROUND.PRESSED,
+          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.PRESSED,
         },
         '&:hover': {
-          backgroundColor: COLORS.BUTTONS.BACKGROUND.HOVER,
+          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.HOVER,
+        },
+      },
+      outlined: {
+        padding: '10.5px 16px',
+        fontSize: '16px',
+        fontWeight: 600,
+        textAlign: 'center',
+        lineHeight: '24px',
+        backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.NORMAL,
+        border: `1px solid ${COLORS.BUTTONS.TERNARY.BORDER.NORMAL}`,
+        '&$disabled': {
+          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.DISABLED,
+          color: COLORS.BUTTONS.TERNARY.TEXT.DISABLED,
+        },
+        '&:hover': {
+          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.HOVER,
+        },
+        '&:active': {
+          borderColor: COLORS.BUTTONS.TERNARY.BORDER.PRESSED,
+          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.PRESSED,
+        },
+      },
+      outlinedSecondary: {
+        borderColor: COLORS.BUTTONS.SECONDARY.BORDER.NORMAL,
+        backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.NORMAL,
+        color: COLORS.BUTTONS.SECONDARY.TEXT.NORMAL,
+        '&:hover': {
+          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.HOVER,
+          borderColor: COLORS.BUTTONS.SECONDARY.BORDER.NORMAL,
+        },
+        '&:active': {
+          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.PRESSED,
+        },
+        '&$disabled': {
+          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.DISABLED,
+          borderColor: COLORS.BUTTONS.SECONDARY.BORDER.DISABLED,
         },
       },
     },

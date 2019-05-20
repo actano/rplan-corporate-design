@@ -14,41 +14,89 @@ const buttonStories = () => {
   storiesOf('Buttons', module)
     .add('Contained Buttons', () =>
       (
-      <MuiThemeProvider theme={theme}>
-          <Typography variant="h3">
-            Contained Buttons
+        <MuiThemeProvider theme={theme}>
+          <Typography variant="h3" align='left'>
+            Buttons
           </Typography>
           <Grid
             container
-            spacing={8}
-            direction="row"
+            spacing={16}
+            direction="column"
           >
             <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-              >
-                Primary Button
-              </Button>
+              <Typography variant="h5" align='left'>
+                Primary Buttons
+              </Typography>
+              <Grid container spacing={8} direction='row'>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                  >
+                    Primary Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    disabled
+                  >
+                    Disabled Button
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item>
-              <Button
-                variant="contained"
-                color="secondary"
-              >
-                Secondary Button
-              </Button>
+              <Typography variant="h5" align='left'>
+                Secondary Buttons
+              </Typography>
+              <Grid container spacing={8} direction='row'>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                  >
+                    Secondary Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    disabled
+                  >
+                    Disabled Secondary Button
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item>
-              <Button
-                variant="contained"
-                color="default"
-              >
-                Default Button
-              </Button>
+              <Typography variant="h5" align='left'>
+                Ternary Buttons
+              </Typography>
+              <Grid container spacing={8} direction='row'>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="default"
+                  >
+                    Ternary Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="default"
+                    disabled
+                  >
+                    Disabled Button
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
       ),
     )
 }
