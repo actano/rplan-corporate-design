@@ -5,7 +5,7 @@ const COLORS = {
     ERROR: '#F66D6D',
     VALIDATION: '#0ED08F',
     DISABLED: '#D1D2E3',
-    DISABLED_BACKGROUND: '#F7F9FF',
+    DISABLED_BACKGROUND: 'rgb(247,249,255, 0.6)', // #F7F9FF' with transparency
   },
   BACKGROUND: {
     special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
