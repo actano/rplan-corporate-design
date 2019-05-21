@@ -52,10 +52,17 @@ const COLORS = {
         DISABLED: '#D1D2E3',
       },
       TEXT: {
-        NORMAL: '#F6887',
+        NORMAL: '#5F6887',
         DISABLED: '#A3ABC7',
       },
     },
+  },
+  TEXT: {
+    active: '#527BFE',
+    title: '#11141C',
+    paragraph: '#5F6887',
+    hint: '#A3ABC7',
+    success: '#0ED08F',
   },
   LINKS: {
     NORMAL: '#527BFE',
@@ -78,6 +85,7 @@ const themeConfig = {
   palette: {
     background: COLORS.BACKGROUND,
     input: COLORS.INPUT,
+    text: COLORS.TEXT,
   },
   typography: {
     useNextVariants: true,
