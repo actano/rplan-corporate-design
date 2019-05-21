@@ -188,6 +188,10 @@ const themeConfig = {
     MuiInputLabel: {
       outlined: {
         transform: 'translate(14px, 16px) scale(1)',
+        '&$shrink': {
+          fontSize: '18px',
+          transform: 'translate(14px, -6px) scale(0.63)',
+        }
       },
     },
     MuiTypography: {
