@@ -104,12 +104,10 @@ const themeConfig = {
   spacing: {
     unit: SPACING,
   },
+  shape: {
+    borderRadius: 2,
+  },
   overrides: {
-    MuiPaper: {
-      rounded: {
-        borderRadius: '2px',
-      },
-    },
     MuiButton: {
       root: {
         borderRadius: '2px',
