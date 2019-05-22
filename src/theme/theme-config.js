@@ -1,4 +1,9 @@
 const COLORS = {
+  GENERAL: {
+    PRIMARY: {
+      MAIN: '#527BFE',
+    },
+  },
   INPUT: {
     NORMAL: '#D1D2E3',
     ACTIVE: '#527BFE',
@@ -86,6 +91,9 @@ const themeConfig = {
     background: COLORS.BACKGROUND,
     input: COLORS.INPUT,
     text: COLORS.TEXT,
+    primary: {
+      main: COLORS.GENERAL.PRIMARY.MAIN,
+    },
   },
   typography: {
     useNextVariants: true,
