@@ -176,6 +176,7 @@ const themeConfig = {
     },
     MuiIconButton: {
       root: {
+        color: '#A3ABC7',
         padding: 0,
       },
     },
