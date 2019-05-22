@@ -181,6 +181,7 @@ const themeConfig = {
     MuiOutlinedInput: {
       input: {
         padding: '14px',
+        color: '#414A69',
       },
       root: {
         '& $notchedOutline': {
