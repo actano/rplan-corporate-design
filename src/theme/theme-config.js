@@ -216,6 +216,11 @@ const themeConfig = {
         }
       },
     },
+    MuiFormHelperText: {
+      root: {
+        color: '#414A69',
+      }
+    },
     MuiTypography: {
       h2: {
         fontFamily: 'Open Sans',
