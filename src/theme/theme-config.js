@@ -106,7 +106,7 @@ const themeConfig = {
       root: {
         borderRadius: '2px',
         fontSize: '16px',
-        padding: '10.5px 16px',
+        padding: '10.5px 24px',
         fontFamily: 'Open Sans',
         fontWeight: 600,
         textAlign: 'center',
@@ -129,7 +129,7 @@ const themeConfig = {
         },
       },
       outlined: {
-        padding: '10.5px 16px',
+        padding: '10.5px 24px',
         fontSize: '16px',
         fontWeight: 600,
         textAlign: 'center',
