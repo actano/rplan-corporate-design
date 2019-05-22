@@ -134,6 +134,7 @@ const themeConfig = {
         fontWeight: 600,
         textAlign: 'center',
         lineHeight: '24px',
+        color: COLORS.BUTTONS.TERNARY.TEXT.NORMAL,
         backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.NORMAL,
         border: `1px solid ${COLORS.BUTTONS.TERNARY.BORDER.NORMAL}`,
         '&$disabled': {
