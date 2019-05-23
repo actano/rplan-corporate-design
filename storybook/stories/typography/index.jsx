@@ -1,8 +1,7 @@
+import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import Link from '@material-ui/core/Link'
 import { storiesOf } from '@storybook/react'
 import { muiTheme } from 'storybook-addon-material-ui'
-import React from 'react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 import themeConfig from '../../../src'

@@ -1,7 +1,7 @@
+import React from 'react'
 import { Grid, IconButton, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import { muiTheme } from 'storybook-addon-material-ui'
-import React from 'react'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
