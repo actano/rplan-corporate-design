@@ -62,6 +62,11 @@ const COLORS = {
       },
     },
   },
+  ICON_BUTTONS: {
+    TEXT: {
+      NORMAL: '#414A69',
+    }
+  },
   TEXT: {
     active: '#527BFE',
     title: '#11141C',
@@ -220,7 +225,7 @@ const themeConfig = {
     },
     MuiFormHelperText: {
       root: {
-        color: '#414A69',
+        color: COLORS.ICON_BUTTONS.TEXT.NORMAL,
       }
     },
     MuiTypography: {
