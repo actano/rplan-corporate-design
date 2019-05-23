@@ -11,14 +11,14 @@ const theme = createMuiTheme(themeConfig)
 
 // storybook only shows what <a> tags look like, no interactivity needed
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const linkStories = () => {
-  storiesOf('Links', module)
+const typographyStories = () => {
+  storiesOf('Typography', module)
     .addDecorator(muiTheme([theme]))
-    .add('links', () =>
+    .add('Typography', () =>
       (
         <div>
           <Typography variant="h3" align='left'>
-            Links
+            Typography
           </Typography>
           <Grid
             container
@@ -26,33 +26,27 @@ const linkStories = () => {
             direction="column"
           >
             <Grid item>
-              <Typography variant="h5" align='left'>
-                Regular link
+              <Typography
+                variant="h2"
+                style={{ background: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)' }}
+              >
+                h2 - title
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                <Grid item>
-                  <Typography variant="body1">
-                    <Link>
-                      regular link
-                    </Link>
-                    <Link >
-                      regular link visited
-                    </Link>
-                  </Typography>
-                </Grid>
-              </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align='left'>
-                Ghost button
+              <Typography variant="h3" >
+                h3 - title
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                <Grid item>
-                  <Link component="button">
-                    Ghost button
-                  </Link>
-                </Grid>
-              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="h5" >
+                h5 - regular
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" >
+                body1
+              </Typography>
             </Grid>
           </Grid>
         </div>
@@ -61,4 +55,4 @@ const linkStories = () => {
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
 
-export default linkStories
+export default typographyStories

@@ -5,6 +5,7 @@ import {
   buttonStories,
   iconButtonStories,
   linkStories,
+  typographyStories,
 } from '../stories/index'
 
 
@@ -15,6 +16,7 @@ function loadStories() {
   buttonStories()
   iconButtonStories()
   linkStories()
+  typographyStories()
 }
 
 configure(loadStories, module)
