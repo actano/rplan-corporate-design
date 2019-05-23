@@ -120,9 +120,10 @@ const themeConfig = {
         textTransform: 'none',
       },
       contained: {
-        color: COLORS.BUTTONS.TEXT,
+        color: COLORS.BUTTONS.PRIMARY.TEXT,
         '&$disabled': {
           backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.DISABLED,
+          color: COLORS.BUTTONS.PRIMARY.TEXT,
         },
       },
       containedPrimary: {
