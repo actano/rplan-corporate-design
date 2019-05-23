@@ -1,0 +1,31 @@
+library 'jenkins-k8s-pipeline-scripts@v2'
+
+pipeline {
+  agent {
+    label "jenkins-nodejs"
+  }
+  stages {
+    stage('publish') {
+      when {
+        tag "*"
+      }
+      steps {
+        ansiColor('xterm') {
+          container('nodejs') {
+            script {
+              npm.publish()
+            }
+          }
+        }
+      }
+    }
+  }
+  post {
+    failure {
+      sendNotification currentBuild.result
+    }
+    fixed {
+      sendNotification currentBuild.result
+    }
+  }
+}
