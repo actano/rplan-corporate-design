@@ -3,6 +3,7 @@ import { jsxDecorator } from 'storybook-addon-jsx'
 
 import {
   buttonStories,
+  errorBoxStories,
   iconButtonStories,
   inputStories,
   linkStories,
@@ -19,6 +20,7 @@ function loadStories() {
   linkStories()
   typographyStories()
   inputStories()
+  errorBoxStories()
 }
 
 configure(loadStories, module)
