@@ -73,6 +73,7 @@ const COLORS = {
     NORMAL: '#527BFE',
     HOVER: '#527BFE',
     VISITED: '#354A90',
+    BUTTON_BACKGROUND: '#EBF0FF',
   },
 }
 
@@ -274,7 +275,7 @@ const themeConfig = {
         lineHeight: '24px',
         padding: '16px',
         '&:hover': {
-          backgroundColor: '#EBF0FF',
+          backgroundColor: COLORS.LINKS.BUTTON_BACKGROUND,
           borderRadius: '2px',
           textDecoration: 'none',
         },
