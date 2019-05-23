@@ -22,5 +22,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -c ./storybook/config -p 8085"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }
