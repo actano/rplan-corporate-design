@@ -3,6 +3,10 @@ const COLORS = {
     PRIMARY: {
       MAIN: '#527BFE',
     },
+    ERROR: {
+      MAIN: 'rgb(246, 109, 107, 0.4)',
+      LIGHT: '#FEF0F0',
+    },
   },
   INPUT: {
     NORMAL: '#D1D2E3',
@@ -97,6 +101,10 @@ const themeConfig = {
     background: COLORS.BACKGROUND,
     input: COLORS.INPUT,
     text: COLORS.TEXT,
+    error: {
+      main: COLORS.GENERAL.ERROR.MAIN,
+      light: COLORS.GENERAL.ERROR.LIGHT,
+    },
     primary: {
       main: COLORS.GENERAL.PRIMARY.MAIN,
     },
