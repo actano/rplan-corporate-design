@@ -108,6 +108,18 @@ const themeConfig = {
     primary: {
       main: COLORS.GENERAL.PRIMARY.MAIN,
     },
+    grey: {
+      50: '#cdd7fa',
+      100: '#c9d2f5',
+      200: '#c2cced',
+      300: '#b6bfde',
+      400: '#a3abc7',
+      500: '#81889e',
+      600: '#5e6373',
+      700: '#4f5361',
+      800: '#343740',
+      900: '#191a1f',
+    },
   },
   typography: {
     useNextVariants: true,
