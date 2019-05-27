@@ -1,5 +1,4 @@
-import { configure, addDecorator } from '@storybook/react'
-import { jsxDecorator } from 'storybook-addon-jsx'
+import { configure } from '@storybook/react'
 
 import {
   buttonStories,
@@ -9,10 +8,6 @@ import {
   linkStories,
   typographyStories,
 } from '../stories/index'
-
-
-
-addDecorator(jsxDecorator)
 
 function loadStories() {
   buttonStories()

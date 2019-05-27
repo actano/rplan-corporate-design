@@ -1,8 +1,8 @@
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { storiesOf } from '@storybook/react'
-import { muiTheme } from 'storybook-addon-material-ui'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 import themeConfig from '../../../src'
@@ -13,10 +13,9 @@ const theme = createMuiTheme(themeConfig)
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const linkStories = () => {
   storiesOf('Links', module)
-    .addDecorator(muiTheme([theme]))
     .add('links', () =>
       (
-        <div>
+        <MuiThemeProvider theme={theme}>
           <Typography variant="h3" align='left'>
             Links
           </Typography>
@@ -55,7 +54,7 @@ const linkStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </div>
+        </MuiThemeProvider>
       ),
     )
 }

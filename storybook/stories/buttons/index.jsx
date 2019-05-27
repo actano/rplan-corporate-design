@@ -1,7 +1,7 @@
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import { muiTheme } from 'storybook-addon-material-ui'
 import Button from '@material-ui/core/Button/index'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
@@ -9,14 +9,11 @@ import themeConfig from '../../../src'
 
 const theme = createMuiTheme(themeConfig)
 
-// storybook only shows what <a> tags look like, no interactivity needed
-/* eslint-disable jsx-a11y/anchor-is-valid */
 const buttonStories = () => {
   storiesOf('Buttons', module)
-    .addDecorator(muiTheme([theme]))
     .add('Contained Buttons', () =>
       (
-        <div>
+        <MuiThemeProvider theme={theme}>
           <Typography variant="h3" align='left'>
             Buttons
           </Typography>
@@ -98,10 +95,9 @@ const buttonStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </div>
+        </MuiThemeProvider>
       ),
     )
 }
-/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default buttonStories
