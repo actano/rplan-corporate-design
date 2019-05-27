@@ -1,4 +1,4 @@
-import { configure } from '@storybook/react'
+import { addParameters, configure } from '@storybook/react'
 
 import {
   buttonStories,
@@ -8,6 +8,12 @@ import {
   linkStories,
   typographyStories,
 } from '../stories/index'
+
+addParameters({
+  options: {
+    showPanel: false,
+  },
+})
 
 function loadStories() {
   buttonStories()
