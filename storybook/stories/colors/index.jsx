@@ -11,7 +11,7 @@ const theme = createMuiTheme(themeConfig)
 const ColorItem = (entry, sizeInPx) => {
   const [key, value] = entry
   return (
-    <Grid item>
+    <Grid item key={key}>
       <div
         style={{
           width: `${sizeInPx}`,
