@@ -32,10 +32,10 @@ const linkStories = () => {
               <Grid container spacing={8} direction='row'>
                 <Grid item>
                   <Typography variant="body1">
-                    <Link>
+                    <Link href="#">
                       regular link
                     </Link>
-                    <Link >
+                    <Link href="https://www.google.com">
                       regular link visited
                     </Link>
                   </Typography>
