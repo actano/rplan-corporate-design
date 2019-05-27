@@ -2,6 +2,7 @@ import { addParameters, configure } from '@storybook/react'
 
 import {
   buttonStories,
+  colorStories,
   errorBoxStories,
   iconButtonStories,
   inputStories,
@@ -16,6 +17,7 @@ addParameters({
 })
 
 function loadStories() {
+  colorStories()
   buttonStories()
   iconButtonStories()
   linkStories()
