@@ -17,18 +17,18 @@ const theme = createMuiTheme(themeConfig)
   <ThemeProvider theme={theme}>
     <YourComponent />
   </ThemeProvider>
-</MuiThemeProvider>      
+</MuiThemeProvider>
 ```
-Also the font `Open Sans` needs to be available on the website.  
-E.g. include the import of the font in your `index.html`: 
+Also the font `Open Sans` needs to be available on the website.
+E.g. include the import of the font in your `index.html`:
 ```
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 ```
-For layout `Typography` should be used.  
+For layout `Typography` should be used.
 For simplicity only variants `h2`, `h3`, `h5` and `body1` are supported.
 
 ## Available Components and usage
-To showcase the custom themed items there is a storybook present. Here you can see available components and their usage 
+To showcase the custom themed items there is a storybook present. Here you can see available components and their usage
 in the sourceCode addon.
 ```
 yarn install
