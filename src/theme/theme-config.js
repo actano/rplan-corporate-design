@@ -1,88 +1,107 @@
+const COLOR_NAMES = {
+  GREY: '#A3ABC7',
+  LIGHTEST_GREY: '#F7F9FF',
+  LIGHT_GREY: '#D1D2E3',
+  DARK_GREY: '#5F6887',
+  DARKEST_GREY: '#414A69',
+  BLACK: '#11141C',
+  BLUE: '#527BFE',
+  DARK_BLUE: '#354A90',
+  PALE_BLUE: '#7D9CFE',
+  LIGHT_BLUE: '#EAEFFE',
+  LIGHTEST_BLUE: '#EBF0FF',
+  GREEN: '#0ED08F',
+  RED: '#F66D6D',
+  LIGHT_RED: '#FEF0F0',
+  WHITE: '#FFFFFF',
+  NEAR_WHITE: '#F6F6FA',
+}
+
 const COLORS = {
   GENERAL: {
     PRIMARY: {
-      MAIN: '#527BFE',
+      MAIN: COLOR_NAMES.BLUE,
     },
     ERROR: {
-      MAIN: 'rgb(246, 109, 107, 0.4)',
-      LIGHT: '#FEF0F0',
+      MAIN: 'rgb(246, 109, 107, 0.4)', // #F66D6B - nearly RED with transparency
+      LIGHT: COLOR_NAMES.LIGHT_RED,
     },
   },
   INPUT: {
-    NORMAL: '#D1D2E3',
-    ACTIVE: '#527BFE',
-    ERROR: '#F66D6D',
-    VALIDATION: '#0ED08F',
-    DISABLED: '#D1D2E3',
-    DISABLED_BACKGROUND: 'rgb(247,249,255, 0.6)', // #F7F9FF' with transparency
+    NORMAL: COLOR_NAMES.LIGHT_GREY,
+    ACTIVE: COLOR_NAMES.BLUE,
+    ERROR: COLOR_NAMES.RED,
+    VALIDATION: COLOR_NAMES.GREEN,
+    DISABLED: COLOR_NAMES.LIGHT_GREY,
+    DISABLED_BACKGROUND: 'rgb(247,249,255, 0.6)', // #F7F9FF - LIGHTEST_GREY with transparency
   },
   BACKGROUND: {
     special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
-    normal: '#F7F9FF',
-    modal: '#FFF',
+    normal: COLOR_NAMES.LIGHTEST_GREY,
+    modal: COLOR_NAMES.WHITE,
   },
   BUTTONS: {
     PRIMARY: {
       BACKGROUND: {
-        NORMAL: '#527BFE',
-        HOVER: '#7D9CFE',
-        PRESSED: '#354A90',
-        DISABLED: '#D1D2E3',
+        NORMAL: COLOR_NAMES.BLUE,
+        HOVER: COLOR_NAMES.PALE_BLUE,
+        PRESSED: COLOR_NAMES.DARK_BLUE,
+        DISABLED: COLOR_NAMES.LIGHT_GREY,
       },
-      TEXT: '#F7F9FF',
+      TEXT: COLOR_NAMES.LIGHTEST_GREY,
     },
     SECONDARY: {
       BACKGROUND: {
-        NORMAL: '#FFFFFF',
-        HOVER: '#EAEFFE',
-        PRESSED: '#FFFFFF',
-        DISABLED: '#FFFFFF',
+        NORMAL: COLOR_NAMES.WHITE,
+        HOVER: COLOR_NAMES.LIGHT_BLUE,
+        PRESSED: COLOR_NAMES.WHITE,
+        DISABLED: COLOR_NAMES.WHITE,
       },
       BORDER: {
-        NORMAL: '#527BFE',
-        DISABLED: '#D1D2E3',
+        NORMAL: COLOR_NAMES.BLUE,
+        DISABLED: COLOR_NAMES.LIGHT_GREY,
       },
       TEXT: {
-        NORMAL: '#527BFE',
-        DISABLED: '#A3ABC7',
+        NORMAL: COLOR_NAMES.BLUE,
+        DISABLED: COLOR_NAMES.GREY,
       },
     },
     TERNARY: {
       BACKGROUND: {
-        NORMAL: '#FFFFFF',
-        HOVER: '#F6F6FA',
-        PRESSED: '#F6F6FA',
-        DISABLED: '#FFFFFF',
+        NORMAL: COLOR_NAMES.WHITE,
+        HOVER: COLOR_NAMES.NEAR_WHITE,
+        PRESSED: COLOR_NAMES.NEAR_WHITE,
+        DISABLED: COLOR_NAMES.WHITE,
       },
       BORDER: {
-        NORMAL: '#D1D2E3',
-        HOVER: '#D1D2E3',
-        PRESSED: '#A3ABC7',
-        DISABLED: '#D1D2E3',
+        NORMAL: COLOR_NAMES.LIGHT_GREY,
+        HOVER: COLOR_NAMES.LIGHT_GREY,
+        PRESSED: COLOR_NAMES.GREY,
+        DISABLED: COLOR_NAMES.LIGHT_GREY,
       },
       TEXT: {
-        NORMAL: '#5F6887',
-        DISABLED: '#A3ABC7',
+        NORMAL: COLOR_NAMES.DARK_GREY,
+        DISABLED: COLOR_NAMES.GREY,
       },
     },
   },
   ICON_BUTTONS: {
     TEXT: {
-      NORMAL: '#414A69',
+      NORMAL: COLOR_NAMES.DARKEST_GREY,
     }
   },
   TEXT: {
-    active: '#527BFE',
-    title: '#11141C',
-    paragraph: '#5F6887',
-    hint: '#A3ABC7',
-    success: '#0ED08F',
+    active: COLOR_NAMES.BLUE,
+    title: COLOR_NAMES.BLACK,
+    paragraph: COLOR_NAMES.DARK_GREY,
+    hint: COLOR_NAMES.GREY,
+    success: COLOR_NAMES.GREEN,
   },
   LINKS: {
-    NORMAL: '#527BFE',
-    HOVER: '#527BFE',
-    VISITED: '#354A90',
-    BUTTON_BACKGROUND: '#EBF0FF',
+    NORMAL: COLOR_NAMES.BLUE,
+    HOVER: COLOR_NAMES.BLUE,
+    VISITED: COLOR_NAMES.DARK_BLUE,
+    BUTTON_BACKGROUND: COLOR_NAMES.LIGHTEST_BLUE,
   },
 }
 
@@ -201,14 +220,14 @@ const themeConfig = {
     },
     MuiIconButton: {
       root: {
-        color: '#A3ABC7',
+        color: COLOR_NAMES.GREY,
         padding: 0,
       },
     },
     MuiOutlinedInput: {
       input: {
         padding: '14px',
-        color: '#414A69',
+        color: COLOR_NAMES.DARKEST_GREY,
       },
       root: {
         '& $notchedOutline': {
@@ -252,7 +271,7 @@ const themeConfig = {
       h2: {
         fontFamily: 'Open Sans',
         fontSize: '40px',
-        color: '#FFFFFF',
+        color: COLOR_NAMES.WHITE,
         letterSpacing: '0.4px',
         textAlign: 'center',
         lineHeight: '40px',
@@ -261,7 +280,7 @@ const themeConfig = {
       h3: {
         fontFamily: 'Open Sans',
         fontSize: '24px',
-        color: '#11141C',
+        color: COLOR_NAMES.BLACK,
         textAlign: 'center',
         lineHeight: '32px',
         fontWeight: 300,
@@ -269,14 +288,14 @@ const themeConfig = {
       h5: {
         fontFamily: 'Open Sans',
         fontSize: '16px',
-        color: '#414A69',
+        color: COLOR_NAMES.DARKEST_GREY,
         textAlign: 'center',
         lineHeight: '24px',
       },
       body1: {
         fontFamily: 'Open Sans',
         fontSize: '13px',
-        color: '#414A69',
+        color: COLOR_NAMES.DARKEST_GREY,
         textAlign: 'center',
         lineHeight: '20px',
       },
