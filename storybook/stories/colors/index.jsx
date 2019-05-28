@@ -81,14 +81,6 @@ const colorsStories = () => {
                 {Object.entries(theme.palette.error).map((entry) => ColorItem(entry, '100px'))}
               </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant="h3" align='left'>
-                Shades of grey
-              </Typography>
-              <Grid container spacing={8} direction='row'>
-                {Object.entries(theme.palette.grey).map((entry) => ColorItem(entry, '100px'))}
-              </Grid>
-            </Grid>
           </Grid>
         </MuiThemeProvider>
       ),
