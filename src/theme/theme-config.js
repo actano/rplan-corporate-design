@@ -1,5 +1,5 @@
 const COLOR_NAMES = {
-  GREY: '#A3ABC7',
+  GREY: '#A3ABC7', // formerly grey[400]
   LIGHTEST_GREY: '#F7F9FF',
   LIGHT_GREY: '#D1D2E3',
   DARK_GREY: '#5F6887',
@@ -15,6 +15,7 @@ const COLOR_NAMES = {
   LIGHT_RED: '#FEF0F0',
   WHITE: '#FFFFFF',
   NEAR_WHITE: '#F6F6FA',
+  YET_ANOTHER_GREY: '#586079',
 }
 
 const COLORS = {
@@ -103,6 +104,20 @@ const COLORS = {
     VISITED: COLOR_NAMES.DARK_BLUE,
     BUTTON_BACKGROUND: COLOR_NAMES.LIGHTEST_BLUE,
   },
+  HEADER_BAR: {
+    TEXT: {
+      NORMAL: COLOR_NAMES.DARKEST_GREY,
+      PLACEHOLDER: COLOR_NAMES.GREY,
+      HOVER: COLOR_NAMES.GREY,
+      FOCUS: COLOR_NAMES.GREY,
+      SPECIAL: COLOR_NAMES.YET_ANOTHER_GREY,
+      TRANSPARENT: 'rgb(163,171,199, 0.5)',
+    },
+    BACKGROUND: {
+        HOVER: 'rgba(209,210,227,0.5)',
+        FOCUS: 'rgba(209,210,227,0.5)',
+    }, // LIGHT_GREY with transparency
+  }
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -127,18 +142,7 @@ const themeConfig = {
     primary: {
       main: COLORS.GENERAL.PRIMARY.MAIN,
     },
-    grey: {
-      50: '#cdd7fa',
-      100: '#c9d2f5',
-      200: '#c2cced',
-      300: '#b6bfde',
-      400: '#a3abc7',
-      500: '#81889e',
-      600: '#5e6373',
-      700: '#4f5361',
-      800: '#343740',
-      900: '#191a1f',
-    },
+    headerBar: COLORS.HEADER_BAR,
   },
   typography: {
     useNextVariants: true,
