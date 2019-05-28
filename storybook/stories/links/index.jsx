@@ -34,9 +34,6 @@ const linkStories = () => {
                     <Link href="#">
                       regular link
                     </Link>
-                    <Link href="https://www.google.com">
-                      regular link visited
-                    </Link>
                   </Typography>
                 </Grid>
               </Grid>
