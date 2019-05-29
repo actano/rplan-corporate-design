@@ -1,3 +1,6 @@
+const hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16));
+const rgbaString = (hex, alpha) => `rgb(${hexToRGBArray(hex).join(',')}, ${alpha})`
+
 const COLOR_NAMES = {
   LIGHTEST_GREY: '#F7F9FF', // normal background
   LIGHT_GREY: '#D1D2E3', // Disabled/Inactive/Subtle
@@ -23,7 +26,7 @@ const COLORS = {
       MAIN: COLOR_NAMES.BLUE,
     },
     ERROR: {
-      MAIN: 'rgb(246, 109, 107, 0.4)', // #F66D6B - RED with transparency
+      MAIN: rgbaString(COLOR_NAMES.RED, 0.4),
       LIGHT: COLOR_NAMES.LIGHT_RED,
     },
   },
@@ -33,7 +36,7 @@ const COLORS = {
     ERROR: COLOR_NAMES.RED,
     VALIDATION: COLOR_NAMES.GREEN,
     DISABLED: COLOR_NAMES.LIGHT_GREY,
-    DISABLED_BACKGROUND: 'rgb(247,249,255, 0.6)', // #F7F9FF - LIGHTEST_GREY with transparency
+    DISABLED_BACKGROUND: rgbaString(COLOR_NAMES.LIGHTEST_GREY, 0.6),
   },
   BACKGROUND: {
     special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
@@ -110,12 +113,12 @@ const COLORS = {
       HOVER: COLOR_NAMES.GREY,
       FOCUS: COLOR_NAMES.GREY,
       SPECIAL: COLOR_NAMES.DARK_GREY,
-      TRANSPARENT: 'rgb(163,171,199, 0.5)',
+      TRANSPARENT: rgbaString(COLOR_NAMES.GREY, 0.5),
     },
     BACKGROUND: {
-        HOVER: 'rgba(209,210,227,0.5)',
-        FOCUS: 'rgba(209,210,227,0.5)',
-    }, // LIGHT_GREY with transparency
+        HOVER: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+        FOCUS: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+    },
   }
 }
 
