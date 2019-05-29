@@ -91,7 +91,7 @@ const COLORS = {
   ICON_BUTTONS: {
     TEXT: {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
-    }
+    },
   },
   TEXT: {
     active: COLOR_NAMES.BLUE,
@@ -116,10 +116,17 @@ const COLORS = {
       TRANSPARENT: rgbaString(COLOR_NAMES.GREY, 0.5),
     },
     BACKGROUND: {
-        HOVER: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
-        FOCUS: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+      HOVER: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+      FOCUS: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
     },
-  }
+  },
+  NAVIGATION_BAR: {
+    BACKGROUND: {
+      BAR: '#1B264B',
+      LINK_ACTIVE: 'rgba(82,123,254, .16)',
+    },
+    LINK_ACTIVE_BORDER: COLOR_NAMES.BLUE,
+  },
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -145,6 +152,7 @@ const themeConfig = {
       main: COLORS.GENERAL.PRIMARY.MAIN,
     },
     headerBar: COLORS.HEADER_BAR,
+    navigationBar: COLORS.NAVIGATION_BAR,
   },
   typography: {
     useNextVariants: true,
@@ -265,13 +273,13 @@ const themeConfig = {
         '&$shrink': {
           fontSize: '18px',
           transform: 'translate(14px, -6px) scale(0.63)',
-        }
+        },
       },
     },
     MuiFormHelperText: {
       root: {
         color: COLORS.ICON_BUTTONS.TEXT.NORMAL,
-      }
+      },
     },
     MuiTypography: {
       h2: {
