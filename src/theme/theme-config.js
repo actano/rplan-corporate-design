@@ -1,19 +1,19 @@
 const COLOR_NAMES = {
-  GREY: '#A3ABC7', // formerly grey[400]
-  LIGHTEST_GREY: '#F7F9FF',
-  LIGHT_GREY: '#D1D2E3',
-  DARK_GREY: '#5F6887',
-  DARKEST_GREY: '#414A69',
-  BLACK: '#11141C',
-  BLUE: '#527BFE',
-  DARK_BLUE: '#354A90',
-  PALE_BLUE: '#7D9CFE',
-  LIGHT_BLUE: '#EAEFFE',
+  LIGHTEST_GREY: '#F7F9FF', // normal background
+  LIGHT_GREY: '#D1D2E3', // Disabled/Inactive/Subtle
+  GREY: '#A3ABC7', // Placeholder/subtle hint
+  DARK_GREY: '#5F6887', // Help Text
+  DARKEST_GREY: '#414A69', // Paragraphs
+  BLACK: '#11141C', // Titles
   LIGHTEST_BLUE: '#EBF0FF',
-  GREEN: '#0ED08F',
-  RED: '#F66D6D',
-  LIGHT_RED: '#FEF0F0',
-  WHITE: '#FFFFFF',
+  LIGHT_BLUE: '#EAEFFE', // Background Secondary Hover
+  PALE_BLUE: '#7D9CFE',
+  BLUE: '#527BFE', // Active
+  DARK_BLUE: '#354A90', // Button pressed
+  GREEN: '#0ED08F', // Signal: Success/Validation
+  LIGHT_RED: '#FEF0F0', // Error background
+  RED: '#F66D6B', // Signal: Error/Alert
+  WHITE: '#FFFFFF', // Input background
   NEAR_WHITE: '#F6F6FA',
 }
 
@@ -23,7 +23,7 @@ const COLORS = {
       MAIN: COLOR_NAMES.BLUE,
     },
     ERROR: {
-      MAIN: 'rgb(246, 109, 107, 0.4)', // #F66D6B - nearly RED with transparency
+      MAIN: 'rgb(246, 109, 107, 0.4)', // #F66D6B - RED with transparency
       LIGHT: COLOR_NAMES.LIGHT_RED,
     },
   },
