@@ -69,7 +69,7 @@ const COLORS = {
         DISABLED: COLOR_NAMES.GREY,
       },
     },
-    TERNARY: {
+    TERTIARY: {
       BACKGROUND: {
         NORMAL: COLOR_NAMES.WHITE,
         HOVER: COLOR_NAMES.NEAR_WHITE,
@@ -192,19 +192,19 @@ const themeConfig = {
         fontWeight: 600,
         textAlign: 'center',
         lineHeight: '24px',
-        color: COLORS.BUTTONS.TERNARY.TEXT.NORMAL,
-        backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.NORMAL,
-        border: `1px solid ${COLORS.BUTTONS.TERNARY.BORDER.NORMAL}`,
+        color: COLORS.BUTTONS.TERTIARY.TEXT.NORMAL,
+        backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.NORMAL,
+        border: `1px solid ${COLORS.BUTTONS.TERTIARY.BORDER.NORMAL}`,
         '&$disabled': {
-          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.DISABLED,
-          color: COLORS.BUTTONS.TERNARY.TEXT.DISABLED,
+          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.DISABLED,
+          color: COLORS.BUTTONS.TERTIARY.TEXT.DISABLED,
         },
         '&:hover': {
-          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.HOVER,
+          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.HOVER,
         },
         '&:active': {
-          borderColor: COLORS.BUTTONS.TERNARY.BORDER.PRESSED,
-          backgroundColor: COLORS.BUTTONS.TERNARY.BACKGROUND.PRESSED,
+          borderColor: COLORS.BUTTONS.TERTIARY.BORDER.PRESSED,
+          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.PRESSED,
         },
       },
       outlinedSecondary: {

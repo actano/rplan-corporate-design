@@ -72,7 +72,7 @@ const buttonStories = () => {
             </Grid>
             <Grid item>
               <Typography variant="h5" align='left'>
-                Ternary Buttons
+                Tertiary Buttons
               </Typography>
               <Grid container spacing={8} direction='row'>
                 <Grid item>
@@ -80,7 +80,7 @@ const buttonStories = () => {
                     variant="outlined"
                     color="default"
                   >
-                    Ternary Button
+                    Tertiary Button
                   </Button>
                 </Grid>
                 <Grid item>
