@@ -13,6 +13,7 @@ const COLOR_NAMES = {
   PALE_BLUE: '#7D9CFE',
   BLUE: '#527BFE', // Active
   DARK_BLUE: '#354A90', // Button pressed
+  VERY_DARK_BLUE: '#1B264B',
   GREEN: '#0ED08F', // Signal: Success/Validation
   LIGHT_RED: '#FEF0F0', // Error background
   RED: '#F66D6B', // Signal: Error/Alert
@@ -122,8 +123,8 @@ const COLORS = {
   },
   NAVIGATION_BAR: {
     BACKGROUND: {
-      BAR: '#1B264B',
-      LINK_ACTIVE: 'rgba(82,123,254, .16)',
+      BAR: COLOR_NAMES.VERY_DARK_BLUE,
+      LINK_ACTIVE: rgbaString(COLOR_NAMES.BLUE, 0.16),
     },
     LINK_ACTIVE_BORDER: COLOR_NAMES.BLUE,
   },
