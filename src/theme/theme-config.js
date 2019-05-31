@@ -3,6 +3,7 @@ const rgbaString = (hex, alpha) => `rgb(${hexToRGBArray(hex).join(',')}, ${alpha
 
 const COLOR_NAMES = {
   LIGHTEST_GREY: '#F7F9FF', // normal background
+  VERY_LIGHT_GREY: '#E8E8F1',
   LIGHT_GREY: '#D1D2E3', // Disabled/Inactive/Subtle
   GREY: '#A3ABC7', // Placeholder/subtle hint
   DARK_GREY: '#5F6887', // Help Text
@@ -118,11 +119,11 @@ const COLORS = {
     },
     BACKGROUND: {
       MAIN: COLOR_NAMES.WHITE,
-      HOVER: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
-      FOCUS: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+      HOVER: COLOR_NAMES.VERY_LIGHT_GREY,
+      FOCUS: COLOR_NAMES.VERY_LIGHT_GREY,
     },
     BORDER: {
-      NORMAL: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+      NORMAL: COLOR_NAMES.VERY_LIGHT_GREY,
     }
   },
   NAVIGATION_BAR: {
