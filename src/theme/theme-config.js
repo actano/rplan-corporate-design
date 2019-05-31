@@ -117,9 +117,13 @@ const COLORS = {
       TRANSPARENT: rgbaString(COLOR_NAMES.GREY, 0.5),
     },
     BACKGROUND: {
+      MAIN: COLOR_NAMES.WHITE,
       HOVER: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
       FOCUS: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
     },
+    BORDER: {
+      NORMAL: rgbaString(COLOR_NAMES.LIGHT_GREY, 0.5),
+    }
   },
   NAVIGATION_BAR: {
     BACKGROUND: {
