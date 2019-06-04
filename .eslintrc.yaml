@@ -1,3 +1,10 @@
 root: true
 extends:
 - actano
+
+rules:
+  import/no-extraneous-dependencies:
+  - error
+  - devDependencies:
+    - 'storybook/**/*.js'
+    - 'storybook/**/*.jsx'

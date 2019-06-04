@@ -27,12 +27,12 @@ const _ErrorBox = ({ classes, className, children }) => (
 
 _ErrorBox.propTypes = {
   classes: PropTypes.object.isRequired,
-  classNames: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
 _ErrorBox.defaultProps = {
-  classNames: '',
+  className: '',
 }
 
 const ErrorBox = withStyles(styles)(_ErrorBox)
