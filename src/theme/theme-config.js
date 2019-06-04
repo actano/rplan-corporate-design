@@ -2,7 +2,7 @@ const hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 1
 const rgbaString = (hex, alpha) => `rgb(${hexToRGBArray(hex).join(',')}, ${alpha})`
 
 const COLOR_NAMES = {
-  LIGHTEST_GREY: '#F7F9FF', // normal background
+  LIGHTEST_GREY: '#F5F7FE', // normal background
   VERY_LIGHT_GREY: '#E8E8F1',
   LIGHT_GREY: '#D1D2E3', // Disabled/Inactive/Subtle
   GREY: '#A3ABC7', // Placeholder/subtle hint
@@ -14,7 +14,7 @@ const COLOR_NAMES = {
   PALE_BLUE: '#7D9CFE',
   BLUE: '#527BFE', // Active
   DARK_BLUE: '#354A90', // Button pressed
-  VERY_DARK_BLUE: '#1B264B',
+  VERY_DARK_BLUE: '#1C274A', // NavBar background
   GREEN: '#0ED08F', // Signal: Success/Validation
   LIGHT_RED: '#FEF0F0', // Error background
   RED: '#F66D6B', // Signal: Error/Alert
