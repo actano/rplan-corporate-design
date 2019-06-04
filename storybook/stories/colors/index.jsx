@@ -33,7 +33,7 @@ const colorsStories = () => {
     .add('Colors', () =>
       (
         <MuiThemeProvider theme={theme}>
-          <Typography variant="h3" align='left'>
+          <Typography variant="h3" align="left">
             Colors
           </Typography>
           <Grid
@@ -42,49 +42,48 @@ const colorsStories = () => {
             direction="column"
           >
             <Grid item>
-              <Typography variant="h3" align='left'>
+              <Typography variant="h3" align="left">
                 Background colors
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                {Object.entries(theme.palette.background).map((entry) => ColorItem(entry, '150px'))}
+              <Grid container spacing={8} direction="row">
+                {Object.entries(theme.palette.background).map(entry => ColorItem(entry, '150px'))}
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h3" align='left'>
+              <Typography variant="h3" align="left">
                 Primary main color
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 {ColorItem(['primary main', theme.palette.primary.main], '100px')}
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h3" align='left'>
+              <Typography variant="h3" align="left">
                 Text colors
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                {Object.entries(theme.palette.text).map((entry) => ColorItem(entry, '100px'))}
+              <Grid container spacing={8} direction="row">
+                {Object.entries(theme.palette.text).map(entry => ColorItem(entry, '100px'))}
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h3" align='left'>
+              <Typography variant="h3" align="left">
                 Input colors
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                {Object.entries(theme.palette.input).map((entry) => ColorItem(entry, '100px'))}
+              <Grid container spacing={8} direction="row">
+                {Object.entries(theme.palette.input).map(entry => ColorItem(entry, '100px'))}
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h3" align='left'>
+              <Typography variant="h3" align="left">
                 Error colors
               </Typography>
-              <Grid container spacing={8} direction='row'>
-                {Object.entries(theme.palette.error).map((entry) => ColorItem(entry, '100px'))}
+              <Grid container spacing={8} direction="row">
+                {Object.entries(theme.palette.error).map(entry => ColorItem(entry, '100px'))}
               </Grid>
             </Grid>
           </Grid>
         </MuiThemeProvider>
-      ),
-    )
+      ))
 }
 
 export default colorsStories

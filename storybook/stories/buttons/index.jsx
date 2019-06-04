@@ -14,7 +14,7 @@ const buttonStories = () => {
     .add('Contained Buttons', () =>
       (
         <MuiThemeProvider theme={theme}>
-          <Typography variant="h3" align='left'>
+          <Typography variant="h3" align="left">
             Buttons
           </Typography>
           <Grid
@@ -23,10 +23,10 @@ const buttonStories = () => {
             direction="column"
           >
             <Grid item>
-              <Typography variant="h5" align='left'>
+              <Typography variant="h5" align="left">
                 Primary Buttons
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 <Grid item>
                   <Button
                     variant="contained"
@@ -47,10 +47,10 @@ const buttonStories = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align='left'>
+              <Typography variant="h5" align="left">
                 Secondary Buttons
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 <Grid item>
                   <Button
                     variant="outlined"
@@ -71,10 +71,10 @@ const buttonStories = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align='left'>
+              <Typography variant="h5" align="left">
                 Tertiary Buttons
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 <Grid item>
                   <Button
                     variant="outlined"
@@ -96,8 +96,7 @@ const buttonStories = () => {
             </Grid>
           </Grid>
         </MuiThemeProvider>
-      ),
-    )
+      ))
 }
 
 export default buttonStories

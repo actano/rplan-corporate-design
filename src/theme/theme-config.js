@@ -1,4 +1,4 @@
-const hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16));
+const hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16))
 const rgbaString = (hex, alpha) => `rgb(${hexToRGBArray(hex).join(',')}, ${alpha})`
 
 const COLOR_NAMES = {
@@ -124,7 +124,7 @@ const COLORS = {
     },
     BORDER: {
       NORMAL: COLOR_NAMES.VERY_LIGHT_GREY,
-    }
+    },
   },
   NAVIGATION_BAR: {
     BACKGROUND: {

@@ -14,40 +14,39 @@ const theme = createMuiTheme(themeConfig)
 const iconButtonStories = () => {
   storiesOf('Icon Buttons', module)
     .add('Icon Buttons', () => (
-        <MuiThemeProvider theme={theme}>
-          <Typography variant="h3" align='left'>
+      <MuiThemeProvider theme={theme}>
+        <Typography variant="h3" align="left">
             Icon Buttons
-          </Typography>
-          <Grid
-            container
-            spacing={16}
-            direction="column"
-          >
-            <Grid item>
-              <Typography variant="h5" align='left'>
+        </Typography>
+        <Grid
+          container
+          spacing={16}
+          direction="column"
+        >
+          <Grid item>
+            <Typography variant="h5" align="left">
                 Show password visibility
-              </Typography>
-              <Grid container spacing={8} direction='row'>
-                <Grid item>
-                  <IconButton
-                    aria-label="Toggle password visibility"
-                  >
-                    <Visibility />
-                  </IconButton>
-                </Grid>
-                <Grid item>
-                  <IconButton
-                    aria-label="Toggle password visibility"
-                  >
-                    <VisibilityOff />
-                  </IconButton>
-                </Grid>
+            </Typography>
+            <Grid container spacing={8} direction="row">
+              <Grid item>
+                <IconButton
+                  aria-label="Toggle password visibility"
+                >
+                  <Visibility />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <IconButton
+                  aria-label="Toggle password visibility"
+                >
+                  <VisibilityOff />
+                </IconButton>
               </Grid>
             </Grid>
           </Grid>
-        </MuiThemeProvider>
-      ),
-    )
+        </Grid>
+      </MuiThemeProvider>
+    ))
 }
 
 export default iconButtonStories

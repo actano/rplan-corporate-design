@@ -13,7 +13,7 @@ const typographyStories = () => {
     .add('Typography', () =>
       (
         <MuiThemeProvider theme={theme}>
-          <Typography variant="h3" align='left'>
+          <Typography variant="h3" align="left">
             Typography
           </Typography>
           <Grid
@@ -46,8 +46,7 @@ const typographyStories = () => {
             </Grid>
           </Grid>
         </MuiThemeProvider>
-      ),
-    )
+      ))
 }
 
 export default typographyStories

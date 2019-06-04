@@ -16,7 +16,7 @@ const linkStories = () => {
     .add('links', () =>
       (
         <MuiThemeProvider theme={theme}>
-          <Typography variant="h3" align='left'>
+          <Typography variant="h3" align="left">
             Links
           </Typography>
           <Grid
@@ -25,10 +25,10 @@ const linkStories = () => {
             direction="column"
           >
             <Grid item>
-              <Typography variant="h5" align='left'>
+              <Typography variant="h5" align="left">
                 Regular link
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 <Grid item>
                   <Typography variant="body1">
                     <Link href="#">
@@ -39,10 +39,10 @@ const linkStories = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align='left'>
+              <Typography variant="h5" align="left">
                 Ghost button
               </Typography>
-              <Grid container spacing={8} direction='row'>
+              <Grid container spacing={8} direction="row">
                 <Grid item>
                   <Link component="button">
                     Ghost button
@@ -52,8 +52,7 @@ const linkStories = () => {
             </Grid>
           </Grid>
         </MuiThemeProvider>
-      ),
-    )
+      ))
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
 

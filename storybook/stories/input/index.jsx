@@ -20,13 +20,13 @@ const inputStories = () => {
               direction="column"
             >
               <Grid item>
-                <Typography variant="h3" align='left'>
+                <Typography variant="h3" align="left">
                   Input
                 </Typography>
               </Grid>
               <form>
                 <Grid item>
-                  <Typography variant="h5" align='left'>
+                  <Typography variant="h5" align="left">
                     Normal Input
                   </Typography>
                   <TextField
@@ -39,7 +39,7 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align='left'>
+                  <Typography variant="h5" align="left">
                     Normal Input with placeholder
                   </Typography>
                   <TextField
@@ -53,14 +53,14 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align='left'>
+                  <Typography variant="h5" align="left">
                     Error in input
                   </Typography>
                   <TextField
                     margin="normal"
                     variant="outlined"
                     label="Enter: 'abc'"
-                    value={'cde'}
+                    value="cde"
                     error
                     InputLabelProps={{
                       shrink: true,
@@ -68,14 +68,14 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align='left'>
+                  <Typography variant="h5" align="left">
                     Disabled Input
                   </Typography>
                   <TextField
                     margin="normal"
                     variant="outlined"
                     label="disabled"
-                    value={'disabled'}
+                    value="disabled"
                     disabled
                     InputLabelProps={{
                       shrink: true,
@@ -86,8 +86,7 @@ const inputStories = () => {
             </Grid>
           </div>
         </MuiThemeProvider>
-      ),
-    )
+      ))
 }
 
 export default inputStories
