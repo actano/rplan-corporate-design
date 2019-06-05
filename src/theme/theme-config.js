@@ -252,6 +252,7 @@ const themeConfig = {
       input: {
         padding: '14px',
         color: COLOR_NAMES.DARKEST_GREY,
+        background: COLOR_NAMES.WHITE,
       },
       root: {
         '& $notchedOutline': {
