@@ -49,18 +49,18 @@ const _TabBar = ({
     variant="standard"
   >
     {
-        tabs.map(tab => (
-          <Tab
-            label={tab.text}
-            key={tab.text}
-            classes={{
-              root: classes.menuEntryRoot,
-              labelContainer: classes.menuEntryLabelContainer,
-              label: classes.menuEntryLabel,
-            }}
-          />
-        ))
-      }
+      tabs.map(tab => (
+        <Tab
+          label={tab.text}
+          key={tab.text}
+          classes={{
+            root: classes.menuEntryRoot,
+            labelContainer: classes.menuEntryLabelContainer,
+            label: classes.menuEntryLabel,
+          }}
+        />
+      ))
+    }
   </Tabs>
 )
 
@@ -68,7 +68,7 @@ _TabBar.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
   selectedTabIndex: PropTypes.number,
   onChange: PropTypes.func,
