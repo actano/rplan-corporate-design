@@ -32,13 +32,17 @@ It takes the bounding rect and applies that for the next render.
 const LayoutFix = ({ children }) => {
   const [stateToReRender, setStateToReRender] = useState(0)
 
+  const onChangeTab = (event, index) => {
+    setStateToReRender(index)
+  }
+
   useEffect(() => {
     setTimeout(() => {
       setStateToReRender(1)
     }, 100)
   }, [])
 
-  return children(stateToReRender)
+  return children(stateToReRender, onChangeTab)
 }
 
 const typographyStories = () => {
@@ -46,7 +50,7 @@ const typographyStories = () => {
     .add('HeaderBar with TabBar', () =>
       (
         <LayoutFix>
-          {tabIndex => (
+          {(tabIndex, onChangeTab) => (
             <MuiThemeProvider theme={theme}>
               <Typography variant="h3" align="left">
                 HeaderBar with TabBar
@@ -61,6 +65,7 @@ const typographyStories = () => {
                     <TabBar
                       tabs={tabs}
                       selectedTabIndex={tabIndex}
+                      onChange={onChangeTab}
                     />
                   </CommonHeaderBar>
                 </Grid>
