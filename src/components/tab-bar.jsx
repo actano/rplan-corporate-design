@@ -12,7 +12,6 @@ const styles = (theme) => {
       flex: 'none',
       height: unit * 3.6,
       minHeight: unit * 3.5,
-      marginLeft: unit * 1.25,
     },
     menuEntryRoot: {
       fontSize: unit * 1.5,
