@@ -65,9 +65,11 @@ const _TabBar = ({
 )
 
 _TabBar.propTypes = {
-  tabs: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-  }).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   selectedTabIndex: PropTypes.number,
   onChange: PropTypes.func,
   classes: PropTypes.object.isRequired,
