@@ -24,6 +24,11 @@ const tabs = [
   },
 ]
 
+/*
+When doing only one render, the indicator for the tabs has the wrong width.
+This is due to the calculation of the width in material UI internally.
+It takes the bounding rect and applies that for the next render.
+ */
 const LayoutFix = ({ children }) => {
   const [stateToReRender, setStateToReRender] = useState(0)
 
