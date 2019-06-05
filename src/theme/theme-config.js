@@ -309,6 +309,12 @@ const themeConfig = {
         lineHeight: '32px',
         fontWeight: 300,
       },
+      h4: {
+        fontFamily: 'Open Sans',
+        fontSize: '20px',
+        color: COLOR_NAMES.BLACK,
+        lineHeight: '30px',
+      },
       h5: {
         fontFamily: 'Open Sans',
         fontSize: '16px',
