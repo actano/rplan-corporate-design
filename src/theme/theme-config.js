@@ -133,6 +133,9 @@ const COLORS = {
     },
     LINK_ACTIVE_BORDER: COLOR_NAMES.BLUE,
   },
+  NETPLAN: {
+    linkArrow: COLOR_NAMES.LIGHT_GREY,
+  },
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -159,6 +162,7 @@ const themeConfig = {
     },
     headerBar: COLORS.HEADER_BAR,
     navigationBar: COLORS.NAVIGATION_BAR,
+    netplan: COLORS.NETPLAN,
   },
   typography: {
     useNextVariants: true,
