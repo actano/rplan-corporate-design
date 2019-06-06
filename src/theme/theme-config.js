@@ -143,12 +143,6 @@ const SPACING = 8
 
 const themeConfig = {
   themeName: 'MVP Corporate Design',
-  props: {
-    MuiButtonBase: {
-      // TODO: Talk to Marie and find out whether she wants the ripple effect or not
-      disableRipple: true,
-    },
-  },
   palette: {
     background: COLORS.BACKGROUND,
     input: COLORS.INPUT,
@@ -175,6 +169,12 @@ const themeConfig = {
   },
   shape: {
     borderRadius: 2,
+  },
+  props: {
+    MuiButtonBase: {
+      // TODO: Talk to Marie and find out whether she wants the ripple effect or not
+      disableRipple: true,
+    },
   },
   overrides: {
     MuiButton: {
