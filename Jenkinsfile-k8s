@@ -4,6 +4,15 @@ pipeline {
   agent {
     label "jenkins-nodejs"
   }
+  stage('Lint') {
+    steps {
+      ansiColor('xterm') {
+        container('nodejs') {
+          sh "yarn lint"
+        }
+      }
+    }
+  }
   stages {
     stage('publish') {
       when {
