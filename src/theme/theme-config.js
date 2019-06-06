@@ -159,14 +159,11 @@ const themeConfig = {
     netplan: COLORS.NETPLAN,
   },
   typography: {
-    useNextVariants: true,
     fontFamily: [
       'Open Sans',
     ].join(','),
   },
-  spacing: {
-    unit: SPACING,
-  },
+  spacing: SPACING,
   shape: {
     borderRadius: 2,
   },
