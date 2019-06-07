@@ -132,6 +132,22 @@ const COLORS = {
       LINK_ACTIVE: rgbaString(COLOR_NAMES.BLUE, 0.16),
     },
     LINK_ACTIVE_BORDER: COLOR_NAMES.BLUE,
+    SUBNAVIGATION: {
+      BACKGROUND: {
+        MAIN: COLOR_NAMES.WHITE,
+        HOVER: COLOR_NAMES.VERY_LIGHT_GREY,
+        FOCUS: COLOR_NAMES.VERY_LIGHT_GREY,
+      },
+      BORDER: {
+        NORMAL: COLOR_NAMES.VERY_LIGHT_GREY,
+      },
+      TEXT: {
+        ACTION: COLOR_NAMES.BLUE,
+      },
+      ICON: {
+        NORMAL: COLOR_NAMES.GREY,
+      }
+    },
   },
   NETPLAN: {
     linkArrow: COLOR_NAMES.LIGHT_GREY,
