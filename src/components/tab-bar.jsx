@@ -22,15 +22,7 @@ const styles = (theme) => {
       color: colors.TEXT.HOVER,
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
-    },
-    menuEntryLabelContainer: {
-      paddingLeft: 0,
-      paddingRight: 0,
-      paddingBottom: theme.spacing(1.625),
-      paddingTop: 0,
-    },
-    menuEntryLabel: {
-      height: theme.spacing(2),
+      padding: theme.spacing(0, 0, 1.625, 0),
     },
   }
 }
@@ -53,8 +45,6 @@ const _TabBar = ({
           key={tab.text}
           classes={{
             root: classes.menuEntryRoot,
-            labelContainer: classes.menuEntryLabelContainer,
-            label: classes.menuEntryLabel,
           }}
         />
       ))
