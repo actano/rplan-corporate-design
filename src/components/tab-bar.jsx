@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 import { Tab, Tabs } from '@material-ui/core'
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -28,10 +29,10 @@ const styles = (theme) => {
 }
 
 const _TabBar = ({
-  tabs, onChange, classes, selectedTabIndex,
+  className, tabs, onChange, classes, selectedTabIndex,
 }) => (
   <Tabs
-    className={classes.menuRow}
+    className={classnames(className, classes.menuRow)}
     value={selectedTabIndex}
     onChange={onChange}
     indicatorColor="primary"
@@ -53,6 +54,7 @@ const _TabBar = ({
 )
 
 _TabBar.propTypes = {
+  className: PropTypes.string,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
@@ -64,6 +66,7 @@ _TabBar.propTypes = {
 }
 
 _TabBar.defaultProps = {
+  className: undefined,
   selectedTabIndex: 0,
   onChange: () => {},
 }
