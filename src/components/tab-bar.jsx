@@ -6,32 +6,31 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 const styles = (theme) => {
   const colors = theme.palette.headerBar
-  const { unit } = theme.spacing
   return {
     menuRow: {
       flex: 'none',
-      height: unit * 3.6,
-      minHeight: unit * 3.5,
+      height: theme.spacing(3.6),
+      minHeight: theme.spacing(3.5),
     },
     menuEntryRoot: {
-      fontSize: unit * 1.5,
+      fontSize: theme.spacing(1.5),
       fontWeight: 600,
       textTransform: 'initial',
-      lineHeight: `${unit * 2}px`,
-      letterSpacing: `${unit * 0.0625}px`,
-      marginRight: unit * 5,
+      lineHeight: `${theme.spacing(2)}px`,
+      letterSpacing: `${theme.spacing(0.0625)}px`,
+      marginRight: theme.spacing(5),
       color: colors.TEXT.HOVER,
       minWidth: 'initial',
-      minHeight: unit * 3.5,
+      minHeight: theme.spacing(3.5),
     },
     menuEntryLabelContainer: {
       paddingLeft: 0,
       paddingRight: 0,
-      paddingBottom: unit * 1.625,
+      paddingBottom: theme.spacing(1.625),
       paddingTop: 0,
     },
     menuEntryLabel: {
-      height: unit * 2,
+      height: theme.spacing(2),
     },
   }
 }

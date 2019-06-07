@@ -13,8 +13,8 @@ const styles = theme => ({
 
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: theme.spacing.unit * 13,
-    paddingRight: theme.spacing.unit * 13,
+    paddingLeft: theme.spacing(13),
+    paddingRight: theme.spacing(13),
   },
 })
 
