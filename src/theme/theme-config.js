@@ -336,7 +336,7 @@ const themeConfig = {
         textAlign: 'center',
         lineHeight: '24px',
       },
-      body2: {
+      body1: {
         fontFamily: 'Open Sans',
         fontSize: '13px',
         color: COLOR_NAMES.DARKEST_GREY,
