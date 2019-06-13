@@ -9,6 +9,7 @@ import {
   linkStories,
   typographyStories,
   headerBarStories,
+  modalDialogStories,
 } from '../stories/index'
 
 addParameters({
@@ -26,6 +27,7 @@ function loadStories() {
   inputStories()
   errorBoxStories()
   headerBarStories()
+  modalDialogStories()
 }
 
 configure(loadStories, module)
