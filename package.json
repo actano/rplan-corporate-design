@@ -32,6 +32,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@material-ui/styles": "^4.1.1",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6"
