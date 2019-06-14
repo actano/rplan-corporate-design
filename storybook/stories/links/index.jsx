@@ -21,14 +21,14 @@ const linkStories = () => {
           </Typography>
           <Grid
             container
-            spacing={16}
+            spacing={2}
             direction="column"
           >
             <Grid item>
               <Typography variant="h5" align="left">
                 Regular link
               </Typography>
-              <Grid container spacing={8} direction="row">
+              <Grid container spacing={1} direction="row">
                 <Grid item>
                   <Typography variant="body1">
                     <Link href="#">
@@ -42,7 +42,7 @@ const linkStories = () => {
               <Typography variant="h5" align="left">
                 Ghost button
               </Typography>
-              <Grid container spacing={8} direction="row">
+              <Grid container spacing={1} direction="row">
                 <Grid item>
                   <Link component="button">
                     Ghost button

@@ -16,7 +16,7 @@ const inputStories = () => {
           <div style={{ paddingLeft: '20px' }}>
             <Grid
               container
-              spacing={16}
+              spacing={2}
               direction="column"
             >
               <Grid item>

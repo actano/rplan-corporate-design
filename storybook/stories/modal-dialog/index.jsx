@@ -20,7 +20,7 @@ const modalDialogStories = () => {
         </Typography>
         <Grid
           container
-          spacing={16}
+          spacing={2}
           direction="column"
         >
           <Grid item>

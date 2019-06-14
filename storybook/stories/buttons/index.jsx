@@ -19,14 +19,14 @@ const buttonStories = () => {
           </Typography>
           <Grid
             container
-            spacing={16}
+            spacing={2}
             direction="column"
           >
             <Grid item>
               <Typography variant="h5" align="left">
                 Primary Buttons
               </Typography>
-              <Grid container spacing={8} direction="row">
+              <Grid container spacing={1} direction="row">
                 <Grid item>
                   <Button
                     variant="contained"
@@ -50,7 +50,7 @@ const buttonStories = () => {
               <Typography variant="h5" align="left">
                 Secondary Buttons
               </Typography>
-              <Grid container spacing={8} direction="row">
+              <Grid container spacing={1} direction="row">
                 <Grid item>
                   <Button
                     variant="outlined"
@@ -74,7 +74,7 @@ const buttonStories = () => {
               <Typography variant="h5" align="left">
                 Tertiary Buttons
               </Typography>
-              <Grid container spacing={8} direction="row">
+              <Grid container spacing={1} direction="row">
                 <Grid item>
                   <Button
                     variant="outlined"

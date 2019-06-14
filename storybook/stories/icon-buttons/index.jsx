@@ -20,14 +20,14 @@ const iconButtonStories = () => {
         </Typography>
         <Grid
           container
-          spacing={16}
+          spacing={2}
           direction="column"
         >
           <Grid item>
             <Typography variant="h5" align="left">
                 Show password visibility
             </Typography>
-            <Grid container spacing={8} direction="row">
+            <Grid container spacing={1} direction="row">
               <Grid item>
                 <IconButton
                   aria-label="Toggle password visibility"
