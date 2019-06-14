@@ -40,6 +40,48 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const ModalWithLogo = ({ open, onClose, Buttons, Logo, children }) => {
+  const classes = useStyles()
+
+  return (
+    <Modal open={open} onClose={onClose}>
+      <div className={classes.main}>
+        <Paper className={classes.paper}>
+          {children}
+          <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
+            <Grid item>
+              <Button
+                variant="outlined"
+                onClick={onClose}
+              >
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item>
+              {Buttons}
+            </Grid>
+          </Grid>
+        </Paper>
+        <div className={classes.logo}>
+          {Logo}
+        </div>
+      </div>
+    </Modal>
+  )
+}
+
+ModalWithLogo.propTypes = {
+  Buttons: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  Logo: PropTypes.node,
+}
+
+ModalWithLogo.defaultProps = {
+  Logo: undefined,
+}
+
 const ModalDialogWithLogo = ({ ModalButton, Buttons, Logo, children }) => {
   const [open, setOpen] = useState(false)
 
@@ -51,34 +93,17 @@ const ModalDialogWithLogo = ({ ModalButton, Buttons, Logo, children }) => {
     setOpen(false)
   }
 
-  const classes = useStyles()
-
   return (
     <div>
       <ModalButton onClick={handleOpen} />
-      <Modal open={open} onClose={handleClose}>
-        <div className={classes.main}>
-          <Paper className={classes.paper}>
-            {children}
-            <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
-              <Grid item>
-                <Button
-                  variant="outlined"
-                  onClick={handleClose}
-                >
-                  Cancel
-                </Button>
-              </Grid>
-              <Grid item>
-                {Buttons}
-              </Grid>
-            </Grid>
-          </Paper>
-          <div className={classes.logo}>
-            {Logo}
-          </div>
-        </div>
-      </Modal>
+      <ModalWithLogo
+        Buttons={Buttons}
+        Logo={Logo}
+        open={open}
+        onClose={handleClose}
+      >
+        {children}
+      </ModalWithLogo>
     </div>
   )
 }
@@ -86,12 +111,15 @@ const ModalDialogWithLogo = ({ ModalButton, Buttons, Logo, children }) => {
 ModalDialogWithLogo.propTypes = {
   ModalButton: PropTypes.func.isRequired,
   Buttons: PropTypes.node.isRequired,
-  Logo: PropTypes.node,
   children: PropTypes.node.isRequired,
+  Logo: PropTypes.node,
 }
 
 ModalDialogWithLogo.defaultProps = {
   Logo: undefined,
 }
 
-export { ModalDialogWithLogo }
+export {
+  ModalDialogWithLogo,
+  ModalWithLogo,
+}
