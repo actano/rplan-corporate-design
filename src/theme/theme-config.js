@@ -146,7 +146,7 @@ const COLORS = {
       },
       ICON: {
         NORMAL: COLOR_NAMES.GREY,
-      }
+      },
     },
   },
   NETPLAN: {
@@ -156,8 +156,8 @@ const COLORS = {
     border: {
       normal: COLOR_NAMES.VERY_LIGHT_GREY,
       hover: rgbaString(COLOR_NAMES.BLUE, 0.30),
-    }
-  }
+    },
+  },
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -347,7 +347,6 @@ const themeConfig = {
         fontFamily: 'Open Sans',
         fontSize: '13px',
         color: COLOR_NAMES.DARKEST_GREY,
-        textAlign: 'center',
         lineHeight: '20px',
       },
     },
