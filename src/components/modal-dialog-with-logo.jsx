@@ -40,7 +40,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ModalWithLogo = ({ open, onClose, Buttons, Logo, children }) => {
+const ModalWithLogo = ({
+  open, onClose, Buttons, Logo, children,
+}) => {
   const classes = useStyles()
 
   return (
@@ -82,7 +84,9 @@ ModalWithLogo.defaultProps = {
   Logo: undefined,
 }
 
-const ModalDialogWithLogo = ({ ModalButton, Buttons, Logo, children }) => {
+const ModalDialogWithLogo = ({
+  ModalButton, Buttons, Logo, children,
+}) => {
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {

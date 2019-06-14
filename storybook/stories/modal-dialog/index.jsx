@@ -1,7 +1,8 @@
 import Button from '@material-ui/core/Button'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import themeConfig, { ModalDialogWithLogo } from '../../../src'
@@ -19,6 +20,10 @@ const ModalButton = ({ onClick }) => (
     Click me!
   </Button>
 )
+
+ModalButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+}
 
 const ModalWrapperToHandleOpenState = ({ children }) => {
   const [open, setOpen] = useState(false)
@@ -50,6 +55,10 @@ const ModalWrapperToHandleOpenState = ({ children }) => {
       </ModalWithLogo>
     </div>
   )
+}
+
+ModalWrapperToHandleOpenState.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 const modalDialogStories = () => {
