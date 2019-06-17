@@ -42,36 +42,34 @@ const styles = theme => ({
 
 const _ModalDialogWithLogo = ({
   open, onClose, Buttons, Logo, children, classes,
-}) => {
-
-  return (
-    <Modal open={open} onClose={onClose}>
-      <div className={classes.main}>
-        <Paper className={classes.paper}>
-          {children}
-          <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
-            <Grid item>
-              <Button
-                variant="outlined"
-                onClick={onClose}
-              >
+}) => (
+  <Modal open={open} onClose={onClose}>
+    <div className={classes.main}>
+      <Paper className={classes.paper}>
+        {children}
+        <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
+          <Grid item>
+            <Button
+              variant="outlined"
+              onClick={onClose}
+            >
                 Cancel
-              </Button>
-            </Grid>
-            <Grid item>
-              {Buttons}
-            </Grid>
+            </Button>
           </Grid>
-        </Paper>
-        <div className={classes.logo}>
-          {Logo}
-        </div>
+          <Grid item>
+            {Buttons}
+          </Grid>
+        </Grid>
+      </Paper>
+      <div className={classes.logo}>
+        {Logo}
       </div>
-    </Modal>
-  )
-}
+    </div>
+  </Modal>
+)
 
 _ModalDialogWithLogo.propTypes = {
+  classes: PropTypes.object.isRequired,
   Buttons: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
   open: PropTypes.bool.isRequired,
