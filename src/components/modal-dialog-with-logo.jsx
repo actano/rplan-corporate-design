@@ -2,11 +2,11 @@ import { Modal } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/styles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   main: {
     minHeight: '100vh',
     padding: `${theme.spacing(13)}px ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
@@ -38,12 +38,11 @@ const useStyles = makeStyles(theme => ({
   logo: {
     marginBottom: `${theme.spacing(4)}px`,
   },
-}))
+})
 
-const ModalWithLogo = ({
-  open, onClose, Buttons, Logo, children,
+const _ModalDialogWithLogo = ({
+  open, onClose, Buttons, Logo, children, classes,
 }) => {
-  const classes = useStyles()
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -72,7 +71,7 @@ const ModalWithLogo = ({
   )
 }
 
-ModalWithLogo.propTypes = {
+_ModalDialogWithLogo.propTypes = {
   Buttons: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
   open: PropTypes.bool.isRequired,
@@ -80,50 +79,12 @@ ModalWithLogo.propTypes = {
   Logo: PropTypes.node,
 }
 
-ModalWithLogo.defaultProps = {
+_ModalDialogWithLogo.defaultProps = {
   Logo: undefined,
 }
 
-const ModalDialogWithLogo = ({
-  ModalButton, Buttons, Logo, children,
-}) => {
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
-
-  return (
-    <div>
-      <ModalButton onClick={handleOpen} />
-      <ModalWithLogo
-        Buttons={Buttons}
-        Logo={Logo}
-        open={open}
-        onClose={handleClose}
-      >
-        {children}
-      </ModalWithLogo>
-    </div>
-  )
-}
-
-ModalDialogWithLogo.propTypes = {
-  ModalButton: PropTypes.func.isRequired,
-  Buttons: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
-  Logo: PropTypes.node,
-}
-
-ModalDialogWithLogo.defaultProps = {
-  Logo: undefined,
-}
+const ModalDialogWithLogo = withStyles(styles)(_ModalDialogWithLogo)
 
 export {
   ModalDialogWithLogo,
-  ModalWithLogo,
 }

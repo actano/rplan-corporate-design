@@ -5,25 +5,11 @@ import React, { useState } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
-import themeConfig, { ModalDialogWithLogo } from '../../../src'
-import { ModalWithLogo } from '../../../src/components/modal-dialog-with-logo'
+import themeConfig from '../../../src'
+import { ModalDialogWithLogo } from '../../../src/components/modal-dialog-with-logo'
 
 
 const theme = createMuiTheme(themeConfig)
-
-const ModalButton = ({ onClick }) => (
-  <Button
-    variant="contained"
-    color="primary"
-    onClick={onClick}
-  >
-    Click me!
-  </Button>
-)
-
-ModalButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
 
 const ModalWrapperToHandleOpenState = ({ children }) => {
   const [open, setOpen] = useState(false)
@@ -45,14 +31,14 @@ const ModalWrapperToHandleOpenState = ({ children }) => {
       >
         Open Modal
       </Button>
-      <ModalWithLogo
+      <ModalDialogWithLogo
         Buttons={<Button variant="contained" color="primary">Confirm the dialog.</Button>}
         Logo={<div>Logo here</div>}
         open={open}
         onClose={handleClose}
       >
         {children}
-      </ModalWithLogo>
+      </ModalDialogWithLogo>
     </div>
   )
 }
@@ -73,26 +59,6 @@ const modalDialogStories = () => {
           <Grid item>
             <Typography variant="h3" align="left">
               Modal Dialog with logo
-            </Typography>
-            <Typography variant="h5" align="left">
-              Open state is handled by the dialog.
-            </Typography>
-            <ModalDialogWithLogo
-              ModalButton={ModalButton}
-              Buttons={<Button variant="contained" color="primary">Confirm the dialog.</Button>}
-              Logo={<div>Logo here</div>}
-            >
-              <Typography variant="h4">
-                This is a Modal Dialog.
-              </Typography>
-              <Typography variant="body1">
-                You can close it by clicking the cancel button.
-              </Typography>
-            </ModalDialogWithLogo>
-          </Grid>
-          <Grid item>
-            <Typography variant="h3" align="left">
-              Modal with logo
             </Typography>
             <Typography variant="h5" align="left">
               Dumb Modal component only. Handling state needs to be done in parent component.
