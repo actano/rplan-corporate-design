@@ -5,6 +5,15 @@ pipeline {
     label "jenkins-nodejs"
   }
   stages {
+    stage('Build') {
+      steps {
+        ansiColor('xterm') {
+          container('nodejs') {
+            sh "yarn install"
+          }
+        }
+      }
+    }
     stage('Lint') {
       steps {
         ansiColor('xterm') {
