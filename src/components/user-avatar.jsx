@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import MUIAvatar from '@material-ui/core/Avatar'
-import { makeStyles } from '@material-ui/styles'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 const calcInitials = (firstName, lastName, email) => {
   const initialsFromName = `${firstName && firstName[0]}${lastName && lastName[0]}`
@@ -11,29 +11,26 @@ const calcInitials = (firstName, lastName, email) => {
   return (initials || '').toUpperCase()
 }
 
-const useStyles = makeStyles(
-  theme => ({
-    'avatar-small': {
-      width: `${theme.spacing(4)}px`,
-      height: `${theme.spacing(4)}px`,
-      fontSize: '1rem',
-    },
-    'avatar-regular': {
-      width: `${theme.spacing(7)}px`,
-      height: `${theme.spacing(7)}px`,
-    },
-  }),
-)
+const styles = theme => ({
+  'avatar-small': {
+    width: `${theme.spacing(4)}px`,
+    height: `${theme.spacing(4)}px`,
+    fontSize: '1rem',
+  },
+  'avatar-regular': {
+    width: `${theme.spacing(7)}px`,
+    height: `${theme.spacing(7)}px`,
+  },
+})
 
-const UserAvatar = ({
+const _UserAvatar = ({
+  classes,
   firstName,
   lastName,
   email,
   size,
   className,
 }) => {
-  const classes = useStyles()
-
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       { calcInitials(firstName, lastName, email) }
@@ -41,7 +38,8 @@ const UserAvatar = ({
   )
 }
 
-UserAvatar.propTypes = {
+_UserAvatar.propTypes = {
+  classes: PropTypes.object.isRequired,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   email: PropTypes.string,
@@ -49,12 +47,14 @@ UserAvatar.propTypes = {
   className: PropTypes.string,
 }
 
-UserAvatar.defaultProps = {
+_UserAvatar.defaultProps = {
   firstName: '',
   lastName: '',
   email: '',
   size: 'regular',
   className: '',
 }
+
+const UserAvatar = withStyles(styles)(_UserAvatar)
 
 export { UserAvatar }
