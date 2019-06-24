@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
-    "@material-ui/core": "^4.0.2",
-    "@material-ui/icons": "^4.0.1",
+    "@material-ui/core": "^4.1.2",
+    "@material-ui/icons": "^4.2.1",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
@@ -32,7 +32,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@material-ui/styles": "^4.1.1",
+    "@material-ui/styles": "^4.1.2",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6"
