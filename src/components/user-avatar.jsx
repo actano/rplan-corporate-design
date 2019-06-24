@@ -30,13 +30,11 @@ const _UserAvatar = ({
   email,
   size,
   className,
-}) => {
-  return (
-    <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
-      { calcInitials(firstName, lastName, email) }
-    </MUIAvatar>
-  )
-}
+}) => (
+  <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
+    { calcInitials(firstName, lastName, email) }
+  </MUIAvatar>
+)
 
 _UserAvatar.propTypes = {
   classes: PropTypes.object.isRequired,
