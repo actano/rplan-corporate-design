@@ -1,6 +1,7 @@
 import { addParameters, configure } from '@storybook/react'
 
 import {
+  avatarStories,
   buttonStories,
   colorStories,
   errorBoxStories,
@@ -19,6 +20,7 @@ addParameters({
 })
 
 function loadStories() {
+  avatarStories()
   colorStories()
   buttonStories()
   iconButtonStories()
