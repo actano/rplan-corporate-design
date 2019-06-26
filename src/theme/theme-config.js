@@ -14,6 +14,7 @@ const COLOR_NAMES = {
   PALE_BLUE: '#7D9CFE',
   BLUE: '#527BFE', // Active
   DARK_BLUE: '#354A90', // Button pressed
+  DARKER_BLUE: '#2c3555', // e.g. background in focus card header
   VERY_DARK_BLUE: '#1C274A', // NavBar background
   GREEN: '#0ED08F', // Signal: Success/Validation
   LIGHT_RED: '#FEF0F0', // Error background
@@ -180,6 +181,7 @@ const themeConfig = {
     navigationBar: COLORS.NAVIGATION_BAR,
     netplan: COLORS.NETPLAN,
     card: COLORS.CARD,
+    colors: COLOR_NAMES,
   },
   typography: {
     fontFamily: [
