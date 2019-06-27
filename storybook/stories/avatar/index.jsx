@@ -22,17 +22,36 @@ const avatarStories = () => {
             >
               <Grid item>
                 <Typography variant="h3" align="left">
-                  User Avatar
+                  User Avatar with gravatar image
                 </Typography>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
                   <div>
-                    <UserAvatar firstName="Example" lastName="Smith" size="regular" />
+                    <UserAvatar email="rplan-ci@actano.de" firstName="Example" lastName="Smith" size="regular" />
                     <Typography variant="h5" align="left">
                       regular
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
-                    <UserAvatar firstName="Example" lastName="Smith" size="small" />
+                    <UserAvatar email="rplan-ci@actano.de" firstName="Example" lastName="Smith" size="small" />
+                    <Typography variant="h5" align="left">
+                      small
+                    </Typography>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item>
+                <Typography variant="h3" align="left">
+                  User Avatar with initials (when the gravatar picture is not found)
+                </Typography>
+                <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                  <div>
+                    <UserAvatar email="invalidEmail@example.com" firstName="Example" lastName="Smith" size="regular" />
+                    <Typography variant="h5" align="left">
+                      regular
+                    </Typography>
+                  </div>
+                  <div style={{ marginLeft: '20px' }}>
+                    <UserAvatar email="invalidEmail@example.com" firstName="Example" lastName="Smith" size="small" />
                     <Typography variant="h5" align="left">
                       small
                     </Typography>
