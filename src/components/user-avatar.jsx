@@ -19,7 +19,7 @@ const AVATAR_SIZES = {
 
 const styles = theme => ({
   gravatar: {
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   'avatar-small': {
     width: `${theme.spacing(4)}px`,
@@ -45,8 +45,8 @@ const _UserAvatar = ({
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
-        showInitials ? calcInitials(firstName, lastName, email) :
-          (
+        showInitials ? calcInitials(firstName, lastName, email)
+          : (
             <img
               alt={email}
               className={classes.gravatar}
@@ -71,7 +71,6 @@ _UserAvatar.propTypes = {
 _UserAvatar.defaultProps = {
   firstName: '',
   lastName: '',
-  email: '',
   size: 'regular',
   className: '',
 }
