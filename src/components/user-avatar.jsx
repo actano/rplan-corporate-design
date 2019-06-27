@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import gravatar from 'gravatar'
 
 import MUIAvatar from '@material-ui/core/Avatar'
@@ -42,6 +42,10 @@ const _UserAvatar = ({
 }) => {
   const [showInitials, setShowInitials] = useState(false)
 
+  useEffect(() => {
+    setShowInitials(false)
+  }, [email])
+
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
@@ -63,7 +67,7 @@ _UserAvatar.propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   size: PropTypes.oneOf(['small', 'regular']),
   className: PropTypes.string,
 }
