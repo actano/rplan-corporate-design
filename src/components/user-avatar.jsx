@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
+import gravatar from 'gravatar'
 
 import MUIAvatar from '@material-ui/core/Avatar'
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -11,7 +12,15 @@ const calcInitials = (firstName, lastName, email) => {
   return (initials || '').toUpperCase()
 }
 
+const AVATAR_SIZES = {
+  small: 32,
+  regular: 56,
+}
+
 const styles = theme => ({
+  gravatar: {
+    backgroundColor: 'transparent'
+  },
   'avatar-small': {
     width: `${theme.spacing(4)}px`,
     height: `${theme.spacing(4)}px`,
@@ -30,17 +39,31 @@ const _UserAvatar = ({
   email,
   size,
   className,
-}) => (
-  <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
-    { calcInitials(firstName, lastName, email) }
-  </MUIAvatar>
-)
+}) => {
+  const [showInitials, setShowInitials] = useState(false)
+
+  return (
+    <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
+      {
+        showInitials ? calcInitials(firstName, lastName, email) :
+          (
+            <img
+              alt={email}
+              className={classes.gravatar}
+              src={gravatar.url(email, { s: AVATAR_SIZES[size], d: 404 }, true)}
+              onError={() => setShowInitials(true)}
+            />
+          )
+      }
+    </MUIAvatar>
+  )
+}
 
 _UserAvatar.propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  email: PropTypes.string,
+  email: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['small', 'regular']),
   className: PropTypes.string,
 }
