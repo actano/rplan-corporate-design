@@ -76,6 +76,7 @@ _UserAvatar.defaultProps = {
   firstName: '',
   lastName: '',
   size: 'regular',
+  email: '',
   className: '',
 }
 
