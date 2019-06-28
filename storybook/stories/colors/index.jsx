@@ -43,6 +43,14 @@ const colorsStories = () => {
           >
             <Grid item>
               <Typography variant="h3" align="left">
+                Named color palette
+              </Typography>
+              <Grid container spacing={1} direction="row">
+                {Object.entries(theme.palette.colors).map(entry => ColorItem(entry, '150px'))}
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="h3" align="left">
                 Background colors
               </Typography>
               <Grid container spacing={1} direction="row">
