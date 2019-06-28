@@ -30,7 +30,7 @@
   "scripts": {
     "lint": "eslint --ext js,jsx src storybook",
     "storybook": "start-storybook -c ./storybook/config -p 8085",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c ./storybook/config"
   },
   "dependencies": {
     "@material-ui/styles": "^4.1.2",
