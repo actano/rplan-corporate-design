@@ -11,6 +11,7 @@ import {
   typographyStories,
   headerBarStories,
   modalDialogStories,
+  logoPageStories,
 } from '../stories/index'
 
 addParameters({
@@ -30,6 +31,7 @@ function loadStories() {
   errorBoxStories()
   headerBarStories()
   modalDialogStories()
+  logoPageStories()
 }
 
 configure(loadStories, module)
