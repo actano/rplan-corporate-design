@@ -23,7 +23,7 @@ pipeline {
         }
       }
     }
-    stage('publish') {
+    stage('publish npm module') {
       when {
         tag "*"
       }
@@ -32,6 +32,20 @@ pipeline {
           container('nodejs') {
             script {
               npm.publish()
+            }
+          }
+        }
+      }
+    }
+    stage('publish storybook web server') {
+      when {
+        tag "*"
+      }
+      steps {
+        ansiColor('xterm') {
+          container('nodejs') {
+            script {
+              buildAndPush("rplan-corporate-design")
             }
           }
         }
