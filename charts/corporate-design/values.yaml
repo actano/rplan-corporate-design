@@ -16,6 +16,7 @@ service:
   name: corporate-design
   type: ClusterIP
   port: 80
+  annotations: {}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
