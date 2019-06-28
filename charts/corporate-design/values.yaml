@@ -13,6 +13,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
+  name: corporate-design
   type: ClusterIP
   port: 80
 
