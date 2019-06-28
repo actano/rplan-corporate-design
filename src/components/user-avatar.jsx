@@ -40,22 +40,22 @@ const _UserAvatar = ({
   size,
   className,
 }) => {
-  const [showInitials, setShowInitials] = useState(false)
+  const [gravatarNotFound, setGravatarNotFound] = useState(false)
 
   useEffect(() => {
-    setShowInitials(false)
+    setGravatarNotFound(false)
   }, [email])
 
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
-        showInitials ? calcInitials(firstName, lastName, email)
+        !email || gravatarNotFound ? calcInitials(firstName, lastName, email)
           : (
             <img
               alt={email}
               className={classes.gravatar}
               src={gravatar.url(email, { s: AVATAR_SIZES[size], d: 404 }, true)}
-              onError={() => setShowInitials(true)}
+              onError={() => setGravatarNotFound(true)}
             />
           )
       }
