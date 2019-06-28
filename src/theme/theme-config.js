@@ -317,7 +317,7 @@ const themeConfig = {
     MuiTypography: {
       h2: {
         fontFamily: 'Open Sans',
-        fontSize: '40px',
+        fontSize: '2.5rem',
         color: COLOR_NAMES.WHITE,
         letterSpacing: '0.4px',
         textAlign: 'center',
@@ -326,30 +326,30 @@ const themeConfig = {
       },
       h3: {
         fontFamily: 'Open Sans',
-        fontSize: '24px',
+        fontSize: '1.5rem',
         color: COLOR_NAMES.BLACK,
         textAlign: 'center',
-        lineHeight: '32px',
+        lineHeight: 1.333,
         fontWeight: 300,
       },
       h4: {
         fontFamily: 'Open Sans',
-        fontSize: '20px',
+        fontSize: '1.25rem',
         color: COLOR_NAMES.BLACK,
-        lineHeight: '30px',
+        lineHeight: 1.5,
       },
       h5: {
         fontFamily: 'Open Sans',
-        fontSize: '16px',
+        fontSize: '1rem',
         color: COLOR_NAMES.DARKEST_GREY,
         textAlign: 'center',
-        lineHeight: '24px',
+        lineHeight: 1.5,
       },
       body1: {
         fontFamily: 'Open Sans',
-        fontSize: '13px',
+        fontSize: '0.8125rem',
         color: COLOR_NAMES.DARKEST_GREY,
-        lineHeight: '20px',
+        lineHeight: 1.54,
       },
     },
     MuiLink: {
