@@ -35,6 +35,11 @@ const typographyStories = () => {
               </Typography>
             </Grid>
             <Grid item>
+              <Typography variant="h4">
+                h4 - title
+              </Typography>
+            </Grid>
+            <Grid item>
               <Typography variant="h5">
                 h5 - regular
               </Typography>
