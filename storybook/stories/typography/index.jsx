@@ -9,14 +9,18 @@ const typographyStories = () => {
     .add('Typography', () =>
       (
         <Providers>
-          <Typography variant="h3" align="left">
-            Typography
-          </Typography>
           <Grid
             container
             spacing={2}
             direction="column"
           >
+            <Grid item>
+              <Typography
+                variant="h1"
+              >
+                h1 - title
+              </Typography>
+            </Grid>
             <Grid item>
               <Typography
                 variant="h2"
@@ -36,7 +40,7 @@ const typographyStories = () => {
             </Grid>
             <Grid item>
               <Typography variant="h5">
-                h5 - regular
+                h5 - title
               </Typography>
             </Grid>
             <Grid item>
