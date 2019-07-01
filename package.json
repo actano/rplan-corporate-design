@@ -1,6 +1,6 @@
 {
   "name": "@rplan/corporate-design",
-  "version": "1.16.2",
+  "version": "1.16.3",
   "description": "Theme for Material UI and components based on the corporate design.",
   "author": "Actano GmbH (https://rplan.com/)",
   "main": "src/index.js",
