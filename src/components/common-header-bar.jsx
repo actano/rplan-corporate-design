@@ -15,6 +15,10 @@ const styles = theme => ({
     flexDirection: 'column',
     paddingLeft: theme.spacing(13),
     paddingRight: theme.spacing(13),
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    },
   },
 })
 
