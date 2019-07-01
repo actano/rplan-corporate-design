@@ -150,9 +150,6 @@ const COLORS = {
       },
     },
   },
-  NETPLAN: {
-    linkArrow: COLOR_NAMES.LIGHT_GREY,
-  },
   CARD: {
     border: {
       normal: COLOR_NAMES.VERY_LIGHT_GREY,
