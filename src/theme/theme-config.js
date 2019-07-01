@@ -315,7 +315,6 @@ const themeConfig = {
         fontFamily: 'Open Sans',
         fontSize: '1.5rem',
         color: COLOR_NAMES.BLACK,
-        textAlign: 'center',
         lineHeight: 1.333,
         fontWeight: 300,
       },
@@ -329,7 +328,6 @@ const themeConfig = {
         fontFamily: 'Open Sans',
         fontSize: '1rem',
         color: COLOR_NAMES.DARKEST_GREY,
-        textAlign: 'center',
         lineHeight: 1.5,
       },
       body1: {
