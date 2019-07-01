@@ -318,9 +318,7 @@ const themeConfig = {
       h2: {
         fontFamily: 'Open Sans',
         fontSize: '2.5rem',
-        color: COLOR_NAMES.WHITE,
         letterSpacing: '0.4px',
-        textAlign: 'center',
         lineHeight: '40px',
         fontWeight: 300,
       },

@@ -24,7 +24,6 @@ const typographyStories = () => {
             <Grid item>
               <Typography
                 variant="h2"
-                style={{ background: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)' }}
               >
                 h2 - title
               </Typography>
