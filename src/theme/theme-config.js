@@ -170,7 +170,6 @@ const themeConfig = {
     },
     headerBar: COLORS.HEADER_BAR,
     navigationBar: COLORS.NAVIGATION_BAR,
-    netplan: COLORS.NETPLAN,
     colors: COLOR_NAMES,
   },
   typography: {
