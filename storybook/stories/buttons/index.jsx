@@ -1,19 +1,15 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import Button from '@material-ui/core/Button/index'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-import themeConfig from '../../../src'
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 const buttonStories = () => {
   storiesOf('Buttons', module)
     .add('Contained Buttons', () =>
       (
-        <MuiThemeProvider theme={theme}>
+        <Providers>
           <Typography variant="h3" align="left">
             Buttons
           </Typography>
@@ -95,7 +91,7 @@ const buttonStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </MuiThemeProvider>
+        </Providers>
       ))
 }
 

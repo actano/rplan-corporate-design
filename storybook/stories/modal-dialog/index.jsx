@@ -1,15 +1,10 @@
 import Button from '@material-ui/core/Button'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
-import themeConfig from '../../../src'
 import { ModalDialogWithLogo } from '../../../src/components/modal-dialog-with-logo'
-
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 const ModalWrapperToHandleOpenState = ({ children }) => {
   const [open, setOpen] = useState(false)
@@ -50,7 +45,7 @@ ModalWrapperToHandleOpenState.propTypes = {
 const modalDialogStories = () => {
   storiesOf('Modal Dialog', module)
     .add('Modal Dialog', () => (
-      <MuiThemeProvider theme={theme}>
+      <Providers>
         <Grid
           container
           spacing={2}
@@ -73,7 +68,7 @@ const modalDialogStories = () => {
             </ModalWrapperToHandleOpenState>
           </Grid>
         </Grid>
-      </MuiThemeProvider>
+      </Providers>
     ))
 }
 

@@ -1,20 +1,15 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, IconButton, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
-
-import themeConfig from '../../../src'
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 const iconButtonStories = () => {
   storiesOf('Icon Buttons', module)
     .add('Icon Buttons', () => (
-      <MuiThemeProvider theme={theme}>
+      <Providers>
         <Typography variant="h3" align="left">
             Icon Buttons
         </Typography>
@@ -45,7 +40,7 @@ const iconButtonStories = () => {
             </Grid>
           </Grid>
         </Grid>
-      </MuiThemeProvider>
+      </Providers>
     ))
 }
 

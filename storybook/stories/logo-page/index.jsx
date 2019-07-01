@@ -1,24 +1,18 @@
-import { CssBaseline } from '@material-ui/core'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-import themeConfig, { LogoPageHeadline } from '../../../src'
-import { LogoPage } from '../../../src/components'
-
-const theme = createMuiTheme(themeConfig)
+import { LogoPage, LogoPageHeadline } from '../../../src/components'
+import { Providers } from '../providers'
 
 const logoPageStories = () => {
   storiesOf('LogoPage', module)
     .add('LogoPage', () =>
       (
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
+        <Providers>
           <LogoPage>
             <LogoPageHeadline>This is a headline</LogoPageHeadline>
           </LogoPage>
-        </MuiThemeProvider>
+        </Providers>
       ))
 }
 

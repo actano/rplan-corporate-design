@@ -1,10 +1,10 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 import themeConfig from '../../../src'
+import { Providers } from '../providers'
 
 const theme = createMuiTheme(themeConfig)
 
@@ -32,7 +32,7 @@ const colorsStories = () => {
   storiesOf('Colors', module)
     .add('Colors', () =>
       (
-        <MuiThemeProvider theme={theme}>
+        <Providers>
           <Typography variant="h3" align="left">
             Colors
           </Typography>
@@ -90,7 +90,7 @@ const colorsStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </MuiThemeProvider>
+        </Providers>
       ))
 }
 

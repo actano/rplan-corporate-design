@@ -1,13 +1,9 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React, { useEffect, useState } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-import themeConfig from '../../../src'
 import { CommonHeaderBar, TabBar } from '../../../src/components'
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 const tabs = [
   {
@@ -51,7 +47,7 @@ const typographyStories = () => {
       (
         <LayoutFix>
           {(tabIndex, onChangeTab) => (
-            <MuiThemeProvider theme={theme}>
+            <Providers>
               <Typography variant="h3" align="left">
                 HeaderBar with TabBar
               </Typography>
@@ -70,7 +66,7 @@ const typographyStories = () => {
                   </CommonHeaderBar>
                 </Grid>
               </Grid>
-            </MuiThemeProvider>
+            </Providers>
           )}
         </LayoutFix>
       ))

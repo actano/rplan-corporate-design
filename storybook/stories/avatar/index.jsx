@@ -1,19 +1,15 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import { UserAvatar } from '../../../src/components/user-avatar'
 
-import themeConfig from '../../../src'
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 const avatarStories = () => {
   storiesOf('User Avatar', module)
     .add('UserAvatar', () =>
       (
-        <MuiThemeProvider theme={theme}>
+        <Providers>
           <div style={{ paddingLeft: '20px' }}>
             <Grid
               container
@@ -60,7 +56,7 @@ const avatarStories = () => {
               </Grid>
             </Grid>
           </div>
-        </MuiThemeProvider>
+        </Providers>
       ))
 }
 

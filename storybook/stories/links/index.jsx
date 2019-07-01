@@ -1,13 +1,9 @@
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { storiesOf } from '@storybook/react'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-import themeConfig from '../../../src'
-
-const theme = createMuiTheme(themeConfig)
+import { Providers } from '../providers'
 
 // storybook only shows what <a> tags look like, no interactivity needed
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -15,7 +11,7 @@ const linkStories = () => {
   storiesOf('Links', module)
     .add('links', () =>
       (
-        <MuiThemeProvider theme={theme}>
+        <Providers>
           <Typography variant="h3" align="left">
             Links
           </Typography>
@@ -51,7 +47,7 @@ const linkStories = () => {
               </Grid>
             </Grid>
           </Grid>
-        </MuiThemeProvider>
+        </Providers>
       ))
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
