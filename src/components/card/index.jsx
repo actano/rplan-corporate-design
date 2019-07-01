@@ -7,12 +7,6 @@ import { rgbaString } from '../../utils/color-conversion'
 
 const useStyles = makeStyles(theme => ({
   main: {
-    width: theme.spacing(42),
-    height: theme.spacing(15),
-    flex: 'none',
-
-    display: 'flex',
-    flexDirection: 'column',
     boxShadow: 'none',
     border: `1px solid ${theme.palette.colors.VERY_LIGHT_GREY}`,
     '&:hover': {
