@@ -1,5 +1,4 @@
-const hexToRGBArray = hex => hex.match(/[A-Za-z0-9]{2}/g).map(v => parseInt(v, 16))
-const rgbaString = (hex, alpha) => `rgb(${hexToRGBArray(hex).join(',')}, ${alpha})`
+import { rgbaString } from '../utils/color-conversion'
 
 const COLOR_NAMES = {
   LIGHTEST_GREY: '#F5F7FE', // normal background
