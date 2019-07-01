@@ -19,7 +19,7 @@ const styles = theme => ({
 
 const _ErrorBox = ({ classes, className, children }) => (
   <Paper className={classNames(classes.errorDialog, className)}>
-    <Typography variant="h5">
+    <Typography variant="h5" align="center">
       { children }
     </Typography>
   </Paper>
