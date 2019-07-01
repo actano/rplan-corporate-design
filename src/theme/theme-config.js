@@ -18,6 +18,7 @@ const COLOR_NAMES = {
   GREEN: '#0ED08F', // Signal: Success/Validation
   LIGHT_RED: '#FEF0F0', // Error background
   RED: '#F66D6B', // Signal: Error/Alert
+  ORANGE: 'FCB239', // Signal: Warning
   WHITE: '#FFFFFF', // Input background
   NEAR_WHITE: '#F6F6FA',
 }
