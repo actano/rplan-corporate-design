@@ -10,7 +10,7 @@ const iconButtonStories = () => {
   storiesOf('Icon Buttons', module)
     .add('Icon Buttons', () => (
       <Providers>
-        <Typography variant="h3" align="left">
+        <Typography variant="h2" align="left">
             Icon Buttons
         </Typography>
         <Grid

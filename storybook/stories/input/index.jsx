@@ -15,13 +15,13 @@ const inputStories = () => {
               direction="column"
             >
               <Grid item>
-                <Typography variant="h3" align="left">
+                <Typography variant="h2" align="left">
                   Input
                 </Typography>
               </Grid>
               <form>
                 <Grid item>
-                  <Typography variant="h5" align="left">
+                  <Typography variant="h3" align="left">
                     Normal Input
                   </Typography>
                   <TextField
@@ -34,7 +34,7 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align="left">
+                  <Typography variant="h3" align="left">
                     Normal Input with placeholder
                   </Typography>
                   <TextField
@@ -48,7 +48,7 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align="left">
+                  <Typography variant="h3" align="left">
                     Error in input
                   </Typography>
                   <TextField
@@ -63,7 +63,7 @@ const inputStories = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5" align="left">
+                  <Typography variant="h3" align="left">
                     Disabled Input
                   </Typography>
                   <TextField

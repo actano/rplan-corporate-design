@@ -10,7 +10,7 @@ const buttonStories = () => {
     .add('Contained Buttons', () =>
       (
         <Providers>
-          <Typography variant="h3" align="left">
+          <Typography variant="h2" align="left">
             Buttons
           </Typography>
           <Grid

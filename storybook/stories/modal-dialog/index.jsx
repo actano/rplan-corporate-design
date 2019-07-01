@@ -52,10 +52,10 @@ const modalDialogStories = () => {
           direction="column"
         >
           <Grid item>
-            <Typography variant="h3" align="left">
+            <Typography variant="h2" align="left">
               Modal Dialog with logo
             </Typography>
-            <Typography variant="h5" align="left">
+            <Typography variant="h3" align="left">
               Dumb Modal component only. Handling state needs to be done in parent component.
             </Typography>
             <ModalWrapperToHandleOpenState>

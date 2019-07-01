@@ -17,6 +17,9 @@ const avatarStories = () => {
               direction="column"
             >
               <Grid item>
+                <Typography variant="h2" align="left">
+                  User Avatar
+                </Typography>
                 <Typography variant="h3" align="left">
                   User Avatar with gravatar image
                 </Typography>

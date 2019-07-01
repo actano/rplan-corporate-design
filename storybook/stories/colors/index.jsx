@@ -33,7 +33,7 @@ const colorsStories = () => {
     .add('Colors', () =>
       (
         <Providers>
-          <Typography variant="h3" align="left">
+          <Typography variant="h2" align="left">
             Colors
           </Typography>
           <Grid

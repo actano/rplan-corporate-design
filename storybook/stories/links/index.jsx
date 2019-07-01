@@ -12,7 +12,7 @@ const linkStories = () => {
     .add('links', () =>
       (
         <Providers>
-          <Typography variant="h3" align="left">
+          <Typography variant="h2" align="left">
             Links
           </Typography>
           <Grid
@@ -21,7 +21,7 @@ const linkStories = () => {
             direction="column"
           >
             <Grid item>
-              <Typography variant="h5" align="left">
+              <Typography variant="h3" align="left">
                 Regular link
               </Typography>
               <Grid container spacing={1} direction="row">
@@ -35,7 +35,7 @@ const linkStories = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="h5" align="left">
+              <Typography variant="h3" align="left">
                 Ghost button
               </Typography>
               <Grid container spacing={1} direction="row">
