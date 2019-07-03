@@ -29,7 +29,7 @@ const COLORS = {
       MAIN: COLOR_NAMES.BLUE,
     },
     ERROR: {
-      MAIN: rgbaString(COLOR_NAMES.RED, 0.4),
+      MAIN: COLOR_NAMES.RED,
       LIGHT: COLOR_NAMES.LIGHT_RED,
     },
   },
