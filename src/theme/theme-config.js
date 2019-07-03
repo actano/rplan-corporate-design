@@ -24,26 +24,6 @@ const COLOR_NAMES = {
 }
 
 const COLORS = {
-  BUTTONS: {
-    TERTIARY: {
-      BACKGROUND: {
-        NORMAL: COLOR_NAMES.WHITE,
-        HOVER: COLOR_NAMES.NEAR_WHITE,
-        PRESSED: COLOR_NAMES.NEAR_WHITE,
-        DISABLED: COLOR_NAMES.WHITE,
-      },
-      BORDER: {
-        NORMAL: COLOR_NAMES.LIGHT_GREY,
-        HOVER: COLOR_NAMES.LIGHT_GREY,
-        PRESSED: COLOR_NAMES.GREY,
-        DISABLED: COLOR_NAMES.LIGHT_GREY,
-      },
-      TEXT: {
-        NORMAL: COLOR_NAMES.DARK_GREY,
-        DISABLED: COLOR_NAMES.GREY,
-      },
-    },
-  },
   HEADER_BAR: {
     TEXT: {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
@@ -165,19 +145,19 @@ const themeConfig = {
         fontWeight: 600,
         textAlign: 'center',
         lineHeight: '24px',
-        color: COLORS.BUTTONS.TERTIARY.TEXT.NORMAL,
-        backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.NORMAL,
-        border: `1px solid ${COLORS.BUTTONS.TERTIARY.BORDER.NORMAL}`,
+        color: COLOR_NAMES.DARK_GREY,
+        backgroundColor: COLOR_NAMES.WHITE,
+        border: `1px solid ${COLOR_NAMES.LIGHT_GREY}`,
         '&$disabled': {
-          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.DISABLED,
-          color: COLORS.BUTTONS.TERTIARY.TEXT.DISABLED,
+          backgroundColor: COLOR_NAMES.WHITE,
+          color: COLOR_NAMES.GREY,
         },
         '&:hover': {
-          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.HOVER,
+          backgroundColor: COLOR_NAMES.NEAR_WHITE,
         },
         '&:active': {
-          borderColor: COLORS.BUTTONS.TERTIARY.BORDER.PRESSED,
-          backgroundColor: COLORS.BUTTONS.TERTIARY.BACKGROUND.PRESSED,
+          borderColor: COLOR_NAMES.GREY,
+          backgroundColor: COLOR_NAMES.NEAR_WHITE,
         },
       },
       outlinedSecondary: {
