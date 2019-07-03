@@ -24,14 +24,6 @@ const COLOR_NAMES = {
 }
 
 const COLORS = {
-  INPUT: {
-    NORMAL: COLOR_NAMES.LIGHT_GREY,
-    ACTIVE: COLOR_NAMES.BLUE,
-    ERROR: COLOR_NAMES.RED,
-    VALIDATION: COLOR_NAMES.GREEN,
-    DISABLED: COLOR_NAMES.LIGHT_GREY,
-    DISABLED_BACKGROUND: rgbaString(COLOR_NAMES.LIGHTEST_GREY, 0.6),
-  },
   BUTTONS: {
     PRIMARY: {
       BACKGROUND: {
@@ -149,7 +141,6 @@ const themeConfig = {
       normal: COLOR_NAMES.LIGHTEST_GREY,
       modal: COLOR_NAMES.WHITE,
     },
-    input: COLORS.INPUT,
     text: COLORS.TEXT,
     error: {
       main: COLOR_NAMES.RED,
@@ -257,25 +248,25 @@ const themeConfig = {
       },
       root: {
         '& $notchedOutline': {
-          borderColor: COLORS.INPUT.NORMAL,
+          borderColor: COLOR_NAMES.LIGHT_GREY,
         },
         '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-          borderColor: COLORS.INPUT.NORMAL,
+          borderColor: COLOR_NAMES.LIGHT_GREY,
           // Reset on touch devices, it doesn't add specificity
           '@media (hover: none)': {
-            borderColor: COLORS.INPUT.NORMAL,
+            borderColor: COLOR_NAMES.LIGHT_GREY,
           },
         },
         '&$focused $notchedOutline': {
-          borderColor: COLORS.INPUT.ACTIVE,
+          borderColor: COLOR_NAMES.BLUE,
           borderWidth: 1,
         },
         '&$error $notchedOutline': {
-          borderColor: COLORS.INPUT.ERROR,
+          borderColor: COLOR_NAMES.RED,
         },
         '&$disabled $notchedOutline': {
-          borderColor: COLORS.INPUT.DISABLED,
-          backgroundColor: COLORS.INPUT.DISABLED_BACKGROUND,
+          borderColor: COLOR_NAMES.LIGHT_GREY,
+          backgroundColor: rgbaString(COLOR_NAMES.LIGHTEST_GREY, 0.6),
         },
       },
     },

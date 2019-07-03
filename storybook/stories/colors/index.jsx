@@ -75,14 +75,6 @@ const colorsStories = () => {
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                Input colors
-              </Typography>
-              <Grid container spacing={1} direction="row">
-                {Object.entries(theme.palette.input).map(entry => ColorItem(entry, '100px'))}
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="h3" align="left">
                 Error colors
               </Typography>
               <Grid container spacing={1} direction="row">
