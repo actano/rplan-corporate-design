@@ -24,15 +24,6 @@ const COLOR_NAMES = {
 }
 
 const COLORS = {
-  GENERAL: {
-    PRIMARY: {
-      MAIN: COLOR_NAMES.BLUE,
-    },
-    ERROR: {
-      MAIN: COLOR_NAMES.RED,
-      LIGHT: COLOR_NAMES.LIGHT_RED,
-    },
-  },
   INPUT: {
     NORMAL: COLOR_NAMES.LIGHT_GREY,
     ACTIVE: COLOR_NAMES.BLUE,
@@ -161,11 +152,11 @@ const themeConfig = {
     input: COLORS.INPUT,
     text: COLORS.TEXT,
     error: {
-      main: COLORS.GENERAL.ERROR.MAIN,
-      light: COLORS.GENERAL.ERROR.LIGHT,
+      main: COLOR_NAMES.RED,
+      light: COLOR_NAMES.LIGHT_RED,
     },
     primary: {
-      main: COLORS.GENERAL.PRIMARY.MAIN,
+      main: COLOR_NAMES.BLUE,
     },
     headerBar: COLORS.HEADER_BAR,
     navigationBar: COLORS.NAVIGATION_BAR,
