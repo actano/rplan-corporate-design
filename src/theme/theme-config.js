@@ -24,24 +24,6 @@ const COLOR_NAMES = {
 }
 
 const COLORS = {
-  HEADER_BAR: {
-    TEXT: {
-      NORMAL: COLOR_NAMES.DARKEST_GREY,
-      PLACEHOLDER: COLOR_NAMES.GREY,
-      HOVER: COLOR_NAMES.GREY,
-      FOCUS: COLOR_NAMES.GREY,
-      SPECIAL: COLOR_NAMES.DARK_GREY,
-      TRANSPARENT: rgbaString(COLOR_NAMES.GREY, 0.5),
-    },
-    BACKGROUND: {
-      MAIN: COLOR_NAMES.WHITE,
-      HOVER: COLOR_NAMES.VERY_LIGHT_GREY,
-      FOCUS: COLOR_NAMES.VERY_LIGHT_GREY,
-    },
-    BORDER: {
-      NORMAL: COLOR_NAMES.VERY_LIGHT_GREY,
-    },
-  },
   NAVIGATION_BAR: {
     BACKGROUND: {
       BAR: COLOR_NAMES.VERY_DARK_BLUE,
@@ -92,7 +74,6 @@ const themeConfig = {
     primary: {
       main: COLOR_NAMES.BLUE,
     },
-    headerBar: COLORS.HEADER_BAR,
     navigationBar: COLORS.NAVIGATION_BAR,
     colors: COLOR_NAMES,
   },
