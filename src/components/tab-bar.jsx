@@ -6,7 +6,7 @@ import { Tab, Tabs } from '@material-ui/core'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 const styles = (theme) => {
-  const colors = theme.palette.headerBar
+  const { colors } = theme.palette
   return {
     menuRow: {
       flex: 'none',
@@ -20,7 +20,7 @@ const styles = (theme) => {
       lineHeight: `${theme.spacing(2)}px`,
       letterSpacing: `${theme.spacing(0.0625)}px`,
       marginRight: theme.spacing(5),
-      color: colors.TEXT.HOVER,
+      color: colors.GREY,
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
       padding: theme.spacing(0, 0, 1.625, 0),
