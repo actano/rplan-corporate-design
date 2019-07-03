@@ -9,16 +9,24 @@ import Typography from '@material-ui/core/Typography'
 const styles = theme => ({
   errorDialog: {
     width: '100%',
-    backgroundColor: theme.palette.error.light,
     border: `1px solid ${theme.palette.error.main}`,
     textAlign: 'center',
     padding: '24px',
     boxShadow: 'none',
+    '&$forceSpecifity': {
+      // Override default color of Paper with higher specifity
+      backgroundColor: theme.palette.error.light,
+    },
   },
+  forceSpecifity: {},
 })
 
 const _ErrorBox = ({ classes, className, children }) => (
-  <Paper className={classNames(classes.errorDialog, className)}>
+  <Paper
+    classes={{
+      root: classNames(classes.errorDialog, classes.forceSpecifity, className),
+    }}
+  >
     <Typography variant="h5" align="center">
       { children }
     </Typography>
