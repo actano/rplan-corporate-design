@@ -69,11 +69,6 @@ const COLORS = {
       },
     },
   },
-  ICON_BUTTONS: {
-    TEXT: {
-      NORMAL: COLOR_NAMES.DARKEST_GREY,
-    },
-  },
   HEADER_BAR: {
     TEXT: {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
@@ -274,7 +269,7 @@ const themeConfig = {
     },
     MuiFormHelperText: {
       root: {
-        color: COLORS.ICON_BUTTONS.TEXT.NORMAL,
+        color: COLOR_NAMES.DARKEST_GREY,
       },
     },
     MuiTypography: {
