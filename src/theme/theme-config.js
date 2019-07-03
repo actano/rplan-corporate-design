@@ -25,15 +25,6 @@ const COLOR_NAMES = {
 
 const COLORS = {
   BUTTONS: {
-    PRIMARY: {
-      BACKGROUND: {
-        NORMAL: COLOR_NAMES.BLUE,
-        HOVER: COLOR_NAMES.PALE_BLUE,
-        PRESSED: COLOR_NAMES.DARK_BLUE,
-        DISABLED: COLOR_NAMES.LIGHT_GREY,
-      },
-      TEXT: COLOR_NAMES.LIGHTEST_GREY,
-    },
     SECONDARY: {
       BACKGROUND: {
         NORMAL: COLOR_NAMES.WHITE,
@@ -169,19 +160,19 @@ const themeConfig = {
         textTransform: 'none',
       },
       contained: {
-        color: COLORS.BUTTONS.PRIMARY.TEXT,
+        color: COLOR_NAMES.LIGHTEST_GREY,
         '&$disabled': {
-          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.DISABLED,
-          color: COLORS.BUTTONS.PRIMARY.TEXT,
+          backgroundColor: COLOR_NAMES.LIGHT_GREY,
+          color: COLOR_NAMES.LIGHTEST_GREY,
         },
       },
       containedPrimary: {
-        backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.NORMAL,
+        backgroundColor: COLOR_NAMES.BLUE,
         '&:active': {
-          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.PRESSED,
+          backgroundColor: COLOR_NAMES.DARK_BLUE,
         },
         '&:hover': {
-          backgroundColor: COLORS.BUTTONS.PRIMARY.BACKGROUND.HOVER,
+          backgroundColor: COLOR_NAMES.PALE_BLUE,
         },
       },
       outlined: {
