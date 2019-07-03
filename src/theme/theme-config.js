@@ -41,11 +41,6 @@ const COLORS = {
     DISABLED: COLOR_NAMES.LIGHT_GREY,
     DISABLED_BACKGROUND: rgbaString(COLOR_NAMES.LIGHTEST_GREY, 0.6),
   },
-  BACKGROUND: {
-    special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
-    normal: COLOR_NAMES.LIGHTEST_GREY,
-    modal: COLOR_NAMES.WHITE,
-  },
   BUTTONS: {
     PRIMARY: {
       BACKGROUND: {
@@ -158,7 +153,11 @@ const SPACING = 8
 const themeConfig = {
   themeName: 'MVP Corporate Design',
   palette: {
-    background: COLORS.BACKGROUND,
+    background: {
+      special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
+      normal: COLOR_NAMES.LIGHTEST_GREY,
+      modal: COLOR_NAMES.WHITE,
+    },
     input: COLORS.INPUT,
     text: COLORS.TEXT,
     error: {
