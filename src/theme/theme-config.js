@@ -376,11 +376,6 @@ const themeConfig = {
         backgroundColor: COLOR_NAMES.LIGHT_GREY,
       },
     },
-    MuiSvgIcon: {
-      colorError: {
-        color: COLOR_NAMES.RED,
-      },
-    },
   },
 }
 
