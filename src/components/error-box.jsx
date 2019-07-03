@@ -5,11 +5,12 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import { rgbaString } from '../utils/color-conversion'
 
 const styles = theme => ({
   errorDialog: {
     width: '100%',
-    border: `1px solid ${theme.palette.error.main}`,
+    border: `1px solid ${rgbaString(theme.palette.error.main, 0.4)}`,
     textAlign: 'center',
     padding: '24px',
     boxShadow: 'none',
