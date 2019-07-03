@@ -74,13 +74,6 @@ const COLORS = {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
     },
   },
-  TEXT: {
-    active: COLOR_NAMES.BLUE,
-    title: COLOR_NAMES.BLACK,
-    paragraph: COLOR_NAMES.DARK_GREY,
-    hint: COLOR_NAMES.GREY,
-    success: COLOR_NAMES.GREEN,
-  },
   LINKS: {
     NORMAL: COLOR_NAMES.BLUE,
     HOVER: COLOR_NAMES.BLUE,
@@ -141,7 +134,13 @@ const themeConfig = {
       normal: COLOR_NAMES.LIGHTEST_GREY,
       modal: COLOR_NAMES.WHITE,
     },
-    text: COLORS.TEXT,
+    text: {
+      active: COLOR_NAMES.BLUE,
+      title: COLOR_NAMES.BLACK,
+      paragraph: COLOR_NAMES.DARK_GREY,
+      hint: COLOR_NAMES.GREY,
+      success: COLOR_NAMES.GREEN,
+    },
     error: {
       main: COLOR_NAMES.RED,
       light: COLOR_NAMES.LIGHT_RED,
