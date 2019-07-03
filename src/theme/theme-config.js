@@ -74,12 +74,6 @@ const COLORS = {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
     },
   },
-  LINKS: {
-    NORMAL: COLOR_NAMES.BLUE,
-    HOVER: COLOR_NAMES.BLUE,
-    VISITED: COLOR_NAMES.DARK_BLUE,
-    BUTTON_BACKGROUND: COLOR_NAMES.LIGHTEST_BLUE,
-  },
   HEADER_BAR: {
     TEXT: {
       NORMAL: COLOR_NAMES.DARKEST_GREY,
@@ -319,24 +313,24 @@ const themeConfig = {
     },
     MuiLink: {
       root: {
-        color: COLORS.LINKS.NORMAL,
+        color: COLOR_NAMES.BLUE,
         '&:hover': {
-          color: COLORS.LINKS.HOVER,
+          color: COLOR_NAMES.BLUE,
         },
         '&:visited': {
-          color: COLORS.LINKS.VISITED,
+          color: COLOR_NAMES.DARK_BLUE,
         },
       },
       button: {
         fontFamily: 'Open Sans',
         fontWeight: '600',
         fontSize: '13px',
-        color: COLORS.LINKS.NORMAL,
+        color: COLOR_NAMES.BLUE,
         letterSpacing: '0.46px',
         lineHeight: '24px',
         padding: '16px',
         '&:hover': {
-          backgroundColor: COLORS.LINKS.BUTTON_BACKGROUND,
+          backgroundColor: COLOR_NAMES.LIGHTEST_BLUE,
           borderRadius: '2px',
           textDecoration: 'none',
         },
