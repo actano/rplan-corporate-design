@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types'
+import React from 'react'
+
 import { Modal } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import withStyles from '@material-ui/core/styles/withStyles'
-import PropTypes from 'prop-types'
-import React from 'react'
 
 const styles = theme => ({
   main: {
@@ -41,25 +42,27 @@ const styles = theme => ({
 })
 
 const _ModalDialogWithLogo = ({
-  open, onClose, Buttons, Logo, children, classes,
+  classes, open, children, Buttons, onClose, onSubmit, Logo,
 }) => (
   <Modal open={open} onClose={onClose}>
     <div className={classes.main}>
       <Paper className={classes.paper}>
-        {children}
-        <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
-          <Grid item>
-            <Button
-              variant="outlined"
-              onClick={onClose}
-            >
-                Cancel
-            </Button>
+        <form onSubmit={onSubmit}>
+          {children}
+          <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
+            <Grid item>
+              <Button
+                variant="outlined"
+                onClick={onClose}
+              >
+                  Cancel
+              </Button>
+            </Grid>
+            <Grid item>
+              {Buttons}
+            </Grid>
           </Grid>
-          <Grid item>
-            {Buttons}
-          </Grid>
-        </Grid>
+        </form>
       </Paper>
       <div className={classes.logo}>
         {Logo}
@@ -70,14 +73,16 @@ const _ModalDialogWithLogo = ({
 
 _ModalDialogWithLogo.propTypes = {
   classes: PropTypes.object.isRequired,
-  Buttons: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
   open: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  Buttons: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   Logo: PropTypes.node,
 }
 
 _ModalDialogWithLogo.defaultProps = {
+  onSubmit: () => {},
   Logo: undefined,
 }
 
