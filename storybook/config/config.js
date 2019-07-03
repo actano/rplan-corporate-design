@@ -12,6 +12,7 @@ import {
   headerBarStories,
   modalDialogStories,
   logoPageStories,
+  iconStories,
 } from '../stories/index'
 
 addParameters({
@@ -32,6 +33,7 @@ function loadStories() {
   headerBarStories()
   modalDialogStories()
   logoPageStories()
+  iconStories()
 }
 
 configure(loadStories, module)
