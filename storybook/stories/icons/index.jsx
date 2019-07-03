@@ -28,7 +28,7 @@ export const iconStories = () => {
               </Typography>
               <Grid container spacing={1} direction="row">
                 <Grid item>
-                  <WarningIcon color="error" />
+                  <WarningIcon />
                 </Grid>
               </Grid>
             </Grid>
