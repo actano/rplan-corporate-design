@@ -25,22 +25,6 @@ const COLOR_NAMES = {
 
 const COLORS = {
   BUTTONS: {
-    SECONDARY: {
-      BACKGROUND: {
-        NORMAL: COLOR_NAMES.WHITE,
-        HOVER: COLOR_NAMES.LIGHT_BLUE,
-        PRESSED: COLOR_NAMES.WHITE,
-        DISABLED: COLOR_NAMES.WHITE,
-      },
-      BORDER: {
-        NORMAL: COLOR_NAMES.BLUE,
-        DISABLED: COLOR_NAMES.LIGHT_GREY,
-      },
-      TEXT: {
-        NORMAL: COLOR_NAMES.BLUE,
-        DISABLED: COLOR_NAMES.GREY,
-      },
-    },
     TERTIARY: {
       BACKGROUND: {
         NORMAL: COLOR_NAMES.WHITE,
@@ -197,19 +181,19 @@ const themeConfig = {
         },
       },
       outlinedSecondary: {
-        borderColor: COLORS.BUTTONS.SECONDARY.BORDER.NORMAL,
-        backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.NORMAL,
-        color: COLORS.BUTTONS.SECONDARY.TEXT.NORMAL,
+        borderColor: COLOR_NAMES.BLUE,
+        backgroundColor: COLOR_NAMES.WHITE,
+        color: COLOR_NAMES.BLUE,
         '&:hover': {
-          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.HOVER,
-          borderColor: COLORS.BUTTONS.SECONDARY.BORDER.NORMAL,
+          backgroundColor: COLOR_NAMES.LIGHT_BLUE,
+          borderColor: COLOR_NAMES.BLUE,
         },
         '&:active': {
-          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.PRESSED,
+          backgroundColor: COLOR_NAMES.WHITE,
         },
         '&$disabled': {
-          backgroundColor: COLORS.BUTTONS.SECONDARY.BACKGROUND.DISABLED,
-          borderColor: COLORS.BUTTONS.SECONDARY.BORDER.DISABLED,
+          backgroundColor: COLOR_NAMES.WHITE,
+          borderColor: COLOR_NAMES.LIGHT_GREY,
         },
       },
     },
