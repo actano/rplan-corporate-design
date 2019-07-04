@@ -138,7 +138,7 @@ const themeConfig = {
     },
     MuiOutlinedInput: {
       input: {
-        padding: '14px',
+        padding: '0.875rem',
         color: COLOR_NAMES.DARKEST_GREY,
         background: COLOR_NAMES.WHITE,
       },
