@@ -1,25 +1,25 @@
 import { rgbaString } from '../utils/color-conversion'
 
 const COLOR_NAMES = {
-  LIGHTEST_GREY: '#F5F7FE', // normal background
+  LIGHTEST_GREY: '#F5F7FE',
   VERY_LIGHT_GREY: '#E8E8F1',
-  LIGHT_GREY: '#D1D2E3', // Disabled/Inactive/Subtle
-  GREY: '#A3ABC7', // Placeholder/subtle hint
-  DARK_GREY: '#5F6887', // Help Text
-  DARKEST_GREY: '#414A69', // Paragraphs
-  BLACK: '#11141C', // Titles
+  LIGHT_GREY: '#D1D2E3',
+  GREY: '#A3ABC7',
+  DARK_GREY: '#5F6887',
+  DARKEST_GREY: '#414A69',
+  BLACK: '#11141C',
   LIGHTEST_BLUE: '#EBF0FF',
-  LIGHT_BLUE: '#EAEFFE', // Background Secondary Hover
+  LIGHT_BLUE: '#EAEFFE',
   PALE_BLUE: '#7D9CFE',
-  BLUE: '#527BFE', // Active
-  DARK_BLUE: '#354A90', // Button pressed
-  DARKER_BLUE: '#2c3555', // e.g. background in focus card header
-  VERY_DARK_BLUE: '#1C274A', // NavBar background
-  GREEN: '#0ED08F', // Signal: Success/Validation
-  LIGHT_RED: '#FEF0F0', // Error background
-  RED: '#F66D6B', // Signal: Error/Alert
-  ORANGE: '#FCB239', // Signal: Warning
-  WHITE: '#FFFFFF', // Input background
+  BLUE: '#527BFE',
+  DARK_BLUE: '#354A90',
+  DARKER_BLUE: '#2c3555',
+  VERY_DARK_BLUE: '#1C274A',
+  GREEN: '#0ED08F',
+  LIGHT_RED: '#FEF0F0',
+  RED: '#F66D6B',
+  ORANGE: '#FCB239',
+  WHITE: '#FFFFFF',
   NEAR_WHITE: '#F6F6FA',
 }
 
