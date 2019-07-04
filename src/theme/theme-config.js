@@ -23,32 +23,6 @@ const COLOR_NAMES = {
   NEAR_WHITE: '#F6F6FA',
 }
 
-const COLORS = {
-  NAVIGATION_BAR: {
-    BACKGROUND: {
-      BAR: COLOR_NAMES.VERY_DARK_BLUE,
-      LINK_ACTIVE: rgbaString(COLOR_NAMES.BLUE, 0.16),
-    },
-    LINK_ACTIVE_BORDER: COLOR_NAMES.BLUE,
-    SUBNAVIGATION: {
-      BACKGROUND: {
-        MAIN: COLOR_NAMES.WHITE,
-        HOVER: COLOR_NAMES.VERY_LIGHT_GREY,
-        FOCUS: COLOR_NAMES.VERY_LIGHT_GREY,
-      },
-      BORDER: {
-        NORMAL: COLOR_NAMES.VERY_LIGHT_GREY,
-      },
-      TEXT: {
-        ACTION: COLOR_NAMES.BLUE,
-      },
-      ICON: {
-        NORMAL: COLOR_NAMES.GREY,
-      },
-    },
-  },
-}
-
 // This is the default but we want to make sure to base our measurements on it here as well
 const SPACING = 8
 
@@ -74,7 +48,6 @@ const themeConfig = {
     primary: {
       main: COLOR_NAMES.BLUE,
     },
-    navigationBar: COLORS.NAVIGATION_BAR,
     colors: COLOR_NAMES,
   },
   typography: {
