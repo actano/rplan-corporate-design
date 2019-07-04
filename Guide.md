@@ -1,3 +1,4 @@
+# Material UI - Basic learnings
 - *Don't* include color maps for specific custom ui components in the theme config. 
     Instead provide a React component that encapsulates the styling via `makeStyles` in the javascript code.
     The theme config should not have any knowledge about specific custom components. Example:
