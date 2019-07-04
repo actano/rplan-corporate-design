@@ -186,7 +186,7 @@ const themeConfig = {
         fontFamily: 'Open Sans',
         fontSize: '2.5rem',
         letterSpacing: '0.4px',
-        lineHeight: '40px',
+        lineHeight: 1,
         fontWeight: 300,
       },
       h3: {
