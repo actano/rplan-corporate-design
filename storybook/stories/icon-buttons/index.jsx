@@ -26,6 +26,7 @@ const iconButtonStories = () => {
               <Grid item>
                 <IconButton
                   aria-label="Toggle password visibility"
+                  size="small"
                 >
                   <Visibility />
                 </IconButton>
@@ -33,6 +34,7 @@ const iconButtonStories = () => {
               <Grid item>
                 <IconButton
                   aria-label="Toggle password visibility"
+                  size="small"
                 >
                   <VisibilityOff />
                 </IconButton>

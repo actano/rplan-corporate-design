@@ -134,7 +134,6 @@ const themeConfig = {
     MuiIconButton: {
       root: {
         color: COLOR_NAMES.GREY,
-        padding: 0,
       },
     },
     MuiOutlinedInput: {
