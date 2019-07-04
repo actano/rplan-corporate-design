@@ -228,11 +228,11 @@ const themeConfig = {
       button: {
         fontFamily: 'Open Sans',
         fontWeight: '600',
-        fontSize: '13px',
+        fontSize: '0.8125rem',
         color: COLOR_NAMES.BLUE,
         letterSpacing: '0.46px',
-        lineHeight: '24px',
-        padding: '16px',
+        lineHeight: 1.85,
+        padding: SPACING * 2,
         '&:hover': {
           backgroundColor: COLOR_NAMES.LIGHTEST_BLUE,
           borderRadius: '2px',
