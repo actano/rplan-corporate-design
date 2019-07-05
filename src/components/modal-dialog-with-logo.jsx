@@ -21,9 +21,6 @@ const styles = theme => ({
     alignItems: 'center',
   },
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     width: '100%',
     maxWidth: `${theme.spacing(80)}px`,
     marginTop: theme.spacing(8),
@@ -31,6 +28,12 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`,
     },
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
   },
   buttons: {
     marginTop: `${theme.spacing(4)}px`,
@@ -47,7 +50,7 @@ const _ModalDialogWithLogo = ({
   <Modal open={open} onClose={onClose}>
     <div className={classes.main}>
       <Paper className={classes.paper}>
-        <form onSubmit={onSubmit}>
+        <form className={classes.form} onSubmit={onSubmit}>
           {children}
           <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
             <Grid item>
