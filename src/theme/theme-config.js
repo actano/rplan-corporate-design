@@ -18,7 +18,7 @@ const COLOR_NAMES = {
   green: '#0ED08F',
   lightRed: '#FEF0F0',
   red: '#F66D6B',
-  DARK_RED: '#F55353', // TODO: Talk to marie about this color, as it is not from her palette
+  darkRed: '#F55353', // TODO: Talk to marie about this color, as it is not from her palette
   orange: '#FCB239',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
