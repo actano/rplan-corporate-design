@@ -1,7 +1,9 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import { PrimaryButton, SecondaryButton, TertiaryButton } from '../../../src'
+import {
+  DangerousButton, PrimaryButton, SecondaryButton, TertiaryButton,
+} from '../../../src'
 
 import { Providers } from '../providers'
 
@@ -66,6 +68,23 @@ const buttonStories = () => {
                   <TertiaryButton disabled>
                     Disabled Tertiary Button
                   </TertiaryButton>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="h5" align="left">
+                Dangerous Buttons
+              </Typography>
+              <Grid container spacing={1} direction="row">
+                <Grid item>
+                  <DangerousButton>
+                    Dangerous Button
+                  </DangerousButton>
+                </Grid>
+                <Grid item>
+                  <DangerousButton disabled>
+                    Disabled Dangerous Button
+                  </DangerousButton>
                 </Grid>
               </Grid>
             </Grid>
