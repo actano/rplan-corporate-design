@@ -69,7 +69,7 @@ const themeConfig = {
     MuiButton: {
       root: {
         borderRadius: '2px',
-        fontSize: '16px',
+        fontSize: '1rem',
         padding: '10.5px 24px',
         fontFamily: 'Open Sans',
         fontWeight: 600,
@@ -95,7 +95,7 @@ const themeConfig = {
       },
       outlined: {
         padding: '10.5px 24px',
-        fontSize: '16px',
+        fontSize: '1rem',
         fontWeight: 600,
         textAlign: 'center',
         lineHeight: '24px',
