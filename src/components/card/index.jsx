@@ -8,10 +8,10 @@ import { rgbaString } from '../../utils/color-conversion'
 const useStyles = makeStyles(theme => ({
   main: {
     boxShadow: 'none',
-    border: `1px solid ${theme.palette.colors.VERY_LIGHT_GREY}`,
+    border: `1px solid ${theme.palette.colors.veryLightGrey}`,
     '&:hover': {
-      borderColor: rgbaString(theme.palette.colors.BLUE, 0.30),
-      boxShadow: `0 3px 5px ${theme.palette.colors.VERY_LIGHT_GREY}`,
+      borderColor: rgbaString(theme.palette.colors.blue, 0.30),
+      boxShadow: `0 3px 5px ${theme.palette.colors.veryLightGrey}`,
     },
   },
 }))

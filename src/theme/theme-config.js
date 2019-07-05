@@ -1,27 +1,27 @@
 import { rgbaString } from '../utils/color-conversion'
 
 const COLOR_NAMES = {
-  LIGHTEST_GREY: '#F5F7FE',
-  VERY_LIGHT_GREY: '#E8E8F1',
-  LIGHT_GREY: '#D1D2E3',
-  GREY: '#A3ABC7',
-  DARK_GREY: '#5F6887',
-  DARKEST_GREY: '#414A69',
-  BLACK: '#11141C',
-  LIGHTEST_BLUE: '#EBF0FF',
-  LIGHT_BLUE: '#EAEFFE',
-  PALE_BLUE: '#7D9CFE',
-  BLUE: '#527BFE',
-  DARK_BLUE: '#354A90',
-  DARKER_BLUE: '#2c3555',
-  VERY_DARK_BLUE: '#1C274A',
-  GREEN: '#0ED08F',
-  LIGHT_RED: '#FEF0F0',
-  RED: '#F66D6B',
+  lightestGrey: '#F5F7FE',
+  veryLightGrey: '#E8E8F1',
+  lightGrey: '#D1D2E3',
+  grey: '#A3ABC7',
+  darkGrey: '#5F6887',
+  darkestGrey: '#414A69',
+  black: '#11141C',
+  lightestBlue: '#EBF0FF',
+  lightBlue: '#EAEFFE',
+  paleBlue: '#7D9CFE',
+  blue: '#527BFE',
+  darkBlue: '#354A90',
+  darkerBlue: '#2c3555',
+  veryDarkBlue: '#1C274A',
+  green: '#0ED08F',
+  lightRed: '#FEF0F0',
+  red: '#F66D6B',
   DARK_RED: '#F55353', // TODO: Talk to marie about this color, as it is not from her palette
-  ORANGE: '#FCB239',
-  WHITE: '#FFFFFF',
-  NEAR_WHITE: '#F6F6FA',
+  orange: '#FCB239',
+  white: '#FFFFFF',
+  nearWhite: '#F6F6FA',
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -32,22 +32,22 @@ const themeConfig = {
   palette: {
     background: {
       special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
-      normal: COLOR_NAMES.LIGHTEST_GREY,
-      modal: COLOR_NAMES.WHITE,
+      normal: COLOR_NAMES.lightestGrey,
+      modal: COLOR_NAMES.white,
     },
     text: {
-      active: COLOR_NAMES.BLUE,
-      title: COLOR_NAMES.BLACK,
-      paragraph: COLOR_NAMES.DARK_GREY,
-      hint: COLOR_NAMES.GREY,
-      success: COLOR_NAMES.GREEN,
+      active: COLOR_NAMES.blue,
+      title: COLOR_NAMES.black,
+      paragraph: COLOR_NAMES.darkGrey,
+      hint: COLOR_NAMES.grey,
+      success: COLOR_NAMES.green,
     },
     error: {
-      main: COLOR_NAMES.RED,
-      light: COLOR_NAMES.LIGHT_RED,
+      main: COLOR_NAMES.red,
+      light: COLOR_NAMES.lightRed,
     },
     primary: {
-      main: COLOR_NAMES.BLUE,
+      main: COLOR_NAMES.blue,
     },
     colors: COLOR_NAMES,
   },
@@ -79,19 +79,19 @@ const themeConfig = {
         textTransform: 'none',
       },
       contained: {
-        color: COLOR_NAMES.LIGHTEST_GREY,
+        color: COLOR_NAMES.lightestGrey,
         '&$disabled': {
-          backgroundColor: COLOR_NAMES.LIGHT_GREY,
-          color: COLOR_NAMES.LIGHTEST_GREY,
+          backgroundColor: COLOR_NAMES.lightGrey,
+          color: COLOR_NAMES.lightestGrey,
         },
       },
       containedPrimary: {
-        backgroundColor: COLOR_NAMES.BLUE,
+        backgroundColor: COLOR_NAMES.blue,
         '&:active': {
-          backgroundColor: COLOR_NAMES.DARK_BLUE,
+          backgroundColor: COLOR_NAMES.darkBlue,
         },
         '&:hover': {
-          backgroundColor: COLOR_NAMES.PALE_BLUE,
+          backgroundColor: COLOR_NAMES.paleBlue,
         },
       },
       outlined: {
@@ -100,76 +100,76 @@ const themeConfig = {
         fontWeight: 600,
         textAlign: 'center',
         lineHeight: '24px',
-        color: COLOR_NAMES.DARK_GREY,
-        backgroundColor: COLOR_NAMES.WHITE,
-        border: `1px solid ${COLOR_NAMES.LIGHT_GREY}`,
+        color: COLOR_NAMES.darkGrey,
+        backgroundColor: COLOR_NAMES.white,
+        border: `1px solid ${COLOR_NAMES.lightGrey}`,
         '&$disabled': {
-          backgroundColor: COLOR_NAMES.WHITE,
-          color: COLOR_NAMES.GREY,
+          backgroundColor: COLOR_NAMES.white,
+          color: COLOR_NAMES.grey,
         },
         '&:hover': {
-          backgroundColor: COLOR_NAMES.NEAR_WHITE,
+          backgroundColor: COLOR_NAMES.nearWhite,
         },
         '&:active': {
-          borderColor: COLOR_NAMES.GREY,
-          backgroundColor: COLOR_NAMES.NEAR_WHITE,
+          borderColor: COLOR_NAMES.grey,
+          backgroundColor: COLOR_NAMES.nearWhite,
         },
       },
       outlinedSecondary: {
-        borderColor: COLOR_NAMES.BLUE,
-        backgroundColor: COLOR_NAMES.WHITE,
-        color: COLOR_NAMES.BLUE,
+        borderColor: COLOR_NAMES.blue,
+        backgroundColor: COLOR_NAMES.white,
+        color: COLOR_NAMES.blue,
         '&:hover': {
-          backgroundColor: COLOR_NAMES.LIGHT_BLUE,
-          borderColor: COLOR_NAMES.BLUE,
+          backgroundColor: COLOR_NAMES.lightBlue,
+          borderColor: COLOR_NAMES.blue,
         },
         '&:active': {
-          backgroundColor: COLOR_NAMES.WHITE,
+          backgroundColor: COLOR_NAMES.white,
         },
         '&$disabled': {
-          backgroundColor: COLOR_NAMES.WHITE,
-          borderColor: COLOR_NAMES.LIGHT_GREY,
+          backgroundColor: COLOR_NAMES.white,
+          borderColor: COLOR_NAMES.lightGrey,
         },
       },
     },
     MuiIconButton: {
       root: {
-        color: COLOR_NAMES.GREY,
+        color: COLOR_NAMES.grey,
       },
     },
     MuiOutlinedInput: {
       input: {
         padding: '0.875rem',
-        color: COLOR_NAMES.DARKEST_GREY,
-        background: COLOR_NAMES.WHITE,
+        color: COLOR_NAMES.darkestGrey,
+        background: COLOR_NAMES.white,
       },
       root: {
         '& $notchedOutline': {
-          borderColor: COLOR_NAMES.LIGHT_GREY,
+          borderColor: COLOR_NAMES.lightGrey,
         },
         '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-          borderColor: COLOR_NAMES.LIGHT_GREY,
+          borderColor: COLOR_NAMES.lightGrey,
           // Reset on touch devices, it doesn't add specificity
           '@media (hover: none)': {
-            borderColor: COLOR_NAMES.LIGHT_GREY,
+            borderColor: COLOR_NAMES.lightGrey,
           },
         },
         '&$focused $notchedOutline': {
-          borderColor: COLOR_NAMES.BLUE,
+          borderColor: COLOR_NAMES.blue,
           borderWidth: 1,
         },
         '&$error $notchedOutline': {
-          borderColor: COLOR_NAMES.RED,
+          borderColor: COLOR_NAMES.red,
         },
         '&$disabled $notchedOutline': {
-          borderColor: COLOR_NAMES.LIGHT_GREY,
-          backgroundColor: rgbaString(COLOR_NAMES.LIGHTEST_GREY, 0.6),
+          borderColor: COLOR_NAMES.lightGrey,
+          backgroundColor: rgbaString(COLOR_NAMES.lightestGrey, 0.6),
         },
       },
     },
     MuiFormHelperText: {
       root: {
-        color: COLOR_NAMES.DARKEST_GREY,
+        color: COLOR_NAMES.darkestGrey,
       },
     },
     MuiTypography: {
@@ -183,49 +183,49 @@ const themeConfig = {
       h3: {
         fontFamily: 'Open Sans',
         fontSize: '1.5rem',
-        color: COLOR_NAMES.BLACK,
+        color: COLOR_NAMES.black,
         lineHeight: 1.333,
         fontWeight: 300,
       },
       h4: {
         fontFamily: 'Open Sans',
         fontSize: '1.25rem',
-        color: COLOR_NAMES.BLACK,
+        color: COLOR_NAMES.black,
         lineHeight: 1.5,
       },
       h5: {
         fontFamily: 'Open Sans',
         fontSize: '1rem',
-        color: COLOR_NAMES.DARKEST_GREY,
+        color: COLOR_NAMES.darkestGrey,
         lineHeight: 1.5,
       },
       body1: {
         fontFamily: 'Open Sans',
         fontSize: '0.8125rem',
-        color: COLOR_NAMES.DARKEST_GREY,
+        color: COLOR_NAMES.darkestGrey,
         lineHeight: 1.54,
       },
     },
     MuiLink: {
       root: {
-        color: COLOR_NAMES.BLUE,
+        color: COLOR_NAMES.blue,
         '&:hover': {
-          color: COLOR_NAMES.BLUE,
+          color: COLOR_NAMES.blue,
         },
         '&:visited': {
-          color: COLOR_NAMES.DARK_BLUE,
+          color: COLOR_NAMES.darkBlue,
         },
       },
       button: {
         fontFamily: 'Open Sans',
         fontWeight: '600',
         fontSize: '0.8125rem',
-        color: COLOR_NAMES.BLUE,
+        color: COLOR_NAMES.blue,
         letterSpacing: '0.46px',
         lineHeight: 1.85,
         padding: SPACING * 2,
         '&:hover': {
-          backgroundColor: COLOR_NAMES.LIGHTEST_BLUE,
+          backgroundColor: COLOR_NAMES.lightestBlue,
           borderRadius: '2px',
           textDecoration: 'none',
         },
@@ -242,7 +242,7 @@ const themeConfig = {
     MuiSwitch: {
       track: {
         opacity: undefined,
-        backgroundColor: COLOR_NAMES.LIGHT_GREY,
+        backgroundColor: COLOR_NAMES.lightGrey,
       },
     },
   },

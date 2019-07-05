@@ -6,10 +6,10 @@ import withStyles from '@material-ui/core/styles/withStyles'
 const styles = theme => ({
   main: {
     border: 'none',
-    backgroundColor: theme.palette.colors.WHITE,
+    backgroundColor: theme.palette.colors.white,
     borderBottomStyle: 'solid',
     borderBottomWidth: '1px',
-    borderBottomColor: theme.palette.colors.LIGHT_GREY,
+    borderBottomColor: theme.palette.colors.lightGrey,
 
     display: 'flex',
     flexDirection: 'column',

@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   headline: {
     fontFamily: 'Open Sans',
     fontSize: '2.5rem',
-    color: theme.palette.colors.WHITE,
+    color: theme.palette.colors.white,
     letterSpacing: '0.025rem',
     textAlign: 'center',
     lineHeight: 1,

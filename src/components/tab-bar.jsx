@@ -20,7 +20,7 @@ const styles = (theme) => {
       lineHeight: `${theme.spacing(2)}px`,
       letterSpacing: `${theme.spacing(0.0625)}px`,
       marginRight: theme.spacing(5),
-      color: colors.GREY,
+      color: colors.grey,
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
       padding: theme.spacing(0, 0, 1.625, 0),
