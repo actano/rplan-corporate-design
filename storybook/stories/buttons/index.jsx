@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
-import Button from '@material-ui/core/Button/index'
+import { PrimaryButton, SecondaryButton, TertiaryButton } from '../../../src'
 
 import { Providers } from '../providers'
 
@@ -24,21 +24,14 @@ const buttonStories = () => {
               </Typography>
               <Grid container spacing={1} direction="row">
                 <Grid item>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                  >
+                  <PrimaryButton>
                     Primary Button
-                  </Button>
+                  </PrimaryButton>
                 </Grid>
                 <Grid item>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    disabled
-                  >
-                    Disabled Button
-                  </Button>
+                  <PrimaryButton disabled>
+                    Disabled Primary Button
+                  </PrimaryButton>
                 </Grid>
               </Grid>
             </Grid>
@@ -48,21 +41,14 @@ const buttonStories = () => {
               </Typography>
               <Grid container spacing={1} direction="row">
                 <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                  >
+                  <SecondaryButton>
                     Secondary Button
-                  </Button>
+                  </SecondaryButton>
                 </Grid>
                 <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    disabled
-                  >
+                  <SecondaryButton disabled>
                     Disabled Secondary Button
-                  </Button>
+                  </SecondaryButton>
                 </Grid>
               </Grid>
             </Grid>
@@ -72,21 +58,14 @@ const buttonStories = () => {
               </Typography>
               <Grid container spacing={1} direction="row">
                 <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="default"
-                  >
+                  <TertiaryButton>
                     Tertiary Button
-                  </Button>
+                  </TertiaryButton>
                 </Grid>
                 <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="default"
-                    disabled
-                  >
-                    Disabled Button
-                  </Button>
+                  <TertiaryButton disabled>
+                    Disabled Tertiary Button
+                  </TertiaryButton>
                 </Grid>
               </Grid>
             </Grid>
