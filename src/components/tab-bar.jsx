@@ -14,7 +14,7 @@ const styles = (theme) => {
       minHeight: theme.spacing(3.5),
     },
     menuEntryRoot: {
-      fontSize: theme.spacing(1.5),
+      fontSize: '0.75rem',
       fontWeight: 600,
       textTransform: 'initial',
       lineHeight: `${theme.spacing(2)}px`,
