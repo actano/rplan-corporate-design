@@ -19,7 +19,7 @@ const iconButtonStories = () => {
           direction="column"
         >
           <Grid item>
-            <Typography variant="h5" align="left">
+            <Typography variant="h3" align="left">
                 Show password visibility
             </Typography>
             <Grid container spacing={1} direction="row">
