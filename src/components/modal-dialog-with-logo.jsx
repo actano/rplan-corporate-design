@@ -2,10 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { Modal } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import withStyles from '@material-ui/core/styles/withStyles'
+
+import { TertiaryButton } from '../buttons'
 
 const styles = theme => ({
   main: {
@@ -54,12 +55,11 @@ const _ModalDialogWithLogo = ({
           {children}
           <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
             <Grid item>
-              <Button
-                variant="outlined"
+              <TertiaryButton
                 onClick={onClose}
               >
-                  Cancel
-              </Button>
+                Cancel
+              </TertiaryButton>
             </Grid>
             <Grid item>
               {Buttons}
