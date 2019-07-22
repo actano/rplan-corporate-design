@@ -7,6 +7,7 @@ import {
   errorBoxStories,
   iconButtonStories,
   inputStories,
+  selectStories,
   linkStories,
   typographyStories,
   headerBarStories,
@@ -29,6 +30,7 @@ function loadStories() {
   linkStories()
   typographyStories()
   inputStories()
+  selectStories()
   errorBoxStories()
   headerBarStories()
   modalDialogStories()
