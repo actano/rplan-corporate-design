@@ -92,6 +92,7 @@ const _Select = ({
     [onChange],
   )
 
+  // This state handling is needed to prevent the tooltip staying open when the select is opened
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
 
   return (
