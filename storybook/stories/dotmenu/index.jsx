@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
@@ -64,7 +65,7 @@ const stories = () => {
               <Typography variant="h3" align="left">
                 White dot menu on blue background
               </Typography>
-              <WhiteDotMenuOnBlueBackground/>
+              <WhiteDotMenuOnBlueBackground />
             </Grid>
           </Grid>
         </div>
