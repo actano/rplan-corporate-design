@@ -4,6 +4,7 @@ import {
   avatarStories,
   buttonStories,
   colorStories,
+  dotMenuStories,
   errorBoxStories,
   iconButtonStories,
   inputStories,
@@ -25,6 +26,7 @@ addParameters({
 function loadStories() {
   avatarStories()
   colorStories()
+  dotMenuStories()
   buttonStories()
   iconButtonStories()
   linkStories()
