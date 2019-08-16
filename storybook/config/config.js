@@ -1,21 +1,6 @@
 import { addParameters, configure } from '@storybook/react'
 
-import {
-  avatarStories,
-  buttonStories,
-  colorStories,
-  dotMenuStories,
-  errorBoxStories,
-  iconButtonStories,
-  inputStories,
-  selectStories,
-  linkStories,
-  typographyStories,
-  headerBarStories,
-  modalDialogStories,
-  logoPageStories,
-  iconStories,
-} from '../stories/index'
+import * as stories from '../stories/index'
 
 addParameters({
   options: {
@@ -24,20 +9,9 @@ addParameters({
 })
 
 function loadStories() {
-  avatarStories()
-  colorStories()
-  dotMenuStories()
-  buttonStories()
-  iconButtonStories()
-  linkStories()
-  typographyStories()
-  inputStories()
-  selectStories()
-  errorBoxStories()
-  headerBarStories()
-  modalDialogStories()
-  logoPageStories()
-  iconStories()
+  for (const story of Object.values(stories)) {
+    story()
+  }
 }
 
 configure(loadStories, module)
