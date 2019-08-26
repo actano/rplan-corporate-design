@@ -7,6 +7,8 @@ import { rgbaString } from '../utils/color-conversion'
 export const DUE_DATE_STATUS = {
   ON_TIME: 'on time',
   OVERDUE: 'overdue',
+  AT_RISK: 'at risk',
+  INAPPLICABLE: 'inapplicable',
 }
 
 const getDueDateColor = (state, theme) => {
@@ -16,6 +18,12 @@ const getDueDateColor = (state, theme) => {
     }
     case DUE_DATE_STATUS.OVERDUE: {
       return rgbaString(theme.palette.colors.red, 0.1)
+    }
+    case DUE_DATE_STATUS.AT_RISK: {
+      return rgbaString(theme.palette.colors.red, 0.1)
+    }
+    case DUE_DATE_STATUS.INAPPLICABLE: {
+      return rgbaString(theme.palette.colors.grey, 0.1)
     }
     default: {
       return null
@@ -28,6 +36,9 @@ const getDotColor = (state, theme) => {
       return theme.palette.colors.green
     }
     case DUE_DATE_STATUS.OVERDUE: {
+      return theme.palette.colors.red
+    }
+    case DUE_DATE_STATUS.AT_RISK: {
       return theme.palette.colors.red
     }
     default: {

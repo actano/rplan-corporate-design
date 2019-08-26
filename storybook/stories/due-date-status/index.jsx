@@ -36,6 +36,12 @@ export const dueDateStatusStories = () => {
                   <Grid item>
                     <DueDateStatus state={DUE_DATE_STATUS.OVERDUE} />
                   </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.AT_RISK} />
+                  </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.INAPPLICABLE} />
+                  </Grid>
                 </Grid>
               </Grid>
               <Grid item>
@@ -50,6 +56,12 @@ export const dueDateStatusStories = () => {
                   <Grid item>
                     <DueDateStatus state={DUE_DATE_STATUS.OVERDUE} delta={0} />
                   </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.AT_RISK} delta={0} />
+                  </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.INAPPLICABLE} delta={0} />
+                  </Grid>
                 </Grid>
               </Grid>
               <Grid item>
@@ -60,6 +72,12 @@ export const dueDateStatusStories = () => {
                 <Grid container spacing={1} direction="row">
                   <Grid item>
                     <DueDateStatus state={DUE_DATE_STATUS.OVERDUE} delta={1} />
+                  </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.AT_RISK} delta={1} />
+                  </Grid>
+                  <Grid item>
+                    <DueDateStatus state={DUE_DATE_STATUS.INAPPLICABLE} delta={1} />
                   </Grid>
                 </Grid>
               </Grid>
