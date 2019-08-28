@@ -55,6 +55,12 @@ const translateDisplayStatus = (state) => {
     case DUE_DATE_STATUS.OVERDUE: {
       return 'Overdue'
     }
+    case DUE_DATE_STATUS.AT_RISK: {
+      return 'At Risk'
+    }
+    case DUE_DATE_STATUS.INAPPLICABLE: {
+      return 'Inapplicable'
+    }
     default: {
       return state
     }
