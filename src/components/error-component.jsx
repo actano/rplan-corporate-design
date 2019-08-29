@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
   description: {
     fontSize: theme.typography.pxToRem(20),
     textAlign: 'center',
-    maxWidth: '40rem',
   },
 }))
 
