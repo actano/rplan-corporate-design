@@ -46,7 +46,8 @@ const ErrorComponent = ({
       <Grid item>
         <Typography
           variant="subtitle1"
-          className={classnames(classes.description, descriptionClassName)}>
+          className={classnames(classes.description, descriptionClassName)}
+        >
           {description}
         </Typography>
       </Grid>
