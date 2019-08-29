@@ -22,7 +22,7 @@ const theme = createMuiTheme(themeConfig)
 Also the font `Open Sans` needs to be available on the website.
 E.g. include the import of the font in your `index.html`:
 ```
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 ```
 For layout `Typography` should be used.
 For simplicity only variants `h2`, `h3`, `h5` and `body1` are supported.
