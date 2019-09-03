@@ -15,6 +15,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(20),
     textAlign: 'center',
   },
+  container: {
+    width: '100%',
+    margin: 'auto',
+  },
 }))
 
 const ErrorComponent = ({
@@ -32,7 +36,7 @@ const ErrorComponent = ({
       direction="column"
       alignItems="center"
       spacing={3}
-      className={containerClassName}
+      className={classnames(classes.container, containerClassName)}
     >
       <Grid item>
         <Typography
