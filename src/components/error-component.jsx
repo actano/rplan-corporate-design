@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontWeight: 700,
     fontSize: theme.typography.pxToRem(64),
-    color: theme.palette.colors.lightPink,
+    color: theme.palette.colors.lightGrey,
     textAlign: 'center',
   },
   description: {

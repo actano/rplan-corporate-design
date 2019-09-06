@@ -22,7 +22,6 @@ const COLOR_NAMES = {
   orange: '#FCB239',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
-  lightPink: '#D1D2E3',
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
