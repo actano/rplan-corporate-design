@@ -45,13 +45,13 @@ const _DefaultDialog = ({
   onClose,
   maxWidth,
   fullWidth,
-  ...otherProps,
+  ...otherProps
 }) => {
   const classes = useStyles()
 
   return (
     <Dialog
-      { ...otherProps }
+      {...otherProps}
       open={open}
       onClose={onClose}
       maxWidth={maxWidth}
