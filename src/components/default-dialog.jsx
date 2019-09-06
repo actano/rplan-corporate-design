@@ -38,16 +38,24 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const _DefaultDialog = ({
-  open, title, children, buttons, onClose,
+  open,
+  title,
+  children,
+  buttons,
+  onClose,
+  maxWidth,
+  fullWidth,
+  ...otherProps,
 }) => {
   const classes = useStyles()
 
   return (
     <Dialog
+      { ...otherProps }
       open={open}
       onClose={onClose}
-      maxWidth="sm"
-      fullWidth
+      maxWidth={maxWidth}
+      fullWidth={fullWidth}
     >
       <DialogContent className={classes.content}>
         <Typography
@@ -74,9 +82,13 @@ _DefaultDialog.propTypes = {
   buttons: PropTypes.node.isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  maxWidth: PropTypes.string,
+  fullWidth: PropTypes.bool,
 }
 
 _DefaultDialog.defaultProps = {
+  maxWidth: 'sm',
+  fullWidth: true,
 }
 
 const DefaultDialog = _DefaultDialog
