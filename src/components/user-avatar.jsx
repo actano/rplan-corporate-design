@@ -26,6 +26,11 @@ const styles = theme => ({
     height: `${theme.spacing(4)}px`,
     fontSize: '1rem',
   },
+  'avatar-small-2': {
+    width: `${theme.spacing(5)}px`,
+    height: `${theme.spacing(5)}px`,
+    fontSize: '1rem',
+  },
   'avatar-regular': {
     width: `${theme.spacing(7)}px`,
     height: `${theme.spacing(7)}px`,

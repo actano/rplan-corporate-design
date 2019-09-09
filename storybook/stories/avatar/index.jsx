@@ -31,6 +31,12 @@ const avatarStories = () => {
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
+                    <UserAvatar email="rplan-ci@actano.de" firstName="Example" lastName="Smith" size="small-2" />
+                    <Typography variant="h5" align="left">
+                      small-2
+                    </Typography>
+                  </div>
+                  <div style={{ marginLeft: '20px' }}>
                     <UserAvatar email="rplan-ci@actano.de" firstName="Example" lastName="Smith" size="small" />
                     <Typography variant="h5" align="left">
                       small
@@ -47,6 +53,12 @@ const avatarStories = () => {
                     <UserAvatar email="invalidEmail@example.com" firstName="Example" lastName="Smith" size="regular" />
                     <Typography variant="h5" align="left">
                       regular
+                    </Typography>
+                  </div>
+                  <div style={{ marginLeft: '20px' }}>
+                    <UserAvatar email="invalidEmail@example.com" firstName="Example" lastName="Smith" size="small-2" />
+                    <Typography variant="h5" align="left">
+                      small-2
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
