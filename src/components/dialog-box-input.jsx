@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => {
       lineHeight: '1.43',
       padding: theme.spacing(1.75, 2.125),
 
+      backgroundColor: colors.white,
       color: colors.darkestGrey,
 
       '&::placeholder': {
