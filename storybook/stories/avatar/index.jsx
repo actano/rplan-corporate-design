@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+// eslint-disable-next-line react/prop-types
 const UserAvatarWithPlaceholderWithStyles = ({ size }) => {
   const classes = useStyles()
   return (
@@ -25,7 +26,6 @@ const UserAvatarWithPlaceholderWithStyles = ({ size }) => {
 }
 
 const avatarStories = () => {
-
   storiesOf('User Avatar', module)
     .add('UserAvatar', () =>
       (
