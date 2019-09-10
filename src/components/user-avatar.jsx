@@ -73,7 +73,7 @@ _UserAvatar.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   email: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'regular']),
+  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
   className: PropTypes.string,
 }
 
