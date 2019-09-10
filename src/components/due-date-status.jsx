@@ -53,7 +53,7 @@ const translateDisplayStatus = (state) => {
       return 'On Time'
     }
     case DUE_DATE_STATUS.OVERDUE: {
-      return 'Overdue'
+      return 'Delayed'
     }
     case DUE_DATE_STATUS.AT_RISK: {
       return 'At Risk'
@@ -71,7 +71,8 @@ const getDisplayStatus = (state, delta) => {
   if (delta === 0) {
     return displayStatus
   }
-  return `${displayStatus} (+${delta} days)`
+  const dayString = delta > 1 ? 'days' : 'day'
+  return `${displayStatus} ${delta} ${dayString}`
 }
 
 const useStyles = makeStyles(theme => ({
