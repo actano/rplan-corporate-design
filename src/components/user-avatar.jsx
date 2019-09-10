@@ -14,6 +14,7 @@ const calcInitials = (firstName, lastName, email) => {
 
 const AVATAR_SIZES = {
   small: 32,
+  'small-2': 40,
   regular: 56,
 }
 
