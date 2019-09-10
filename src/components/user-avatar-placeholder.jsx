@@ -9,8 +9,20 @@ const useStyles = makeStyles(theme => ({
   main: {
     backgroundColor: 'transparent',
     border: '1px dashed',
-    width: theme.spacing(4),
-    height: theme.spacing(4),
+  },
+  'avatar-small': {
+    width: `${theme.spacing(4)}px`,
+    height: `${theme.spacing(4)}px`,
+    fontSize: '1rem',
+  },
+  'avatar-small-2': {
+    width: `${theme.spacing(5)}px`,
+    height: `${theme.spacing(5)}px`,
+    fontSize: '1rem',
+  },
+  'avatar-regular': {
+    width: `${theme.spacing(7)}px`,
+    height: `${theme.spacing(7)}px`,
   },
 }))
 
@@ -22,6 +34,7 @@ const UserAvatarPlaceholder = (props) => {
     <Avatar
       className={
       classnames(
+        classes[`avatar-${props.size}`],
         classes.main,
         props.className,
         color,
@@ -36,11 +49,13 @@ const UserAvatarPlaceholder = (props) => {
 UserAvatarPlaceholder.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object,
+  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
 }
 
 UserAvatarPlaceholder.defaultProps = {
   className: undefined,
   classes: {},
+  size: 'regular',
 }
 
 export { UserAvatarPlaceholder }

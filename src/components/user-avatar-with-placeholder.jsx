@@ -11,7 +11,9 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const UserAvatarWithPlaceholder = ({ onClick, user, classes }) => {
+const UserAvatarWithPlaceholder = ({
+  onClick, user, classes, size,
+}) => {
   const ownClasses = useStyles()
   return (
     <div
@@ -26,12 +28,13 @@ const UserAvatarWithPlaceholder = ({ onClick, user, classes }) => {
               firstName={user.firstName}
               lastName={user.lastName}
               email={user.email}
-              size="small"
+              size={size}
             />
           ) : (
             <UserAvatarPlaceholder
               className={ownClasses.avatar}
               classes={classes}
+              size={size}
             />
           )
       }
@@ -47,12 +50,14 @@ UserAvatarWithPlaceholder.propTypes = {
     email: PropTypes.string,
   }),
   classes: PropTypes.object,
+  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
   onClick: () => {},
   user: null,
   classes: {},
+  size: 'regular',
 }
 
 export { UserAvatarWithPlaceholder }
