@@ -14,6 +14,7 @@ const COLOR_NAMES = {
   blue: '#527BFE',
   darkBlue: '#354A90',
   darkerBlue: '#2c3555',
+  veryDarkBlue: '#1C274A',
   green: '#0ED08F',
   turquoise: '#40c7b9',
   lightRed: '#FEF0F0',
