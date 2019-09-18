@@ -9,10 +9,13 @@ import {
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
 
-const useDotMenuItemStyles = makeStyles(() => ({
+const useDotMenuItemStyles = makeStyles(theme => ({
   menuItem: {
     fontSize: '0.8125rem',
     minHeight: 'initial',
+    '&:hover': {
+      backgroundColor: theme.palette.colors.lightestGrey,
+    },
   },
 }))
 
