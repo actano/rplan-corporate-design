@@ -1,10 +1,12 @@
 import {
-  FormControl, MenuItem, Select, Tooltip, makeStyles,
+  FormControl, MenuItem, Select, makeStyles,
 } from '@material-ui/core'
 import ExpandIcon from '@material-ui/icons/ExpandMore'
 import React, { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+
+import { CommonTooltip } from './common-tooltip'
 
 const useStyles = makeStyles((theme) => {
   const { colors } = theme.palette
@@ -97,7 +99,7 @@ const _Select = ({
 
   return (
     <FormControl className={classnames(className, ownClasses.value)} disabled={disabled}>
-      <Tooltip title={tooltipText} open={isTooltipOpen}>
+      <CommonTooltip title={tooltipText} open={isTooltipOpen}>
         <Select
           value={value}
           className={ownClasses.select}
@@ -128,7 +130,7 @@ const _Select = ({
           </MenuItem>
         ))}
         </Select>
-      </Tooltip>
+      </CommonTooltip>
     </FormControl>
   )
 }
