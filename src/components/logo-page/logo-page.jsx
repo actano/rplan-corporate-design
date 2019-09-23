@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-import logoBase64 from './logo'
+import logoUrl from './logo.svg'
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -37,7 +37,7 @@ const LogoPage = ({ children }) => {
         {children}
       </div>
       <figure className={classes.logo}>
-        <img src={logoBase64} alt="ACTANO logo" />
+        <img src={logoUrl} alt="ALLEX logo" />
       </figure>
     </div>
   )
