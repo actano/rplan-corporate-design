@@ -247,6 +247,11 @@ const themeConfig = {
         backgroundColor: COLOR_NAMES.lightGrey,
       },
     },
+    MuiBackdrop: {
+      root: {
+        backgroundColor: rgbaString('#1C274A', 0.9),
+      },
+    },
   },
 }
 
