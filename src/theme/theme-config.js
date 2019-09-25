@@ -249,7 +249,7 @@ const themeConfig = {
     },
     MuiBackdrop: {
       root: {
-        backgroundColor: rgbaString('#1C274A', 0.9),
+        backgroundColor: rgbaString(COLOR_NAMES.veryDarkBlue, 0.9),
       },
     },
   },
