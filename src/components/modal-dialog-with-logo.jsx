@@ -5,6 +5,7 @@ import { Modal } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import withStyles from '@material-ui/core/styles/withStyles'
+import logoUrl from './logo-page/logo.svg'
 
 import { TertiaryButton } from '../buttons'
 
@@ -46,7 +47,7 @@ const styles = theme => ({
 })
 
 const _ModalDialogWithLogo = ({
-  classes, open, children, Buttons, onClose, onSubmit, Logo,
+  classes, open, children, Buttons, onClose, onSubmit,
 }) => (
   <Modal open={open} onClose={onClose}>
     <div className={classes.main}>
@@ -83,12 +84,10 @@ _ModalDialogWithLogo.propTypes = {
   Buttons: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func,
-  Logo: PropTypes.node,
 }
 
 _ModalDialogWithLogo.defaultProps = {
   onSubmit: () => {},
-  Logo: undefined,
 }
 
 const ModalDialogWithLogo = withStyles(styles)(_ModalDialogWithLogo)
