@@ -6,15 +6,15 @@ import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 
 const useStyles = makeStyles(() => ({
-  avatar: {
-    cursor: 'pointer',
-  },
+  avatar: ({ isClickable }) => ({
+    cursor: isClickable ? 'pointer' : 'auto',
+  }),
 }))
 
 const UserAvatarWithPlaceholder = ({
   onClick, user, classes, size,
 }) => {
-  const ownClasses = useStyles()
+  const ownClasses = useStyles({ isClickable: !!onClick })
   return (
     <div
       role="presentation"
@@ -54,7 +54,7 @@ UserAvatarWithPlaceholder.propTypes = {
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
-  onClick: () => {},
+  onClick: undefined,
   user: null,
   classes: {},
   size: 'regular',
