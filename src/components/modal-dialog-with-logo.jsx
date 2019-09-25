@@ -68,7 +68,9 @@ const _ModalDialogWithLogo = ({
         </form>
       </Paper>
       <div className={classes.logo}>
-        {Logo}
+        <figure>
+          <img src={logoUrl} alt="Allex logo" />
+        </figure>
       </div>
     </div>
   </Modal>
