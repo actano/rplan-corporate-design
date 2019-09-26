@@ -144,6 +144,10 @@ const themeConfig = {
         padding: '0.875rem',
         color: COLOR_NAMES.darkestGrey,
         background: COLOR_NAMES.white,
+        '&::placeholder': {
+          color: COLOR_NAMES.lightGrey,
+          opacity: 1,
+        },
       },
       root: {
         '& $notchedOutline': {
