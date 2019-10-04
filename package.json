@@ -1,6 +1,6 @@
 {
   "name": "@rplan/corporate-design",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Theme for Material UI and components based on the corporate design.",
   "author": "Actano GmbH (https://rplan.com/)",
   "main": "src/index.js",
@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "gravatar": "^1.8.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
     "date-fns": "2.1.0",
-    "lodash": "^4.17.15"
+    "gravatar": "^1.8.0",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
