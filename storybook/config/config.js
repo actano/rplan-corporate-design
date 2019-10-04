@@ -4,7 +4,8 @@ import * as stories from '../stories/index'
 
 addParameters({
   options: {
-    showPanel: false,
+    showPanel: true,
+    panelPosition: 'bottom',
   },
 })
 
