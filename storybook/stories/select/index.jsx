@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, MenuItem } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
+
+import { OutlinedSelect } from '../../../src/components/outlined-select'
 import { Providers } from '../providers'
 import { Select } from '../../../src'
 
@@ -67,6 +69,33 @@ const inputStories = () => {
                 />
               </Grid>
             </form>
+          </Grid>
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+          >
+            <Grid item>
+              <Typography variant="h2" align="left">
+                Outlined Select
+              </Typography>
+            </Grid>
+            <Grid item>
+              <OutlinedSelect
+                label="Select An Option"
+                value="option-2"
+                style={{
+                  minWidth: '10rem',
+                }}
+              >
+                <MenuItem key="1" value="option-1">
+                  First Option
+                </MenuItem>
+                <MenuItem key="2" value="option-2">
+                  Second Option
+                </MenuItem>
+              </OutlinedSelect>
+            </Grid>
           </Grid>
         </div>
       </Providers>

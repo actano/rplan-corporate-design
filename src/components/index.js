@@ -1,3 +1,4 @@
+export { OutlinedSelect } from './outlined-select'
 export { ErrorDialog } from './error-dialog'
 export { ErrorBox } from './error-box'
 export { ErrorComponent } from './error-component'
