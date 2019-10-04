@@ -1,5 +1,6 @@
 import React from 'react'
-import { DefaultDialog, DialogBoxInput } from '../../../src/components'
+import { DefaultDialog } from '../../../src/components'
+import { DialogBoxInput } from '../../../src/inputs'
 import { Providers } from '../providers'
 
 const dialogBoxInputStory = () =>
