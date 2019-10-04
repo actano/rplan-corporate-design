@@ -5,5 +5,6 @@ export * from './utils/color-conversion'
 export * from './icons'
 export * from './buttons'
 export * from './inputs'
+export * from './date-pickers'
 
 export default themeConfig
