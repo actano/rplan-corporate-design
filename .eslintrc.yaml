@@ -8,3 +8,19 @@ rules:
   - devDependencies:
     - 'storybook/**/*.js'
     - 'storybook/**/*.jsx'
+    - 'test/**/*.js'
+    - 'test/**/*.jsx'
+
+overrides:
+  - files:
+      - 'test/**/*.js'
+      - 'test/**/*.jsx'
+    env:
+      mocha: true
+    rules:
+      no-unused-expressions: 'off'
+    settings:
+      import/core-modules:
+        - chai
+        - enzyme
+        - sinon

@@ -1,0 +1,5 @@
+--require test/register-babel
+--require jsdom-global/register
+--require test/init-test-tools.js
+--require ignore-styles
+

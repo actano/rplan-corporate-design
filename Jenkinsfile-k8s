@@ -23,6 +23,15 @@ pipeline {
         }
       }
     }
+    stage('Test') {
+      steps {
+        ansiColor('xterm') {
+          container('nodejs') {
+            sh "yarn test"
+          }
+        }
+      }
+    }
     stage('publish npm module') {
       when {
         tag "*"
