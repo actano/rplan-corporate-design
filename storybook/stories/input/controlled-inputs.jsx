@@ -8,14 +8,15 @@ import { DefaultControlledInput } from '../../../src/inputs/default-controlled-i
 import { DefaultControlledTextField } from '../../../src/inputs/default-controlled-text-field'
 import { Providers } from '../providers'
 
-const CustomInput = props => (
+const CustomInput = React.forwardRef((props, ref) => (
   <TextField
+    ref={ref}
     InputProps={{
       endAdornment: <InputAdornment position="start">Kg</InputAdornment>,
     }}
     {...props}
   />
-)
+))
 
 const CustomControlledInput = withSaveOnBlurControlled(
   withBlurOnEnter(
