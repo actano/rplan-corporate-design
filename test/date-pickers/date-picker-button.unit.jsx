@@ -51,10 +51,11 @@ describe('DatePickerButton', () => {
         </TestProviders>,
       )
 
+      const selectedDate = new Date(2019, 5, 10, 0, 0, 0)
       const datePicker = component.find(DatePicker)
-      datePicker.props().onChange(new Date(2019, 5, 10, 0, 0, 0))
+      datePicker.props().onChange(selectedDate)
 
-      expect(saveStub).to.have.been.calledWith('2019-06-10')
+      expect(saveStub).to.have.been.calledWith(selectedDate)
     })
   })
 

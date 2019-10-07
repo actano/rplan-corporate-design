@@ -4,8 +4,6 @@ import React, { useCallback, useState } from 'react'
 import { DatePicker } from '@material-ui/pickers'
 import { makeStyles } from '@material-ui/styles'
 
-import { datePickerDateTostring } from './date-picker-date-to-string'
-
 const useStyles = makeStyles(() => ({
   root: {},
   datePicker: {
@@ -20,15 +18,6 @@ const DatePickerButton = ({
 }) => {
   const classes = useStyles()
   const [datePickerVisible, setDatePickerVisible] = useState(false)
-
-  const onChange = useCallback(
-    async (newDateValue) => {
-      const changedDueDate = datePickerDateTostring(newDateValue)
-
-      onSelectDate(changedDueDate)
-    },
-    [onSelectDate],
-  )
 
   const hidePicker = useCallback(
     () => { setDatePickerVisible(false) },
@@ -47,7 +36,7 @@ const DatePickerButton = ({
         variant="dialog"
         open={datePickerVisible}
         onClose={hidePicker}
-        onChange={onChange}
+        onChange={onSelectDate}
         onAccept={hidePicker}
       />
       {
