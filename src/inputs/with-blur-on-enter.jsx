@@ -1,17 +1,12 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-
-import { useForkRef } from '../utils/ref-helpers'
 
 const withBlurOnEnter = (Component) => {
   const ComponentWithBlurOnEnter = React.forwardRef(({ onKeyUp, ...otherProps }, ref) => {
-    const ownRef = useRef()
-    const inputRef = useForkRef(ownRef, ref)
-
     const ownOnKeyUp = useCallback(
       (keyEvent) => {
-        if (keyEvent.key === 'Enter' && ownRef.current) {
-          ownRef.current.querySelector('input').blur()
+        if (keyEvent.key === 'Enter') {
+          keyEvent.target.blur()
         }
 
         if (onKeyUp) {
@@ -23,7 +18,7 @@ const withBlurOnEnter = (Component) => {
 
     return (
       <Component
-        ref={inputRef}
+        ref={ref}
         onKeyUp={ownOnKeyUp}
         {...otherProps}
       />
