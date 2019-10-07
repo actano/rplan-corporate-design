@@ -40,6 +40,9 @@ const controlledInputStory = () =>
           </Typography>
           <Typography variant="body1">
             This input handles its value as internal state and provides changes via event-handlers.
+            <br />
+            The &quot;onSave&quot; handler is only triggered
+            if the changes are confirmed by the user via blur or enter.
           </Typography>
           <DefaultControlledInput
             placeholder="write some text"
@@ -54,6 +57,9 @@ const controlledInputStory = () =>
           </Typography>
           <Typography variant="body1">
             This input handles its value as internal state and provides changes via event-handlers.
+            <br />
+            The &quot;onSave&quot; handler is only triggered
+            if the changes are confirmed by the user via blur or enter.
           </Typography>
           <DefaultControlledTextField
             placeholder="write some text"
@@ -67,10 +73,13 @@ const controlledInputStory = () =>
             Custom Controlled Input
           </Typography>
           <Typography variant="body1">
-            This input uses two HoC which create an input, that handles its value as
+            The example uses two HoCs to create a custom input, that handles its value as
             internal state and provides changes via event-handlers.
-            Also pressing enter blurs the input.
-            The actual input component can be any material ui input component.
+            <br />
+            The &quot;onSave&quot; handler is only triggered
+            if the changes are confirmed by the user via blur or enter.
+            <br />
+            The used HoCs support any material ui input and text field component.
           </Typography>
           <CustomControlledInput
             originalValue="42"
