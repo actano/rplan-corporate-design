@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => {
       padding: theme.spacing(0.25, 3, 0.25, 1),
 
       '&:focus': {
-        backgroundColor: colors.veryLightGrey,
+        backgroundColor: 'transparent',
       },
     },
     dropdownIcon: {
