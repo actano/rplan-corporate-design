@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => {
       lineHeight: 1.54,
       fontSize: '0.8125rem',
       fontWeight: 'normal',
+      borderStyle: 'none',
 
       color: colors.darkestGrey,
-      borderStyle: 'none',
 
       '&:after': {
         content: 'none',
@@ -34,12 +34,20 @@ const useStyles = makeStyles((theme) => {
         content: 'none',
       },
     },
+    selectOutlined: {
+      border: `1px solid ${colors.lightGrey}`,
+      borderRadius: '2px',
+      padding: theme.spacing(1),
+    },
     selectElement: {
       padding: theme.spacing(0.25, 3, 0.25, 1),
 
       '&:focus': {
         backgroundColor: 'transparent',
       },
+    },
+    selectElementOutlined: {
+      padding: theme.spacing(0.25, 4, 0.25, 0),
     },
     dropdownIcon: {
       color: colors.lightGrey,
@@ -85,6 +93,7 @@ const _Select = ({
   onChange,
   onClick,
   disabled,
+  variant,
 }) => {
   const ownClasses = useStyles()
   const _onChange = useCallback(
@@ -97,14 +106,20 @@ const _Select = ({
   // This state handling is needed to prevent the tooltip staying open when the select is opened
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
 
+  const isOutlined = variant === 'outlined'
+
   return (
     <FormControl className={classnames(className, ownClasses.value)} disabled={disabled}>
       <CommonTooltip title={tooltipText} open={isTooltipOpen}>
         <Select
           value={value}
-          className={ownClasses.select}
+          className={classnames(ownClasses.select, isOutlined && ownClasses.selectOutlined)}
           classes={{
-            select: classnames(ownClasses.selectElement, classes.select),
+            select: classnames(
+              ownClasses.selectElement,
+              isOutlined && ownClasses.selectElementOutlined,
+              classes.select,
+            ),
             icon: ownClasses.dropdownIcon,
           }}
           onChange={_onChange}
@@ -140,6 +155,7 @@ _Select.propTypes = {
     id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   })).isRequired,
+  variant: PropTypes.oneOf(['default', 'outlined']),
   value: PropTypes.string.isRequired,
   classes: PropTypes.object,
   className: PropTypes.string,
@@ -150,6 +166,7 @@ _Select.propTypes = {
 }
 
 _Select.defaultProps = {
+  variant: 'default',
   classes: {},
   className: undefined,
   tooltipText: '',
