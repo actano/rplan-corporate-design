@@ -6,6 +6,7 @@ export * from './icons'
 export * from './buttons'
 export * from './badges'
 export * from './inputs'
+export * from './selects'
 export * from './date-pickers'
 
 export default themeConfig

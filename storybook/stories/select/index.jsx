@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { Grid, Typography, MenuItem } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 
-import { OutlinedSelect } from '../../../src/components/outlined-select'
 import { Providers } from '../providers'
-import { Select } from '../../../src'
+import { Select, OutlinedSelect } from '../../../src'
 
 const options = [
   {

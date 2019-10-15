@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-import { CommonTooltip } from './common-tooltip'
+import { CommonTooltip } from '../components/common-tooltip'
 
 const useStyles = makeStyles((theme) => {
   const { colors } = theme.palette
