@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => {
       height: selectIconHeight,
       top: `calc(50% - (${selectIconHeight}px/2))`,
     },
+    dropdownIconOutlined: {
+      marginRight: theme.spacing(0.25)
+    },
     selectMenuItem: {
       fontSize: '0.8125rem',
       padding: theme.spacing(0.5, 2),
@@ -120,7 +123,10 @@ const _Select = ({
               isOutlined && ownClasses.selectElementOutlined,
               classes.select,
             ),
-            icon: ownClasses.dropdownIcon,
+            icon: classnames(
+              ownClasses.dropdownIcon,
+              isOutlined && ownClasses.dropdownIconOutlined,
+            ),
           }}
           onChange={_onChange}
           IconComponent={ExpandIcon}
