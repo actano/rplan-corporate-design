@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => {
       top: `calc(50% - (${selectIconHeight}px/2))`,
     },
     dropdownIconOutlined: {
-      marginRight: theme.spacing(0.25)
+      marginRight: theme.spacing(0.25),
     },
     selectMenuItem: {
       fontSize: '0.8125rem',
