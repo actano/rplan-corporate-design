@@ -43,6 +43,9 @@ const themeConfig = {
       paragraph: COLOR_NAMES.darkGrey,
       hint: COLOR_NAMES.grey,
       success: COLOR_NAMES.green,
+      secondary: COLOR_NAMES.darkGrey,
+      disabled: COLOR_NAMES.grey,
+      primary: COLOR_NAMES.black,
     },
     error: {
       main: COLOR_NAMES.red,
