@@ -6,7 +6,7 @@ import { InputWithLabel } from '../inputs/input-with-label'
 
 const ChangeOnAcceptDatePicker = (props) => {
   const {
-    value, onSelectDate, label, ...otherProps
+    value, onSelectDate, label, minDate, maxDate, ...otherProps
   } = props
   const [date, setDate] = useState(null)
 
@@ -37,8 +37,8 @@ const ChangeOnAcceptDatePicker = (props) => {
         onClose={onClose}
         value={date != null ? date : value}
         format="dd.MM.yyyy"
-        minDate="1000-01-01"
-        maxDate="2900-01-01"
+        minDate={minDate}
+        maxDate={maxDate}
       />
     </InputWithLabel>
   )
@@ -48,11 +48,15 @@ ChangeOnAcceptDatePicker.propTypes = {
   value: PropTypes.string,
   onSelectDate: PropTypes.func,
   label: PropTypes.string.isRequired,
+  minDate: PropTypes.string,
+  maxDate: PropTypes.string,
 }
 
 ChangeOnAcceptDatePicker.defaultProps = {
   value: undefined,
   onSelectDate: () => {},
+  minDate: '1000-01-01',
+  maxDate: '2900-01-01',
 }
 
 export { ChangeOnAcceptDatePicker }
