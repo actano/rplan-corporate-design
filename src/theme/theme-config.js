@@ -259,6 +259,13 @@ const themeConfig = {
         backgroundColor: rgbaString(COLOR_NAMES.veryDarkBlue, 0.9),
       },
     },
+    MuiInputBase: {
+      input: {
+        '&::placeholder': {
+          color: COLOR_NAMES.grey,
+        },
+      },
+    },
   },
 }
 
