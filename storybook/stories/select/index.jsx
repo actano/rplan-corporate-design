@@ -107,6 +107,41 @@ const inputStories = () => {
               >
                 <Grid item>
                   <Typography variant="h3" align="left">
+                    Outlined Select Full Width (Light)
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <div style={{ width: '250px' }}>
+                    <SelectStateWrapper
+                      options={options}
+                      tooltipText="Change from first to second"
+                      disabled={false}
+                      variant="outlined"
+                      fullWidth
+                    />
+                  </div>
+                </Grid>
+                <Grid item>
+                  <div style={{ width: '250px' }}>
+                    <SelectStateWrapper
+                      options={options}
+                      tooltipText="Disabled select"
+                      disabled
+                      variant="outlined"
+                      fullWidth
+                    />
+                  </div>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid
+                container
+                spacing={2}
+                direction="column"
+              >
+                <Grid item>
+                  <Typography variant="h3" align="left">
                     Outlined Select
                   </Typography>
                 </Grid>

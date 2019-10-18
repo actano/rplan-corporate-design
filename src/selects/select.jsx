@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => {
         content: 'none',
       },
     },
+    fullWidth: {
+      width: '100%',
+    },
     selectOutlined: {
       border: `1px solid ${colors.lightGrey}`,
       borderRadius: '2px',
@@ -97,6 +100,7 @@ const _Select = ({
   onClick,
   disabled,
   variant,
+  fullWidth,
 }) => {
   const ownClasses = useStyles()
   const _onChange = useCallback(
@@ -116,7 +120,13 @@ const _Select = ({
       <CommonTooltip title={tooltipText} open={isTooltipOpen}>
         <Select
           value={value}
-          className={classnames(ownClasses.select, isOutlined && ownClasses.selectOutlined)}
+          className={
+            classnames(
+              ownClasses.select,
+              isOutlined && ownClasses.selectOutlined,
+              fullWidth && ownClasses.fullWidth,
+            )
+          }
           classes={{
             select: classnames(
               ownClasses.selectElement,
@@ -161,6 +171,7 @@ _Select.propTypes = {
     id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   })).isRequired,
+  fullWidth: PropTypes.bool,
   variant: PropTypes.oneOf(['default', 'outlined']),
   value: PropTypes.string.isRequired,
   classes: PropTypes.object,
@@ -173,6 +184,7 @@ _Select.propTypes = {
 
 _Select.defaultProps = {
   variant: 'default',
+  fullWidth: false,
   classes: {},
   className: undefined,
   tooltipText: '',
