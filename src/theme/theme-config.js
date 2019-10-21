@@ -262,7 +262,7 @@ const themeConfig = {
     MuiInputBase: {
       input: {
         '&::placeholder': {
-          color: COLOR_NAMES.grey,
+          color: COLOR_NAMES.darkestGrey,
         },
       },
     },
