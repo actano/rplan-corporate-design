@@ -10,6 +10,7 @@ const COLOR_NAMES = {
   black: '#11141C',
   lightestBlue: '#EAEFFE',
   lightBlue: '#EAEFFE', // alternative name for backwards compatibility
+  lighterBlue: '#ACBBFD',
   paleBlue: '#7B9AFE',
   blue: '#527BFE',
   strongerBlue: '#466ADA',
