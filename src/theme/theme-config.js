@@ -8,9 +8,9 @@ const COLOR_NAMES = {
   darkGrey: '#5F6887',
   darkestGrey: '#414A69',
   black: '#11141C',
-  lightestBlue: '#EBF0FF',
-  lightBlue: '#EAEFFE',
-  paleBlue: '#7D9CFE',
+  lightestBlue: '#EAEFFE',
+  lightBlue: '#EAEFFE', // alternative name for backwards compatibility
+  paleBlue: '#7B9AFE',
   blue: '#527BFE',
   strongerBlue: '#466ADA',
   darkBlue: '#354A90',
