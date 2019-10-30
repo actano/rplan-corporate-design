@@ -1,7 +1,8 @@
 import React, { useCallback, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { DatePicker as DatePickerMui, MuiPickersContext } from '@material-ui/pickers'
-import { testIdProp } from '@rplan/testhelpers-webclient'
+
+import { testIdProp } from '../utils/test-id-prop'
 
 const DatePicker = ({
   leftArrowButtonProps,
