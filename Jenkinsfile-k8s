@@ -9,7 +9,11 @@ pipeline {
       steps {
         ansiColor('xterm') {
           container('nodejs') {
-            sh "yarn install"
+            script {
+              npm.withAuth() {
+                sh "yarn install"
+              }
+            }
           }
         }
       }
@@ -18,7 +22,11 @@ pipeline {
       steps {
         ansiColor('xterm') {
           container('nodejs') {
-            sh "yarn lint"
+            script {
+              npm.withAuth() {
+                sh "yarn lint"
+              }
+            }
           }
         }
       }
@@ -27,7 +35,11 @@ pipeline {
       steps {
         ansiColor('xterm') {
           container('nodejs') {
-            sh "yarn test"
+            script {
+              npm.withAuth() {
+                sh "yarn test"
+              }
+            }
           }
         }
       }

@@ -1,10 +1,21 @@
+FROM node:10 as install
+ARG NPM_TOKEN
+
+WORKDIR /build
+
+RUN echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
+
+COPY yarn.lock yarn.lock
+COPY package.json package.json
+RUN yarn install --frozen-lockfile
+
 FROM node:10 as build
 
 WORKDIR /build
 
-COPY package.json yarn.lock ./
-
-RUN yarn install
+COPY --from=install /build/node_modules /build/node_modules
+COPY --from=install /build/package.json /build
+COPY --from=install /build/yarn.lock /build
 
 COPY storybook storybook
 COPY src src
