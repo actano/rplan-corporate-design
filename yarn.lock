@@ -1517,11 +1517,6 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rplan/testhelpers-webclient@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@rplan/testhelpers-webclient/-/testhelpers-webclient-2.1.0.tgz#db3fd14650c27aa95acac207d8f1a4f9f41516ed"
-  integrity sha512-NdSsA5BhtRrug1KmbZmA9Np+nH286z0+G2dUpxwEQkBybxKrgNnXAMy6S8Uq8/XOTJGQkHPZ9DIIvXYzO/vmZw==
-
 "@sinonjs/commons@^1", "@sinonjs/commons@^1.3.0", "@sinonjs/commons@^1.4.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.6.0.tgz#ec7670432ae9c8eb710400d112c201a362d83393"
