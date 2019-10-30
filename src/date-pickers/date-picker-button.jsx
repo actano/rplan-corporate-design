@@ -1,8 +1,9 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
-import { DatePicker } from '@material-ui/pickers'
 import { makeStyles } from '@material-ui/styles'
+
+import { DatePicker } from './date-picker'
 
 const useStyles = makeStyles(() => ({
   root: {},

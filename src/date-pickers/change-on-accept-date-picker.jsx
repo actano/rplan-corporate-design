@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { DatePicker } from '@material-ui/pickers'
 
 import { InputWithLabel } from '../inputs/input-with-label'
+import { DatePicker } from './date-picker'
 
 const ChangeOnAcceptDatePicker = (props) => {
   const {
