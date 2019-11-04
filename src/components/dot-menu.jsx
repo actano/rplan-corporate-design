@@ -54,7 +54,9 @@ function extendCallback(originalCallback, extension) {
   }
 }
 
-const DotMenu = React.forwardRef(({ className, classes, children }, ref) => {
+const DotMenu = React.forwardRef(({
+  className, classes, children, buttonProps,
+}, ref) => {
   const [menuAnchor, setMenuAnchor] = useState()
 
   const openDotMenu = useCallback(
@@ -95,6 +97,7 @@ const DotMenu = React.forwardRef(({ className, classes, children }, ref) => {
         onClick={openDotMenu}
         className={classes.button}
         size="small"
+        {...buttonProps}
       >
         <DotIcon />
       </IconButton>
@@ -118,12 +121,14 @@ DotMenu.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object,
   children: PropTypes.node,
+  buttonProps: PropTypes.object,
 }
 
 DotMenu.defaultProps = {
   className: undefined,
   classes: {},
   children: undefined,
+  buttonProps: {},
 }
 
 export { DotMenu, DotMenuItem }
