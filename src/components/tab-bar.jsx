@@ -4,6 +4,7 @@ import classnames from 'classnames'
 
 import { Tab, Tabs } from '@material-ui/core'
 import withStyles from '@material-ui/core/styles/withStyles'
+import { testIdProp } from '../utils/test-id-prop'
 
 const styles = (theme) => {
   const { colors } = theme.palette
@@ -47,6 +48,7 @@ const _TabBar = ({
           classes={{
             root: classes.menuEntryRoot,
           }}
+          {...testIdProp(tab.testId)}
         />
       ))
     }
@@ -58,6 +60,7 @@ _TabBar.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
+      testId: PropTypes.string,
     }),
   ).isRequired,
   selectedTabIndex: PropTypes.number,
