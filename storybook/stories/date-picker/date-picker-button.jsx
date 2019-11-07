@@ -24,6 +24,9 @@ const datePickerButtonStory = () =>
             This component shows a date picker calendar when any given button is pressed.
           </Typography>
           <DatePickerButton
+            pickerProps={{
+              value: '2019-01-25',
+            }}
             renderButton={showPicker => (
               <PrimaryButton onClick={showPicker}>
                 Show Picker

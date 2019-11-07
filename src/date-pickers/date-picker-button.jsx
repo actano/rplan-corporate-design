@@ -15,6 +15,7 @@ const useStyles = makeStyles(() => ({
 const DatePickerButton = ({
   onSelectDate,
   renderButton,
+  pickerProps,
   className,
 }) => {
   const classes = useStyles()
@@ -33,6 +34,7 @@ const DatePickerButton = ({
   return (
     <div className={classnames(classes.root, className)}>
       <DatePicker
+        {...pickerProps}
         className={classes.datePicker}
         variant="dialog"
         open={datePickerVisible}
@@ -50,11 +52,13 @@ const DatePickerButton = ({
 DatePickerButton.propTypes = {
   renderButton: PropTypes.func.isRequired,
   onSelectDate: PropTypes.func.isRequired,
+  pickerProps: PropTypes.shape({}),
   className: PropTypes.string,
 }
 
 DatePickerButton.defaultProps = {
   className: undefined,
+  pickerProps: undefined,
 }
 
 export { DatePickerButton }
