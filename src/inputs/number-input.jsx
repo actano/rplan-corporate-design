@@ -11,7 +11,7 @@ export const NumberInput = (props) => {
     onSave,
     ...otherProps
   } = props
-  const [controlledNumberValue, setControlledNumberValue] = useState(null)
+  const [controlledNumberValue, setControlledNumberValue] = useState(originalNumberValue)
 
   useEffect(
     () => {
