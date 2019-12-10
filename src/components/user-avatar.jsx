@@ -52,6 +52,9 @@ const _UserAvatar = ({
     setGravatarNotFound(false)
   }, [email])
 
+  const avatarSize = AVATAR_SIZES[size]
+  const requestedGravatarSize = avatarSize * 2
+
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
@@ -60,8 +63,10 @@ const _UserAvatar = ({
             <img
               alt={email}
               className={classes.gravatar}
-              src={gravatar.url(email, { s: AVATAR_SIZES[size], d: 404 }, true)}
+              src={gravatar.url(email, { s: requestedGravatarSize, d: 404 }, true)}
               onError={() => setGravatarNotFound(true)}
+              width={avatarSize}
+              height={avatarSize}
             />
           )
       }
