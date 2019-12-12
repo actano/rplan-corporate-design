@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 
 import { UserAvatar } from './user-avatar'
@@ -12,9 +13,11 @@ const useStyles = makeStyles(() => ({
 }))
 
 const UserAvatarWithPlaceholder = ({
-  onClick, user, classes, size,
+  className, onClick, user, classes, size,
 }) => {
   const ownClasses = useStyles({ isClickable: !!onClick })
+  const combinedClassNames = classnames(className, ownClasses.avatar)
+
   return (
     <div
       role="presentation"
@@ -24,7 +27,7 @@ const UserAvatarWithPlaceholder = ({
         user
           ? (
             <UserAvatar
-              className={ownClasses.avatar}
+              className={combinedClassNames}
               firstName={user.firstName}
               lastName={user.lastName}
               email={user.email}
@@ -32,7 +35,7 @@ const UserAvatarWithPlaceholder = ({
             />
           ) : (
             <UserAvatarPlaceholder
-              className={ownClasses.avatar}
+              className={combinedClassNames}
               classes={classes}
               size={size}
             />
@@ -43,6 +46,7 @@ const UserAvatarWithPlaceholder = ({
 }
 
 UserAvatarWithPlaceholder.propTypes = {
+  className: PropTypes.string,
   onClick: PropTypes.func,
   user: PropTypes.shape({
     firstName: PropTypes.string,
@@ -54,6 +58,7 @@ UserAvatarWithPlaceholder.propTypes = {
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
+  className: '',
   onClick: undefined,
   user: null,
   classes: {},
