@@ -139,6 +139,7 @@ const _Select = ({
           onMouseEnter={() => setIsTooltipOpen(true)}
           onMouseLeave={() => setIsTooltipOpen(false)}
           onClick={(event) => {
+            event.stopPropagation()
             setIsTooltipOpen(false)
             onClick(event)
           }}
