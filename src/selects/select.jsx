@@ -10,18 +10,18 @@ import { CommonTooltip } from '../components/common-tooltip'
 
 const useStyles = makeStyles((theme) => {
   const { colors } = theme.palette
+  const selectIconHeight = theme.spacing(2)
 
-  const selectIconHeight = theme.spacing(3)
   return {
     value: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
     },
-    select: {
+    select: ({ size }) => ({
       flex: 'none',
       lineHeight: 1.54,
-      fontSize: '0.8125rem',
+      fontSize: (size === 'regular' ? '0.8125rem' : '0.75rem'),
       fontWeight: 'normal',
       borderStyle: 'none',
 
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => {
       '&:before': {
         content: 'none',
       },
-    },
+    }),
     fullWidth: {
       width: '100%',
     },
@@ -42,18 +42,18 @@ const useStyles = makeStyles((theme) => {
       borderRadius: '2px',
       padding: theme.spacing(1),
     },
-    selectElement: {
-      padding: theme.spacing(0.25, 3, 0.25, 1),
+    selectElement: ({ size }) => ({
+      padding: size === 'regular' ? theme.spacing(0.25, 3, 0.25, 1) : theme.spacing(0.25, 2.5, 0.25, 0.25),
 
       '&:focus': {
         backgroundColor: 'transparent',
       },
-    },
-    selectElementOutlined: {
+    }),
+    selectElementOutlined: () => ({
       padding: theme.spacing(0.25, 4, 0.25, 0),
-    },
+    }),
     dropdownIcon: {
-      color: colors.lightGrey,
+      color: colors.grey,
       width: selectIconHeight,
       height: selectIconHeight,
       top: `calc(50% - (${selectIconHeight}px/2))`,
@@ -61,32 +61,27 @@ const useStyles = makeStyles((theme) => {
     dropdownIconOutlined: {
       marginRight: theme.spacing(0.25),
     },
-    selectMenuItem: {
-      fontSize: '0.8125rem',
-      padding: theme.spacing(0.5, 2),
+    selectMenuItem: ({ size }) => ({
+      fontSize: size === 'regular' ? '0.8125rem' : '0.75rem',
+      padding: size === 'regular' ? theme.spacing(0.5, 2) : theme.spacing(0.5),
       color: colors.darkGrey,
-
       '&:hover': {
         backgroundColor: colors.veryLightGrey,
       },
-
       '&:focus': {
         backgroundColor: colors.veryLightGrey,
       },
-
       '&$selectMenuItemSelected': {
         backgroundColor: colors.lightGrey,
-
         '&:hover': {
           backgroundColor: colors.lightGrey,
         },
-
         '&:focus': {
           backgroundColor: colors.lightGrey,
         },
       },
-    },
-    selectMenuItemSelected: {},
+    }),
+    selectMenuItemSelected: () => ({}),
   }
 })
 
@@ -101,8 +96,9 @@ const _Select = ({
   disabled,
   variant,
   fullWidth,
+  size,
 }) => {
-  const ownClasses = useStyles()
+  const ownClasses = useStyles({ size })
   const _onChange = useCallback(
     (event) => {
       onChange(event.target.value)
@@ -180,6 +176,7 @@ _Select.propTypes = {
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  size: PropTypes.oneOf(['regular', 'small']),
 }
 
 _Select.defaultProps = {
@@ -191,6 +188,7 @@ _Select.defaultProps = {
   onChange: () => {},
   onClick: () => {},
   disabled: false,
+  size: 'regular',
 }
 
 export {

@@ -49,7 +49,7 @@ const inputStories = () => {
               >
                 <Grid item>
                   <Typography variant="h3" align="left">
-                      Select
+                    Select (regular)
                   </Typography>
                 </Grid>
                 <form>
@@ -65,6 +65,37 @@ const inputStories = () => {
                       options={options}
                       tooltipText="Disabled select"
                       disabled
+                    />
+                  </Grid>
+                </form>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid
+                container
+                spacing={2}
+                direction="column"
+              >
+                <Grid item>
+                  <Typography variant="h3" align="left">
+                    Select (small)
+                  </Typography>
+                </Grid>
+                <form>
+                  <Grid item>
+                    <SelectStateWrapper
+                      options={options}
+                      tooltipText="Change from first to second"
+                      disabled={false}
+                      size="small"
+                    />
+                  </Grid>
+                  <Grid item>
+                    <SelectStateWrapper
+                      options={options}
+                      tooltipText="Disabled select"
+                      disabled
+                      size="small"
                     />
                   </Grid>
                 </form>
