@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext js,jsx src test storybook",
-    "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\"",
+    "test": "mocha --exit \"test/**/*.unit.jsx\" \"test/**/*.unit.js\"",
     "storybook": "start-storybook -c ./storybook/config -p 8085",
     "build-storybook": "build-storybook -c ./storybook/config"
   },
