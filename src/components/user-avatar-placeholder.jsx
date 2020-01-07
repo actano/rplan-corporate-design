@@ -24,6 +24,18 @@ const useStyles = makeStyles(theme => ({
     width: `${theme.spacing(7)}px`,
     height: `${theme.spacing(7)}px`,
   },
+  // A icon font size of 18px results in a hight of 12px for the very person,
+  // as wished for 'small' in https://actano.atlassian.net/browse/PA-2755 .
+  // The other values are proportional to the avatar width/height.
+  'person-small': {
+    fontSize: '18px',
+  },
+  'person-small-2': {
+    fontSize: `${18 * 1.25}px`,
+  },
+  'person-regular': {
+    fontSize: `${18 * 1.75}px`,
+  },
 }))
 
 const UserAvatarPlaceholder = (props) => {
@@ -41,7 +53,7 @@ const UserAvatarPlaceholder = (props) => {
       )}
       classes={{ colorDefault: color }}
     >
-      <Person />
+      <Person className={classnames(classes[`person-${props.size}`])} />
     </Avatar>
   )
 }
