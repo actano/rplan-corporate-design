@@ -16,3 +16,4 @@ export { MultilineExpansionPanelSummary } from './multiline-expansion-panel-summ
 export { NonCollapsingExpansionPanelSummary } from './non-collapsing-expansion-panel-summary'
 export { Skeleton } from './skeleton'
 export { DueDateStatus, DUE_DATE_STATUS } from './due-date-status'
+export { AllexLogo } from './allex-logo'
