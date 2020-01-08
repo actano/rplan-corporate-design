@@ -109,7 +109,7 @@ const inputStories = () => {
               >
                 <Grid item>
                   <Typography variant="h3" align="left">
-                    Outlined Select (Light)
+                    Outlined Select
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -138,7 +138,7 @@ const inputStories = () => {
               >
                 <Grid item>
                   <Typography variant="h3" align="left">
-                    Outlined Select Full Width (Light)
+                    Outlined Select Full Width
                   </Typography>
                 </Grid>
                 <Grid item>

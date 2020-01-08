@@ -145,7 +145,7 @@ const CommonSelect = ({
           <InputLabel ref={inputLabel} htmlFor={inputId}>
             { label }
           </InputLabel>
-        ) : null }
+        ) : undefined }
         <Select
           value={value}
           className={
