@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 import themeConfig from '../../../src'
-import { WarningIcon } from '../../../src/icons'
+import { WarningIcon, WarningIconWithTooltip } from '../../../src/icons'
 
 const theme = createMuiTheme(themeConfig)
 
@@ -24,11 +24,21 @@ export const iconStories = () => {
           >
             <Grid item>
               <Typography variant="h5" align="left">
-                WarningIcon
+                Warning Icon
               </Typography>
               <Grid container spacing={1} direction="row">
                 <Grid item>
                   <WarningIcon />
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Typography variant="h5" align="left">
+                  Warning Icon With Tooltip
+                </Typography>
+                <Grid container spacing={1} direction="row">
+                  <Grid item>
+                    <WarningIconWithTooltip tooltipText="A description of the warning" />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
