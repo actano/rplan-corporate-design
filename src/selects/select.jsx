@@ -85,6 +85,10 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
+/**
+ * @deprecated This component is deprecated and will be removed soon.
+ * Please use CommonSelect instead.
+ */
 const _Select = ({
   options,
   value,

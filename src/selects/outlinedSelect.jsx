@@ -19,6 +19,11 @@ const useOutlinedSelectStyles = makeStyles(() => ({
 // This code implements an outlined select as suggested by the official material ui docs. There
 // doesn't seem to be an easier encapsulation by material ui itself at the moment. Using the
 // documented variant="outlined" doesn't work. See https://github.com/mui-org/material-ui/issues/14203
+
+/**
+ * @deprecated This component is deprecated and will be removed soon.
+ * Please use CommonSelect with variant outlined instead.
+ */
 const OutlinedSelect = ({
   className, children, margin, label, ...props
 }) => {
