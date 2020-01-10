@@ -140,12 +140,18 @@ const CommonSelect = ({
 
   return (
     <CommonTooltip title={tooltipText} open={isTooltipOpen}>
-      <FormControl variant="outlined" className={classnames(className, ownClasses.value)} disabled={disabled}>
-        {isOutlined ? (
-          <InputLabel ref={inputLabel} htmlFor={inputId}>
-            { label }
-          </InputLabel>
-        ) : undefined }
+      <FormControl
+        variant={isOutlined ? 'outlined' : undefined}
+        className={classnames(className, ownClasses.value)}
+        disabled={disabled}
+      >
+        {
+          isOutlined ? (
+            <InputLabel ref={inputLabel} htmlFor={inputId}>
+              { label }
+            </InputLabel>
+          ) : undefined
+        }
         <Select
           value={value}
           className={
@@ -166,13 +172,15 @@ const CommonSelect = ({
               isOutlined && ownClasses.dropdownIconOutlined,
             ),
           }}
-          input={isOutlined ? (
-            <OutlinedInput
-              variant="outlined"
-              labelWidth={labelWidth}
-              id={inputId}
-            />
-          ) : undefined}
+          input={
+            isOutlined ? (
+              <OutlinedInput
+                variant="outlined"
+                labelWidth={labelWidth}
+                id={inputId}
+              />
+            ) : undefined
+          }
           onChange={_onChange}
           IconComponent={ExpandIcon}
           onMouseEnter={() => setIsTooltipOpen(true)}
@@ -195,7 +203,8 @@ const CommonSelect = ({
               >
                 {option.value}
               </MenuItem>
-            ))}
+            ))
+          }
         </Select>
       </FormControl>
     </CommonTooltip>
