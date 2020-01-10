@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => {
       flexDirection: 'row',
       alignItems: 'center',
     },
-    select: ({ size }) => ({
+    select: ({ size, isOutlined, fullWidth }) => ({
       flex: 'none',
       lineHeight: 1.54,
       fontSize: (size === 'regular' ? '0.8125rem' : '0.75rem'),
@@ -31,42 +31,56 @@ const useStyles = makeStyles((theme) => {
 
       color: colors.darkestGrey,
 
-      '&:after': {
-        content: 'none',
-      },
-      '&:before': {
-        content: 'none',
-      },
-    }),
-    fullWidth: {
-      width: '100%',
-    },
-    selectOutlined: {
-      border: `1px solid ${colors.lightGrey}`,
-      borderRadius: '2px',
-      padding: theme.spacing(1.5),
-    },
-    selectElement: ({ size }) => ({
-      padding: size === 'regular' ? theme.spacing(0.25, 3, 0.25, 1) : theme.spacing(0.25, 2.5, 0.25, 0.25),
+      ...(
+        fullWidth ? {
+          width: '100%',
+        } : {}
+      ),
 
+      ...(
+        isOutlined ? {
+          border: `1px solid ${colors.lightGrey}`,
+          borderRadius: '2px',
+          padding: theme.spacing(1.5),
+        } : {
+          '&:after': {
+            content: 'none',
+          },
+          '&:before': {
+            content: 'none',
+          },
+        }
+      ),
+    }),
+    selectElement: ({ size, isOutlined }) => ({
       '&:focus': {
         backgroundColor: 'transparent',
       },
+
+      ...(
+        isOutlined ? {
+          padding: theme.spacing(0.25, 4, 0.25, 0),
+          color: colors.darkestGrey,
+          backgroundColor: 'transparent',
+        } : {
+          padding: size === 'regular'
+            ? theme.spacing(0.25, 3, 0.25, 1)
+            : theme.spacing(0.25, 2.5, 0.25, 0.25),
+        }
+      ),
     }),
-    selectElementOutlined: () => ({
-      padding: theme.spacing(0.25, 4, 0.25, 0),
-      color: colors.darkestGrey,
-      backgroundColor: 'transparent',
-    }),
-    dropdownIcon: {
+    dropdownIcon: ({ isOutlined }) => ({
       color: colors.grey,
       width: selectIconHeight,
       height: selectIconHeight,
       top: `calc(50% - (${selectIconHeight}px/2))`,
-    },
-    dropdownIconOutlined: {
-      marginRight: theme.spacing(1),
-    },
+
+      ...(
+        isOutlined ? {
+          marginRight: theme.spacing(1),
+        } : {}
+      ),
+    }),
     selectMenuItem: ({ size }) => ({
       fontSize: size === 'regular' ? '0.8125rem' : '0.75rem',
       padding: size === 'regular' ? theme.spacing(0.5, 2) : theme.spacing(0.5),
@@ -105,7 +119,8 @@ const CommonSelect = ({
   size,
   label,
 }) => {
-  const ownClasses = useStyles({ size })
+  const isOutlined = variant === 'outlined'
+  const ownClasses = useStyles({ size, isOutlined, fullWidth })
   const _onChange = useCallback(
     (event) => {
       onChange(event.target.value)
@@ -136,7 +151,6 @@ const CommonSelect = ({
     [],
   )
 
-  const isOutlined = variant === 'outlined'
 
   return (
     <CommonTooltip title={tooltipText} open={isTooltipOpen}>
@@ -157,20 +171,14 @@ const CommonSelect = ({
           className={
             classnames(
               ownClasses.select,
-              isOutlined && ownClasses.selectOutlined,
-              fullWidth && ownClasses.fullWidth,
             )
           }
           classes={{
             select: classnames(
               ownClasses.selectElement,
-              isOutlined && ownClasses.selectElementOutlined,
               classes.select,
             ),
-            icon: classnames(
-              ownClasses.dropdownIcon,
-              isOutlined && ownClasses.dropdownIconOutlined,
-            ),
+            icon: ownClasses.dropdownIcon,
           }}
           input={
             isOutlined ? (
