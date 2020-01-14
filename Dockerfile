@@ -1,4 +1,4 @@
-FROM node:10 as install
+FROM node:12 as install
 ARG NPM_TOKEN
 
 WORKDIR /build
@@ -9,7 +9,7 @@ COPY yarn.lock yarn.lock
 COPY package.json package.json
 RUN yarn install --frozen-lockfile
 
-FROM node:10 as build
+FROM node:12 as build
 
 WORKDIR /build
 
