@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core'
+import { RootButton } from './root-button'
 
 const PrimaryButton = ({ children, ...otherProps }) => (
-  <Button
+  <RootButton
     {...otherProps}
     variant="contained"
     color="primary"
   >
     { children }
-  </Button>
+  </RootButton>
 )
 
 PrimaryButton.propTypes = {

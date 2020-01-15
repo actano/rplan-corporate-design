@@ -35,6 +35,11 @@ const buttonStories = () => {
                     Disabled Primary Button
                   </PrimaryButton>
                 </Grid>
+                <Grid item>
+                  <PrimaryButton size="small">
+                    Small Primary Button
+                  </PrimaryButton>
+                </Grid>
               </Grid>
             </Grid>
             <Grid item>
@@ -50,6 +55,11 @@ const buttonStories = () => {
                 <Grid item>
                   <SecondaryButton disabled>
                     Disabled Secondary Button
+                  </SecondaryButton>
+                </Grid>
+                <Grid item>
+                  <SecondaryButton size="small">
+                    Small Secondary Button
                   </SecondaryButton>
                 </Grid>
               </Grid>
@@ -69,6 +79,11 @@ const buttonStories = () => {
                     Disabled Tertiary Button
                   </TertiaryButton>
                 </Grid>
+                <Grid item>
+                  <TertiaryButton size="small">
+                    Small Tertiary Button
+                  </TertiaryButton>
+                </Grid>
               </Grid>
             </Grid>
             <Grid item>
@@ -84,6 +99,11 @@ const buttonStories = () => {
                 <Grid item>
                   <DangerousButton disabled>
                     Disabled Dangerous Button
+                  </DangerousButton>
+                </Grid>
+                <Grid item>
+                  <DangerousButton size="small">
+                    Small Dangerous Button
                   </DangerousButton>
                 </Grid>
               </Grid>

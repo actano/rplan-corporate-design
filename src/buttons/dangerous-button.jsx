@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
-import { Button } from '@material-ui/core'
+import { RootButton } from './root-button'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,14 +17,14 @@ const DangerousButton = ({ children, className, ...otherProps }) => {
   const classes = useStyles()
 
   return (
-    <Button
+    <RootButton
       variant="contained"
       color="secondary"
       className={classnames(classes.root, className)}
       {...otherProps}
     >
       { children }
-    </Button>
+    </RootButton>
   )
 }
 

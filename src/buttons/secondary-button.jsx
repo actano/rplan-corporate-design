@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button } from '@material-ui/core'
+import { RootButton } from './root-button'
 
 const SecondaryButton = ({ children, ...otherProps }) => (
-  <Button
+  <RootButton
     {...otherProps}
     variant="outlined"
     color="secondary"
   >
     { children }
-  </Button>
+  </RootButton>
 )
 
 SecondaryButton.propTypes = {
