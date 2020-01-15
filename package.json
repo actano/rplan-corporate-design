@@ -19,6 +19,8 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/pickers": "^3.2.6",
     "@material-ui/styles": "^4.1.2",
+    "@mdi/js": "^4.7.95",
+    "@mdi/react": "^1.2.1",
     "classnames": "^2.2.6",
     "date-fns": "2.1.0",
     "gravatar": "^1.8.0",

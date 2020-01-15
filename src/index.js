@@ -8,5 +8,6 @@ export * from './badges'
 export * from './inputs'
 export * from './selects'
 export * from './date-pickers'
+export * from './checkboxes'
 
 export default themeConfig
