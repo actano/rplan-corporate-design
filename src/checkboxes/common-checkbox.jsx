@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Checkbox, makeStyles } from '@material-ui/core'
 import Icon from '@mdi/react'
 import { mdiCheckboxMarkedOutline } from '@mdi/js'
@@ -14,32 +13,38 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const CommonCheckbox = ({ checked, ...otherProps }) => {
-  const classes = useStyles()
+const CommonCheckbox = ({
+  checkedIcon, classes, ...otherProps
+}) => {
+  const styleClasses = useStyles()
+
+  const _checkedIcon = checkedIcon || (
+    <Icon
+      path={mdiCheckboxMarkedOutline}
+      className={styleClasses.checkboxChecked}
+    />
+  )
+
+  const _classes = classes || {
+    root: styleClasses.checkbox,
+  }
+
   return (
     <Checkbox
       {...otherProps}
-      checked={checked}
-      checkedIcon={(
-        <Icon
-          path={mdiCheckboxMarkedOutline}
-          className={classes.checkboxChecked}
-        />
-      )}
-      color="primary"
-      classes={{
-        root: classes.checkbox,
-      }}
+      checkedIcon={_checkedIcon}
+      classes={_classes}
     />
   )
 }
 
 CommonCheckbox.propTypes = {
-  checked: PropTypes.bool,
+  ...Checkbox.propTypes,
 }
 
 CommonCheckbox.defaultProps = {
-  checked: false,
+  ...Checkbox.defaultProps,
+  color: 'primary',
 }
 
 export { CommonCheckbox }
