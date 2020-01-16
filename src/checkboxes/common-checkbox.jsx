@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const CommonCheckbox = ({ isChecked, ...otherProps }) => {
+const CommonCheckbox = ({ checked, ...otherProps }) => {
   const classes = useStyles()
   return (
     <Checkbox
       {...otherProps}
-      checked={isChecked}
+      checked={checked}
       checkedIcon={(
         <Icon
           path={mdiCheckboxMarkedOutline}
@@ -35,11 +35,11 @@ const CommonCheckbox = ({ isChecked, ...otherProps }) => {
 }
 
 CommonCheckbox.propTypes = {
-  isChecked: PropTypes.bool,
+  checked: PropTypes.bool,
 }
 
 CommonCheckbox.defaultProps = {
-  isChecked: false,
+  checked: false,
 }
 
 export { CommonCheckbox }

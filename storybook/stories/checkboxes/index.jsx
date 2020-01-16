@@ -26,10 +26,10 @@ export const checkboxesStories = () => {
               </Typography>
               <Grid container spacing={2} direction="row">
                 <Grid item>
-                  <CommonCheckbox isChecked={false} />
+                  <CommonCheckbox checked={false} />
                 </Grid>
                 <Grid item>
-                  <CommonCheckbox isChecked />
+                  <CommonCheckbox checked />
                 </Grid>
               </Grid>
             </Grid>
