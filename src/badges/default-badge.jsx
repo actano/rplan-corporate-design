@@ -5,25 +5,24 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  root: ({ color }) => ({
     display: 'inline-block',
     color: theme.palette.colors.white,
     fontSize: '0.6875rem',
     fontWeight: 600,
-    backgroundColor: theme.palette.colors.blue,
+    backgroundColor: color || theme.palette.colors.blue,
     borderRadius: theme.spacing(0.25),
     height: theme.spacing(2.375),
     padding: `${theme.spacing(0.125)}px ${theme.spacing(0.625)}px`,
-  },
+  }),
 }))
 
 const DefaultBadge = ({ text, className, color }) => {
-  const classes = useStyles()
+  const classes = useStyles({ color })
 
   return (
     <Typography
       variant="body1"
-      style={color ? { background: color } : null}
       className={classnames(classes.root, className)}
     >
       { text }
@@ -39,7 +38,7 @@ DefaultBadge.propTypes = {
 
 DefaultBadge.defaultProps = {
   className: undefined,
-  color: null,
+  color: undefined,
 }
 
 export { DefaultBadge }
