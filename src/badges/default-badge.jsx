@@ -17,13 +17,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const DefaultBadge = ({ text, className, style }) => {
+const DefaultBadge = ({ text, className, color }) => {
   const classes = useStyles()
 
   return (
     <Typography
       variant="body1"
-      style={style}
+      style={color ? { background: color } : null}
       className={classnames(classes.root, className)}
     >
       { text }
@@ -34,12 +34,12 @@ const DefaultBadge = ({ text, className, style }) => {
 DefaultBadge.propTypes = {
   text: PropTypes.string.isRequired,
   className: PropTypes.string,
-  style: PropTypes.object,
+  color: PropTypes.string,
 }
 
 DefaultBadge.defaultProps = {
   className: undefined,
-  style: {},
+  color: null,
 }
 
 export { DefaultBadge }
