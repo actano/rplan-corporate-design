@@ -52,7 +52,9 @@ const createBlockquoteStyles = theme => ({
 
 const useStyles = makeStyles(theme => ({
   details: {
+    display: 'flex',
     outline: 'none',
+    cursor: 'pointer',
     ...createBlockquoteStyles(theme),
     ...createHeaderStyles('h', theme),
     ...createLinkStyles(theme),
@@ -236,7 +238,7 @@ export const RichTextInput = ({
 
   if (isEditorOpen) {
     return (
-      <div classes={cx(classes.details, className)}>
+      <div className={className}>
         <CKEditor
           editor={ClassicEditor}
           data={originalValue}
@@ -258,7 +260,7 @@ export const RichTextInput = ({
     <div
       role="button"
       tabIndex={0}
-      className={classes.details}
+      className={cx(classes.details, className)}
       onKeyPress={() => setIsEditorOpen(true)}
       onClick={() => setIsEditorOpen(true)}
       data-test-id={testId}
