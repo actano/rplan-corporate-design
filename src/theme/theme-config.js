@@ -72,6 +72,15 @@ const themeConfig = {
       disableRipple: true,
     },
   },
+  zIndex: {
+    mobileStepper: 900,
+    speedDial: 910,
+    appBar: 920,
+    drawer: 920,
+    modal: 950,
+    snackbar: 1000,
+    tooltip: 1100,
+  },
   overrides: {
     MuiButton: {
       root: {
