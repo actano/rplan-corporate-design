@@ -135,6 +135,7 @@ const useStyles = makeStyles(theme => ({
       '--ck-font-size-base': '0.8125rem',
       '--ck-line-height-base': 1.54,
       '--ck-font-face': theme.typography.fontFamily,
+      '--ck-z-modal': 1300,
 
       // taken from material-ui to make the dropdown box shadows consistent with others
       '--ck-drop-shadow': '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
@@ -169,6 +170,7 @@ const useStyles = makeStyles(theme => ({
 
 const baseEditorConfig = {
   copyFormatting_allowedContexts: true,
+  baseFloatZIndex: 1300,
   heading: {
     options: [
       {
