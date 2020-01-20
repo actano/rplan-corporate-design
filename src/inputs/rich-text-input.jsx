@@ -165,8 +165,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const placeholder = 'Add a description'
-
 const baseEditorConfig = {
   copyFormatting_allowedContexts: true,
   heading: {
