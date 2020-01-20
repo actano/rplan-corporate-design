@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import cx from 'classnames'
+import { testIdProp } from '../utils/test-id-prop'
 
 import { PrimaryButton, SecondaryButton } from '../buttons'
 
@@ -220,7 +221,11 @@ const baseEditorConfig = {
 }
 
 export const RichTextInput = ({
-  onSave, originalValue, testId, className, placeholder,
+  onSave,
+  originalValue,
+  className,
+  placeholder,
+  testIds,
 }) => {
   const classes = useStyles()
   const [isEditorOpen, setIsEditorOpen] = useState(false)
@@ -240,7 +245,10 @@ export const RichTextInput = ({
 
   if (isEditorOpen) {
     return (
-      <div className={className}>
+      <div
+        className={className}
+        {...testIdProp(testIds.editorContainer)}
+      >
         <CKEditor
           editor={ClassicEditor}
           data={originalValue}
@@ -248,10 +256,18 @@ export const RichTextInput = ({
           config={editorConfig}
         />
         <div className={classes.buttonContainer}>
-          <SecondaryButton className={classes.cancelButton} onClick={onCancelClick}>
+          <SecondaryButton
+            className={classes.cancelButton}
+            onClick={onCancelClick}
+            {...testIdProp(testIds.cancelButton)}
+          >
               Cancel
           </SecondaryButton>
-          <PrimaryButton className={classes.saveButton} onClick={onSaveClick}>
+          <PrimaryButton
+            className={classes.saveButton}
+            onClick={onSaveClick}
+            {...testIdProp(testIds.cancelButton)}
+          >
               Save
           </PrimaryButton>
         </div>
@@ -265,18 +281,26 @@ export const RichTextInput = ({
       className={cx(classes.details, className)}
       onKeyPress={() => setIsEditorOpen(true)}
       onClick={() => setIsEditorOpen(true)}
-      data-test-id={testId}
+      {...testIdProp(testIds.openEditorButton)}
     >
       {
           originalValue
             ? (
               <div
                 className={classes.descriptionInput}
+                {...testIdProp(testIds.content)}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: originalValue }}
               />
             )
-            : (<div className={classes.placeholder}><p>{placeholder}</p></div>)
+            : (
+              <div
+                className={classes.placeholder}
+                {...testIdProp(testIds.placeholder)}
+              >
+                <p>{placeholder}</p>
+              </div>
+            )
         }
     </div>
   )
@@ -285,15 +309,29 @@ export const RichTextInput = ({
 RichTextInput.propTypes = {
   originalValue: PropTypes.string,
   onSave: PropTypes.func.isRequired,
-  testId: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string,
+  testIds: PropTypes.shape({
+    placeholder: PropTypes.string,
+    editorContainer: PropTypes.string,
+    content: PropTypes.string,
+    openEditorButton: PropTypes.string,
+    saveButton: PropTypes.string,
+    cancelButton: PropTypes.string,
+  }),
 }
 
 
 RichTextInput.defaultProps = {
   originalValue: '',
-  testId: '',
   className: '',
   placeholder: 'Add some text',
+  testIds: {
+    placeholder: '',
+    editor: '',
+    innerContent: '',
+    openEditorButton: '',
+    saveButton: '',
+    cancelButton: '',
+  },
 }
