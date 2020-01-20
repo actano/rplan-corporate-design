@@ -7,7 +7,7 @@ import cx from 'classnames'
 
 import { PrimaryButton, SecondaryButton } from '../buttons'
 
-const createHeaderStyles = (classNamePrefix, theme) => console.log(theme) || ({
+const createHeaderStyles = (classNamePrefix, theme) => ({
   [`& ${classNamePrefix}1`]: {
     fontSize: '0.9375rem',
     lineHeight: '1.5rem',
