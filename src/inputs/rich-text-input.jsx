@@ -92,7 +92,6 @@ const useStyles = makeStyles(theme => ({
     ':root': {
       // ---------- tooltip
       '--ck-color-tooltip-text': theme.palette.colors.white,
-      // @TODO fix this color
       '--ck-color-tooltip-background': theme.palette.colors.darkGrey,
 
       '--ck-color-base-background': theme.palette.colors.white,
