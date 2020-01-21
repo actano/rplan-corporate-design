@@ -3,7 +3,7 @@ import React, { useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-import cx from 'classnames'
+import classnames from 'classnames'
 import { testIdProp } from '../utils/test-id-prop'
 
 import { PrimaryButton, SecondaryButton } from '../buttons'
@@ -277,7 +277,7 @@ export const RichTextInput = ({
     <div
       role="button"
       tabIndex={0}
-      className={cx(classes.details, className)}
+      className={classnames(classes.details, className)}
       onKeyPress={() => setIsEditorOpen(true)}
       onClick={() => setIsEditorOpen(true)}
       {...testIdProp(testIds.openEditorButton)}
