@@ -241,7 +241,7 @@ export const RichTextInput = ({
   const onCancelClick = useCallback(() => {
     setIsEditorOpen(false)
   }, [])
-  const onOpenClick = useCallback(() => {
+  const onOpen = useCallback(() => {
     setIsEditorOpen(true)
   }, [])
 
@@ -281,8 +281,8 @@ export const RichTextInput = ({
       role="button"
       tabIndex={0}
       className={classnames(classes.details, className)}
-      onKeyPress={onOpenClick}
-      onClick={onOpenClick}
+      onKeyPress={onOpen}
+      onClick={onOpen}
       {...testIdProp(testIds.openEditorButton)}
     >
       {
