@@ -266,7 +266,7 @@ export const RichTextInput = ({
           <PrimaryButton
             className={classes.saveButton}
             onClick={onSaveClick}
-            {...testIdProp(testIds.cancelButton)}
+            {...testIdProp(testIds.saveButton)}
           >
               Save
           </PrimaryButton>
