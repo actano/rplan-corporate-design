@@ -193,6 +193,7 @@ const CommonSelect = ({
           IconComponent={ExpandIcon}
           onMouseEnter={() => setIsTooltipOpen(true)}
           onMouseLeave={() => setIsTooltipOpen(false)}
+          onOpen={() => setIsTooltipOpen(false)}
           onClick={(event) => {
             event.stopPropagation()
             setIsTooltipOpen(false)
