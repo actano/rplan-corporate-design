@@ -118,6 +118,7 @@ const CommonSelect = ({
   fullWidth,
   size,
   label,
+  readOnly,
 }) => {
   const isOutlined = variant === 'outlined'
   const ownClasses = useStyles({ size, isOutlined, fullWidth })
@@ -199,6 +200,9 @@ const CommonSelect = ({
             setIsTooltipOpen(false)
             onClick(event)
           }}
+          inputProps={{
+            readOnly,
+          }}
         >
           {
             options.map(option => (
@@ -236,6 +240,7 @@ CommonSelect.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'small']),
   label: PropTypes.string,
+  readOnly: PropTypes.bool,
 }
 
 CommonSelect.defaultProps = {
@@ -249,6 +254,7 @@ CommonSelect.defaultProps = {
   disabled: false,
   size: 'regular',
   label: undefined,
+  readOnly: false,
 }
 
 export { CommonSelect }
