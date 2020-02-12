@@ -52,14 +52,14 @@ const createBlockquoteStyles = theme => ({
 })
 
 const useStyles = makeStyles(theme => ({
-  details: {
+  details: ({ readOnly }) => ({
     display: 'flex',
     outline: 'none',
-    cursor: 'pointer',
+    cursor: !readOnly && 'pointer',
     ...createBlockquoteStyles(theme),
     ...createHeaderStyles('h', theme),
     ...createLinkStyles(theme),
-  },
+  }),
   descriptionInput: {
     lineHeight: '1.54',
     fontSize: '0.8125rem',
@@ -227,7 +227,7 @@ export const RichTextInput = ({
   testIds,
   readOnly,
 }) => {
-  const classes = useStyles()
+  const classes = useStyles({ readOnly })
   const [isEditorOpen, setIsEditorOpen] = useState(false)
   const [data, setData] = useState(originalValue)
   const editorConfig = { ...baseEditorConfig, placeholder }
@@ -246,6 +246,34 @@ export const RichTextInput = ({
     setIsEditorOpen(true)
   }, [])
 
+  if (readOnly) {
+    return (
+      <div
+        className={classnames(classes.details, className)}
+      >
+        {
+          originalValue
+            ? (
+              <div
+                className={classes.descriptionInput}
+                {...testIdProp(testIds.content)}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: originalValue }}
+              />
+            )
+            : (
+              <div
+                className={classes.placeholder}
+                {...testIdProp(testIds.placeholder)}
+              >
+                <p>{placeholder}</p>
+              </div>
+            )
+        }
+      </div>
+    )
+  }
+
   if (isEditorOpen) {
     return (
       <div
@@ -257,7 +285,6 @@ export const RichTextInput = ({
           data={originalValue}
           onChange={onChangeEditorData}
           config={editorConfig}
-          disabled={readOnly}
         />
         <div className={classes.buttonContainer}>
           <SecondaryButton
@@ -270,7 +297,6 @@ export const RichTextInput = ({
           <PrimaryButton
             className={classes.saveButton}
             onClick={onSaveClick}
-            disabled={readOnly}
             {...testIdProp(testIds.saveButton)}
           >
               Save
