@@ -225,6 +225,7 @@ export const RichTextInput = ({
   className,
   placeholder,
   testIds,
+  readOnly,
 }) => {
   const classes = useStyles()
   const [isEditorOpen, setIsEditorOpen] = useState(false)
@@ -256,6 +257,7 @@ export const RichTextInput = ({
           data={originalValue}
           onChange={onChangeEditorData}
           config={editorConfig}
+          disabled={readOnly}
         />
         <div className={classes.buttonContainer}>
           <SecondaryButton
@@ -268,6 +270,7 @@ export const RichTextInput = ({
           <PrimaryButton
             className={classes.saveButton}
             onClick={onSaveClick}
+            disabled={readOnly}
             {...testIdProp(testIds.saveButton)}
           >
               Save
@@ -321,6 +324,7 @@ RichTextInput.propTypes = {
     saveButton: PropTypes.string,
     cancelButton: PropTypes.string,
   }),
+  readOnly: PropTypes.bool,
 }
 
 
@@ -336,4 +340,5 @@ RichTextInput.defaultProps = {
     saveButton: '',
     cancelButton: '',
   },
+  readOnly: false,
 }
