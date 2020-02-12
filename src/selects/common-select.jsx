@@ -169,6 +169,7 @@ const CommonSelect = ({
         }
         <Select
           value={value}
+          disabled={readOnly}
           className={
             classnames(
               ownClasses.select,
@@ -199,9 +200,6 @@ const CommonSelect = ({
             event.stopPropagation()
             setIsTooltipOpen(false)
             onClick(event)
-          }}
-          inputProps={{
-            readOnly,
           }}
         >
           {
