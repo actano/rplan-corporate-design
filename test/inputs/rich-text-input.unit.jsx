@@ -32,7 +32,7 @@ describe('RichTextInput', () => {
         />
       </TestProviders>,
     )
-    settleComponent(component)
+    await settleComponent(component)
     const openEditorButton = component.find(testIdProp('openEditorButton'))
     expect(openEditorButton).to.be.present()
   })
@@ -50,7 +50,7 @@ describe('RichTextInput', () => {
         />
       </TestProviders>,
     )
-    settleComponent(component)
+    await settleComponent(component)
     const openEditorButton = component.find(testIdProp('openEditorButton'))
     expect(openEditorButton).to.not.be.present()
   })
