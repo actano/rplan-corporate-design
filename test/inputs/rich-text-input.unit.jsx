@@ -25,7 +25,6 @@ describe('RichTextInput', () => {
         <RichTextInput
           originalValue="my description"
           onSave={() => {}}
-          readOnly={false}
           testIds={{
             openEditorButton: 'openEditorButton',
           }}
@@ -37,13 +36,13 @@ describe('RichTextInput', () => {
     expect(openEditorButton).to.be.present()
   })
 
-  it('should not open the editor in read-only mode', async () => {
+  it('should not open the editor in disabled mode', async () => {
     const component = mount(
       <TestProviders>
         <RichTextInput
           originalValue="my description"
           onSave={() => {}}
-          readOnly
+          disabled
           testIds={{
             openEditorButton: 'openEditorButton',
           }}

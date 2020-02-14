@@ -1,5 +1,6 @@
 import React from 'react'
 import { actions } from '@storybook/addon-actions'
+import { boolean } from '@storybook/addon-knobs'
 import { Grid, Typography } from '@material-ui/core'
 import { DefaultControlledTextField } from '../../../src/inputs/default-controlled-text-field'
 import { InputWithLabel } from '../../../src/inputs/input-with-label'
@@ -57,6 +58,7 @@ const specificInputStory = () =>
           </Typography>
           <RichTextInput
             originalValue={'<h1> Hello There </h1>'}
+            disabled={boolean('Rich text editor disabled', false)}
             {...onSaveHandler}
           />
         </Grid>

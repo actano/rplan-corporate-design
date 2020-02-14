@@ -52,10 +52,10 @@ const createBlockquoteStyles = theme => ({
 })
 
 const useStyles = makeStyles(theme => ({
-  details: ({ readOnly }) => ({
+  details: ({ disabled }) => ({
     display: 'flex',
     outline: 'none',
-    cursor: !readOnly && 'pointer',
+    cursor: !disabled && 'pointer',
     ...createBlockquoteStyles(theme),
     ...createHeaderStyles('h', theme),
     ...createLinkStyles(theme),
@@ -225,9 +225,9 @@ export const RichTextInput = ({
   className,
   placeholder,
   testIds,
-  readOnly,
+  disabled,
 }) => {
-  const classes = useStyles({ readOnly })
+  const classes = useStyles({ disabled })
   const [isEditorOpen, setIsEditorOpen] = useState(false)
   const [data, setData] = useState(originalValue)
   const editorConfig = { ...baseEditorConfig, placeholder }
@@ -246,7 +246,7 @@ export const RichTextInput = ({
     setIsEditorOpen(true)
   }, [])
 
-  if (readOnly) {
+  if (disabled) {
     return (
       <div
         className={classnames(classes.details, className)}
@@ -350,7 +350,7 @@ RichTextInput.propTypes = {
     saveButton: PropTypes.string,
     cancelButton: PropTypes.string,
   }),
-  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
 
 
@@ -366,5 +366,5 @@ RichTextInput.defaultProps = {
     saveButton: '',
     cancelButton: '',
   },
-  readOnly: false,
+  disabled: false,
 }
