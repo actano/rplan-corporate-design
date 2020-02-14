@@ -13,15 +13,16 @@ const useStyles = makeStyles(() => ({
 }))
 
 const UserAvatarWithPlaceholder = ({
-  className, onClick, user, classes, size,
+  className, onClick, user, classes, size, disabled,
 }) => {
-  const ownClasses = useStyles({ isClickable: !!onClick })
+  const isClickable = !!onClick && !disabled
+  const ownClasses = useStyles({ isClickable })
   const combinedClassNames = classnames(className, ownClasses.avatar)
 
   return (
     <div
       role="presentation"
-      onClick={onClick}
+      onClick={isClickable ? onClick : undefined}
     >
       {
         user
@@ -55,6 +56,7 @@ UserAvatarWithPlaceholder.propTypes = {
   }),
   classes: PropTypes.object,
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
+  disabled: PropTypes.bool,
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
@@ -63,6 +65,7 @@ UserAvatarWithPlaceholder.defaultProps = {
   user: null,
   classes: {},
   size: 'regular',
+  disabled: false,
 }
 
 export { UserAvatarWithPlaceholder }
