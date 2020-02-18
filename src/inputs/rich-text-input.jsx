@@ -75,6 +75,7 @@ const useStyles = makeStyles(theme => ({
   },
   buttonContainer: {
     marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
     display: 'flex',
     justifyContent: 'flex-end',
   },
@@ -86,6 +87,16 @@ const useStyles = makeStyles(theme => ({
     fontSize: '0.75rem',
     padding: '4px 12px',
     marginRight: theme.spacing(1),
+  },
+  warningMessage: {
+    backgroundColor: theme.palette.colors.red,
+    color: theme.palette.colors.darkestGrey,
+    textAlign: 'center',
+
+    flex: '1 1 auto',
+    marginRight: theme.spacing(4),
+    padding: theme.spacing(0.75),
+
   },
   // This nesting is to
   '@global': {
@@ -218,6 +229,7 @@ const baseEditorConfig = {
     addTargetToExternalLinks: true,
   },
 }
+const MAX_INPUT_LENGTH = 4000
 
 export const RichTextInput = ({
   onSave,
@@ -231,17 +243,28 @@ export const RichTextInput = ({
   const [isEditorOpen, setIsEditorOpen] = useState(false)
   const [data, setData] = useState(originalValue)
   const editorConfig = { ...baseEditorConfig, placeholder }
+  const [isSaveDisabled, setIsSaveDisabled] = useState(false)
 
   const onChangeEditorData = useCallback((event, editor) => {
-    setData(editor.getData())
+    const newData = editor.getData()
+    if (newData.length <= MAX_INPUT_LENGTH) {
+      setData(newData)
+      setIsSaveDisabled(false)
+    } else {
+      // setData(`${data} `.slice(0))
+      setIsSaveDisabled(true)
+    }
   }, [])
+
   const onSaveClick = useCallback(() => {
     onSave(data)
     setIsEditorOpen(false)
   }, [data, onSave])
+
   const onCancelClick = useCallback(() => {
     setIsEditorOpen(false)
   }, [])
+
   const onOpen = useCallback(() => {
     setIsEditorOpen(true)
   }, [])
@@ -282,11 +305,18 @@ export const RichTextInput = ({
       >
         <CKEditor
           editor={ClassicEditor}
-          data={originalValue}
+          data={data}
           onChange={onChangeEditorData}
           config={editorConfig}
         />
         <div className={classes.buttonContainer}>
+          {isSaveDisabled ? (
+            <div
+              className={classes.warningMessage}
+            >
+              Text exceeds maximum valid size!
+            </div>
+          ) : null}
           <SecondaryButton
             className={classes.cancelButton}
             onClick={onCancelClick}
@@ -297,6 +327,7 @@ export const RichTextInput = ({
           <PrimaryButton
             className={classes.saveButton}
             onClick={onSaveClick}
+            disabled={isSaveDisabled}
             {...testIdProp(testIds.saveButton)}
           >
               Save
