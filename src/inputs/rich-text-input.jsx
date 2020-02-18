@@ -67,6 +67,19 @@ const useStyles = makeStyles(theme => ({
     '&::placeholder': {
       color: theme.palette.colors.grey,
     },
+    maxHeight: theme.spacing(50),
+
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
+  editorContainer: {
+    maxHeight: theme.spacing(50),
+
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
+  editor: {
+    marginRight: theme.spacing(2),
   },
   placeholder: {
     lineHeight: '1.54',
@@ -300,38 +313,40 @@ export const RichTextInput = ({
   if (isEditorOpen) {
     return (
       <div
-        className={className}
+        className={classnames(classes.editorContainer, className)}
         {...testIdProp(testIds.editorContainer)}
       >
-        <CKEditor
-          editor={ClassicEditor}
-          data={data}
-          onChange={onChangeEditorData}
-          config={editorConfig}
-        />
-        <div className={classes.buttonContainer}>
-          {isSaveDisabled ? (
-            <div
-              className={classes.warningMessage}
-            >
+        <div className={classes.editor}>
+          <CKEditor
+            editor={ClassicEditor}
+            data={data}
+            onChange={onChangeEditorData}
+            config={editorConfig}
+          />
+          <div className={classes.buttonContainer}>
+            {isSaveDisabled ? (
+              <div
+                className={classes.warningMessage}
+              >
               Text exceeds maximum valid size!
-            </div>
-          ) : null}
-          <SecondaryButton
-            className={classes.cancelButton}
-            onClick={onCancelClick}
-            {...testIdProp(testIds.cancelButton)}
-          >
+              </div>
+            ) : null}
+            <SecondaryButton
+              className={classes.cancelButton}
+              onClick={onCancelClick}
+              {...testIdProp(testIds.cancelButton)}
+            >
               Cancel
-          </SecondaryButton>
-          <PrimaryButton
-            className={classes.saveButton}
-            onClick={onSaveClick}
-            disabled={isSaveDisabled}
-            {...testIdProp(testIds.saveButton)}
-          >
+            </SecondaryButton>
+            <PrimaryButton
+              className={classes.saveButton}
+              onClick={onSaveClick}
+              disabled={isSaveDisabled}
+              {...testIdProp(testIds.saveButton)}
+            >
               Save
-          </PrimaryButton>
+            </PrimaryButton>
+          </div>
         </div>
       </div>
     )
