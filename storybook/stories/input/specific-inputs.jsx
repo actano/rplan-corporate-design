@@ -1,11 +1,13 @@
 import React from 'react'
 import { actions } from '@storybook/addon-actions'
-import { boolean } from '@storybook/addon-knobs'
+import { boolean, number, text } from '@storybook/addon-knobs'
 import { Grid, Typography } from '@material-ui/core'
+
 import { DefaultControlledTextField } from '../../../src/inputs/default-controlled-text-field'
 import { InputWithLabel } from '../../../src/inputs/input-with-label'
 import { NumberInput } from '../../../src/inputs/number-input'
 import { RichTextInput } from '../../../src/inputs/rich-text-input'
+
 import { Providers } from '../providers'
 
 const onSaveHandler = actions('onSave')
@@ -44,7 +46,7 @@ const specificInputStory = () =>
           </Typography>
           <NumberInput
             originalValue={10}
-            getValidationError={number => (number < 42 ? 'Number must be above 42' : null)}
+            getValidationError={n => (n < 42 ? 'Number must be above 42' : null)}
             {...onSaveHandler}
           />
         </Grid>
@@ -54,10 +56,15 @@ const specificInputStory = () =>
           </Typography>
           <Typography variant="body1">
             This input allows the input of rich text.
-            It is an uncontrolled input and only calls the onSave handler if the user clicks save.
+            It is a controlled input.
+            If the encoding of the text exceeds the maximum length
+            it displays a message and disables the Save button.
+            It only calls the onSave handler if the user clicks save.
           </Typography>
           <RichTextInput
             originalValue={'<h1> Hello There </h1>'}
+            placeholder={text('placeholder', 'type something')}
+            maxInputLength={number('maximal input length', 50)}
             disabled={boolean('Rich text editor disabled', false)}
             {...onSaveHandler}
           />
