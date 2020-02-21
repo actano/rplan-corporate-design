@@ -111,7 +111,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0.75),
 
   },
-  // This nesting is to
+  // This nesting is to increase the specificity of these variables
+  // so they override the defaults set by ckeditor
   '@global': {
     ':root': {
       // ---------- tooltip
