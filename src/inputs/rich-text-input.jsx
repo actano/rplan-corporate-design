@@ -7,6 +7,7 @@ import classnames from 'classnames'
 import { testIdProp } from '../utils/test-id-prop'
 
 import { PrimaryButton, SecondaryButton } from '../buttons'
+import { RichTextDisplay } from './rich-text-display'
 
 const createHeaderStyles = (classNamePrefix, theme) => ({
   [`& ${classNamePrefix}1`]: {
@@ -60,18 +61,6 @@ const useStyles = makeStyles(theme => ({
     ...createHeaderStyles('h', theme),
     ...createLinkStyles(theme),
   }),
-  descriptionInput: {
-    lineHeight: '1.54',
-    fontSize: '0.8125rem',
-    color: theme.palette.colors.darkestGrey,
-    '&::placeholder': {
-      color: theme.palette.colors.grey,
-    },
-    maxHeight: theme.spacing(50),
-
-    overflowY: 'auto',
-    overflowX: 'hidden',
-  },
   editorContainer: {
     maxHeight: theme.spacing(50),
 
@@ -80,11 +69,6 @@ const useStyles = makeStyles(theme => ({
   },
   editor: {
     marginRight: theme.spacing(2),
-  },
-  placeholder: {
-    lineHeight: '1.54',
-    fontSize: '0.8125rem',
-    color: theme.palette.colors.grey,
   },
   buttonContainer: {
     marginTop: theme.spacing(2),
@@ -288,25 +272,11 @@ export const RichTextInput = ({
       <div
         className={classnames(classes.details, className)}
       >
-        {
-          originalValue
-            ? (
-              <div
-                className={classes.descriptionInput}
-                {...testIdProp(testIds.content)}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: originalValue }}
-              />
-            )
-            : (
-              <div
-                className={classes.placeholder}
-                {...testIdProp(testIds.placeholder)}
-              >
-                <p>{placeholder}</p>
-              </div>
-            )
-        }
+        <RichTextDisplay
+          value={originalValue}
+          testIds={testIds}
+          placeholder={placeholder}
+        />
       </div>
     )
   }
@@ -361,25 +331,11 @@ export const RichTextInput = ({
       onClick={onOpen}
       {...testIdProp(testIds.openEditorButton)}
     >
-      {
-          originalValue
-            ? (
-              <div
-                className={classes.descriptionInput}
-                {...testIdProp(testIds.content)}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: originalValue }}
-              />
-            )
-            : (
-              <div
-                className={classes.placeholder}
-                {...testIdProp(testIds.placeholder)}
-              >
-                <p>{placeholder}</p>
-              </div>
-            )
-        }
+      <RichTextDisplay
+        value={originalValue}
+        testIds={testIds}
+        placeholder={placeholder}
+      />
     </div>
   )
 }
