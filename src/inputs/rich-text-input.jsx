@@ -243,13 +243,14 @@ const baseEditorConfig = {
     addTargetToExternalLinks: true,
   },
 }
-const MAX_INPUT_LENGTH = 4000
+const DEFAULT_MAX_INPUT_LENGTH = 4000
 
 export const RichTextInput = ({
   onSave,
   originalValue,
   className,
   placeholder,
+  maxInputLength,
   testIds,
   disabled,
 }) => {
@@ -261,14 +262,13 @@ export const RichTextInput = ({
 
   const onChangeEditorData = useCallback((event, editor) => {
     const newData = editor.getData()
-    if (newData.length <= MAX_INPUT_LENGTH) {
+    if (newData.length <= maxInputLength) {
       setData(newData)
       setIsSaveDisabled(false)
     } else {
-      // setData(`${data} `.slice(0))
       setIsSaveDisabled(true)
     }
-  }, [])
+  }, [maxInputLength])
 
   const onSaveClick = useCallback(() => {
     onSave(data)
@@ -389,6 +389,7 @@ RichTextInput.propTypes = {
   onSave: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   className: PropTypes.string,
+  maxInputLength: PropTypes.number,
   testIds: PropTypes.shape({
     placeholder: PropTypes.string,
     editorContainer: PropTypes.string,
@@ -405,6 +406,7 @@ RichTextInput.defaultProps = {
   originalValue: '',
   className: '',
   placeholder: 'Add some text',
+  maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
   testIds: {
     placeholder: '',
     editor: '',
