@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
-import { testIdProp } from '../utils/test-id-prop'
+import { testIdProp } from '../../utils/test-id-prop'
 
 import { RichTextDisplay } from './rich-text-display'
 import { Editor } from './editor'

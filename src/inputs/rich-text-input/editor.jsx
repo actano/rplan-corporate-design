@@ -5,8 +5,8 @@ import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import { makeStyles } from '@material-ui/core'
 
-import { PrimaryButton, SecondaryButton } from '../buttons'
-import { testIdProp } from '../utils/test-id-prop'
+import { PrimaryButton, SecondaryButton } from '../../buttons'
+import { testIdProp } from '../../utils/test-id-prop'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 
 const baseEditorConfig = {
