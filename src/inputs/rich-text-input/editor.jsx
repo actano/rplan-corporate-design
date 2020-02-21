@@ -4,10 +4,9 @@ import PropTypes from 'prop-types'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import { makeStyles } from '@material-ui/core'
-
-import { PrimaryButton, SecondaryButton } from '../../buttons'
 import { testIdProp } from '../../utils/test-id-prop'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
+import { EditorButtons } from './editor-buttons'
 
 const baseEditorConfig = {
   copyFormatting_allowedContexts: true,
@@ -69,31 +68,6 @@ const useStyles = makeStyles(theme => ({
   },
   editor: {
     marginRight: theme.spacing(2),
-  },
-  buttonContainer: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  saveButton: {
-    fontSize: '0.75rem',
-    padding: '4px 12px',
-  },
-  cancelButton: {
-    fontSize: '0.75rem',
-    padding: '4px 12px',
-    marginRight: theme.spacing(1),
-  },
-  warningMessage: {
-    backgroundColor: theme.palette.colors.red,
-    color: theme.palette.colors.darkestGrey,
-    textAlign: 'center',
-
-    flex: '1 1 auto',
-    marginRight: theme.spacing(4),
-    padding: theme.spacing(0.75),
-
   },
   // This nesting is to increase the specificity of these variables
   // so they override the defaults set by ckeditor
@@ -194,30 +168,12 @@ export const Editor = ({
           onChange={onChange}
           config={editorConfig}
         />
-        <div className={classes.buttonContainer}>
-          {isSaveDisabled ? (
-            <div
-              className={classes.warningMessage}
-            >
-              Text exceeds maximum valid size!
-            </div>
-          ) : null}
-          <SecondaryButton
-            className={classes.cancelButton}
-            onClick={onCancel}
-            {...testIdProp(testIds.cancelButton)}
-          >
-            Cancel
-          </SecondaryButton>
-          <PrimaryButton
-            className={classes.saveButton}
-            onClick={onSave}
-            disabled={isSaveDisabled}
-            {...testIdProp(testIds.saveButton)}
-          >
-            Save
-          </PrimaryButton>
-        </div>
+        <EditorButtons
+          onCancel={onCancel}
+          onSave={onSave}
+          isSaveDisabled={isSaveDisabled}
+          testIds={testIds}
+        />
       </div>
     </div>
   )
