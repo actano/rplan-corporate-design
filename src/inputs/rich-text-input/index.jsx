@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 const DEFAULT_MAX_INPUT_LENGTH = 4000
 
-const wrapWithControls = (EditorComponent) => {
+export const wrapWithControls = (EditorComponent) => {
   const Wrapped = ({
     onSave,
     originalValue,
@@ -90,6 +90,7 @@ const wrapWithControls = (EditorComponent) => {
             placeholder={placeholder}
             onChange={onChangeEditorData}
             data={data}
+            {...testIdProp(testIds.editor)}
           />
           <EditorButtons
             onCancel={onCancelClick}
