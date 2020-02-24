@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core'
-import { sanitizeInput } from './preview-sanitizer'
+import { sanitizeRichText } from '@rplan/rich-text-sanitization'
 
 import { testIdProp } from '../../utils/test-id-prop'
 
@@ -37,7 +37,7 @@ export const RichTextDisplay = ({ value, testIds, placeholder }) => {
               className={classes.descriptionInput}
               {...testIdProp(testIds.content)}
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: sanitizeInput(value) }}
+              dangerouslySetInnerHTML={{ __html: sanitizeRichText(value) }}
             />
           )
           : (
