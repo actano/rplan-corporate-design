@@ -1,12 +1,9 @@
-import classnames from 'classnames'
 import React from 'react'
 import PropTypes from 'prop-types'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import { makeStyles } from '@material-ui/core'
-import { testIdProp } from '../../utils/test-id-prop'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
-import { EditorButtons } from './editor-buttons'
 
 const baseEditorConfig = {
   copyFormatting_allowedContexts: true,
@@ -60,15 +57,6 @@ const baseEditorConfig = {
 }
 
 const useStyles = makeStyles(theme => ({
-  editorContainer: {
-    maxHeight: theme.spacing(50),
-
-    overflowY: 'auto',
-    overflowX: 'hidden',
-  },
-  editor: {
-    marginRight: theme.spacing(2),
-  },
   // This nesting is to increase the specificity of these variables
   // so they override the defaults set by ckeditor
   '@global': {
@@ -152,63 +140,28 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export const Editor = ({
-  placeholder, onChange, onCancel, onSave, isSaveDisabled, testIds, data, className,
+  placeholder, onChange, data,
 }) => {
   const editorConfig = { ...baseEditorConfig, placeholder }
-  const classes = useStyles()
+  useStyles()
   return (
-    <div
-      className={classnames(classes.editorContainer, className)}
-      {...testIdProp(testIds.editorContainer)}
-    >
-      <div className={classes.editor}>
-        <CKEditor
-          editor={ClassicEditor}
-          data={data}
-          onChange={onChange}
-          config={editorConfig}
-        />
-        <EditorButtons
-          onCancel={onCancel}
-          onSave={onSave}
-          isSaveDisabled={isSaveDisabled}
-          testIds={testIds}
-        />
-      </div>
-    </div>
+    <CKEditor
+      editor={ClassicEditor}
+      data={data}
+      onChange={onChange}
+      config={editorConfig}
+    />
   )
 }
 
 Editor.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
-  onCancel: PropTypes.func,
-  onSave: PropTypes.func,
-  isSaveDisabled: PropTypes.bool,
-  testIds: PropTypes.shape({
-    placeholder: PropTypes.string,
-    editorContainer: PropTypes.string,
-    content: PropTypes.string,
-    saveButton: PropTypes.string,
-    cancelButton: PropTypes.string,
-  }),
   data: PropTypes.string,
-  className: PropTypes.string,
 }
 
 Editor.defaultProps = {
   placeholder: '',
   onChange: () => {},
-  onCancel: () => {},
-  onSave: () => {},
-  isSaveDisabled: false,
-  testIds: {
-    placeholder: '',
-    editor: '',
-    innerContent: '',
-    saveButton: '',
-    cancelButton: '',
-  },
   data: '',
-  className: '',
 }

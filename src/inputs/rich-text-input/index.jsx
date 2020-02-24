@@ -7,8 +7,15 @@ import { testIdProp } from '../../utils/test-id-prop'
 import { RichTextDisplay } from './rich-text-display'
 import { Editor } from './editor'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
+import { EditorButtons } from './editor-buttons'
 
 const useStyles = makeStyles(theme => ({
+  editorContainer: {
+    maxHeight: theme.spacing(50),
+    paddingRight: theme.spacing(2),
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
   details: ({ disabled }) => ({
     display: 'flex',
     outline: 'none',
@@ -74,16 +81,22 @@ export const RichTextInput = ({
 
   if (isEditorOpen) {
     return (
-      <Editor
-        className={className}
-        placeholder={placeholder}
-        onChange={onChangeEditorData}
-        onCancel={onCancelClick}
-        onSave={onSaveClick}
-        isSaveDisabled={isSaveDisabled}
-        data={data}
-        testIds={testIds}
-      />
+      <div
+        className={classnames(classes.editorContainer, className)}
+        {...testIdProp(testIds.editorContainer)}
+      >
+        <Editor
+          placeholder={placeholder}
+          onChange={onChangeEditorData}
+          data={data}
+        />
+        <EditorButtons
+          onCancel={onCancelClick}
+          onSave={onSaveClick}
+          isSaveDisabled={isSaveDisabled}
+          testIds={testIds}
+        />
+      </div>
     )
   }
   return (
