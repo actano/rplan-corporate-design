@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '1.54',
     fontSize: '0.8125rem',
     color: theme.palette.colors.darkestGrey,
+    width: '100%',
     '&::placeholder': {
       color: theme.palette.colors.grey,
     },
