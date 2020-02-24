@@ -28,47 +28,86 @@ const useStyles = makeStyles(theme => ({
 
 const DEFAULT_MAX_INPUT_LENGTH = 4000
 
-export const RichTextInput = ({
-  onSave,
-  originalValue,
-  className,
-  placeholder,
-  maxInputLength,
-  testIds,
-  disabled,
-}) => {
-  const classes = useStyles({ disabled })
-  const [isEditorOpen, setIsEditorOpen] = useState(false)
-  const [data, setData] = useState(originalValue)
-  const [isSaveDisabled, setIsSaveDisabled] = useState(false)
+const wrapWithControls = (EditorComponent) => {
+  const Wrapped = ({
+    onSave,
+    originalValue,
+    className,
+    placeholder,
+    maxInputLength,
+    testIds,
+    disabled,
+  }) => {
+    const classes = useStyles({ disabled })
+    const [isEditorOpen, setIsEditorOpen] = useState(false)
+    const [data, setData] = useState(originalValue)
+    const [isSaveDisabled, setIsSaveDisabled] = useState(false)
 
-  const onChangeEditorData = useCallback((event, editor) => {
-    const newData = editor.getData()
-    if (newData.length <= maxInputLength) {
-      setData(newData)
-      setIsSaveDisabled(false)
-    } else {
-      setIsSaveDisabled(true)
+    const onChangeEditorData = useCallback((event, editor) => {
+      const newData = editor.getData()
+      if (newData.length <= maxInputLength) {
+        setData(newData)
+        setIsSaveDisabled(false)
+      } else {
+        setIsSaveDisabled(true)
+      }
+    }, [maxInputLength])
+
+    const onSaveClick = useCallback(() => {
+      onSave(data)
+      setIsEditorOpen(false)
+    }, [data, onSave])
+
+    const onCancelClick = useCallback(() => {
+      setIsEditorOpen(false)
+    }, [])
+
+    const onOpen = useCallback(() => {
+      setIsEditorOpen(true)
+    }, [])
+
+    if (disabled) {
+      return (
+        <div
+          className={classnames(classes.details, className)}
+        >
+          <RichTextDisplay
+            value={originalValue}
+            testIds={testIds}
+            placeholder={placeholder}
+          />
+        </div>
+      )
     }
-  }, [maxInputLength])
 
-  const onSaveClick = useCallback(() => {
-    onSave(data)
-    setIsEditorOpen(false)
-  }, [data, onSave])
-
-  const onCancelClick = useCallback(() => {
-    setIsEditorOpen(false)
-  }, [])
-
-  const onOpen = useCallback(() => {
-    setIsEditorOpen(true)
-  }, [])
-
-  if (disabled) {
+    if (isEditorOpen) {
+      return (
+        <div
+          className={classnames(classes.editorContainer, className)}
+          {...testIdProp(testIds.editorContainer)}
+        >
+          <EditorComponent
+            placeholder={placeholder}
+            onChange={onChangeEditorData}
+            data={data}
+          />
+          <EditorButtons
+            onCancel={onCancelClick}
+            onSave={onSaveClick}
+            isSaveDisabled={isSaveDisabled}
+            testIds={testIds}
+          />
+        </div>
+      )
+    }
     return (
       <div
+        role="button"
+        tabIndex={0}
         className={classnames(classes.details, className)}
+        onKeyPress={onOpen}
+        onClick={onOpen}
+        {...testIdProp(testIds.openEditorButton)}
       >
         <RichTextDisplay
           value={originalValue}
@@ -79,74 +118,39 @@ export const RichTextInput = ({
     )
   }
 
-  if (isEditorOpen) {
-    return (
-      <div
-        className={classnames(classes.editorContainer, className)}
-        {...testIdProp(testIds.editorContainer)}
-      >
-        <Editor
-          placeholder={placeholder}
-          onChange={onChangeEditorData}
-          data={data}
-        />
-        <EditorButtons
-          onCancel={onCancelClick}
-          onSave={onSaveClick}
-          isSaveDisabled={isSaveDisabled}
-          testIds={testIds}
-        />
-      </div>
-    )
-  }
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      className={classnames(classes.details, className)}
-      onKeyPress={onOpen}
-      onClick={onOpen}
-      {...testIdProp(testIds.openEditorButton)}
-    >
-      <RichTextDisplay
-        value={originalValue}
-        testIds={testIds}
-        placeholder={placeholder}
-      />
-    </div>
-  )
-}
-
-RichTextInput.propTypes = {
-  originalValue: PropTypes.string,
-  onSave: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  className: PropTypes.string,
-  maxInputLength: PropTypes.number,
-  testIds: PropTypes.shape({
+  Wrapped.propTypes = {
+    originalValue: PropTypes.string,
+    onSave: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
-    editorContainer: PropTypes.string,
-    content: PropTypes.string,
-    openEditorButton: PropTypes.string,
-    saveButton: PropTypes.string,
-    cancelButton: PropTypes.string,
-  }),
-  disabled: PropTypes.bool,
+    className: PropTypes.string,
+    maxInputLength: PropTypes.number,
+    testIds: PropTypes.shape({
+      placeholder: PropTypes.string,
+      editorContainer: PropTypes.string,
+      content: PropTypes.string,
+      openEditorButton: PropTypes.string,
+      saveButton: PropTypes.string,
+      cancelButton: PropTypes.string,
+    }),
+    disabled: PropTypes.bool,
+  }
+
+  Wrapped.defaultProps = {
+    originalValue: '',
+    className: '',
+    placeholder: 'Add some text',
+    maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
+    testIds: {
+      placeholder: '',
+      editor: '',
+      innerContent: '',
+      openEditorButton: '',
+      saveButton: '',
+      cancelButton: '',
+    },
+    disabled: false,
+  }
+  return Wrapped
 }
 
-
-RichTextInput.defaultProps = {
-  originalValue: '',
-  className: '',
-  placeholder: 'Add some text',
-  maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
-  testIds: {
-    placeholder: '',
-    editor: '',
-    innerContent: '',
-    openEditorButton: '',
-    saveButton: '',
-    cancelButton: '',
-  },
-  disabled: false,
-}
+export const RichTextInput = wrapWithControls(Editor)
