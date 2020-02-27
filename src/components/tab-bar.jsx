@@ -30,7 +30,7 @@ const styles = (theme) => {
 }
 
 const _TabBar = ({
-  className, tabs, onChange, classes, selectedTabIndex,
+  className, tabs, onChange, classes, selectedTabIndex, tabsFullWidth,
 }) => (
   <Tabs
     className={classnames(className, classes.menuRow)}
@@ -38,7 +38,7 @@ const _TabBar = ({
     onChange={onChange}
     indicatorColor="primary"
     textColor="primary"
-    variant="standard"
+    variant={tabsFullWidth ? 'fullWidth' : 'standard'}
   >
     {
       tabs.map(tab => (
@@ -66,12 +66,14 @@ _TabBar.propTypes = {
   selectedTabIndex: PropTypes.number,
   onChange: PropTypes.func,
   classes: PropTypes.object.isRequired,
+  tabsFullWidth: PropTypes.bool,
 }
 
 _TabBar.defaultProps = {
   className: undefined,
   selectedTabIndex: 0,
   onChange: () => {},
+  tabsFullWidth: false,
 }
 
 const TabBar = withStyles(styles)(_TabBar)
