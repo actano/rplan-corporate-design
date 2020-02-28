@@ -20,11 +20,13 @@ const styles = (theme) => {
       textTransform: 'initial',
       lineHeight: `${theme.spacing(2)}px`,
       letterSpacing: `${theme.spacing(0.0625)}px`,
-      marginRight: theme.spacing(5),
       color: colors.grey,
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
       padding: theme.spacing(0, 0, 1.625, 0),
+    },
+    standardVariant: {
+      marginRight: theme.spacing(5),
     },
   }
 }
@@ -46,7 +48,10 @@ const _TabBar = ({
           label={tab.text}
           key={tab.text}
           classes={{
-            root: classes.menuEntryRoot,
+            root: classnames(
+              classes.menuEntryRoot,
+              !tabsFullWidth ? classes.standardVariant : null,
+            ),
           }}
           {...testIdProp(tab.testId)}
         />
