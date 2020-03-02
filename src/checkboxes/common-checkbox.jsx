@@ -9,8 +9,12 @@ const useStyles = makeStyles(theme => ({
     '&$checkboxChecked': {
       color: theme.palette.colors.grey,
     },
+    '&$checkboxDisabled': {
+      color: theme.palette.colors.veryLightGrey,
+    },
   },
   checkboxChecked: {},
+  checkboxDisabled: {},
   checkboxCheckedIcon: {
     fill: 'currentColor',
     width: theme.spacing(3),
@@ -32,6 +36,7 @@ const CommonCheckbox = ({
   const _classes = classes || {
     root: styleClasses.checkbox,
     checked: styleClasses.checkboxChecked,
+    disabled: styleClasses.checkboxDisabled,
   }
 
   return (

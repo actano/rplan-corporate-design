@@ -31,6 +31,12 @@ export const checkboxesStories = () => {
                 <Grid item>
                   <CommonCheckbox checked />
                 </Grid>
+                <Grid item>
+                  <CommonCheckbox disabled />
+                </Grid>
+                <Grid item>
+                  <CommonCheckbox checked disabled />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
