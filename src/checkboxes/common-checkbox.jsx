@@ -6,9 +6,13 @@ import { mdiCheckboxMarkedOutline } from '@mdi/js'
 const useStyles = makeStyles(theme => ({
   checkbox: {
     color: theme.palette.colors.lightGrey,
+    '&$checkboxChecked': {
+      color: theme.palette.colors.grey,
+    },
   },
-  checkboxChecked: {
-    fill: theme.palette.colors.grey,
+  checkboxChecked: {},
+  checkboxCheckedIcon: {
+    fill: 'currentColor',
     width: theme.spacing(3),
   },
 }))
@@ -21,12 +25,13 @@ const CommonCheckbox = ({
   const _checkedIcon = checkedIcon || (
     <Icon
       path={mdiCheckboxMarkedOutline}
-      className={styleClasses.checkboxChecked}
+      className={styleClasses.checkboxCheckedIcon}
     />
   )
 
   const _classes = classes || {
     root: styleClasses.checkbox,
+    checked: styleClasses.checkboxChecked,
   }
 
   return (
