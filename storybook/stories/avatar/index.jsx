@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { actions } from '@storybook/addon-actions'
-import { boolean } from '@storybook/addon-knobs'
+import { boolean, select } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import { UserAvatar } from '../../../src/components/user-avatar'
 import { UserAvatarWithPlaceholder } from '../../../src/components/user-avatar-with-placeholder'
@@ -10,16 +10,18 @@ import { Providers } from '../providers'
 
 const onClickAction = actions('onClick')
 
-// eslint-disable-next-line react/prop-types
-const UserAvatarWithPlaceholderWithDefaults = ({ size, user, disabled }) => (
+const UserAvatarWithPlaceholderWithDefaults = ({
+  // eslint-disable-next-line react/prop-types
+  size, user, variant, disabled,
+}) => (
   <UserAvatarWithPlaceholder
     user={user}
     size={size}
     disabled={disabled}
+    variant={variant}
     {...onClickAction}
   />
 )
-
 
 const avatarStories = () => {
   storiesOf('User Avatar', module)
@@ -27,6 +29,7 @@ const avatarStories = () => {
       const disabledKnob = boolean('UserAvatarWithPlaceholder: disabled', false)
       const hasUser = boolean('UserAvatarWithPlaceholder: hasUser', true)
       const userHasGravatarEmail = boolean('Example user: has gravtar image', true)
+      const variant = select('UserAvartarWithPlaceholder: variant', ['grey', 'white'])
 
       const sampleUser = {
         firstName: 'Example',
@@ -38,7 +41,12 @@ const avatarStories = () => {
 
       return (
         <Providers>
-          <div style={{ paddingLeft: '20px' }}>
+          <div
+            style={{
+              paddingLeft: '20px',
+              backgroundColor: variant === 'white' ? '#466ada' : 'transparent',
+            }}
+          >
             <Grid
               container
               spacing={2}
@@ -49,7 +57,7 @@ const avatarStories = () => {
                   User Avatar
                 </Typography>
                 <Typography variant="h3" align="left">
-                  User Avatar with gravatar image
+                  User Avatar
                 </Typography>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
                   <div>
@@ -83,23 +91,23 @@ const avatarStories = () => {
               </Grid>
               <Grid item>
                 <Typography variant="h3" align="left">
-                  User Avatar with placeholder (when the user is null)
+                  User Avatar with placeholder (if the user is not defined)
                 </Typography>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
                   <div>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} size="regular" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="regular" disabled={disabledKnob} />
                     <Typography variant="h5" align="left">
                       regular
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} size="small-2" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small-2" disabled={disabledKnob} />
                     <Typography variant="h5" align="left">
                       small-2
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} size="small" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small" disabled={disabledKnob} />
                     <Typography variant="h5" align="left">
                       small
                     </Typography>

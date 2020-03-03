@@ -7,32 +7,78 @@ import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 
 const useStyles = makeStyles(theme => ({
-  avatar: ({ isClickable }) => ({
-    cursor: isClickable ? 'pointer' : 'auto',
-    color: theme.palette.colors.white,
-    borderColor: theme.palette.colors.lightGrey,
-  }),
-  placeholder: ({ isClickable }) => ({
-    cursor: isClickable ? 'pointer' : 'auto',
-    color: theme.palette.colors.grey,
-    borderColor: theme.palette.colors.lightGrey,
+  avatar: ({ variant, isClickable }) => {
+    switch (variant) {
+      case 'grey': {
+        return {
+          cursor: isClickable ? 'pointer' : 'auto',
+          color: theme.palette.colors.white,
+          borderColor: theme.palette.colors.lightGrey,
+        }
+      }
+      case 'white': {
+        return {
+          cursor: isClickable ? 'pointer' : 'auto',
+          color: theme.palette.colors.white,
+          borderColor: theme.palette.colors.white,
+        }
+      }
+      default: {
+        throw new Error(`Invalid avatar color variant ${variant}`)
+      }
+    }
+  },
+  placeholder: ({ variant, isClickable }) => {
+    switch (variant) {
+      case 'grey': {
+        return {
+          cursor: isClickable ? 'pointer' : 'auto',
+          color: theme.palette.colors.grey,
+          borderColor: theme.palette.colors.lightGrey,
 
-    '&:hover': isClickable ? {
-      color: theme.palette.colors.blue,
-      borderColor: theme.palette.colors.blue,
-    } : {
-      color: theme.palette.colors.grey,
-      borderColor: theme.palette.colors.lightGrey,
-    },
-  }),
+          '&:hover': isClickable ? {
+            color: theme.palette.colors.blue,
+            borderColor: theme.palette.colors.blue,
+          } : {
+            color: theme.palette.colors.grey,
+            borderColor: theme.palette.colors.lightGrey,
+          },
+        }
+      }
+      case 'white': {
+        return {
+          cursor: isClickable ? 'pointer' : 'auto',
+          color: theme.palette.colors.white,
+          borderColor: theme.palette.colors.white,
+
+          '&:hover': isClickable ? {
+            color: theme.palette.colors.white,
+            borderColor: theme.palette.colors.white,
+          } : {
+            color: theme.palette.colors.white,
+            borderColor: theme.palette.colors.white,
+          },
+        }
+      }
+      default: {
+        throw new Error(`Invalid avatar color variant ${variant}`)
+      }
+    }
+  },
 }))
 
 const UserAvatarWithPlaceholder = ({
-  className, onClick, user, classes, size, disabled,
+  className,
+  onClick,
+  user,
+  size,
+  disabled,
+  variant,
 }) => {
   const isClickable = !!onClick && !disabled
   const hasUser = user != null
-  const ownClasses = useStyles({ isClickable, hasUser })
+  const ownClasses = useStyles({ isClickable, hasUser, variant })
+
   const combinedAvatarClasses = classnames(className, ownClasses.avatar)
   const combinedPlaceholderClasses = classnames(className, ownClasses.placeholder)
 
@@ -54,7 +100,6 @@ const UserAvatarWithPlaceholder = ({
           ) : (
             <UserAvatarPlaceholder
               className={combinedPlaceholderClasses}
-              classes={classes}
               size={size}
             />
           )
@@ -71,8 +116,8 @@ UserAvatarWithPlaceholder.propTypes = {
     lastName: PropTypes.string,
     email: PropTypes.string,
   }),
-  classes: PropTypes.object,
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
+  variant: PropTypes.oneOf(['grey', 'white']),
   disabled: PropTypes.bool,
 }
 
@@ -80,8 +125,8 @@ UserAvatarWithPlaceholder.defaultProps = {
   className: '',
   onClick: undefined,
   user: null,
-  classes: {},
   size: 'regular',
+  variant: 'grey',
   disabled: false,
 }
 

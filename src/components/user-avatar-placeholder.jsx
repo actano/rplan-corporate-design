@@ -40,7 +40,6 @@ const useStyles = makeStyles(theme => ({
 
 const UserAvatarPlaceholder = (props) => {
   const classes = useStyles()
-  const { color } = props.classes
 
   return (
     <Avatar
@@ -49,9 +48,7 @@ const UserAvatarPlaceholder = (props) => {
         classes[`avatar-${props.size}`],
         classes.main,
         props.className,
-        color,
       )}
-      classes={{ colorDefault: color }}
     >
       <Person className={classnames(classes[`person-${props.size}`])} />
     </Avatar>
@@ -60,13 +57,11 @@ const UserAvatarPlaceholder = (props) => {
 
 UserAvatarPlaceholder.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.object,
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
 }
 
 UserAvatarPlaceholder.defaultProps = {
   className: undefined,
-  classes: {},
   size: 'regular',
 }
 
