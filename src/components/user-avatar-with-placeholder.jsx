@@ -7,16 +7,21 @@ import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 
 const useStyles = makeStyles(theme => ({
-  avatar: ({ isClickable, hasUser }) => ({
+  avatar: ({ isClickable }) => ({
     cursor: isClickable ? 'pointer' : 'auto',
-    color: hasUser ? theme.palette.colors.white : theme.palette.colors.grey,
+    color: theme.palette.colors.white,
+    borderColor: theme.palette.colors.lightGrey,
+  }),
+  placeholder: ({ isClickable }) => ({
+    cursor: isClickable ? 'pointer' : 'auto',
+    color: theme.palette.colors.grey,
     borderColor: theme.palette.colors.lightGrey,
 
     '&:hover': isClickable ? {
-      color: hasUser ? theme.palette.colors.white : theme.palette.colors.blue,
+      color: theme.palette.colors.blue,
       borderColor: theme.palette.colors.blue,
     } : {
-      color: hasUser ? theme.palette.colors.white : theme.palette.colors.grey,
+      color: theme.palette.colors.grey,
       borderColor: theme.palette.colors.lightGrey,
     },
   }),
@@ -28,7 +33,8 @@ const UserAvatarWithPlaceholder = ({
   const isClickable = !!onClick && !disabled
   const hasUser = user != null
   const ownClasses = useStyles({ isClickable, hasUser })
-  const combinedClassNames = classnames(className, ownClasses.avatar)
+  const combinedAvatarClasses = classnames(className, ownClasses.avatar)
+  const combinedPlaceholderClasses = classnames(className, ownClasses.placeholder)
 
   return (
     <div
@@ -39,7 +45,7 @@ const UserAvatarWithPlaceholder = ({
         hasUser
           ? (
             <UserAvatar
-              className={combinedClassNames}
+              className={combinedAvatarClasses}
               firstName={user.firstName}
               lastName={user.lastName}
               email={user.email}
@@ -47,7 +53,7 @@ const UserAvatarWithPlaceholder = ({
             />
           ) : (
             <UserAvatarPlaceholder
-              className={combinedClassNames}
+              className={combinedPlaceholderClasses}
               classes={classes}
               size={size}
             />
