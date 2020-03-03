@@ -6,9 +6,19 @@ import { makeStyles } from '@material-ui/styles'
 import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 
-const useStyles = makeStyles(() => ({
-  avatar: ({ isClickable }) => ({
+const useStyles = makeStyles(theme => ({
+  avatar: ({ isClickable, hasUser }) => ({
     cursor: isClickable ? 'pointer' : 'auto',
+    color: hasUser ? theme.palette.colors.white : theme.palette.colors.grey,
+    borderColor: theme.palette.colors.lightGrey,
+
+    '&:hover': isClickable ? {
+      color: hasUser ? theme.palette.colors.white : theme.palette.colors.blue,
+      borderColor: theme.palette.colors.blue,
+    } : {
+      color: hasUser ? theme.palette.colors.white : theme.palette.colors.grey,
+      borderColor: theme.palette.colors.lightGrey,
+    },
   }),
 }))
 
@@ -16,7 +26,8 @@ const UserAvatarWithPlaceholder = ({
   className, onClick, user, classes, size, disabled,
 }) => {
   const isClickable = !!onClick && !disabled
-  const ownClasses = useStyles({ isClickable })
+  const hasUser = user != null
+  const ownClasses = useStyles({ isClickable, hasUser })
   const combinedClassNames = classnames(className, ownClasses.avatar)
 
   return (
@@ -25,7 +36,7 @@ const UserAvatarWithPlaceholder = ({
       onClick={isClickable ? onClick : undefined}
     >
       {
-        user
+        hasUser
           ? (
             <UserAvatar
               className={combinedClassNames}
