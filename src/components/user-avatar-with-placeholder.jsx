@@ -77,7 +77,7 @@ const UserAvatarWithPlaceholder = ({
 }) => {
   const isClickable = !!onClick && !disabled
   const hasUser = user != null
-  const ownClasses = useStyles({ isClickable, hasUser, variant })
+  const ownClasses = useStyles({ isClickable, variant })
 
   const combinedAvatarClasses = classnames(className, ownClasses.avatar)
   const combinedPlaceholderClasses = classnames(className, ownClasses.placeholder)
