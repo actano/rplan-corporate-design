@@ -17,6 +17,7 @@ const COLOR_NAMES = {
   darkBlue: '#354A90',
   darkerBlue: '#2c3555',
   veryDarkBlue: '#1C274A',
+  lightGreen: '#ECFBF6',
   green: '#0ED08F',
   turquoise: '#40c7b9',
   lightRed: '#FEF0F0',
@@ -25,6 +26,13 @@ const COLOR_NAMES = {
   orange: '#FCB239',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
+  deepBlue: '#4040C7',
+  dullBlue: '#4078C7',
+  cyan: '#00BCD4',
+  teal: '#009688',
+  almond: '#80BFB3',
+  amber: '#FFC107',
+
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -54,6 +62,20 @@ const themeConfig = {
     },
     primary: {
       main: COLOR_NAMES.blue,
+    },
+    support: {
+      deepBlue: COLOR_NAMES.deepBlue,
+      dullBlue: COLOR_NAMES.dullBlue,
+      cyan: COLOR_NAMES.cyan,
+      teal: COLOR_NAMES.teal,
+      almond: COLOR_NAMES.almond,
+      amber: COLOR_NAMES.amber,
+    },
+    signal: {
+      green: COLOR_NAMES.green,
+      lightGreen: COLOR_NAMES.lightGreen,
+      red: COLOR_NAMES.red,
+      lightRed: COLOR_NAMES.lightRed,
     },
     colors: COLOR_NAMES,
   },

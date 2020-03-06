@@ -81,6 +81,22 @@ const colorsStories = () => {
                 {Object.entries(theme.palette.error).map(entry => ColorItem(entry, '100px'))}
               </Grid>
             </Grid>
+            <Grid item>
+              <Typography variant="h3" align="left">
+                Support colors
+              </Typography>
+              <Grid container spacing={1} direction="row">
+                {Object.entries(theme.palette.support).map(entry => ColorItem(entry, '100px'))}
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="h3" align="left">
+                Signal colors
+              </Typography>
+              <Grid container spacing={1} direction="row">
+                {Object.entries(theme.palette.signal).map(entry => ColorItem(entry, '100px'))}
+              </Grid>
+            </Grid>
           </Grid>
         </Providers>
       ))
