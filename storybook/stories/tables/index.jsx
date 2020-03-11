@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography } from '@material-ui/core'
+import { TableCell, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import { actions } from '@storybook/addon-actions'
 import {
@@ -51,20 +51,26 @@ const SelectStateWrapper = (props) => {
 }
 
 const values = taskName => ([
-  <div>{taskName}</div>,
-  <SelectStateWrapper
-    options={options}
-    disabled={false}
-  />,
-  <UserAvatar
-    size="small"
-    firstName="Example"
-    lastName="Smith"
-    email="marie.omann@actano.de"
-  />,
-  <ChangeOnAcceptDatePicker
-    {...onSaveHandler}
-  />,
+  <TableCell>{taskName}</TableCell>,
+  <TableCell>
+    <SelectStateWrapper
+      options={options}
+      disabled={false}
+    />
+  </TableCell>,
+  <TableCell>
+    <UserAvatar
+      size="small"
+      firstName="Example"
+      lastName="Smith"
+      email="marie.omann@actano.de"
+    />
+  </TableCell>,
+  <TableCell>
+    <ChangeOnAcceptDatePicker
+      {...onSaveHandler}
+    />
+  </TableCell>,
 ])
 
 const rows = [

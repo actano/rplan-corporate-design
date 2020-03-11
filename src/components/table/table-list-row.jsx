@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 import {
-  TableCell,
   TableRow,
 } from '@material-ui/core'
 
@@ -38,9 +37,7 @@ const TableListRow = ({
       {...otherProps}
       className={classes.row}
     >
-      {children.map(cell => (
-        <TableCell>{cell}</TableCell>
-      ))}
+      {children}
     </TableRow>
   )
 }
