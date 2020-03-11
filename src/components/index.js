@@ -17,3 +17,4 @@ export { NonCollapsingExpansionPanelSummary } from './non-collapsing-expansion-p
 export { Skeleton } from './skeleton'
 export { DueDateStatus, DUE_DATE_STATUS } from './due-date-status'
 export { AllexLogo } from './allex-logo'
+export { TableList, TableListRow } from './table'
