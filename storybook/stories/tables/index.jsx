@@ -1,30 +1,77 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
+import { actions } from '@storybook/addon-actions'
 import {
-  TableList,
+  ChangeOnAcceptDatePicker,
+  CommonSelect,
+  TableList, UserAvatar,
 } from '../../../src'
 
 import { Providers } from '../providers'
 import { TableListRow } from '../../../src/components/table/table-list-row'
 
 const columnDefinitions = [
-  { name: 'column1', width: '50%' },
-  { name: 'column2', width: '25%' },
-  { name: 'column3', width: '12.5%' },
-  { name: 'column4', width: '12.5%' },
+  { name: 'Task' },
+  { name: 'Status', width: '25%' },
+  { name: 'Responsible', width: '12.5%' },
+  { name: 'Due date', width: '12.5%' },
 ]
-const values = [
-  <div>Value1</div>,
-  <div>Value2</div>,
-  <div>Value3</div>,
-  <div>Value4</div>,
+
+const onSaveHandler = actions('onSelectDate')
+
+const options = [
+  {
+    id: 'planned',
+    value: 'Planned',
+  },
+  {
+    id: 'inProgress',
+    value: 'In Progress',
+  },
+  {
+    id: 'done',
+    value: 'Done',
+  },
 ]
+
+const SelectStateWrapper = (props) => {
+  const [value, setValue] = useState(options[0].id)
+
+  const onChange = val =>
+    setValue(val)
+
+  return (
+    <CommonSelect
+      value={value}
+      onChange={onChange}
+      {...props}
+    />
+  )
+}
+
+const values = taskName => ([
+  <div>{taskName}</div>,
+  <SelectStateWrapper
+    options={options}
+    disabled={false}
+  />,
+  <UserAvatar
+    size="small"
+    firstName="Example"
+    lastName="Smith"
+    email="marie.omann@actano.de"
+  />,
+  <ChangeOnAcceptDatePicker
+    {...onSaveHandler}
+  />,
+])
+
 const rows = [
-  <TableListRow cells={values} />,
-  <TableListRow cells={values} />,
-  <TableListRow cells={values} />,
-  <TableListRow cells={values} />,
+  <TableListRow cells={values('Task 1')} />,
+  <TableListRow cells={values('Task 2')} />,
+  <TableListRow cells={values('Task 3')} />,
+  <TableListRow cells={values('Task 4')} />,
 ]
 export const tableStories = () => {
   storiesOf('Tables', module)
