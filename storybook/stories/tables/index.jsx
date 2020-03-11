@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { TableCell, Typography } from '@material-ui/core'
 import { storiesOf } from '@storybook/react'
 import { actions } from '@storybook/addon-actions'
+import { boolean } from '@storybook/addon-knobs'
 import {
   ChangeOnAcceptDatePicker,
   CommonSelect,
@@ -50,59 +51,50 @@ const SelectStateWrapper = (props) => {
   )
 }
 
-const values = taskName => ([
-  <TableCell>{taskName}</TableCell>,
-  <TableCell>
-    <SelectStateWrapper
-      options={options}
-      disabled={false}
-    />
-  </TableCell>,
-  <TableCell>
-    <UserAvatar
-      size="small"
-      firstName="Example"
-      lastName="Smith"
-      email="marie.omann@actano.de"
-    />
-  </TableCell>,
-  <TableCell>
-    <ChangeOnAcceptDatePicker
-      {...onSaveHandler}
-    />
-  </TableCell>,
-])
+// eslint-disable-next-line react/prop-types
+const ExampleRow = ({ taskName }) => (
+  <TableListRow>
+    <TableCell>{taskName}</TableCell>
+    <TableCell>
+      <SelectStateWrapper
+        options={options}
+        disabled={false}
+      />
+    </TableCell>
+    <TableCell>
+      <UserAvatar
+        size="small"
+        firstName="Example"
+        lastName="Smith"
+        email="marie.omann@actano.de"
+      />
+    </TableCell>
+    <TableCell>
+      <ChangeOnAcceptDatePicker
+        {...onSaveHandler}
+      />
+    </TableCell>
+  </TableListRow>
+)
 
-const rows = [
-  <TableListRow>{values('Task 1')}</TableListRow>,
-  <TableListRow>{values('Task 2')}</TableListRow>,
-  <TableListRow>{values('Task 3')}</TableListRow>,
-  <TableListRow>{values('Task 4')}</TableListRow>,
-]
 export const tableStories = () => {
   storiesOf('Tables', module)
-    .add('Tables', () =>
-      (
+    .add('Tables', () => {
+      const showHeaders = boolean('with table header', true)
+      return (
         <Providers>
           <div>
             <Typography variant="h2" align="left">
-              Table with headers
+                Table
             </Typography>
-            <TableList columnDefinitions={columnDefinitions} showHeaders>
-              {rows}
+            <TableList columnDefinitions={columnDefinitions} showHeaders={showHeaders}>
+              <ExampleRow taskName="Task 1" />
+              <ExampleRow taskName="Task 2" />
+              <ExampleRow taskName="Task 3" />
+              <ExampleRow taskName="Task 4" />
             </TableList>
-            <Typography variant="h2" align="left">
-            Table without headers
-            </Typography>
-            <div style={{
-              marginTop: '20px',
-            }}
-            >
-              <TableList columnDefinitions={columnDefinitions}>
-                {rows}
-              </TableList>
-            </div>
           </div>
         </Providers>
-      ))
+      )
+    })
 }
