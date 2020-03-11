@@ -43,7 +43,6 @@ const TableListRow = ({
 
 TableListRow.propTypes = {
   cells: PropTypes.arrayOf(PropTypes.node).isRequired,
-
 }
 
 export { TableListRow }

@@ -35,14 +35,16 @@ const TableList = ({
     >
       <colgroup>
         {columnDefinitions.map(column => (
-          <col width={column.width} />
+          column.width
+            ? <col width={column.width} />
+            : <col />
         ))}
       </colgroup>
       <TableHead>
         {showHeaders && (
         <TableRow>
           {columnDefinitions.map(column => (
-            <TableCell>{column.name}</TableCell>
+            <TableCell>{column.name && column.name}</TableCell>
           ))}
         </TableRow>
         )}
@@ -58,8 +60,8 @@ const TableList = ({
 
 TableList.propTypes = {
   columnDefinitions: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    width: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    width: PropTypes.string,
   })).isRequired,
   rows: PropTypes.arrayOf(PropTypes.node).isRequired,
   showHeaders: PropTypes.bool,
