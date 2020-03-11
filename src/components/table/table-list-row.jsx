@@ -8,7 +8,7 @@ import {
 import { rgbaString } from '../..'
 
 const useStyles = makeStyles(theme => ({
-  row: {
+  row: ({ isClickable }) => ({
     backgroundColor: theme.palette.colors.white,
     boxShadow: 'none',
     border: '1px solid',
@@ -17,24 +17,24 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       boxShadow: `0 3px 5px ${theme.palette.colors.veryLightGrey}`,
       outline: `1px solid ${rgbaString(theme.palette.colors.blue, 0.30)}`,
-      cursor: 'pointer',
+      cursor: isClickable ? 'pointer' : 'auto',
     },
     '& > *': {
       borderBottom: 'unset',
-      padding: theme.spacing(2),
-      color: theme.palette.colors.darkestGrey,
     },
-  },
+  }),
 }))
 
 const TableListRow = ({
   children,
+  onClick,
   ...otherProps
 }) => {
-  const classes = useStyles()
+  const classes = useStyles({ isClickable: onClick != null })
   return (
     <TableRow
       {...otherProps}
+      onClick={onClick}
       className={classes.row}
     >
       {children}
@@ -44,6 +44,11 @@ const TableListRow = ({
 
 TableListRow.propTypes = {
   children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+}
+
+TableListRow.defaultProps = {
+  onClick: undefined,
 }
 
 export { TableListRow }

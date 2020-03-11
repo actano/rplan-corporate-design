@@ -13,13 +13,8 @@ const useStyles = makeStyles(theme => ({
   table: {
     tableLayout: 'fixed',
     fontWeight: 'normal',
-    fontSize: theme.spacing(1.875),
     borderSpacing: `0 ${theme.spacing(2)}px`,
     borderCollapse: 'separate',
-    marginTop: `-${theme.spacing(3)}px`,
-    [theme.breakpoints.down('sm')]: {
-      paddingRight: theme.spacing(2),
-    },
   },
 }))
 

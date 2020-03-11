@@ -88,14 +88,9 @@ export const tableStories = () => {
             <Typography variant="h2" align="left">
               Table with headers
             </Typography>
-            <div style={{
-              marginTop: '20px',
-            }}
-            >
-              <TableList columnDefinitions={columnDefinitions} showHeaders>
-                {rows}
-              </TableList>
-            </div>
+            <TableList columnDefinitions={columnDefinitions} showHeaders>
+              {rows}
+            </TableList>
             <Typography variant="h2" align="left">
             Table without headers
             </Typography>
