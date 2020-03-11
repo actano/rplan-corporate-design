@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
 
 const TableList = ({
   columnDefinitions,
-  rows,
   showHeaders,
+  children,
 }) => {
   const classes = useStyles()
   return (
@@ -50,7 +50,7 @@ const TableList = ({
         )}
       </TableHead>
       <TableBody>
-        {rows.map(row => (
+        {children.map(row => (
           row
         ))}
       </TableBody>
@@ -63,8 +63,8 @@ TableList.propTypes = {
     name: PropTypes.string,
     width: PropTypes.string,
   })).isRequired,
-  rows: PropTypes.arrayOf(PropTypes.node).isRequired,
   showHeaders: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 }
 
 TableList.defaultProps = {

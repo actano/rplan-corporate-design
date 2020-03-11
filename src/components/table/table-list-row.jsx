@@ -29,12 +29,16 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const TableListRow = ({
-  cells,
+  children,
+  ...otherProps
 }) => {
   const classes = useStyles()
   return (
-    <TableRow className={classes.row}>
-      {cells.map(cell => (
+    <TableRow
+      {...otherProps}
+      className={classes.row}
+    >
+      {children.map(cell => (
         <TableCell>{cell}</TableCell>
       ))}
     </TableRow>
@@ -42,7 +46,7 @@ const TableListRow = ({
 }
 
 TableListRow.propTypes = {
-  cells: PropTypes.arrayOf(PropTypes.node).isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export { TableListRow }

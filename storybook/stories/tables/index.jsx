@@ -68,10 +68,10 @@ const values = taskName => ([
 ])
 
 const rows = [
-  <TableListRow cells={values('Task 1')} />,
-  <TableListRow cells={values('Task 2')} />,
-  <TableListRow cells={values('Task 3')} />,
-  <TableListRow cells={values('Task 4')} />,
+  <TableListRow>{values('Task 1')}</TableListRow>,
+  <TableListRow>{values('Task 2')}</TableListRow>,
+  <TableListRow>{values('Task 3')}</TableListRow>,
+  <TableListRow>{values('Task 4')}</TableListRow>,
 ]
 export const tableStories = () => {
   storiesOf('Tables', module)
@@ -86,7 +86,9 @@ export const tableStories = () => {
               marginTop: '20px',
             }}
             >
-              <TableList rows={rows} columnDefinitions={columnDefinitions} showHeaders />
+              <TableList columnDefinitions={columnDefinitions} showHeaders>
+                {rows}
+              </TableList>
             </div>
             <Typography variant="h2" align="left">
             Table without headers
@@ -95,7 +97,9 @@ export const tableStories = () => {
               marginTop: '20px',
             }}
             >
-              <TableList rows={rows} columnDefinitions={columnDefinitions} />
+              <TableList columnDefinitions={columnDefinitions}>
+                {rows}
+              </TableList>
             </div>
           </div>
         </Providers>
