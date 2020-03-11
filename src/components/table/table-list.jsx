@@ -34,10 +34,12 @@ const TableList = ({
       className={classes.table}
     >
       <colgroup>
-        {columnDefinitions.map(column => (
+        {columnDefinitions.map((column, index) => (
           column.width
-            ? <col width={column.width} />
-            : <col />
+            // eslint-disable-next-line react/no-array-index-key
+            ? <col key={index} width={column.width} />
+            // eslint-disable-next-line react/no-array-index-key
+            : <col key={index} />
         ))}
       </colgroup>
       <TableHead>
