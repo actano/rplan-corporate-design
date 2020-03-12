@@ -8,6 +8,7 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core'
+import classNames from 'classnames'
 
 const useStyles = makeStyles(theme => ({
   table: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const TableList = ({
+  className,
   columnDefinitions,
   showHeaders,
   children,
@@ -26,7 +28,7 @@ const TableList = ({
   const classes = useStyles()
   return (
     <Table
-      className={classes.table}
+      className={classNames(className, classes.table)}
     >
       <colgroup>
         {columnDefinitions.map((column, index) => (
@@ -56,6 +58,7 @@ const TableList = ({
 }
 
 TableList.propTypes = {
+  className: PropTypes.string,
   columnDefinitions: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     width: PropTypes.string,
@@ -65,6 +68,7 @@ TableList.propTypes = {
 }
 
 TableList.defaultProps = {
+  className: undefined,
   showHeaders: false,
 }
 
