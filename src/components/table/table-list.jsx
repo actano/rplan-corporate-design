@@ -32,26 +32,21 @@ const TableList = ({
     >
       <colgroup>
         {columnDefinitions.map((column, index) => (
-          column.width
-            // eslint-disable-next-line react/no-array-index-key
-            ? <col key={index} width={column.width} />
-            // eslint-disable-next-line react/no-array-index-key
-            : <col key={index} />
+          // eslint-disable-next-line react/no-array-index-key
+          <col key={index} width={column.width} />
         ))}
       </colgroup>
       <TableHead>
         {showHeaders && (
         <TableRow>
           {columnDefinitions.map(column => (
-            <TableCell>{column.name && column.name}</TableCell>
+            <TableCell>{column.name}</TableCell>
           ))}
         </TableRow>
         )}
       </TableHead>
       <TableBody>
-        {children.map(row => (
-          row
-        ))}
+        {children}
       </TableBody>
     </Table>
   )
