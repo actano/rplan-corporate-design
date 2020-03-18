@@ -35,8 +35,13 @@ const TableList = ({
     >
       <colgroup>
         {columnDefinitions.map((column, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <col key={index} width={column.width} />
+          <col
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            style={{
+              width: column.width,
+            }}
+          />
         ))}
       </colgroup>
       <TableHead>
