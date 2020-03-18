@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'normal',
     borderSpacing: `0 ${theme.spacing(2)}px`,
     borderCollapse: 'separate',
+    overflow: 'hidden',
   },
 }))
 
