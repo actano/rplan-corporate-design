@@ -22,16 +22,17 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const TableList = ({
+const TableList = React.forwardRef(({
   className,
   columnDefinitions,
   showHeaders,
   children,
-}) => {
+}, ref) => {
   const classes = useStyles()
   return (
     <Table
       className={classNames(className, classes.table)}
+      ref={ref}
     >
       <colgroup>
         {columnDefinitions.map((column, index) => (
@@ -58,7 +59,7 @@ const TableList = ({
       </TableBody>
     </Table>
   )
-}
+})
 
 TableList.propTypes = {
   className: PropTypes.string,

@@ -25,22 +25,23 @@ const useStyles = makeStyles(theme => ({
   }),
 }))
 
-const TableListRow = ({
+const TableListRow = React.forwardRef(({
   children,
   onClick,
   ...otherProps
-}) => {
+}, ref) => {
   const classes = useStyles({ isClickable: onClick != null })
   return (
     <TableRow
       {...otherProps}
+      ref={ref}
       onClick={onClick}
       className={classes.row}
     >
       {children}
     </TableRow>
   )
-}
+})
 
 TableListRow.propTypes = {
   children: PropTypes.node.isRequired,
