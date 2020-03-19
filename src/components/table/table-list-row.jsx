@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   row: ({ isClickable }) => ({
     backgroundColor: theme.palette.colors.white,
     boxShadow: 'none',
-    border: '1px solid',
     outline: `1px solid ${theme.palette.colors.veryLightGrey}`,
     transition: 'outline 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
     '&:hover': {
