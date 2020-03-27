@@ -34,6 +34,7 @@ const baseEditorConfig = {
       },
     ],
   },
+  plugins: [...ClassicEditor.builtinPlugins],
   removePlugins: [
     'Image',
     'ImageCaption',
@@ -139,10 +140,45 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+// Recommended way to set a fixed height for the editable area is a custom plugin.
+// As this doesn't take the toolbar into account, the toolbar height must be subtracted in addition.
+const createMinMaxHeightPlugin = (height) => {
+  function MinMaxHeightPlugin(editor) {
+    this.editor = editor
+  }
+
+  MinMaxHeightPlugin.prototype.init = function () {
+    const toolbarHeight = 38
+    const editableHeight = height - toolbarHeight
+
+    this.editor.ui.view.toolbar.extendTemplate({
+      attributes: {
+        style: {
+          minHeight: `${toolbarHeight}px`,
+          maxHeight: `${toolbarHeight}px`,
+        },
+      },
+    })
+    this.editor.ui.view.editable.extendTemplate({
+      attributes: {
+        style: {
+          minHeight: `${editableHeight}px`,
+          maxHeight: `${editableHeight}px`,
+        },
+      },
+    })
+  }
+
+  return MinMaxHeightPlugin
+}
+
 export const RichTextEditor = ({
-  placeholder, onChange, data,
+  placeholder, onChange, data, fixedHeight,
 }) => {
   const editorConfig = { ...baseEditorConfig, placeholder }
+
+  if (fixedHeight) editorConfig.plugins.push(createMinMaxHeightPlugin(fixedHeight))
+
   useStyles()
   return (
     <CKEditor
@@ -158,10 +194,12 @@ RichTextEditor.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   data: PropTypes.string,
+  fixedHeight: PropTypes.number,
 }
 
 RichTextEditor.defaultProps = {
   placeholder: '',
   onChange: () => {},
   data: '',
+  fixedHeight: undefined,
 }
