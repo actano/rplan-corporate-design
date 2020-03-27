@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { DefaultControlledTextField } from '../../../src/inputs/default-controlled-text-field'
 import { InputWithLabel } from '../../../src/inputs/input-with-label'
 import { NumberInput } from '../../../src/inputs/number-input'
-import { RichTextInput } from '../../../src/inputs/rich-text'
+import { RichTextInput } from '../../../src/inputs/rich-text/rich-text-input'
 
 import { Providers } from '../providers'
 

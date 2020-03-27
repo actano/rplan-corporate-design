@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { expect } from 'chai'
 
-import { wrapWithControls } from '../../src/inputs/rich-text'
+import { wrapWithControls } from '../../src/inputs/rich-text/rich-text-input'
 import { testIdProp } from '../../src/utils/test-id-prop'
 
 import { TestProviders } from '../providers'
