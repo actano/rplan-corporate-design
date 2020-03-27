@@ -84,7 +84,7 @@ describe('wrapWithControls', () => {
       const editor = component.find(testIdProp(testIds.editor))
       expect(editor).to.be.present()
       expect(editor).to.have.prop('onChange')
-      editor.prop('onChange')({}, { getData() { return 'something longer than maxInputLength' } })
+      editor.prop('onChange')('something longer than maxInputLength')
       await settleComponent(component)
 
       saveButton = component.find(testIdProp(testIds.saveButton)).first()

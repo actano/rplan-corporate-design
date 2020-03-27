@@ -184,7 +184,7 @@ export const RichTextEditor = ({
     <CKEditor
       editor={ClassicEditor}
       data={data}
-      onChange={onChange}
+      onChange={(event, editor) => onChange(editor.getData())}
       config={editorConfig}
     />
   )

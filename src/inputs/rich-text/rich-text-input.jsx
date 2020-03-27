@@ -43,8 +43,7 @@ export const wrapWithControls = (EditorComponent) => {
     const [data, setData] = useState(originalValue)
     const [isSaveDisabled, setIsSaveDisabled] = useState(false)
 
-    const onChangeEditorData = useCallback((event, editor) => {
-      const newData = editor.getData()
+    const onChangeEditorData = useCallback((newData) => {
       if (newData.length <= maxInputLength) {
         setData(newData)
         setIsSaveDisabled(false)
