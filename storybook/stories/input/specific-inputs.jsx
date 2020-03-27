@@ -7,6 +7,7 @@ import { DefaultControlledTextField } from '../../../src/inputs/default-controll
 import { InputWithLabel } from '../../../src/inputs/input-with-label'
 import { NumberInput } from '../../../src/inputs/number-input'
 import { RichTextInput } from '../../../src/inputs/rich-text/rich-text-input'
+import { RichTextEditor } from '../../../src/inputs/rich-text/rich-text-editor'
 
 import { Providers } from '../providers'
 
@@ -66,6 +67,23 @@ const specificInputStory = () =>
             placeholder={text('placeholder', 'type something')}
             maxInputLength={number('maximal input length', 50)}
             disabled={boolean('Rich text editor disabled', false)}
+            {...onSaveHandler}
+          />
+        </Grid>
+        <Grid item>
+          <Typography variant="h2">
+            Rich Text Editor
+          </Typography>
+          <Typography variant="body1">
+            This editor allows the input of rich text.
+            For this a fixed height can be defined.
+            If the encoding of the text exceeds the maximum length
+            it calls a callback.
+          </Typography>
+          <RichTextEditor
+            data={'<h1> Hello There </h1>'}
+            placeholder={text('placeholder', 'type something')}
+            fixedHeight={150}
             {...onSaveHandler}
           />
         </Grid>
