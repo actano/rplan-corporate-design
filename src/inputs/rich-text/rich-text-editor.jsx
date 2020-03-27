@@ -139,7 +139,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const Editor = ({
+export const RichTextEditor = ({
   placeholder, onChange, data,
 }) => {
   const editorConfig = { ...baseEditorConfig, placeholder }
@@ -154,13 +154,13 @@ export const Editor = ({
   )
 }
 
-Editor.propTypes = {
+RichTextEditor.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   data: PropTypes.string,
 }
 
-Editor.defaultProps = {
+RichTextEditor.defaultProps = {
   placeholder: '',
   onChange: () => {},
   data: '',

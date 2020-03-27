@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { testIdProp } from '../../utils/test-id-prop'
 
 import { RichTextDisplay } from './rich-text-display'
-import { Editor } from './editor'
+import { RichTextEditor } from './rich-text-editor'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 import { EditorButtons } from './editor-buttons'
 
@@ -154,4 +154,4 @@ export const wrapWithControls = (EditorComponent) => {
   return Wrapped
 }
 
-export const RichTextInput = wrapWithControls(Editor)
+export const RichTextInput = wrapWithControls(RichTextEditor)
