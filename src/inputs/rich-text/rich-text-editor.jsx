@@ -116,7 +116,7 @@ const useStyles = makeStyles(theme => ({
     '.ck': {
       color: theme.palette.colors.darkestGrey,
       fontSize: '0.8125rem',
-      '& .ck-placeholder': {
+      '& .ck-placeholder::before': {
         color: theme.palette.colors.grey,
       },
       '& .ck-dropdown__panel': {
