@@ -34,7 +34,6 @@ const baseEditorConfig = {
       },
     ],
   },
-  plugins: [...ClassicEditor.builtinPlugins],
   removePlugins: [
     'Image',
     'ImageCaption',
@@ -175,9 +174,15 @@ const createMinMaxHeightPlugin = (height) => {
 export const RichTextEditor = ({
   placeholder, onChange, data, fixedHeight,
 }) => {
-  const editorConfig = { ...baseEditorConfig, placeholder }
+  const plugins = [...ClassicEditor.builtinPlugins]
 
-  if (fixedHeight) editorConfig.plugins.push(createMinMaxHeightPlugin(fixedHeight))
+  if (fixedHeight) plugins.push(createMinMaxHeightPlugin(fixedHeight))
+
+  const editorConfig = {
+    ...baseEditorConfig,
+    plugins,
+    placeholder,
+  }
 
   useStyles()
   return (
