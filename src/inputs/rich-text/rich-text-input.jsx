@@ -87,7 +87,7 @@ export const wrapWithControls = (EditorComponent) => {
           <EditorComponent
             placeholder={placeholder}
             onChange={onChangeEditorData}
-            originalValue={data}
+            data={data}
             maxInputLength={maxInputLength}
             onMaxInputLengthExceeded={onMaxInputLengthExceeded}
             {...testIdProp(testIds.editor)}
