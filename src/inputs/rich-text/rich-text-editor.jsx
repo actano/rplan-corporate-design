@@ -171,8 +171,15 @@ const createMinMaxHeightPlugin = (height) => {
   return MinMaxHeightPlugin
 }
 
+const DEFAULT_MAX_INPUT_LENGTH = 4000
+
 export const RichTextEditor = ({
-  placeholder, onChange, data, fixedHeight,
+  placeholder,
+  onChange,
+  data,
+  fixedHeight,
+  maxInputLength,
+  onMaxInputLengthExceeded,
 }) => {
   const plugins = [...ClassicEditor.builtinPlugins]
 
@@ -189,7 +196,14 @@ export const RichTextEditor = ({
     <CKEditor
       editor={ClassicEditor}
       data={data}
-      onChange={(event, editor) => onChange(editor.getData())}
+      onChange={(event, editor) => {
+        const newData = editor.getData()
+        if (newData.length <= maxInputLength) {
+          onChange(newData)
+        } else {
+          onMaxInputLengthExceeded()
+        }
+      }}
       config={editorConfig}
     />
   )
@@ -200,6 +214,8 @@ RichTextEditor.propTypes = {
   onChange: PropTypes.func,
   data: PropTypes.string,
   fixedHeight: PropTypes.number,
+  maxInputLength: PropTypes.number,
+  onMaxInputLengthExceeded: PropTypes.func,
 }
 
 RichTextEditor.defaultProps = {
@@ -207,4 +223,6 @@ RichTextEditor.defaultProps = {
   onChange: () => {},
   data: '',
   fixedHeight: undefined,
+  maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
+  onMaxInputLengthExceeded: () => {},
 }

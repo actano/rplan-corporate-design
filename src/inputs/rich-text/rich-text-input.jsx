@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
+
 import { testIdProp } from '../../utils/test-id-prop'
 
 import { RichTextDisplay } from './rich-text-display'
@@ -26,8 +27,6 @@ const useStyles = makeStyles(theme => ({
   }),
 }))
 
-const DEFAULT_MAX_INPUT_LENGTH = 4000
-
 export const wrapWithControls = (EditorComponent) => {
   const Wrapped = ({
     onSave,
@@ -44,13 +43,13 @@ export const wrapWithControls = (EditorComponent) => {
     const [isSaveDisabled, setIsSaveDisabled] = useState(false)
 
     const onChangeEditorData = useCallback((newData) => {
-      if (newData.length <= maxInputLength) {
-        setData(newData)
-        setIsSaveDisabled(false)
-      } else {
-        setIsSaveDisabled(true)
-      }
-    }, [maxInputLength])
+      setData(newData)
+      setIsSaveDisabled(false)
+    }, [])
+
+    const onMaxInputLengthExceeded = useCallback(() => {
+      setIsSaveDisabled(true)
+    }, [])
 
     const onSaveClick = useCallback(() => {
       onSave(data)
@@ -88,7 +87,9 @@ export const wrapWithControls = (EditorComponent) => {
           <EditorComponent
             placeholder={placeholder}
             onChange={onChangeEditorData}
-            data={data}
+            originalValue={data}
+            maxInputLength={maxInputLength}
+            onMaxInputLengthExceeded={onMaxInputLengthExceeded}
             {...testIdProp(testIds.editor)}
           />
           <EditorButtons
@@ -139,7 +140,7 @@ export const wrapWithControls = (EditorComponent) => {
     originalValue: '',
     className: '',
     placeholder: 'Add some text',
-    maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
+    maxInputLength: undefined,
     testIds: {
       placeholder: '',
       editor: '',
