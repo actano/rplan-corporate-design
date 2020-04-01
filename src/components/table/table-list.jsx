@@ -48,9 +48,16 @@ const TableList = React.forwardRef(({
       <TableHead>
         {showHeaders && (
         <TableRow>
-          {columnDefinitions.map(column => (
-            <TableCell>{column.name}</TableCell>
-          ))}
+          {
+            columnDefinitions.map((column, index) => (
+              <TableCell
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+              >
+                { column.name }
+              </TableCell>
+            ))
+          }
         </TableRow>
         )}
       </TableHead>
