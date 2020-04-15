@@ -1,6 +1,6 @@
 import { CssBaseline } from '@material-ui/core'
-import { MuiPickersUtilsProvider } from '@material-ui/pickers'
-import DateFnsUtils from '@date-io/date-fns'
+import { LocalizationProvider } from '@material-ui/pickers'
+import DateFnsAdapter from '@material-ui/pickers/adapter/date-fns'
 import { enGB } from 'date-fns/locale'
 import { ThemeProvider } from '@material-ui/styles'
 import React from 'react'
@@ -13,10 +13,10 @@ const theme = createMuiTheme(themeConfig)
 // eslint-disable-next-line react/prop-types
 const Providers = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={enGB}>
+    <LocalizationProvider dateAdapter={DateFnsAdapter} locale={enGB}>
       <CssBaseline />
       { children }
-    </MuiPickersUtilsProvider>
+    </LocalizationProvider>
   </ThemeProvider>
 )
 
