@@ -1,6 +1,6 @@
-import React, { useCallback, useContext } from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { DatePicker as DatePickerMui, MuiPickersContext } from '@material-ui/pickers'
+import { DatePicker as DatePickerMui, Day } from '@material-ui/pickers'
 
 import { testIdProp } from '../utils/test-id-prop'
 
@@ -10,22 +10,16 @@ const DatePicker = ({
   renderDay,
   ...props
 }) => {
-  const dateUtils = useContext(MuiPickersContext)
-
   const _renderDay = useCallback(
-    (day, selectedDate, dayInCurrentMonth, dayComponent) => {
-      const elementWithData = React.cloneElement(
-        dayComponent,
-        { 'data-date': dateUtils.format(day, 'yyyy-MM-dd') },
-      )
-
+    (day, selectedDate, dayComponentProps) => {
+      const elementWithData = <Day {...dayComponentProps} />
       if (renderDay != null) {
-        return renderDay(day, selectedDate, dayInCurrentMonth, elementWithData)
+        return renderDay(day, selectedDate, elementWithData)
       }
 
       return elementWithData
     },
-    [dateUtils, renderDay],
+    [renderDay],
   )
 
   return (
