@@ -36,7 +36,6 @@ const DatePickerButton = ({
       <DatePicker
         {...pickerProps}
         className={classes.datePicker}
-        variant="dialog"
         open={datePickerVisible}
         onClose={hidePicker}
         onChange={onSelectDate}
