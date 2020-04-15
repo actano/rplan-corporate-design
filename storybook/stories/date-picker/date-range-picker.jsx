@@ -15,8 +15,10 @@ const dateRangePickerStory = () =>
           <Typography variant="h2">
             Date Range Picker
           </Typography>
+        </Grid>
+        <Grid item>
           <Typography variant="body1">
-            This date allows to select a date range.
+            This component allows to select a date range.
           </Typography>
         </Grid>
         <Grid item>
