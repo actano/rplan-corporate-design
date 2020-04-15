@@ -26,6 +26,15 @@ const DatePickerButton = ({
     [setDatePickerVisible],
   )
 
+  const handleSelect = useCallback(
+    (newDate) => {
+      setDatePickerVisible(false)
+      onSelectDate(newDate)
+      hidePicker()
+    },
+    [hidePicker, onSelectDate],
+  )
+
   const showPicker = useCallback(
     () => { setDatePickerVisible(true) },
     [setDatePickerVisible],
@@ -38,7 +47,7 @@ const DatePickerButton = ({
         className={classes.datePicker}
         open={datePickerVisible}
         onClose={hidePicker}
-        onChange={onSelectDate}
+        onChange={handleSelect}
         onAccept={hidePicker}
       />
       {
