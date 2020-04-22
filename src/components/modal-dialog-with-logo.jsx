@@ -8,6 +8,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import logoUrl from './logo-page/logo.svg'
 
 import { TertiaryButton } from '../buttons'
+import { useTranslation } from '../i18n'
 
 const styles = theme => ({
   main: {
@@ -48,34 +49,44 @@ const styles = theme => ({
 
 const _ModalDialogWithLogo = ({
   classes, open, children, Buttons, onClose, onSubmit,
-}) => (
-  <Modal open={open} onClose={onClose}>
-    <div className={classes.main}>
-      <Paper className={classes.paper}>
-        <form className={classes.form} onSubmit={onSubmit}>
-          {children}
-          <Grid container spacing={2} direction="row" justify="center" className={classes.buttons}>
-            <Grid item>
-              <TertiaryButton
-                onClick={onClose}
-              >
-                Cancel
-              </TertiaryButton>
+}) => {
+  const [translate] = useTranslation()
+
+  return (
+    <Modal open={open} onClose={onClose}>
+      <div className={classes.main}>
+        <Paper className={classes.paper}>
+          <form className={classes.form} onSubmit={onSubmit}>
+            {children}
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+              justify="center"
+              className={classes.buttons}
+            >
+              <Grid item>
+                <TertiaryButton
+                  onClick={onClose}
+                >
+                  {translate('Cancel')}
+                </TertiaryButton>
+              </Grid>
+              <Grid item>
+                {Buttons}
+              </Grid>
             </Grid>
-            <Grid item>
-              {Buttons}
-            </Grid>
-          </Grid>
-        </form>
-      </Paper>
-      <div className={classes.logo}>
-        <figure>
-          <img src={logoUrl} alt="Allex logo" />
-        </figure>
+          </form>
+        </Paper>
+        <div className={classes.logo}>
+          <figure>
+            <img src={logoUrl} alt="Allex logo" />
+          </figure>
+        </div>
       </div>
-    </div>
-  </Modal>
-)
+    </Modal>
+  )
+}
 
 _ModalDialogWithLogo.propTypes = {
   classes: PropTypes.object.isRequired,
