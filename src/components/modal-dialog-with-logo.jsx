@@ -48,7 +48,7 @@ const styles = theme => ({
 })
 
 const _ModalDialogWithLogo = ({
-  classes, open, children, Buttons, onClose, onSubmit, cancelButtonText,
+  classes, open, children, Buttons, onClose, onSubmit, cancelButtonTextKey,
 }) => {
   const [translate] = useTranslation()
 
@@ -69,7 +69,7 @@ const _ModalDialogWithLogo = ({
                 <TertiaryButton
                   onClick={onClose}
                 >
-                  {translate(cancelButtonText)}
+                  {translate(cancelButtonTextKey)}
                 </TertiaryButton>
               </Grid>
               <Grid item>
@@ -95,12 +95,12 @@ _ModalDialogWithLogo.propTypes = {
   Buttons: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func,
-  cancelButtonText: PropTypes.oneOf(['Cancel', 'Close']),
+  cancelButtonTextKey: PropTypes.oneOf(['Cancel', 'Close']),
 }
 
 _ModalDialogWithLogo.defaultProps = {
   onSubmit: () => {},
-  cancelButtonText: 'Cancel',
+  cancelButtonTextKey: 'Cancel',
 }
 
 const ModalDialogWithLogo = withStyles(styles)(_ModalDialogWithLogo)
