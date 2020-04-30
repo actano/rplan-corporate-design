@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core'
+import ExpandMore from '@material-ui/icons/ExpandMore'
 import { storiesOf } from '@storybook/react'
+
 import { Providers } from '../providers'
 import { DotMenu, DotMenuItem } from '../../../src'
 
@@ -66,6 +68,15 @@ const stories = () => {
                 White dot menu on blue background
               </Typography>
               <WhiteDotMenuOnBlueBackground />
+            </Grid>
+            <Grid item>
+              <Typography variant="h3" align="left">
+                  Use different icon for the menu
+              </Typography>
+              <DotMenu icon={ExpandMore}>
+                <DotMenuItem onClick={() => console.log('item one clicked')}>Item one</DotMenuItem>
+                <DotMenuItem onClick={() => console.log('item two clicked')}>Item two</DotMenuItem>
+              </DotMenu>
             </Grid>
           </Grid>
         </div>
