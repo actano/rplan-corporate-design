@@ -6,6 +6,7 @@ module.exports = {
       },
     }],
     '@babel/preset-react',
+    '@babel/preset-typescript',
   ],
   ignore: [
     /node_modules\/(?!@rplan)/,

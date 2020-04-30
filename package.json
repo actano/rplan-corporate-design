@@ -2,15 +2,32 @@
   "name": "@rplan/corporate-design",
   "version": "2.39.0",
   "description": "Theme for Material UI and components based on the corporate design.",
-  "author": "Actano GmbH (https://rplan.com/)",
-  "main": "src/index.js",
-  "repository": "https://github.com/actano/rplan-corporate-design.git",
+  "author": {
+    "name": "Actano GmbH",
+    "url": "https://rplan.com/"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actano/rplan-corporate-design.git"
+  },
   "license": "MIT",
+  "files": [
+    "assets",
+    "lib"
+  ],
   "scripts": {
-    "lint": "eslint --ext js,jsx src test storybook",
-    "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\"",
+    "build": "yarn build:src && yarn build:declarations",
+    "build:clean": "yarn clean && yarn build",
+    "build:src": "babel -d lib src --extensions .js,.ts,.jsx,.tsx",
+    "build:declarations": "tsc --project tsconfig.types.json",
+    "clean": "rm -rf lib",
+    "lint": "eslint --ext js,jsx,ts,tsx src test storybook",
+    "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\" \"test/**/*.unit.tsx\" \"test/**/*.unit.ts\"",
     "storybook": "start-storybook -c ./storybook/config -p 8085",
-    "build-storybook": "build-storybook -c ./storybook/config"
+    "build-storybook": "build-storybook -c ./storybook/config",
+    "typecheck": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
@@ -33,15 +50,29 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.0.0",
     "@rplan/allex-i18n-tools": "^1.0.4",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
+    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.2.3",
+    "@types/chai": "^4.2.8",
+    "@types/chai-enzyme": "^0.6.7",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jsdom": "^12.2.4",
+    "@types/lodash": "^4.14.149",
+    "@types/mocha": "^7.0.1",
+    "@types/sinon": "^7.5.1",
+    "@types/sinon-chai": "^3.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
@@ -53,6 +84,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "i18next": "^19.4.4",
     "ignore-styles": "^5.0.1",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
@@ -60,6 +92,7 @@
     "react-i18next": "^11.3.4",
     "sinon": "^7.5.0",
     "sinon-chai": "^3.3.0",
+    "typescript": "^3.8.3",
     "webpack": "^4.32.2"
   },
   "peerDependencies": {
@@ -68,6 +101,7 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/pickers": "^3.2.6",
     "@material-ui/styles": "^4.1.2",
+    "i18next": "^19.4.4",
     "react-i18next": "^11.3.4"
   }
 }

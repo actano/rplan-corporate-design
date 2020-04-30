@@ -1,6 +1,12 @@
 root: true
 extends:
 - actano
+- plugin:import/typescript
+
+parser: '@typescript-eslint/parser'
+
+plugins:
+  - '@typescript-eslint'
 
 rules:
   import/no-extraneous-dependencies:
@@ -10,11 +16,28 @@ rules:
     - 'storybook/**/*.jsx'
     - 'test/**/*.js'
     - 'test/**/*.jsx'
+    - 'storybook/**/*.ts'
+    - 'storybook/**/*.tsx'
+    - 'test/**/*.ts'
+    - 'test/**/*.tsx'
+  '@typescript-eslint/no-unused-vars': error
+  no-unused-vars: off
+  no-return-await: off
+  import/prefer-default-export: off
+  react/jsx-filename-extension:
+    - 2
+    - extensions:
+        - '.js'
+        - '.jsx'
+        - '.ts'
+        - '.tsx'
 
 overrides:
   - files:
       - 'test/**/*.js'
       - 'test/**/*.jsx'
+      - 'test/**/*.ts'
+      - 'test/**/*.tsx'
     env:
       mocha: true
     rules:
@@ -24,3 +47,9 @@ overrides:
         - chai
         - enzyme
         - sinon
+  - files:
+      - '**/*.ts'
+      - '**/*.tsx'
+    rules:
+      no-undef: off
+      react/prop-types: off
