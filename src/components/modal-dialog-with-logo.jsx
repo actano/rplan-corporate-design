@@ -5,7 +5,7 @@ import { Modal } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import withStyles from '@material-ui/core/styles/withStyles'
-import logoUrl from './logo-page/logo.svg'
+import logoUrl from '../../assets/logo.svg'
 
 import { TertiaryButton } from '../buttons'
 import { useTranslation } from '../i18n'

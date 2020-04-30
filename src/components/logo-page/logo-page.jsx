@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-import logoUrl from './logo.svg'
+import logoUrl from '../../../assets/logo.svg'
 
 const useStyles = makeStyles(theme => ({
   main: {
