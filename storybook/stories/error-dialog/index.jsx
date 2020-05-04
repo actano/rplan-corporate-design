@@ -10,7 +10,7 @@ const errorBoxStories = () => {
     .add('Error Box', () => (
       <Providers>
         <Typography variant="h3" align="left">
-            Error Box
+          Error Box
         </Typography>
         <Grid
           container
@@ -20,7 +20,7 @@ const errorBoxStories = () => {
           <Grid item>
             <Paper style={{ width: '600px', padding: '50px', display: 'flex' }}>
               <ErrorBox>
-                  This is an Error. Please stand by!
+                This is an Error. Please stand by!
               </ErrorBox>
             </Paper>
           </Grid>

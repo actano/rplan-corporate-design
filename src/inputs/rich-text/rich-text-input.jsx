@@ -126,6 +126,7 @@ export const wrapWithControls = (EditorComponent) => {
     className: PropTypes.string,
     maxInputLength: PropTypes.number,
     testIds: PropTypes.shape({
+      editor: PropTypes.string,
       placeholder: PropTypes.string,
       editorContainer: PropTypes.string,
       content: PropTypes.string,

@@ -64,11 +64,11 @@ const DefaultDialogStory = () => (
     >
       <Grid item>
         <Typography variant="h2">
-            Default Dialog
+          Default Dialog
         </Typography>
         <Typography variant="h3">
-            Default Dialog component with headline and any number of buttons.
-            Open/Closed state to be done in parent component.
+          Default Dialog component with headline and any number of buttons.
+          Open/Closed state to be done in parent component.
         </Typography>
         <DefaultDialogWithState />
       </Grid>
