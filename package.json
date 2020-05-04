@@ -16,7 +16,7 @@
   "files": [
     "assets",
     "lib",
-    "src"
+    "static"
   ],
   "scripts": {
     "build": "yarn build:src && yarn build:declarations",
