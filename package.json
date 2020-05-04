@@ -15,7 +15,8 @@
   "license": "MIT",
   "files": [
     "assets",
-    "lib"
+    "lib",
+    "src"
   ],
   "scripts": {
     "build": "yarn build:src && yarn build:declarations",
