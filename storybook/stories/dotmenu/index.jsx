@@ -51,12 +51,12 @@ const stories = () => {
           >
             <Grid item>
               <Typography variant="h2" align="left">
-                  Dot Menu
+                Dot Menu
               </Typography>
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                  Default color and size
+                Default color and size
               </Typography>
               <DotMenu>
                 <DotMenuItem onClick={() => console.log('item one clicked')}>Item one</DotMenuItem>
@@ -71,7 +71,7 @@ const stories = () => {
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                  Use different icon for the menu
+                Use different icon for the menu
               </Typography>
               <DotMenu icon={ExpandMore}>
                 <DotMenuItem onClick={() => console.log('item one clicked')}>Item one</DotMenuItem>

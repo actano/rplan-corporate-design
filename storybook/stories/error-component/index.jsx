@@ -11,7 +11,7 @@ const errorBoxStories = () => {
     .add('Error Component', () => (
       <Providers>
         <Typography variant="h2" align="left">
-            Error Component
+          Error Component
         </Typography>
         <ErrorComponent
           title="My Error"

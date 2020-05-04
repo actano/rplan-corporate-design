@@ -13,13 +13,13 @@ const defaultInputStory = () =>
         >
           <Grid item>
             <Typography variant="h2" align="left">
-                  Input
+              Input
             </Typography>
           </Grid>
           <form>
             <Grid item>
               <Typography variant="h3" align="left">
-                    Normal Input
+                Normal Input
               </Typography>
               <TextField
                 margin="normal"
@@ -32,7 +32,7 @@ const defaultInputStory = () =>
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                    Normal Input with placeholder
+                Normal Input with placeholder
               </Typography>
               <TextField
                 margin="normal"
@@ -46,7 +46,7 @@ const defaultInputStory = () =>
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                    Error in input
+                Error in input
               </Typography>
               <TextField
                 margin="normal"
@@ -61,7 +61,7 @@ const defaultInputStory = () =>
             </Grid>
             <Grid item>
               <Typography variant="h3" align="left">
-                    Disabled Input
+                Disabled Input
               </Typography>
               <TextField
                 margin="normal"

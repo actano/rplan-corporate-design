@@ -85,7 +85,7 @@ export const tableStories = () => {
         <Providers>
           <div>
             <Typography variant="h2" align="left">
-                Table
+              Table
             </Typography>
             <TableList columnDefinitions={columnDefinitions} showHeaders={showHeaders}>
               <ExampleRow taskName="Task 1" />

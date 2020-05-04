@@ -11,7 +11,7 @@ const iconButtonStories = () => {
     .add('Icon Buttons', () => (
       <Providers>
         <Typography variant="h2" align="left">
-            Icon Buttons
+          Icon Buttons
         </Typography>
         <Grid
           container
@@ -20,7 +20,7 @@ const iconButtonStories = () => {
         >
           <Grid item>
             <Typography variant="h3" align="left">
-                Show password visibility
+              Show password visibility
             </Typography>
             <Grid container spacing={1} direction="row">
               <Grid item>

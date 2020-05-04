@@ -22,12 +22,12 @@ export const dueDateStatusStories = () => {
           </Grid>
           <Grid item>
             <Typography variant="h3" align="left">
-            Prop: delta
+              Prop: delta
             </Typography>
             <Grid container spacing={2} direction="column">
               <Grid item>
                 <Typography variant="h4" align="left">
-                Without delta
+                  Without delta
                 </Typography>
                 <Grid container spacing={1} direction="row">
                   <Grid item>
