@@ -1,13 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 import {
   TableRow,
 } from '@material-ui/core'
 
-import { rgbaString } from '../..'
+import { CorporateDesignTheme, rgbaString } from '../..'
 
-const useStyles = makeStyles(theme => ({
+interface StyleProps {
+  isClickable: boolean,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   row: ({ isClickable }) => ({
     backgroundColor: theme.palette.colors.white,
     boxShadow: 'none',
@@ -24,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }),
 }))
 
-const TableListRow = React.forwardRef(({
+const TableListRow = React.forwardRef<any, any>(({
   children,
   onClick,
   ...otherProps
@@ -41,14 +44,5 @@ const TableListRow = React.forwardRef(({
     </TableRow>
   )
 })
-
-TableListRow.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-}
-
-TableListRow.defaultProps = {
-  onClick: undefined,
-}
 
 export { TableListRow }

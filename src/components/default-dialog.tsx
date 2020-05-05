@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import {
   Dialog,
@@ -6,8 +5,13 @@ import {
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
+import { CorporateDesignTheme } from '..'
 
-const useStyles = makeStyles(theme => ({
+interface StyleProps {
+  hasIcon: boolean,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   content: {
     padding: theme.spacing(6, 7.25),
     '&:first-child': {
@@ -41,14 +45,26 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const _DefaultDialog = ({
+interface DefaultDialogProps {
+  title: string,
+  children: React.ReactNode,
+  buttons: React.ReactNode,
+  open: boolean,
+  onClose: () => void,
+  maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false,
+  fullWidth?: boolean,
+  icon?: React.ReactNode,
+  [x: string]: any,
+}
+
+const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
   open,
   title,
   children,
   buttons,
   onClose,
-  maxWidth,
-  fullWidth,
+  maxWidth = 'sm',
+  fullWidth = true,
   icon,
   ...otherProps
 }) => {
@@ -82,25 +98,6 @@ const _DefaultDialog = ({
     </Dialog>
   )
 }
-
-_DefaultDialog.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  buttons: PropTypes.node.isRequired,
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  maxWidth: PropTypes.string,
-  fullWidth: PropTypes.bool,
-  icon: PropTypes.node,
-}
-
-_DefaultDialog.defaultProps = {
-  maxWidth: 'sm',
-  fullWidth: true,
-  icon: undefined,
-}
-
-const DefaultDialog = _DefaultDialog
 
 export {
   DefaultDialog,

@@ -2,8 +2,10 @@ import React from 'react'
 import { Checkbox, makeStyles } from '@material-ui/core'
 import Icon from '@mdi/react'
 import { mdiCheckboxMarkedOutline } from '@mdi/js'
+import { CheckboxProps } from '@material-ui/core/Checkbox'
+import { CorporateDesignTheme } from '..'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   checkbox: {
     color: theme.palette.colors.lightGrey,
     '&$checkboxChecked': {
@@ -21,8 +23,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const CommonCheckbox = ({
-  checkedIcon, classes, ...otherProps
+const CommonCheckbox: React.ComponentType<CheckboxProps> = ({
+  color = 'primary',
+  checkedIcon,
+  classes,
+  ...otherProps
 }) => {
   const styleClasses = useStyles()
 
@@ -41,20 +46,12 @@ const CommonCheckbox = ({
 
   return (
     <Checkbox
+      color={color}
       {...otherProps}
       checkedIcon={_checkedIcon}
       classes={_classes}
     />
   )
-}
-
-CommonCheckbox.propTypes = {
-  ...Checkbox.propTypes,
-}
-
-CommonCheckbox.defaultProps = {
-  ...Checkbox.defaultProps,
-  color: 'primary',
 }
 
 export { CommonCheckbox }

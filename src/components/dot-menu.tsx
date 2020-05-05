@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import {
   IconButton,
@@ -8,8 +7,9 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
+import { CorporateDesignTheme } from '..'
 
-const useDotMenuItemStyles = makeStyles(theme => ({
+const useDotMenuItemStyles = makeStyles<CorporateDesignTheme>(theme => ({
   menuItem: {
     fontSize: '0.8125rem',
     minHeight: 'initial',
@@ -19,7 +19,7 @@ const useDotMenuItemStyles = makeStyles(theme => ({
   },
 }))
 
-const DotMenuItem = React.forwardRef(({ className, children, ...props }, ref) => {
+const DotMenuItem = React.forwardRef<any, any>(({ className, children, ...props }, ref) => {
   const classes = useDotMenuItemStyles()
 
   return (
@@ -33,16 +33,6 @@ const DotMenuItem = React.forwardRef(({ className, children, ...props }, ref) =>
   )
 })
 
-DotMenuItem.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-}
-
-DotMenuItem.defaultProps = {
-  className: undefined,
-  children: undefined,
-}
-
 function extendCallback(originalCallback, extension) {
   if (originalCallback == null) {
     return extension
@@ -54,10 +44,10 @@ function extendCallback(originalCallback, extension) {
   }
 }
 
-const DotMenu = React.forwardRef(({
+const DotMenu = React.forwardRef<any, any>(({
   className, classes, children, buttonProps, icon: Icon,
 }, ref) => {
-  const [menuAnchor, setMenuAnchor] = useState()
+  const [menuAnchor, setMenuAnchor] = useState<null | any>(null)
 
   const openDotMenu = useCallback(
     (event) => {
@@ -116,14 +106,6 @@ const DotMenu = React.forwardRef(({
     </div>
   )
 })
-
-DotMenu.propTypes = {
-  className: PropTypes.string,
-  classes: PropTypes.object,
-  children: PropTypes.node,
-  buttonProps: PropTypes.object,
-  icon: PropTypes.elementType,
-}
 
 DotMenu.defaultProps = {
   className: undefined,

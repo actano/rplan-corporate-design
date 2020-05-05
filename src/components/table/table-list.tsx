@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 import {
   Table,
@@ -9,8 +8,9 @@ import {
   TableRow,
 } from '@material-ui/core'
 import classNames from 'classnames'
+import { CorporateDesignTheme } from '../..'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   table: {
     tableLayout: 'fixed',
     fontWeight: 'normal',
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const TableList = React.forwardRef(({
+const TableList = React.forwardRef<any, any>(({
   className,
   columnDefinitions,
   showHeaders,
@@ -67,16 +67,6 @@ const TableList = React.forwardRef(({
     </Table>
   )
 })
-
-TableList.propTypes = {
-  className: PropTypes.string,
-  columnDefinitions: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    width: PropTypes.string,
-  })).isRequired,
-  showHeaders: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-}
 
 TableList.defaultProps = {
   className: undefined,

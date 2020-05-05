@@ -1,12 +1,11 @@
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react'
-import PropTypes from 'prop-types'
 
 import { useForkRef } from '../utils/ref-helpers'
 
 const withSaveOnBlurControlled = (Component, onlySaveChanges = true) => {
-  const ComponentWithSaveOnBlur = React.forwardRef(({
+  const ComponentWithSaveOnBlur = React.forwardRef<any, any>(({
     onSave, onBlur, onChange, originalValue, ...otherProps
   }, ref) => {
     const [controlledValue, setControlledValue] = useState(originalValue)
@@ -53,20 +52,6 @@ const withSaveOnBlurControlled = (Component, onlySaveChanges = true) => {
       />
     )
   })
-
-  ComponentWithSaveOnBlur.propTypes = {
-    onBlur: PropTypes.func,
-    onSave: PropTypes.func,
-    onChange: PropTypes.func,
-    originalValue: PropTypes.string,
-  }
-
-  ComponentWithSaveOnBlur.defaultProps = {
-    onBlur: () => {},
-    onSave: () => {},
-    onChange: () => {},
-    originalValue: undefined,
-  }
 
   return ComponentWithSaveOnBlur
 }

@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react'
-import PropTypes from 'prop-types'
 
 const withBlurOnEnter = (Component) => {
-  const ComponentWithBlurOnEnter = React.forwardRef(({ onKeyUp, ...otherProps }, ref) => {
+  const ComponentWithBlurOnEnter = React.forwardRef<any, any>(({ onKeyUp, ...otherProps }, ref) => {
     const ownOnKeyUp = useCallback(
       (keyEvent) => {
         if (keyEvent.key === 'Enter') {
@@ -24,14 +23,6 @@ const withBlurOnEnter = (Component) => {
       />
     )
   })
-
-  ComponentWithBlurOnEnter.propTypes = {
-    onKeyUp: PropTypes.func,
-  }
-
-  ComponentWithBlurOnEnter.defaultProps = {
-    onKeyUp: undefined,
-  }
 
   return ComponentWithBlurOnEnter
 }
