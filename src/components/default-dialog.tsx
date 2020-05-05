@@ -5,7 +5,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { CorporateDesignTheme } from '..'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 interface StyleProps {
   hasIcon: boolean,

@@ -7,7 +7,8 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
-import { CorporateDesignTheme } from '..'
+
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 const useDotMenuItemStyles = makeStyles<CorporateDesignTheme>(theme => ({
   menuItem: {

@@ -6,7 +6,11 @@ import { useForkRef } from '../utils/ref-helpers'
 
 const withSaveOnBlurControlled = (Component, onlySaveChanges = true) => {
   const ComponentWithSaveOnBlur = React.forwardRef<any, any>(({
-    onSave, onBlur, onChange, originalValue, ...otherProps
+    onSave = () => {},
+    onBlur = () => {},
+    onChange = () => {},
+    originalValue,
+    ...otherProps
   }, ref) => {
     const [controlledValue, setControlledValue] = useState(originalValue)
     const ownRef = useRef()

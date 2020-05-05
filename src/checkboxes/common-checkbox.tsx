@@ -3,7 +3,8 @@ import { Checkbox, makeStyles } from '@material-ui/core'
 import Icon from '@mdi/react'
 import { mdiCheckboxMarkedOutline } from '@mdi/js'
 import { CheckboxProps } from '@material-ui/core/Checkbox'
-import { CorporateDesignTheme } from '..'
+
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   checkbox: {
