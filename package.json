@@ -1,6 +1,6 @@
 {
   "name": "@rplan/corporate-design",
-  "version": "2.40.0",
+  "version": "2.41.0-alpha.0",
   "description": "Theme for Material UI and components based on the corporate design.",
   "author": {
     "name": "Actano GmbH",
@@ -57,6 +57,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.0.0",
     "@rplan/allex-i18n-tools": "^1.0.4",
+    "@rplan/testhelpers-webclient": "^3.2.0",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-links": "^5.2.3",
