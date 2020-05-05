@@ -1,4 +1,5 @@
 library 'jenkins-k8s-pipeline-scripts@v2'
+final webclientName = 'corporate-design'
 
 pipeline {
   agent {
@@ -68,6 +69,20 @@ pipeline {
               }
           }
       }
+    stage('publish i18n') {
+      when {
+        tag "*"
+      }
+      steps {
+        ansiColor('xterm') {
+          container('nodejs') {
+            script {
+              i18n.deployi18nScripts(webclientName)
+            }
+          }
+        }
+      }
+    }        
     stage('Publish npm module') {
       when {
         tag "*"
