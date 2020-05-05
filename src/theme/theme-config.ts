@@ -1,4 +1,5 @@
 import { rgbaString } from '../utils/color-conversion'
+import { CorporateDesignThemeOptions } from './corporate-design-theme'
 
 const COLOR_NAMES = {
   lightestGrey: '#F5F7FE',
@@ -38,8 +39,7 @@ const COLOR_NAMES = {
 // This is the default but we want to make sure to base our measurements on it here as well
 const SPACING = 8
 
-const themeConfig = {
-  themeName: 'MVP Corporate Design',
+const themeConfig: CorporateDesignThemeOptions = {
   palette: {
     background: {
       special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',

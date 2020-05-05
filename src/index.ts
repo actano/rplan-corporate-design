@@ -9,5 +9,6 @@ export * from './inputs'
 export * from './selects'
 export * from './date-pickers'
 export * from './checkboxes'
+export { CorporateDesignTheme } from './theme/corporate-design-theme'
 
 export default themeConfig
