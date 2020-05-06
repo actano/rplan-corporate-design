@@ -1,11 +1,16 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-console */
 import React from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core'
 import ExpandMore from '@material-ui/icons/ExpandMore'
+import AddBoxOutlined from '@material-ui/icons/AddBoxOutlined'
 import { storiesOf } from '@storybook/react'
 
 import { Providers } from '../providers'
-import { DotMenu, DotMenuItem } from '../../../src'
+import {
+  DotMenu, DotMenuItem, IconButtonMenu, MenuItem,
+} from '../../../src'
+
 
 const useStyles = makeStyles((theme) => {
   const { colors } = theme.palette
@@ -40,8 +45,45 @@ const WhiteDotMenuOnBlueBackground = () => {
 }
 
 const stories = () => {
-  storiesOf('Dot Menu', module)
-    .add('Dot Menu', () => (
+  storiesOf('Icon-Button Menu', module)
+    .add('IconButtonMenu', () => (
+      <Providers>
+        <div style={{ paddingLeft: '20px' }}>
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+          >
+            <Grid item>
+              <Typography variant="h3" align="left">
+                IconButton
+              </Typography>
+              Different Icons for the IconButton an be set via the prop <tt>icon</tt><p />
+              Default Icon is the <tt>DotIcon</tt>
+            </Grid>
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+            >
+              <IconButtonMenu>
+                <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
+                <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
+              </IconButtonMenu>
+              <IconButtonMenu icon={ExpandMore}>
+                <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
+                <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
+              </IconButtonMenu>
+              <IconButtonMenu icon={AddBoxOutlined}>
+                <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
+                <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
+              </IconButtonMenu>
+            </Grid>
+          </Grid>
+        </div>
+      </Providers>
+    ))
+    .add('DotMenu', () => (
       <Providers>
         <div style={{ paddingLeft: '20px' }}>
           <Grid
@@ -69,7 +111,7 @@ const stories = () => {
               </Typography>
               <WhiteDotMenuOnBlueBackground />
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Typography variant="h3" align="left">
                 Use different icon for the menu
               </Typography>
@@ -77,7 +119,7 @@ const stories = () => {
                 <DotMenuItem onClick={() => console.log('item one clicked')}>Item one</DotMenuItem>
                 <DotMenuItem onClick={() => console.log('item two clicked')}>Item two</DotMenuItem>
               </DotMenu>
-            </Grid>
+            </Grid> */}
           </Grid>
         </div>
       </Providers>
