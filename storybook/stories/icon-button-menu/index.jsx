@@ -66,6 +66,7 @@ const stories = () => {
               spacing={2}
               direction="row"
             >
+              <div style={{ width: '300px' }} />
               <IconButtonMenu>
                 <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
                 <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
@@ -74,7 +75,17 @@ const stories = () => {
                 <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
                 <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
               </IconButtonMenu>
-              <IconButtonMenu icon={AddBoxOutlined}>
+              <IconButtonMenu
+                icon={AddBoxOutlined}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+              >
                 <MenuItem onClick={() => console.log('item one clicked')}>Item one</MenuItem>
                 <MenuItem onClick={() => console.log('item two clicked')}>Item two</MenuItem>
               </IconButtonMenu>
