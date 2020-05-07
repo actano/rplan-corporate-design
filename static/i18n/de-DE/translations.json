@@ -1,4 +1,10 @@
 {
     "Cancel": "Abbrechen",
-    "Close": "Schließen"
+    "Close": "Schließen",
+    "{{ count }} day": "{{ count }} Tag",
+    "{{ count }} day_plural": "{{ count }} Tage",
+    "On Time": "Planmäßig",
+    "Delayed": "Verzögert",
+    "At Risk": "Gefährdet",
+    "Inapplicable": "Nicht anwendbar"
 }

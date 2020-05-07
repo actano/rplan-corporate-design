@@ -2,6 +2,8 @@ import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import { useTranslation } from '../i18n'
 import { rgbaString } from '../utils/color-conversion'
 
 export const DUE_DATE_STATUS = {
@@ -66,13 +68,13 @@ const translateDisplayStatus = (state) => {
     }
   }
 }
-const getDisplayStatus = (state, delta) => {
-  const displayStatus = translateDisplayStatus(state)
+const getDisplayStatus = (state, delta, translate) => {
+  const displayStatus = translate(translateDisplayStatus(state))
   if (delta === 0) {
     return displayStatus
   }
-  const dayString = delta > 1 ? 'days' : 'day'
-  return `${displayStatus} ${delta} ${dayString}`
+  const dayString = translate('{{ count }} day', { count: delta })
+  return `${displayStatus} ${dayString}`
 }
 
 const useStyles = makeStyles(theme => ({
@@ -106,7 +108,9 @@ export const DueDateStatus = ({
   delta,
 }) => {
   const classes = useStyles({ state })
-  const displayStatus = getDisplayStatus(state, delta)
+  const [translate] = useTranslation()
+
+  const displayStatus = getDisplayStatus(state, delta, translate)
   return (
     <div className={classes.dueDateStatus}>
       <div className={classes.dot} />

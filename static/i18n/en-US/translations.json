@@ -1,4 +1,10 @@
 {
     "Cancel": "Cancel",
-    "Close": "Close"
+    "Close": "Close",
+    "{{ count }} day": "{{ count }} day",
+    "{{ count }} day_plural": "{{ count }} days",
+    "On Time": "On Time",
+    "Delayed": "Delayed",
+    "At Risk": "At Risk",
+    "Inapplicable": "Inapplicable"
 }
