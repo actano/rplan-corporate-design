@@ -1826,10 +1826,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rplan/allex-i18n-tools@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@rplan/allex-i18n-tools/-/allex-i18n-tools-1.0.4.tgz#2955e772f02b406810c3e5a70268f7a086cf8d55"
-  integrity sha512-MI87mnsBuJGliw/7emSxmyhy4EynH2iBVv+yQA3qm18k8QSIfemAsKixPPxhdz0n0a8el6D4DY5aNyoTKfIfQw==
+"@rplan/allex-i18n-tools@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@rplan/allex-i18n-tools/-/allex-i18n-tools-1.0.7.tgz#9525cee10855af3359308d6f8df69ff1004aa454"
+  integrity sha512-sWU3PILtpGLqnysmxT9Y12EdSGosdMDF8rexI6mLNOe5hs0uiAE3fsEbE6KrcrJqhhDvZVmk5lCp1KilE1GULA==
   dependencies:
     aws-sdk "^2.665.0"
     commander "^5.1.0"

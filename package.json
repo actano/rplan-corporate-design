@@ -56,7 +56,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.0.0",
-    "@rplan/allex-i18n-tools": "^1.0.4",
+    "@rplan/allex-i18n-tools": "^1.0.7",
     "@rplan/testhelpers-webclient": "^3.2.0",
     "@storybook/addon-actions": "^5.2.3",
     "@storybook/addon-knobs": "^5.3.13",
