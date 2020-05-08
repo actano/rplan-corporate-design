@@ -122,15 +122,6 @@ const stories = () => {
               </Typography>
               <WhiteDotMenuOnBlueBackground />
             </Grid>
-            {/* <Grid item>
-              <Typography variant="h3" align="left">
-                Use different icon for the menu
-              </Typography>
-              <DotMenu icon={ExpandMore}>
-                <DotMenuItem onClick={() => console.log('item one clicked')}>Item one</DotMenuItem>
-                <DotMenuItem onClick={() => console.log('item two clicked')}>Item two</DotMenuItem>
-              </DotMenu>
-            </Grid> */}
           </Grid>
         </div>
       </Providers>
