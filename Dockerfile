@@ -19,6 +19,7 @@ COPY --from=install /build/yarn.lock /build
 
 COPY storybook storybook
 COPY src src
+COPY static static
 
 RUN yarn build-storybook
 
