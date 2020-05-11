@@ -35,3 +35,9 @@ yarn install
 yarn storybook
 ```
 makes it available locally at [http://localhost:8085/](http://localhost:8085/)
+
+## Local development
+For linking into another component 
+- `yarn link`
+- `yarn build`
+- `cd ../rplan-webclient && yarn link '@rplan/corporate-design'`
