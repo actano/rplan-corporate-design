@@ -1,6 +1,7 @@
 {
     "Cancel": "Abbrechen",
     "Close": "Schließen",
+    "Save": "Speichern",
     "{{ count }} day": "{{ count }} Tag",
     "{{ count }} day_plural": "{{ count }} Tage",
     "On Time": "Planmäßig",

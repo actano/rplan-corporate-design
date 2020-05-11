@@ -1,6 +1,7 @@
 {
     "Cancel": "Cancel",
     "Close": "Close",
+    "Save": "Save",
     "{{ count }} day": "{{ count }} day",
     "{{ count }} day_plural": "{{ count }} days",
     "On Time": "On Time",

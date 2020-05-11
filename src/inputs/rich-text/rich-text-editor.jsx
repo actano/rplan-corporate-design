@@ -1,8 +1,13 @@
+import { featureSwitch } from '@rplan/featureswitch-webclient'
 import React from 'react'
 import PropTypes from 'prop-types'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import '@ckeditor/ckeditor5-build-classic/build/translations/de'
 import { makeStyles } from '@material-ui/core'
+
+import { useTranslation } from '../../i18n'
+
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 
 const baseEditorConfig = {
@@ -173,6 +178,8 @@ const createMinMaxHeightPlugin = (height) => {
 
 const DEFAULT_MAX_INPUT_LENGTH = 4000
 
+const getLanguagePrefix = language => language.split('-')[0]
+
 export const RichTextEditor = ({
   placeholder,
   onChange,
@@ -181,6 +188,8 @@ export const RichTextEditor = ({
   maxInputLength,
   onMaxInputLengthExceeded,
 }) => {
+  const [, i18n] = useTranslation()
+
   const plugins = [...ClassicEditor.builtinPlugins]
 
   if (fixedHeight) plugins.push(createMinMaxHeightPlugin(fixedHeight))
@@ -189,6 +198,9 @@ export const RichTextEditor = ({
     ...baseEditorConfig,
     plugins,
     placeholder,
+    language: getLanguagePrefix(
+      featureSwitch.get('enable-german-translations') ? i18n.language : 'en-US',
+    ),
   }
 
   useStyles()

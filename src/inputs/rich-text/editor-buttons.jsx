@@ -3,6 +3,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core'
 
 import { PrimaryButton, SecondaryButton } from '../../buttons'
+import { useTranslation } from '../../i18n'
 import { testIdProp } from '../../utils/test-id-prop'
 
 const useButtonStyles = makeStyles(theme => ({
@@ -29,14 +30,15 @@ const useButtonStyles = makeStyles(theme => ({
     flex: '1 1 auto',
     marginRight: theme.spacing(4),
     padding: theme.spacing(0.75),
-
   },
 }))
 
 export const EditorButtons = ({
   onCancel, onSave, isSaveDisabled, testIds,
 }) => {
+  const [translate] = useTranslation()
   const classes = useButtonStyles()
+
   return (
     <div className={classes.buttonContainer}>
       {isSaveDisabled ? (
@@ -51,7 +53,7 @@ export const EditorButtons = ({
         onClick={onCancel}
         {...testIdProp(testIds.cancelButton)}
       >
-        Cancel
+        {translate('Cancel')}
       </SecondaryButton>
       <PrimaryButton
         className={classes.saveButton}
@@ -59,7 +61,7 @@ export const EditorButtons = ({
         disabled={isSaveDisabled}
         {...testIdProp(testIds.saveButton)}
       >
-        Save
+        {translate('Save')}
       </PrimaryButton>
     </div>
   )
