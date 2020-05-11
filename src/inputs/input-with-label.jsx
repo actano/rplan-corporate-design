@@ -4,10 +4,11 @@ import { makeStyles, InputLabel } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   label: {
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(0.75),
     color: theme.palette.text.title,
     fontWeight: 600,
     fontSize: '0.75rem',
+    lineHeight: '1.2',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
