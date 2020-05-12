@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { DatePicker as DatePickerMui, MuiPickersContext } from '@material-ui/pickers'
 
 import { testIdProp } from '../utils/test-id-prop'
+import { useTranslation } from '../i18n'
 
 const DatePicker = ({
   leftArrowButtonProps,
@@ -10,6 +11,7 @@ const DatePicker = ({
   renderDay,
   ...props
 }) => {
+  const [translate] = useTranslation()
   const dateUtils = useContext(MuiPickersContext)
 
   const _renderDay = useCallback(
@@ -30,6 +32,7 @@ const DatePicker = ({
 
   return (
     <DatePickerMui
+      cancelLabel={translate('Cancel')}
       leftArrowButtonProps={{
         ...leftArrowButtonProps,
         ...testIdProp('date-picker-left-arrow'),
