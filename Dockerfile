@@ -13,6 +13,7 @@ FROM node:12 as build
 
 WORKDIR /build
 
+COPY tsconfig.json tsconfig.json
 COPY --from=install /build/node_modules /build/node_modules
 COPY --from=install /build/package.json /build
 COPY --from=install /build/yarn.lock /build
