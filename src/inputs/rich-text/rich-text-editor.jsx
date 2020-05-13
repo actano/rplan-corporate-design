@@ -1,4 +1,3 @@
-import { featureSwitch } from '@rplan/featureswitch-webclient'
 import React from 'react'
 import PropTypes from 'prop-types'
 import CKEditor from '@ckeditor/ckeditor5-react'
@@ -178,7 +177,7 @@ const createMinMaxHeightPlugin = (height) => {
 
 const DEFAULT_MAX_INPUT_LENGTH = 4000
 
-const getLanguagePrefix = language => language.split('-')[0]
+const getLanguagePrefix = language => (language ? language.split('-')[0] : 'en')
 
 export const RichTextEditor = ({
   placeholder,
@@ -198,9 +197,7 @@ export const RichTextEditor = ({
     ...baseEditorConfig,
     plugins,
     placeholder,
-    language: getLanguagePrefix(
-      featureSwitch.get('enable-german-translations') ? i18n.language : 'en-US',
-    ),
+    language: getLanguagePrefix(i18n.language),
   }
 
   useStyles()
