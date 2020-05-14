@@ -108,8 +108,13 @@ export const DueDateStatus = ({
   delta,
 }) => {
   const classes = useStyles({ state })
-  const [translate] = useTranslation()
+  const { t: translate, ready } = useTranslation('translations', { useSuspense: false })
 
+  if (!ready) {
+    return (
+      <></>
+    )
+  }
   const displayStatus = getDisplayStatus(state, delta, translate)
   return (
     <div className={classes.dueDateStatus}>
