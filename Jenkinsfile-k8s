@@ -6,98 +6,7 @@ pipeline {
     label "jenkins-nodejs-12"
   }
   stages {
-    stage('Install') {
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              npm.withAuth() {
-                sh "CI=true yarn install"
-              }
-            }
-          }
-        }
-      }
-    }
-    stage('TypeCheck') {
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              sh "CI=true yarn typecheck"
-            }
-          }
-        }
-      }
-    }
-    stage('Lint') {
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              npm.withAuth() {
-                sh "CI=true yarn lint"
-              }
-            }
-          }
-        }
-      }
-    }
-    stage('Test') {
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              npm.withAuth() {
-                sh "CI=true yarn test"
-              }
-            }
-          }
-        }
-      }
-    }
-    stage('Build') {
-          steps {
-              ansiColor('xterm') {
-                  container('nodejs') {
-                      script {
-                          npm.withAuth() {
-                              sh "CI=true yarn build:clean"
-                          }
-                      }
-                  }
-              }
-          }
-      }
-    stage('publish i18n') {
-      when {
-        tag "*"
-      }
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              i18n.deployi18nScripts(webclientName)
-            }
-          }
-        }
-      }
-    }        
-    stage('Publish npm module') {
-      when {
-        tag "*"
-      }
-      steps {
-        ansiColor('xterm') {
-          container('nodejs') {
-            script {
-              npm.publish()
-            }
-          }
-        }
-      }
-    }
-    /* stage('Publish storybook web server') {
+    stage('Publish storybook web server') {
       when {
         tag "*"
       }
@@ -112,7 +21,7 @@ pipeline {
           }
         }
       }
-    } */
+    }
   }
   post {
     failure {
