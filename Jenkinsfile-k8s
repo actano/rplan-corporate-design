@@ -82,7 +82,7 @@ pipeline {
           }
         }
       }
-    }        
+    }
     stage('Publish npm module') {
       when {
         tag "*"
@@ -97,7 +97,7 @@ pipeline {
         }
       }
     }
-    /* stage('Publish storybook web server') {
+    stage('Publish storybook web server') {
       when {
         tag "*"
       }
@@ -112,7 +112,7 @@ pipeline {
           }
         }
       }
-    } */
+    }
   }
   post {
     failure {
