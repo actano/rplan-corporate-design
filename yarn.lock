@@ -1826,17 +1826,22 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rplan/allex-i18n-tools@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@rplan/allex-i18n-tools/-/allex-i18n-tools-1.0.11.tgz#f604dbd84e837b95c9101588d69584cb35f4f144"
-  integrity sha512-KtfJ7waVBGa2zx3M05mgkFK/BJBJSp9rWGqcLwoOcmC248kF8jUlxP1d0I9c2oVW6yv6V/Ywpx2jq+TASQRoOQ==
+"@rplan/allex-i18n-tools@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@rplan/allex-i18n-tools/-/allex-i18n-tools-1.2.0.tgz#4f65d3890208b3942c6b1d5489ae5bd2d38ac554"
+  integrity sha512-jsoFWe35TQPKK8a5dG56ABeogHAVujrYWoN+huVm9vkV37tQxbbVKef5EE4A6MB6CSDOq0J50V3AxQi0Uwpd3Q==
   dependencies:
     aws-sdk "^2.665.0"
     commander "^5.1.0"
     diacritics "^1.3.0"
+    find-in-files "^0.5.0"
+    i18next "^19.4.4"
     inquirer "^7.1.0"
     inquirer-autocomplete-prompt "^1.0.2"
     locale-emoji "^0.3.0"
+    lodash.uniq "^4.5.0"
+    react "^16.13.1"
+    react-i18next "^11.4.0"
     sinon "^9.0.2"
 
 "@rplan/rich-text-sanitization@^1.0.2":
@@ -6104,6 +6109,14 @@ find-cache-dir@^3.0.0:
     make-dir "^3.0.0"
     pkg-dir "^4.1.0"
 
+find-in-files@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/find-in-files/-/find-in-files-0.5.0.tgz#8e5a20ffb562e0a47cb916b7f7b821717025e691"
+  integrity sha512-VraTc6HdtdSHmAp0yJpAy20yPttGKzyBWc7b7FPnnsX9TOgmKx0g9xajizpF/iuu4IvNK4TP0SpyBT9zAlwG+g==
+  dependencies:
+    find "^0.1.5"
+    q "^1.0.1"
+
 find-root@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
@@ -6130,6 +6143,13 @@ find-up@^4.0.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
+
+find@^0.1.5:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/find/-/find-0.1.7.tgz#c86c87af1ab18f222bbe38dec86cbc760d16a6fb"
+  integrity sha1-yGyHrxqxjyIrvjjeyGy8dg0Wpvs=
+  dependencies:
+    traverse-chain "~0.1.0"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -7797,6 +7817,11 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
+lodash.uniq@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+  integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
+
 lodash@^4.0.1, lodash@^4.15.0, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
@@ -9325,7 +9350,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-q@^1.1.2:
+q@^1.0.1, q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
@@ -9607,6 +9632,14 @@ react-i18next@^11.3.4:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
 
+react-i18next@^11.4.0:
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.4.0.tgz#dde6bf3a695910af7a4270fea2e111bc331cf151"
+  integrity sha512-lyOZSSQkif4H9HnHN3iEKVkryLI+WkdZSEw3VAZzinZLopfYRMHVY5YxCopdkXPLEHs6S5GjKYPh3+j0j336Fg==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    html-parse-stringify2 "2.0.1"
+
 react-input-autosize@^2.2.2:
   version "2.2.2"
   resolved "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-2.2.2.tgz#fcaa7020568ec206bc04be36f4eb68e647c4d8c2"
@@ -9740,6 +9773,15 @@ react-transition-group@^4.0.0:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+
+react@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
     prop-types "^15.6.2"
 
 react@^16.8.3:
@@ -11213,6 +11255,11 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
+
+traverse-chain@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/traverse-chain/-/traverse-chain-0.1.0.tgz#61dbc2d53b69ff6091a12a168fd7d433107e40f1"
+  integrity sha1-YdvC1Ttp/2CRoSoWj9fUMxB+QPE=
 
 trim-right@^1.0.1:
   version "1.0.1"
