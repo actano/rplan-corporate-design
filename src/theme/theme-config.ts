@@ -95,6 +95,11 @@ const themeConfig: CorporateDesignThemeOptions = {
     },
   },
   overrides: {
+    MuiAvatar: {
+      colorDefault: {
+        backgroundColor: COLOR_NAMES.deepBlue,
+      },
+    },
     MuiButton: {
       root: {
         borderRadius: '2px',
