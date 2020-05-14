@@ -7,11 +7,15 @@ import { useTranslation } from '../../i18n'
 import { testIdProp } from '../../utils/test-id-prop'
 
 const useButtonStyles = makeStyles(theme => ({
-  buttonContainer: {
+  main: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     display: 'flex',
     justifyContent: 'flex-end',
+  },
+  buttonContainer: {
+    display: 'flex',
+    height: theme.spacing(4.25),
   },
   saveButton: {
     fontSize: '0.75rem',
@@ -28,7 +32,7 @@ const useButtonStyles = makeStyles(theme => ({
     textAlign: 'center',
 
     flex: '1 1 auto',
-    marginRight: theme.spacing(4),
+    marginRight: theme.spacing(2.5),
     padding: theme.spacing(0.75),
   },
 }))
@@ -40,7 +44,7 @@ export const EditorButtons = ({
   const classes = useButtonStyles()
 
   return (
-    <div className={classes.buttonContainer}>
+    <div className={classes.main}>
       {isSaveDisabled ? (
         <div
           className={classes.warningMessage}
@@ -48,21 +52,23 @@ export const EditorButtons = ({
           {translate('Text exceeds maximum valid size!')}
         </div>
       ) : null}
-      <SecondaryButton
-        className={classes.cancelButton}
-        onClick={onCancel}
-        {...testIdProp(testIds.cancelButton)}
-      >
-        {translate('Cancel')}
-      </SecondaryButton>
-      <PrimaryButton
-        className={classes.saveButton}
-        onClick={onSave}
-        disabled={isSaveDisabled}
-        {...testIdProp(testIds.saveButton)}
-      >
-        {translate('Save')}
-      </PrimaryButton>
+      <div className={classes.buttonContainer}>
+        <SecondaryButton
+          className={classes.cancelButton}
+          onClick={onCancel}
+          {...testIdProp(testIds.cancelButton)}
+        >
+          {translate('Cancel')}
+        </SecondaryButton>
+        <PrimaryButton
+          className={classes.saveButton}
+          onClick={onSave}
+          disabled={isSaveDisabled}
+          {...testIdProp(testIds.saveButton)}
+        >
+          {translate('Save')}
+        </PrimaryButton>
+      </div>
     </div>
   )
 }
