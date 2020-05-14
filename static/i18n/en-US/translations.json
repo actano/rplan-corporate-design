@@ -7,5 +7,6 @@
     "On Time": "On Time",
     "Delayed": "Delayed",
     "At Risk": "At Risk",
-    "Inapplicable": "Inapplicable"
+    "Inapplicable": "Inapplicable",
+    "Text exceeds maximum valid size!": "Text exceeds maximum valid size!"
 }

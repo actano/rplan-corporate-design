@@ -7,5 +7,6 @@
     "On Time": "Planmäßig",
     "Delayed": "Verzögert",
     "At Risk": "Gefährdet",
-    "Inapplicable": "Nicht anwendbar"
+    "Inapplicable": "Nicht anwendbar",
+    "Text exceeds maximum valid size!": "Der Text überschreitet die maximale Zeichenanzahl!"
 }

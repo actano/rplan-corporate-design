@@ -45,7 +45,7 @@ export const EditorButtons = ({
         <div
           className={classes.warningMessage}
         >
-          Text exceeds maximum valid size!
+          {translate('Text exceeds maximum valid size!')}
         </div>
       ) : null}
       <SecondaryButton
