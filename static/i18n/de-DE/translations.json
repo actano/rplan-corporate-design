@@ -5,8 +5,10 @@
     "{{ count }} day": "{{ count }} Tag",
     "{{ count }} day_plural": "{{ count }} Tage",
     "On Time": "Planmäßig",
-    "Delayed": "Verzögert",
+    "Delayed": "Verspätet",
     "At Risk": "Gefährdet",
     "Inapplicable": "Nicht anwendbar",
-    "Text exceeds maximum valid size!": "Der Text überschreitet die maximale Zeichenanzahl!"
+    "Text exceeds maximum valid size!": "Der Text überschreitet die maximale Zeichenanzahl!",
+    "On track": "Planmäßig",
+    "At risk": "Gefährdet"
 }

@@ -8,5 +8,7 @@
     "Delayed": "Delayed",
     "At Risk": "At Risk",
     "Inapplicable": "Inapplicable",
-    "Text exceeds maximum valid size!": "Text exceeds maximum valid size!"
+    "Text exceeds maximum valid size!": "Text exceeds maximum valid size!",
+    "On track": "On track",
+    "At risk": "At risk"
 }
