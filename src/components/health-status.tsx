@@ -152,4 +152,6 @@ const HealthStatus: React.FunctionComponent<HealthStatusProps> = ({
 export {
   HealthStatus,
   HealthStatusProps,
+  Health,
+  HealthStatusType,
 }
