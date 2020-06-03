@@ -113,6 +113,8 @@ const CommonSelect = ({
   tooltipText,
   onChange,
   onClick,
+  onOpen,
+  onClose,
   disabled,
   variant,
   fullWidth,
@@ -193,7 +195,11 @@ const CommonSelect = ({
           IconComponent={ExpandIcon}
           onMouseEnter={() => setIsTooltipOpen(true)}
           onMouseLeave={() => setIsTooltipOpen(false)}
-          onOpen={() => setIsTooltipOpen(false)}
+          onOpen={(event) => {
+            setIsTooltipOpen(false)
+            onOpen(event)
+          }}
+          onClose={event => onClose(event)}
           onClick={(event) => {
             event.stopPropagation()
             setIsTooltipOpen(false)
@@ -233,6 +239,8 @@ CommonSelect.propTypes = {
   tooltipText: PropTypes.string,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
+  onOpen: PropTypes.func,
+  onClose: PropTypes.func,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'small']),
   label: PropTypes.string,
@@ -246,6 +254,8 @@ CommonSelect.defaultProps = {
   tooltipText: '',
   onChange: () => {},
   onClick: () => {},
+  onOpen: () => {},
+  onClose: () => {},
   disabled: false,
   size: 'regular',
   label: undefined,
