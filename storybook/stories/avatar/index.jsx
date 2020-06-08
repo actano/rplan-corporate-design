@@ -12,13 +12,14 @@ const onClickAction = actions('onClick')
 
 const UserAvatarWithPlaceholderWithDefaults = ({
   // eslint-disable-next-line react/prop-types
-  size, user, variant, disabled,
+  size, user, variant, disabled, displayUserNameOnHover,
 }) => (
   <UserAvatarWithPlaceholder
     user={user}
     size={size}
     disabled={disabled}
     variant={variant}
+    displayUserNameOnHover={displayUserNameOnHover}
     {...onClickAction}
   />
 )
@@ -30,10 +31,11 @@ const avatarStories = () => {
       const hasUser = boolean('UserAvatarWithPlaceholder: hasUser', true)
       const userHasGravatarEmail = boolean('Example user: has gravtar image', true)
       const variant = select('UserAvartarWithPlaceholder: variant', ['grey', 'white'])
+      const displayUserNameOnHover = boolean('UserAvatarWithPlaceholder: displayUserNameOnHover', false)
 
       const sampleUser = {
-        firstName: 'Example',
-        lastName: 'Smith',
+        firstName: 'Kawhai',
+        lastName: 'Leonard',
         email: userHasGravatarEmail ? 'marie.omann@actano.de' : 'invalidEmail@example.com',
       }
 
@@ -95,19 +97,19 @@ const avatarStories = () => {
                 </Typography>
                 <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
                   <div>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="regular" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="regular" disabled={disabledKnob} displayUserNameOnHover={displayUserNameOnHover} />
                     <Typography variant="h5" align="left">
                       regular
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small-2" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small-2" disabled={disabledKnob} displayUserNameOnHover={displayUserNameOnHover} />
                     <Typography variant="h5" align="left">
                       small-2
                     </Typography>
                   </div>
                   <div style={{ marginLeft: '20px' }}>
-                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small" disabled={disabledKnob} />
+                    <UserAvatarWithPlaceholderWithDefaults user={user} variant={variant} size="small" disabled={disabledKnob} displayUserNameOnHover={displayUserNameOnHover} />
                     <Typography variant="h5" align="left">
                       small
                     </Typography>
