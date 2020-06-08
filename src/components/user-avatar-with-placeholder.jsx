@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/styles'
 
 import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
+import { CommonTooltip } from './common-tooltip'
 
 const useStyles = makeStyles(theme => ({
   avatar: ({ variant, isClickable }) => {
@@ -67,6 +68,16 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const getUserName = (user) => {
+  if (!user) {
+    return ''
+  }
+  if (user.firstName && user.lastName) {
+    return `${user.firstName} ${user.lastName}`
+  }
+  return user.email
+}
+
 const UserAvatarWithPlaceholder = ({
   className,
   onClick,
@@ -74,15 +85,17 @@ const UserAvatarWithPlaceholder = ({
   size,
   disabled,
   variant,
+  displayUserNameOnHover,
 }) => {
   const isClickable = !!onClick && !disabled
   const hasUser = user != null
+  const userName = getUserName(user)
   const ownClasses = useStyles({ isClickable, variant })
 
   const combinedAvatarClasses = classnames(className, ownClasses.avatar)
   const combinedPlaceholderClasses = classnames(className, ownClasses.placeholder)
 
-  return (
+  const avatarElement = (
     <div
       role="presentation"
       onClick={isClickable ? onClick : undefined}
@@ -106,6 +119,10 @@ const UserAvatarWithPlaceholder = ({
       }
     </div>
   )
+  if (!displayUserNameOnHover) {
+    return avatarElement
+  }
+  return <CommonTooltip title={userName}>{avatarElement}</CommonTooltip>
 }
 
 UserAvatarWithPlaceholder.propTypes = {
@@ -119,6 +136,7 @@ UserAvatarWithPlaceholder.propTypes = {
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
   variant: PropTypes.oneOf(['grey', 'white']),
   disabled: PropTypes.bool,
+  displayUserNameOnHover: PropTypes.bool,
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
@@ -128,6 +146,7 @@ UserAvatarWithPlaceholder.defaultProps = {
   size: 'regular',
   variant: 'grey',
   disabled: false,
+  displayUserNameOnHover: false,
 }
 
 export { UserAvatarWithPlaceholder }
