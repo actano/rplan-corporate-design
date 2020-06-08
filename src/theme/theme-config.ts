@@ -22,6 +22,7 @@ const COLOR_NAMES = {
   green: '#0ED08F',
   turquoise: '#40c7b9',
   lightRed: '#FEF0F0',
+  red60: '#F66D6B99',
   red: '#F66D6B',
   darkRed: '#F55353',
   orange: '#FCB239',

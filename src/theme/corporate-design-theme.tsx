@@ -61,6 +61,7 @@ interface CorporateDesignPalette {
     turquoise: string,
     lightRed: string,
     red: string,
+    red60: string,
     darkRed: string,
     orange: string,
     white: string,
