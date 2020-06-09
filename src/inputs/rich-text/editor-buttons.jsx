@@ -56,6 +56,7 @@ export const EditorButtons = ({
         <SecondaryButton
           className={classes.cancelButton}
           onClick={onCancel}
+          onMouseDown={onCancel}
           {...testIdProp(testIds.cancelButton)}
         >
           {translate('Cancel')}
@@ -63,6 +64,7 @@ export const EditorButtons = ({
         <PrimaryButton
           className={classes.saveButton}
           onClick={onSave}
+          onMouseDown={onSave}
           disabled={isSaveDisabled}
           {...testIdProp(testIds.saveButton)}
         >

@@ -10,5 +10,9 @@
     "Inapplicable": "Nicht anwendbar",
     "Text exceeds maximum valid size!": "Der Text überschreitet die maximale Zeichenanzahl!",
     "On track": "Planmäßig",
-    "At risk": "Gefährdet"
+    "At risk": "Gefährdet",
+    "Leave without saving?": "Änderungen speichern?",
+    "Don't save": "Nicht speichern",
+    "Save now": "Jetzt speichern",
+    "All your changes in the text field will be lost.": "Alle Änderungen im Textfeld gehen verloren."
 }

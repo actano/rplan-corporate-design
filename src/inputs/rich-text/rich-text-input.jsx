@@ -9,6 +9,7 @@ import { RichTextDisplay } from './rich-text-display'
 import { RichTextEditor } from './rich-text-editor'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 import { EditorButtons } from './editor-buttons'
+import { ConfirmationDialog } from './confirmation-dialog'
 
 const useStyles = makeStyles(theme => ({
   editorContainer: {
@@ -41,7 +42,12 @@ export const wrapWithControls = (EditorComponent) => {
     const [isEditorOpen, setIsEditorOpen] = useState(false)
     const [data, setData] = useState(originalValue)
     const [isSaveDisabled, setIsSaveDisabled] = useState(false)
-    const [cancellationGracePeriod, setCancellationGracePeriod] = useState()
+    const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+
+    const onOpen = useCallback(() => {
+      setIsEditorOpen(true)
+      setIsConfirmationOpen(false)
+    }, [])
 
     const onChangeEditorData = useCallback((newData) => {
       setData(newData)
@@ -52,31 +58,48 @@ export const wrapWithControls = (EditorComponent) => {
       setIsSaveDisabled(true)
     }, [])
 
-    const onSaveClick = useCallback(() => {
+    const saveDataAndCloseEditor = useCallback(() => {
       onSave(data)
       setIsEditorOpen(false)
     }, [data, onSave])
 
-    const handleOnBlur = useCallback(() => {
-      const cancellationGracePeriodHandler = setTimeout(() => {
-        if (isSaveDisabled) {
-          return
-        }
-        onSave(data)
-        setIsEditorOpen(false)
-      }, 100)
-      setCancellationGracePeriod(cancellationGracePeriodHandler)
-    }, [data, isSaveDisabled, onSave])
-
-    const onCancelClick = useCallback(() => {
-      clearTimeout(cancellationGracePeriod)
+    const discardChangesAndCloseEditor = useCallback(() => {
       setData(originalValue)
       setIsEditorOpen(false)
-    }, [originalValue, cancellationGracePeriod])
+    }, [originalValue])
 
-    const onOpen = useCallback(() => {
-      setIsEditorOpen(true)
-    }, [])
+    const onSaveClick = useCallback(() => {
+      saveDataAndCloseEditor()
+    }, [saveDataAndCloseEditor])
+
+    const checkAndHandleUnsavedChanges = useCallback(() => {
+      if (data !== originalValue) {
+        setIsConfirmationOpen(true)
+      } else {
+        setIsEditorOpen(false)
+      }
+    }, [data, originalValue])
+
+    const onCancelClick = useCallback(() => {
+      checkAndHandleUnsavedChanges()
+    }, [checkAndHandleUnsavedChanges])
+
+    const handleOnBlur = useCallback(() => {
+      if (isSaveDisabled) {
+        return
+      }
+      checkAndHandleUnsavedChanges()
+    }, [checkAndHandleUnsavedChanges, isSaveDisabled])
+
+    const discardChanges = useCallback(() => {
+      setIsConfirmationOpen(false)
+      discardChangesAndCloseEditor()
+    }, [discardChangesAndCloseEditor])
+
+    const saveChanges = useCallback(() => {
+      setIsConfirmationOpen(false)
+      saveDataAndCloseEditor()
+    }, [saveDataAndCloseEditor])
 
     if (disabled) {
       return (
@@ -98,6 +121,11 @@ export const wrapWithControls = (EditorComponent) => {
           className={classnames(classes.editorContainer, className)}
           {...testIdProp(testIds.editorContainer)}
         >
+          <ConfirmationDialog
+            isOpen={isConfirmationOpen}
+            confirm={saveChanges}
+            cancel={discardChanges}
+          />
           <EditorComponent
             placeholder={placeholder}
             onChange={onChangeEditorData}
