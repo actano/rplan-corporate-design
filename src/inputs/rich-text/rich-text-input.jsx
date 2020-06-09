@@ -41,6 +41,7 @@ export const wrapWithControls = (EditorComponent) => {
     const [isEditorOpen, setIsEditorOpen] = useState(false)
     const [data, setData] = useState(originalValue)
     const [isSaveDisabled, setIsSaveDisabled] = useState(false)
+    const [cancellationGracePeriod, setCancellationGracePeriod] = useState()
 
     const onChangeEditorData = useCallback((newData) => {
       setData(newData)
@@ -56,9 +57,22 @@ export const wrapWithControls = (EditorComponent) => {
       setIsEditorOpen(false)
     }, [data, onSave])
 
+    const handleOnBlur = useCallback(() => {
+      const cancellationGracePeriodHandler = setTimeout(() => {
+        if (isSaveDisabled) {
+          return
+        }
+        onSave(data)
+        setIsEditorOpen(false)
+      }, 100)
+      setCancellationGracePeriod(cancellationGracePeriodHandler)
+    }, [data, isSaveDisabled, onSave])
+
     const onCancelClick = useCallback(() => {
+      clearTimeout(cancellationGracePeriod)
+      setData(originalValue)
       setIsEditorOpen(false)
-    }, [])
+    }, [originalValue, cancellationGracePeriod])
 
     const onOpen = useCallback(() => {
       setIsEditorOpen(true)
@@ -87,6 +101,7 @@ export const wrapWithControls = (EditorComponent) => {
           <EditorComponent
             placeholder={placeholder}
             onChange={onChangeEditorData}
+            onBlur={handleOnBlur}
             data={data}
             maxInputLength={maxInputLength}
             onMaxInputLengthExceeded={onMaxInputLengthExceeded}

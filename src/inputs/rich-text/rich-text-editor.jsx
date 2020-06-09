@@ -182,6 +182,7 @@ const getLanguagePrefix = language => (language ? language.split('-')[0] : 'en')
 export const RichTextEditor = ({
   placeholder,
   onChange,
+  onBlur,
   data,
   fixedHeight,
   maxInputLength,
@@ -214,6 +215,7 @@ export const RichTextEditor = ({
         }
       }}
       config={editorConfig}
+      onBlur={onBlur}
     />
   )
 }
@@ -225,6 +227,7 @@ RichTextEditor.propTypes = {
   fixedHeight: PropTypes.number,
   maxInputLength: PropTypes.number,
   onMaxInputLengthExceeded: PropTypes.func,
+  onBlur: PropTypes.func,
 }
 
 RichTextEditor.defaultProps = {
@@ -234,4 +237,5 @@ RichTextEditor.defaultProps = {
   fixedHeight: undefined,
   maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
   onMaxInputLengthExceeded: () => {},
+  onBlur: () => {},
 }
