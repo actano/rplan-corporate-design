@@ -1,4 +1,5 @@
 import React from 'react'
+import sinon from 'sinon'
 import { mount } from 'enzyme'
 import { expect } from 'chai'
 
@@ -24,7 +25,10 @@ const TestRichTextInput = wrapWithControls(TestEditor)
 const testIds = {
   openEditorButton: 'openEditorButton',
   saveButton: 'saveButton',
+  cancelButton: 'cancelButton',
   editor: 'editor',
+  confirmationDialog: 'confirmationDialog',
+  content: 'content',
 }
 
 describe('wrapWithControls', () => {
@@ -90,6 +94,76 @@ describe('wrapWithControls', () => {
       saveButton = component.find(testIdProp(testIds.saveButton)).first()
       expect(saveButton).to.be.present()
       expect(saveButton).to.have.prop('disabled', true)
+    })
+  })
+  context('Confirmation dialog', () => {
+    let component
+    let saveStub
+    beforeEach(async () => {
+      saveStub = sinon.stub()
+      component = mount(
+        <TestProviders>
+          <TestRichTextInput
+            originalValue="my description"
+            onSave={saveStub}
+            testIds={testIds}
+          />
+        </TestProviders>,
+      )
+      await settleComponent(component)
+    })
+    context('Editor text was changed', () => {
+      beforeEach(async () => {
+        const openEditorButton = component.find(testIdProp(testIds.openEditorButton))
+        openEditorButton.simulate('click')
+        await settleComponent(component)
+        const editor = component.find(testIdProp(testIds.editor))
+        editor.props().onChange('Some new text')
+        await settleComponent(component)
+      })
+      it('should show the confirmation dialog on clicking cancel', async () => {
+        const cancelButton = component.find(testIdProp(testIds.cancelButton)).first()
+        cancelButton.simulate('click')
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        expect(confirmationDialog).to.have.prop('isOpen', true)
+      })
+      it('should show the confirmation dialog on blur', async () => {
+        const editor = component.find(testIdProp(testIds.editor))
+        editor.props().onBlur()
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        expect(confirmationDialog).to.have.prop('isOpen', true)
+      })
+      it('should show no confirmation dialog on clicking enter but save the text', async () => {
+        const saveButton = component.find(testIdProp(testIds.saveButton)).first()
+        saveButton.simulate('click')
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        expect(confirmationDialog).to.not.be.present
+        expect(saveStub).to.be.calledWith('Some new text')
+      })
+    })
+    context('Editor text was not changed', () => {
+      beforeEach(async () => {
+        const openEditorButton = component.find(testIdProp(testIds.openEditorButton))
+        openEditorButton.simulate('click')
+        await settleComponent(component)
+      })
+      it('should not show no confirmation dialog on clicking cancel', async () => {
+        const cancelButton = component.find(testIdProp(testIds.cancelButton)).first()
+        cancelButton.simulate('click')
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        expect(confirmationDialog).to.not.be.present
+      })
+      it('should show no confirmation dialog on blur', async () => {
+        const editor = component.find(testIdProp(testIds.editor))
+        editor.props().onBlur()
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        expect(confirmationDialog).to.not.be.present
+      })
     })
   })
 })
