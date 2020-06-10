@@ -29,6 +29,8 @@ const testIds = {
   editor: 'editor',
   confirmationDialog: 'confirmationDialog',
   content: 'content',
+  confirmSave: 'confirmSave',
+  confirmDontSave: 'confirmDontSave',
 }
 
 describe('wrapWithControls', () => {
@@ -142,6 +144,24 @@ describe('wrapWithControls', () => {
         const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
         expect(confirmationDialog).to.not.be.present
         expect(saveStub).to.be.calledWith('Some new text')
+      })
+      it('should save the changes when clicking save in confirmation dialog ', async () => {
+        const editor = component.find(testIdProp(testIds.editor))
+        editor.props().onBlur()
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        const saveButton = confirmationDialog.find(testIdProp(testIds.confirmSave)).first()
+        saveButton.simulate('click')
+        expect(saveStub).to.be.calledWith('Some new text')
+      })
+      it('should not save the changes when clicking dont save in confirmation dialog ', async () => {
+        const editor = component.find(testIdProp(testIds.editor))
+        editor.props().onBlur()
+        await settleComponent(component)
+        const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
+        const saveButton = confirmationDialog.find(testIdProp(testIds.confirmDontSave)).first()
+        saveButton.simulate('click')
+        expect(saveStub).to.not.have.been.called
       })
     })
     context('Editor text was not changed', () => {

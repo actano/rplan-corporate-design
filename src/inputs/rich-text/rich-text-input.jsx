@@ -125,6 +125,7 @@ export const wrapWithControls = (EditorComponent) => {
             isOpen={isConfirmationOpen}
             confirm={saveChanges}
             cancel={discardChanges}
+            testIds={testIds}
             {...testIdProp(testIds.confirmationDialog)}
           />
           <EditorComponent
@@ -178,6 +179,8 @@ export const wrapWithControls = (EditorComponent) => {
       saveButton: PropTypes.string,
       cancelButton: PropTypes.string,
       confirmationDialog: PropTypes.string,
+      confirmSave: PropTypes.string,
+      confirmDontSave: PropTypes.string,
     }),
     disabled: PropTypes.bool,
   }
@@ -195,6 +198,8 @@ export const wrapWithControls = (EditorComponent) => {
       saveButton: '',
       cancelButton: '',
       confirmationDialog: '',
+      confirmSave: '',
+      confirmDontSave: '',
     },
     disabled: false,
   }

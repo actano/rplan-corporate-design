@@ -8,6 +8,7 @@ import { DefaultDialog } from '../../components/default-dialog'
 import { TertiaryButton, PrimaryButton } from '../../buttons'
 
 import { useTranslation } from '../../i18n'
+import { testIdProp } from '../../utils/test-id-prop'
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -30,6 +31,7 @@ const ConfirmationDialog = ({
   isOpen,
   cancel,
   confirm,
+  testIds,
 }) => {
   const classes = useStyles()
   const [translate] = useTranslation()
@@ -45,11 +47,13 @@ const ConfirmationDialog = ({
         <>
           <TertiaryButton
             onClick={cancel}
+            {...testIdProp(testIds.confirmDontSave)}
           >
             {translate("Don't save")}
           </TertiaryButton>
           <PrimaryButton
             onClick={confirm}
+            {...testIdProp(testIds.confirmSave)}
           >
             {translate('Save changes')}
           </PrimaryButton>
@@ -69,12 +73,20 @@ ConfirmationDialog.propTypes = {
   isOpen: PropTypes.bool,
   cancel: PropTypes.func,
   confirm: PropTypes.func,
+  testIds: PropTypes.shape({
+    confirmSave: PropTypes.string,
+    confirmDontSave: PropTypes.string,
+  }),
 }
 
 ConfirmationDialog.defaultProps = {
   isOpen: false,
   cancel: () => {},
   confirm: () => {},
+  testIds: {
+    confirmSave: '',
+    confirmDontSave: '',
+  },
 }
 
 export { ConfirmationDialog }
