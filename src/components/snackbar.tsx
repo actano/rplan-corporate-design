@@ -69,11 +69,15 @@ const useStyles = makeStyles<CorporateDesignTheme, SnackBarProps>(theme => ({
 const SnackBar: React.FunctionComponent<{
   message: string,
   type: SnackBarTypes,
-}> = ({ message, type }) => {
+  onClose: Function,
+}> = ({ message, type, onClose = () => {} }) => {
   const classes = useStyles({ type })
   const [isVisible, setIsVisible] = useState(true)
-  const hide = useCallback(() => { setIsVisible(false) }, [])
   const icon = getIcon(type, classes)
+  const hide = useCallback(() => {
+    setIsVisible(false)
+    onClose()
+  }, [onClose])
 
   return (
     <Snackbar
