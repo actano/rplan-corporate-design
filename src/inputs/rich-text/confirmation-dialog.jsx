@@ -39,7 +39,7 @@ const ConfirmationDialog = ({
       onClose={cancel}
       maxWidth="sm"
       open={isOpen}
-      title={translate('Leave without saving?')}
+      title={translate('Do you want to save the changes?')}
       icon={<ReportProblemOutlined className={classes.icon} />}
       buttons={(
         <>
@@ -51,7 +51,7 @@ const ConfirmationDialog = ({
           <PrimaryButton
             onClick={confirm}
           >
-            {translate('Save now')}
+            {translate('Save changes')}
           </PrimaryButton>
         </>
       )}
@@ -59,7 +59,7 @@ const ConfirmationDialog = ({
       <Typography
         className={classnames(classes.text, classes.warning)}
       >
-        {translate('All your changes in the text field will be lost.')}
+        {translate('Otherwise your changes will not be saved.')}
       </Typography>
     </DefaultDialog>
   )

@@ -11,8 +11,8 @@
     "Text exceeds maximum valid size!": "Text exceeds maximum valid size!",
     "On track": "On track",
     "At risk": "At risk",
-    "Leave without saving?": "Leave without saving?",
+    "Do you want to save the changes?": "Do you want to save the changes?",
     "Don't save": "Don't save",
-    "Save now": "Save now",
-    "All your changes in the text field will be lost.": "All your changes in the text field will be lost."
+    "Save changes": "Save changes",
+    "Otherwise your changes will not be saved.": "Otherwise your changes will not be saved."
 }
