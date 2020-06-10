@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { text, select } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 
-import { SnackBar, SnackBarTypes } from '../../../src'
+import { PrimaryButton, SnackBar, SnackBarTypes } from '../../../src'
 import { Providers } from '../providers'
 
 const snackBar = () => {
@@ -11,19 +11,33 @@ const snackBar = () => {
     .add('SnackBar', () => {
       const type = select('SnackBar: type', ['error', 'info'], 'error', 'props') as SnackBarTypes
       const message = text('SnackBar: message', 'Here goes your message!', 'props')
-      const [isVisible, setIsVisible] = useState(true)
+      const [snackbar, setSnackBar] = useState(null)
 
       return (
         <Providers>
-          {
-            !isVisible && (
-              <Typography variant="h2" align="left">
-                You have closed the snack bar
-              </Typography>
-            )
-          }
+          {snackbar}
 
-          <SnackBar message={message} type={type} onClose={() => setIsVisible(false)} />
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            alignItems="center"
+          >
+            <Grid item>
+              {
+                !snackbar && (
+                  <PrimaryButton onClick={() => {
+                    setSnackBar(
+                      <SnackBar message={message} type={type} onClose={() => setSnackBar(null)} />,
+                    )
+                  }}
+                  >
+                    Show Snackbar
+                  </PrimaryButton>
+                )
+              }
+            </Grid>
+          </Grid>
         </Providers>
       )
     })
