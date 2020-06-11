@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import {
   IconButton, Snackbar, SnackbarContent,
 } from '@material-ui/core'
@@ -15,6 +15,14 @@ enum SnackBarTypes {
 
 type SnackBarProps = {
   type: SnackBarTypes
+}
+
+type Classes = {
+  root?: any,
+  content?: any,
+  message?: any,
+  icon?: any,
+  action?: any,
 }
 
 function getBackgroundColor(theme: CorporateDesignTheme, type: SnackBarTypes): string {
@@ -59,7 +67,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SnackBarProps>(theme => ({
     marginRight: theme.spacing(1),
   },
   action: {
-    paddingLeft: '0px',
+    paddingLeft: '2px',
     alignItems: 'center',
     display: 'flex',
     marginLeft: 'auto',
@@ -67,22 +75,36 @@ const useStyles = makeStyles<CorporateDesignTheme, SnackBarProps>(theme => ({
 }))
 
 const SnackBar: React.FunctionComponent<{
-  message: string,
+  message?: JSX.Element | string,
   type: SnackBarTypes,
-  onClose: Function,
-}> = ({ message, type, onClose = () => {} }) => {
-  const classes = useStyles({ type })
-  const [isVisible, setIsVisible] = useState(true)
-  const icon = getIcon(type, classes)
+  open: boolean,
+  autoHideDuration?: number,
+  onClose?: Function,
+  classes?: Classes,
+}> = ({
+  message = '',
+  type,
+  open = true,
+  autoHideDuration,
+  onClose = () => {},
+  classes: userStyles = {},
+}) => {
+  const styles = useStyles({ type })
+  const [isOpen, setIsOpen] = useState(open)
+
+  useEffect(() => setIsOpen(open), [open])
+
   const hide = useCallback(() => {
-    setIsVisible(false)
+    setIsOpen(false)
     onClose()
   }, [onClose])
 
   return (
     <Snackbar
-      className={classes.root}
-      open={isVisible}
+      className={userStyles.root || styles.root}
+      open={isOpen}
+      autoHideDuration={autoHideDuration}
+      onClose={hide}
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'center',
@@ -90,18 +112,23 @@ const SnackBar: React.FunctionComponent<{
     >
       <SnackbarContent
         classes={{
-          root: classes.content,
-          message: classes.message,
-          action: classes.action,
+          root: userStyles.content || styles.content,
+          message: userStyles.message || styles.message,
+          action: userStyles.action || styles.action,
         }}
         action={[
-          <IconButton key="close" color="inherit" onClick={hide} style={{}}>
+          <IconButton
+            key="close"
+            color="inherit"
+            onClick={hide}
+            style={{}}
+          >
             <CloseIcon />
           </IconButton>,
         ]}
         message={(
           <React.Fragment>
-            {icon}
+            {getIcon(type, styles)}
             {message}
           </React.Fragment>
         )}
