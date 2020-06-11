@@ -41,65 +41,43 @@ export const wrapWithControls = (EditorComponent) => {
     const classes = useStyles({ disabled })
     const [isEditorOpen, setIsEditorOpen] = useState(false)
     const [data, setData] = useState(originalValue)
-    const [isSaveDisabled, setIsSaveDisabled] = useState(false)
+    const [isInputTooLong, setIsInputTooLong] = useState(false)
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
 
     const onOpen = useCallback(() => {
+      setData(originalValue)
+      setIsInputTooLong(false)
       setIsEditorOpen(true)
       setIsConfirmationOpen(false)
-    }, [])
+    }, [originalValue])
 
     const onChangeEditorData = useCallback((newData) => {
       setData(newData)
-      setIsSaveDisabled(false)
+      setIsInputTooLong(false)
     }, [])
 
     const onMaxInputLengthExceeded = useCallback(() => {
-      setIsSaveDisabled(true)
+      setIsInputTooLong(true)
     }, [])
 
-    const saveDataAndCloseEditor = useCallback(() => {
+    const saveChanges = useCallback(() => {
       onSave(data)
+      setIsConfirmationOpen(false)
       setIsEditorOpen(false)
     }, [data, onSave])
 
-    const discardChangesAndCloseEditor = useCallback(() => {
-      setData(originalValue)
-      setIsEditorOpen(false)
-    }, [originalValue])
-
-    const onSaveClick = useCallback(() => {
-      saveDataAndCloseEditor()
-    }, [saveDataAndCloseEditor])
-
-    const checkAndHandleUnsavedChanges = useCallback(() => {
-      if (data !== originalValue) {
-        setIsConfirmationOpen(true)
-      } else {
-        setIsEditorOpen(false)
-      }
-    }, [data, originalValue])
-
-    const onCancelClick = useCallback(() => {
-      checkAndHandleUnsavedChanges()
-    }, [checkAndHandleUnsavedChanges])
-
-    const handleOnBlur = useCallback(() => {
-      if (isSaveDisabled) {
-        return
-      }
-      checkAndHandleUnsavedChanges()
-    }, [checkAndHandleUnsavedChanges, isSaveDisabled])
-
     const discardChanges = useCallback(() => {
       setIsConfirmationOpen(false)
-      discardChangesAndCloseEditor()
-    }, [discardChangesAndCloseEditor])
+      setIsEditorOpen(false)
+    }, [])
 
-    const saveChanges = useCallback(() => {
-      setIsConfirmationOpen(false)
-      saveDataAndCloseEditor()
-    }, [saveDataAndCloseEditor])
+    const handleCancel = useCallback(() => {
+      if (data !== originalValue && !isInputTooLong) {
+        setIsConfirmationOpen(true)
+      } else {
+        discardChanges()
+      }
+    }, [data, discardChanges, isInputTooLong, originalValue])
 
     if (disabled) {
       return (
@@ -131,16 +109,16 @@ export const wrapWithControls = (EditorComponent) => {
           <EditorComponent
             placeholder={placeholder}
             onChange={onChangeEditorData}
-            onBlur={handleOnBlur}
+            onBlur={handleCancel}
             data={data}
             maxInputLength={maxInputLength}
             onMaxInputLengthExceeded={onMaxInputLengthExceeded}
             {...testIdProp(testIds.editor)}
           />
           <EditorButtons
-            onCancel={onCancelClick}
-            onSave={onSaveClick}
-            isSaveDisabled={isSaveDisabled}
+            onCancel={handleCancel}
+            onSave={saveChanges}
+            isSaveDisabled={isInputTooLong}
             testIds={testIds}
           />
         </div>
