@@ -48,6 +48,7 @@ const _UserAvatar = ({
   email,
   size,
   className,
+  profilePictureUrl,
 }) => {
   const [gravatarNotFound, setGravatarNotFound] = useState(false)
 
@@ -57,6 +58,8 @@ const _UserAvatar = ({
 
   const avatarSize = AVATAR_SIZES[size]
   const requestedGravatarSize = avatarSize * 2
+  const imageSrc = profilePictureUrl
+    || gravatar.url(email, { s: requestedGravatarSize, d: 404 }, true)
 
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
@@ -66,7 +69,7 @@ const _UserAvatar = ({
             <img
               alt={email}
               className={classes.gravatar}
-              src={gravatar.url(email, { s: requestedGravatarSize, d: 404 }, true)}
+              src={imageSrc}
               onError={() => setGravatarNotFound(true)}
               width={avatarSize}
               height={avatarSize}
@@ -82,6 +85,7 @@ _UserAvatar.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   email: PropTypes.string,
+  profilePictureUrl: PropTypes.string,
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
   className: PropTypes.string,
 }
@@ -92,6 +96,7 @@ _UserAvatar.defaultProps = {
   size: 'regular',
   email: '',
   className: '',
+  profilePictureUrl: '',
 }
 
 const UserAvatar = withStyles(styles)(_UserAvatar)

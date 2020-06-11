@@ -108,6 +108,7 @@ const UserAvatarWithPlaceholder = ({
               firstName={user.firstName}
               lastName={user.lastName}
               email={user.email}
+              profilePictureUrl={user.profilePictureUrl}
               size={size}
             />
           ) : (
@@ -132,6 +133,7 @@ UserAvatarWithPlaceholder.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
+    profilePictureUrl: PropTypes.string,
   }),
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
   variant: PropTypes.oneOf(['grey', 'white']),

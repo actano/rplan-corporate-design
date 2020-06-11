@@ -32,11 +32,13 @@ const avatarStories = () => {
       const userHasGravatarEmail = boolean('Example user: has gravtar image', true)
       const variant = select('UserAvartarWithPlaceholder: variant', ['grey', 'white'])
       const displayUserNameOnHover = boolean('UserAvatarWithPlaceholder: displayUserNameOnHover', false)
+      const hasUploadedProfilePicture = boolean('UserAvatarWithPlaceholder: hasUploadedProfilePicture', false)
 
       const sampleUser = {
         firstName: 'Kawhai',
         lastName: 'Leonard',
         email: userHasGravatarEmail ? 'marie.omann@actano.de' : 'invalidEmail@example.com',
+        profilePictureUrl: hasUploadedProfilePicture ? 'https://via.placeholder.com/150' : null,
       }
 
       const user = hasUser ? sampleUser : null
