@@ -11,11 +11,16 @@ const snackBar = () => {
     .add('SnackBar', () => {
       const type = select('SnackBar: type', ['error', 'info'], 'error', 'props') as SnackBarTypes
       const message = text('SnackBar: message', 'Here goes your message!', 'props')
-      const [snackbar, setSnackBar] = useState(null)
+      const [isOpen, setIsOpen] = useState(null)
 
       return (
         <Providers>
-          {snackbar}
+          <SnackBar
+            message={message}
+            type={type}
+            onClose={() => setIsOpen(false)}
+            open={isOpen}
+          />
 
           <Grid
             container
@@ -25,13 +30,8 @@ const snackBar = () => {
           >
             <Grid item>
               {
-                !snackbar && (
-                  <PrimaryButton onClick={() => {
-                    setSnackBar(
-                      <SnackBar message={message} type={type} onClose={() => setSnackBar(null)} />,
-                    )
-                  }}
-                  >
+                !isOpen && (
+                  <PrimaryButton onClick={() => setIsOpen(true)}>
                     Show Snackbar
                   </PrimaryButton>
                 )
