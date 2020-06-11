@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react'
 import {
   IconButton, Snackbar, SnackbarContent,
 } from '@material-ui/core'
+import classNames from 'classnames'
 import CloseIcon from '@material-ui/icons/Close'
 import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
@@ -101,7 +102,7 @@ const SnackBar: React.FunctionComponent<{
 
   return (
     <Snackbar
-      className={userStyles.root || styles.root}
+      className={classNames(userStyles.root, styles.root)}
       open={isOpen}
       autoHideDuration={autoHideDuration}
       onClose={hide}
@@ -112,9 +113,9 @@ const SnackBar: React.FunctionComponent<{
     >
       <SnackbarContent
         classes={{
-          root: userStyles.content || styles.content,
-          message: userStyles.message || styles.message,
-          action: userStyles.action || styles.action,
+          root: classNames(userStyles.content, styles.content),
+          message: classNames(userStyles.message, styles.message),
+          action: classNames(userStyles.action, styles.action),
         }}
         action={[
           <IconButton
