@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 import { ReportProblemOutlined } from '@material-ui/icons'
 import { Typography } from '@material-ui/core'
@@ -9,8 +8,9 @@ import { TertiaryButton, PrimaryButton } from '../../buttons'
 
 import { useTranslation } from '../../i18n'
 import { testIdProp } from '../../utils/test-id-prop'
+import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   icon: {
     width: theme.spacing(4.5),
     height: theme.spacing(3.5),
@@ -27,11 +27,24 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ConfirmationDialog = ({
-  isOpen,
-  cancel,
-  confirm,
-  testIds,
+interface ConfirmationDialogProps {
+  isOpen: boolean
+  cancel: () => void,
+  confirm: () => void,
+  testIds: {
+    confirmSave: string
+    confirmDontSave: string
+  },
+}
+
+const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
+  isOpen = false,
+  cancel = () => {},
+  confirm = () => {},
+  testIds = {
+    confirmSave: '',
+    confirmDontSave: '',
+  },
 }) => {
   const classes = useStyles()
   const [translate] = useTranslation()
@@ -67,26 +80,6 @@ const ConfirmationDialog = ({
       </Typography>
     </DefaultDialog>
   )
-}
-
-ConfirmationDialog.propTypes = {
-  isOpen: PropTypes.bool,
-  cancel: PropTypes.func,
-  confirm: PropTypes.func,
-  testIds: PropTypes.shape({
-    confirmSave: PropTypes.string,
-    confirmDontSave: PropTypes.string,
-  }),
-}
-
-ConfirmationDialog.defaultProps = {
-  isOpen: false,
-  cancel: () => {},
-  confirm: () => {},
-  testIds: {
-    confirmSave: '',
-    confirmDontSave: '',
-  },
 }
 
 export { ConfirmationDialog }

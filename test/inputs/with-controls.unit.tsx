@@ -3,10 +3,11 @@ import sinon from 'sinon'
 import { mount } from 'enzyme'
 import { expect } from 'chai'
 
-import { wrapWithControls } from '../../src/inputs/rich-text/rich-text-input'
+import { withControls } from '../../src/inputs/rich-text/rich-text-input'
 import { testIdProp } from '../../src/utils/test-id-prop'
 
 import { TestProviders } from '../providers'
+import { RichTextEditorProps } from '../../src/inputs/rich-text/rich-text-editor'
 
 async function immediate() {
   await new Promise((resolve) => {
@@ -19,21 +20,23 @@ async function settleComponent(component) {
   component.update()
 }
 
-const TestEditor = () => (<textarea />)
-const TestRichTextInput = wrapWithControls(TestEditor)
+const TestEditor: React.FunctionComponent<RichTextEditorProps> = () => (<textarea />)
+const TestRichTextInput = withControls(TestEditor)
 
 const testIds = {
   openEditorButton: 'openEditorButton',
   saveButton: 'saveButton',
   cancelButton: 'cancelButton',
   editor: 'editor',
+  editorContainer: 'editorContainer',
   confirmationDialog: 'confirmationDialog',
   content: 'content',
   confirmSave: 'confirmSave',
   confirmDontSave: 'confirmDontSave',
+  placeholder: 'placeholder',
 }
 
-describe('wrapWithControls', () => {
+describe('withControls', () => {
   it('should have an open editor button in write mode', async () => {
     const component = mount(
       <TestProviders>

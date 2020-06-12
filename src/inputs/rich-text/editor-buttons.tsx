@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 
 import { PrimaryButton, SecondaryButton } from '../../buttons'
 import { useTranslation } from '../../i18n'
 import { testIdProp } from '../../utils/test-id-prop'
+import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 
-const useButtonStyles = makeStyles(theme => ({
+const useButtonStyles = makeStyles<CorporateDesignTheme>(theme => ({
   main: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
@@ -37,8 +37,24 @@ const useButtonStyles = makeStyles(theme => ({
   },
 }))
 
-export const EditorButtons = ({
-  onCancel, onSave, isSaveDisabled, testIds,
+interface EditorButtonsProps {
+  onCancel: () => void
+  onSave: () => void
+  isSaveDisabled: boolean
+  testIds: {
+    saveButton: string,
+    cancelButton: string,
+  }
+}
+
+export const EditorButtons: React.FunctionComponent<EditorButtonsProps> = ({
+  onCancel = () => {},
+  onSave = () => {},
+  isSaveDisabled = false,
+  testIds = {
+    saveButton: '',
+    cancelButton: '',
+  },
 }) => {
   const [translate] = useTranslation()
   const classes = useButtonStyles()
@@ -73,26 +89,4 @@ export const EditorButtons = ({
       </div>
     </div>
   )
-}
-
-EditorButtons.propTypes = {
-  onChange: PropTypes.func,
-  onCancel: PropTypes.func,
-  onSave: PropTypes.func,
-  isSaveDisabled: PropTypes.bool,
-  testIds: PropTypes.shape({
-    saveButton: PropTypes.string,
-    cancelButton: PropTypes.string,
-  }),
-}
-
-EditorButtons.defaultProps = {
-  onChange: () => {},
-  onCancel: () => {},
-  onSave: () => {},
-  isSaveDisabled: false,
-  testIds: {
-    saveButton: '',
-    cancelButton: '',
-  },
 }

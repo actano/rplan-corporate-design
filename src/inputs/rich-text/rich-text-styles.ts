@@ -1,4 +1,9 @@
-export const createHeaderStyles = (classNamePrefix, theme) => ({
+import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
+
+export const createHeaderStyles = (
+  classNamePrefix: string,
+  theme: CorporateDesignTheme,
+) => ({
   [`& ${classNamePrefix}1`]: {
     fontSize: '0.9375rem',
     lineHeight: '1.5rem',
@@ -18,7 +23,10 @@ export const createHeaderStyles = (classNamePrefix, theme) => ({
     color: theme.palette.colors.black,
   },
 })
-export const createLinkStyles = theme => ({
+
+export const createLinkStyles = (
+  theme: CorporateDesignTheme,
+) => ({
   '& a': {
     color: theme.palette.colors.blue,
     '&:visited': {
@@ -26,7 +34,10 @@ export const createLinkStyles = theme => ({
     },
   },
 })
-export const createBlockquoteStyles = theme => ({
+
+export const createBlockquoteStyles = (
+  theme: CorporateDesignTheme,
+) => ({
   '& blockquote': {
     overflow: 'hidden',
     paddingRight: '1.5em',

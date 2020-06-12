@@ -1,8 +1,9 @@
 import InputBase from '@material-ui/core/InputBase'
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   const { colors } = theme.palette
 
   return {
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const DialogBoxInput = React.forwardRef((
+const DialogBoxInput = React.forwardRef<any, any>((
   { ...otherProps },
   ref,
 ) => {

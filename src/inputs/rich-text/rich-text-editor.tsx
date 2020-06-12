@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import CKEditor from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import '@ckeditor/ckeditor5-build-classic/build/translations/de'
 import { makeStyles } from '@material-ui/core'
 
 import { useTranslation } from '../../i18n'
+import { noop } from '../../shared/type-utils'
+import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 
@@ -60,7 +61,7 @@ const baseEditorConfig = {
   },
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   // This nesting is to increase the specificity of these variables
   // so they override the defaults set by ckeditor
   '@global': {
@@ -147,6 +148,8 @@ const useStyles = makeStyles(theme => ({
 // As this doesn't take the toolbar into account, the toolbar height must be subtracted in addition.
 const createMinMaxHeightPlugin = (height) => {
   function MinMaxHeightPlugin(editor) {
+    // TODO: Clarify type
+    // @ts-ignore
     this.editor = editor
   }
 
@@ -179,14 +182,25 @@ const DEFAULT_MAX_INPUT_LENGTH = 4000
 
 const getLanguagePrefix = language => (language ? language.split('-')[0] : 'en')
 
-export const RichTextEditor = ({
-  placeholder,
-  onChange,
-  onBlur,
-  data,
+export interface RichTextEditorProps {
+  placeholder: string
+  onChange: (data: string) => void
+  data: string
+  fixedHeight?: number
+  maxInputLength?: number
+  onMaxInputLengthExceeded: () => void
+  onBlur: () => void
+}
+
+export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
+  placeholder = '',
+  onChange = noop,
+  data = '',
   fixedHeight,
-  maxInputLength,
-  onMaxInputLengthExceeded,
+  maxInputLength = DEFAULT_MAX_INPUT_LENGTH,
+  onMaxInputLengthExceeded = () => {},
+  onBlur = () => {},
+
 }) => {
   const [, i18n] = useTranslation()
 
@@ -218,24 +232,4 @@ export const RichTextEditor = ({
       onBlur={onBlur}
     />
   )
-}
-
-RichTextEditor.propTypes = {
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  data: PropTypes.string,
-  fixedHeight: PropTypes.number,
-  maxInputLength: PropTypes.number,
-  onMaxInputLengthExceeded: PropTypes.func,
-  onBlur: PropTypes.func,
-}
-
-RichTextEditor.defaultProps = {
-  placeholder: '',
-  onChange: () => {},
-  data: '',
-  fixedHeight: undefined,
-  maxInputLength: DEFAULT_MAX_INPUT_LENGTH,
-  onMaxInputLengthExceeded: () => {},
-  onBlur: () => {},
 }

@@ -73,6 +73,9 @@ export interface CorporateDesignTheme {
   spacing: (...spaces: number[]) => number,
   palette: CorporateDesignPalette,
   breakpoints: Breakpoints,
+  typography: {
+    fontFamily,
+  }
 }
 
 export interface CorporateDesignThemeOptions extends ThemeOptions {

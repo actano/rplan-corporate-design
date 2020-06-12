@@ -1,8 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { makeStyles, InputLabel } from '@material-ui/core'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   label: {
     marginBottom: theme.spacing(0.75),
     color: theme.palette.text.title,
@@ -15,7 +15,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const InputWithLabel = ({ label, children }) => {
+interface InputWithLabelProps {
+  label: string
+  children: React.Component
+}
+
+const InputWithLabel: React.FunctionComponent<InputWithLabelProps> = ({
+  label,
+  children,
+}) => {
   const classes = useStyles()
 
   return (
@@ -28,15 +36,6 @@ const InputWithLabel = ({ label, children }) => {
       {children}
     </React.Fragment>
   )
-}
-
-InputWithLabel.propTypes = {
-  label: PropTypes.string.isRequired,
-  children: PropTypes.node,
-}
-
-InputWithLabel.defaultProps = {
-  children: undefined,
 }
 
 export { InputWithLabel }

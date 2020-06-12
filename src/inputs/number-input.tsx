@@ -1,16 +1,20 @@
 import isEmpty from 'lodash/isEmpty'
 import React, { useCallback, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 
 import { DefaultControlledTextField } from './default-controlled-text-field'
 
-export const NumberInput = (props) => {
-  const {
-    originalValue: originalNumberValue,
-    getValidationError,
-    onSave,
-    ...otherProps
-  } = props
+interface NumberInputProps {
+  originalValue: number | null
+  onSave: (n: number) => void
+  getValidationError: (n: number | null) => any
+}
+
+export const NumberInput: React.FunctionComponent<NumberInputProps> = ({
+  originalValue: originalNumberValue = null,
+  getValidationError = () => null,
+  onSave = () => {},
+  ...otherProps
+}) => {
   const [controlledNumberValue, setControlledNumberValue] = useState(originalNumberValue)
 
   useEffect(
@@ -36,7 +40,7 @@ export const NumberInput = (props) => {
     (stringValue) => {
       const newNumberValue = isEmpty(stringValue) ? null : parseInt(stringValue, 10)
       if (getValidationError(newNumberValue) == null) {
-        onSave(newNumberValue)
+        onSave(newNumberValue as number)
       }
     },
     [getValidationError, onSave],
@@ -56,16 +60,4 @@ export const NumberInput = (props) => {
       type="number"
     />
   )
-}
-
-NumberInput.propTypes = {
-  originalValue: PropTypes.number,
-  onSave: PropTypes.func,
-  getValidationError: PropTypes.func,
-}
-
-NumberInput.defaultProps = {
-  originalValue: null,
-  getValidationError: () => null,
-  onSave: () => {},
 }
