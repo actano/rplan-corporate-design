@@ -27,7 +27,7 @@ const ConfirmationDialogWithState = () => {
         color="primary"
         onClick={handleOpen}
       >
-        Open Modal
+        Open confirmation dialog
       </Button>
 
       <ConfirmationDialog
