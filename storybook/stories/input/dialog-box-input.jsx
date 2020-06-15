@@ -1,5 +1,5 @@
 import React from 'react'
-import { DefaultDialog } from '../../../src/components'
+import { DefaultDialog } from '../../../src/dialogs'
 import { DialogBoxInput } from '../../../src/inputs'
 import { Providers } from '../providers'
 
