@@ -5,7 +5,7 @@ import { ReportProblemOutlined } from '@material-ui/icons'
 import { boolean } from '@storybook/addon-knobs'
 
 import { DangerousButton, PrimaryButton, TertiaryButton } from '../../../src/buttons'
-import { DefaultDialog } from '../../../src/components/default-dialog'
+import { DefaultDialog } from '../../../src/dialogs/default-dialog'
 import { Providers } from '../providers'
 
 const DefaultDialogWithState = () => {

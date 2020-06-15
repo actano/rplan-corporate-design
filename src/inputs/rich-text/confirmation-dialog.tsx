@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { ReportProblemOutlined } from '@material-ui/icons'
 import { Typography } from '@material-ui/core'
-import { DefaultDialog } from '../../components/default-dialog'
+import { DefaultDialog } from '../../dialogs/default-dialog'
 import { TertiaryButton, PrimaryButton } from '../../buttons'
 
 import { useTranslation } from '../../i18n'
