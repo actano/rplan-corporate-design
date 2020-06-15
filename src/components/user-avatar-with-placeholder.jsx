@@ -73,7 +73,7 @@ const getUserName = (user) => {
     return ''
   }
   if (user.firstName && user.lastName) {
-    return `${user.firstName} ${user.lastName}`
+    return `${user.firstName} ${user.lastName}`.trim()
   }
   return user.email
 }
