@@ -31,8 +31,8 @@ const testIds = {
   editorContainer: 'editorContainer',
   confirmationDialog: 'confirmationDialog',
   content: 'content',
-  confirmSave: 'confirmSave',
-  confirmDontSave: 'confirmDontSave',
+  confirmButton: 'confirmSave',
+  dontConfirmButton: 'confirmDontSave',
   placeholder: 'placeholder',
 }
 
@@ -153,7 +153,7 @@ describe('withControls', () => {
         editor.props().onBlur()
         await settleComponent(component)
         const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
-        const saveButton = confirmationDialog.find(testIdProp(testIds.confirmSave)).first()
+        const saveButton = confirmationDialog.find(testIdProp(testIds.confirmButton)).first()
         saveButton.simulate('click')
         expect(saveStub).to.be.calledWith('Some new text')
       })
@@ -162,7 +162,7 @@ describe('withControls', () => {
         editor.props().onBlur()
         await settleComponent(component)
         const confirmationDialog = component.find(testIdProp(testIds.confirmationDialog)).first()
-        const saveButton = confirmationDialog.find(testIdProp(testIds.confirmDontSave)).first()
+        const saveButton = confirmationDialog.find(testIdProp(testIds.dontConfirmButton)).first()
         saveButton.simulate('click')
         expect(saveStub).to.not.have.been.called
       })

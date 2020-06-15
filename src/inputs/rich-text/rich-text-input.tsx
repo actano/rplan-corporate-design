@@ -9,7 +9,8 @@ import { RichTextDisplay } from './rich-text-display'
 import { RichTextEditor, RichTextEditorProps } from './rich-text-editor'
 import { createBlockquoteStyles, createHeaderStyles, createLinkStyles } from './rich-text-styles'
 import { EditorButtons } from './editor-buttons'
-import { ConfirmationDialog } from './confirmation-dialog'
+import { ConfirmationDialog } from '../../dialogs'
+import { useTranslation } from '../../i18n'
 
 interface StyleProps {
   disabled: boolean
@@ -41,8 +42,8 @@ const noTestIds = {
   saveButton: '',
   cancelButton: '',
   confirmationDialog: '',
-  confirmSave: '',
-  confirmDontSave: '',
+  confirmButton: '',
+  dontConfirmButton: '',
 }
 
 interface RichTextInputProps {
@@ -60,8 +61,8 @@ interface RichTextInputProps {
     saveButton: string
     cancelButton: string
     confirmationDialog: string
-    confirmSave: string
-    confirmDontSave: string
+    confirmButton: string
+    dontConfirmButton: string
   },
   disabled?: boolean
   fixedHeight?: number
@@ -79,6 +80,8 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
   fixedHeight,
 }) => {
   const classes = useStyles({ disabled })
+  const [translate] = useTranslation()
+
   const [isEditorOpen, setIsEditorOpen] = useState(false)
   const [data, setData] = useState(originalValue)
   const [isInputTooLong, setIsInputTooLong] = useState(false)
@@ -141,6 +144,10 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
       >
         <ConfirmationDialog
           isOpen={isConfirmationOpen}
+          title={translate('Do you want to save the changes?')}
+          infoText={translate('Otherwise your changes will not be saved.')}
+          confirmationText={translate('Save changes')}
+          cancellationText={translate("Don't save")}
           confirm={saveChanges}
           cancel={discardChanges}
           testIds={testIds}

@@ -35,9 +35,9 @@ interface ConfirmationDialogProps {
   cancel: () => void,
   confirm: () => void,
   testIds?: {
-    dialog: string,
+    confirmationDialog: string,
     confirmButton: string
-    cancelButton: string
+    dontConfirmButton: string
   },
 }
 
@@ -51,8 +51,8 @@ const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
   confirm = () => {},
   testIds = {
     confirmButton: '',
-    cancelButton: '',
-    dialog: '',
+    dontConfirmButton: '',
+    confirmationDialog: '',
   },
 }) => {
   const classes = useStyles()
@@ -68,7 +68,7 @@ const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
         <>
           <TertiaryButton
             onClick={cancel}
-            {...testIdProp(testIds.cancelButton)}
+            {...testIdProp(testIds.dontConfirmButton)}
           >
             {cancellationText}
           </TertiaryButton>
@@ -80,7 +80,7 @@ const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
           </PrimaryButton>
         </>
       )}
-      {...testIdProp(testIds.dialog)}
+      {...testIdProp(testIds.confirmationDialog)}
     >
       <Typography
         className={classnames(classes.text, classes.warning)}
