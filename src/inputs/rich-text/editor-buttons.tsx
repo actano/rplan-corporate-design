@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core'
 
 import { PrimaryButton, SecondaryButton } from '../../buttons'
 import { useTranslation } from '../../i18n'
-import { testIdProp } from '../../utils/test-id-prop'
+import { testIdProp } from '../../shared/test-ids'
 import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 
 const useButtonStyles = makeStyles<CorporateDesignTheme>(theme => ({
@@ -37,24 +37,23 @@ const useButtonStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
 }))
 
+type TestIds = {
+  saveButton?: string,
+  cancelButton?: string,
+}
+
 interface EditorButtonsProps {
   onCancel: () => void
   onSave: () => void
   isSaveDisabled: boolean
-  testIds: {
-    saveButton: string,
-    cancelButton: string,
-  }
+  testIds?: TestIds
 }
 
 export const EditorButtons: React.FunctionComponent<EditorButtonsProps> = ({
   onCancel = () => {},
   onSave = () => {},
   isSaveDisabled = false,
-  testIds = {
-    saveButton: '',
-    cancelButton: '',
-  },
+  testIds = {},
 }) => {
   const [translate] = useTranslation()
   const classes = useButtonStyles()

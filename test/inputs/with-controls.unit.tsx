@@ -4,7 +4,7 @@ import { mount } from 'enzyme'
 import { expect } from 'chai'
 
 import { withControls } from '../../src/inputs/rich-text/rich-text-input'
-import { testIdProp } from '../../src/utils/test-id-prop'
+import { testIdProp } from '../../src/shared/test-ids'
 
 import { TestProviders } from '../providers'
 import { RichTextEditorProps } from '../../src/inputs/rich-text/rich-text-editor'

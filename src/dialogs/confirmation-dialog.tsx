@@ -26,6 +26,12 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
 }))
 
+type TestIds = {
+  confirmationDialog?: string,
+  confirmButton?: string
+  dontConfirmButton?: string
+}
+
 interface ConfirmationDialogProps {
   isOpen: boolean,
   title: string,
@@ -34,11 +40,7 @@ interface ConfirmationDialogProps {
   infoText: string,
   cancel: () => void,
   confirm: () => void,
-  testIds?: {
-    confirmationDialog: string,
-    confirmButton: string
-    dontConfirmButton: string
-  },
+  testIds?: TestIds,
 }
 
 const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
@@ -49,11 +51,7 @@ const ConfirmationDialog: React.FunctionComponent<ConfirmationDialogProps> = ({
   infoText,
   cancel = () => {},
   confirm = () => {},
-  testIds = {
-    confirmButton: '',
-    dontConfirmButton: '',
-    confirmationDialog: '',
-  },
+  testIds = {},
 }) => {
   const classes = useStyles()
 

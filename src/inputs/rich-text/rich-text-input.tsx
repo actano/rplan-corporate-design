@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 
 import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
-import { testIdProp } from '../../utils/test-id-prop'
+import { testIdProp } from '../../shared/test-ids'
 
 import { RichTextDisplay } from './rich-text-display'
 import { RichTextEditor, RichTextEditorProps } from './rich-text-editor'
@@ -14,6 +14,19 @@ import { useTranslation } from '../../i18n'
 
 interface StyleProps {
   disabled: boolean
+}
+
+type TestIds = {
+  editor?: string
+  placeholder?: string
+  editorContainer?: string
+  content?: string
+  openEditorButton?: string
+  saveButton?: string
+  cancelButton?: string
+  confirmationDialog?: string
+  confirmButton?: string
+  dontConfirmButton?: string
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
@@ -33,37 +46,13 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   }),
 }))
 
-const noTestIds = {
-  editor: '',
-  placeholder: '',
-  editorContainer: '',
-  content: '',
-  openEditorButton: '',
-  saveButton: '',
-  cancelButton: '',
-  confirmationDialog: '',
-  confirmButton: '',
-  dontConfirmButton: '',
-}
-
 interface RichTextInputProps {
   originalValue: string
   onSave: (data: string) => void,
   placeholder?: string
   className?: string
   maxInputLength?: number,
-  testIds: {
-    editor: string
-    placeholder: string
-    editorContainer: string
-    content: string
-    openEditorButton: string
-    saveButton: string
-    cancelButton: string
-    confirmationDialog: string
-    confirmButton: string
-    dontConfirmButton: string
-  },
+  testIds?: TestIds,
   disabled?: boolean
   fixedHeight?: number
 }
@@ -75,7 +64,7 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
   className = '',
   placeholder = 'Add some text',
   maxInputLength,
-  testIds = noTestIds,
+  testIds = {},
   disabled = false,
   fixedHeight,
 }) => {

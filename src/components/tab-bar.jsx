@@ -4,7 +4,7 @@ import classnames from 'classnames'
 
 import { Tab, Tabs } from '@material-ui/core'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { testIdProp } from '../utils/test-id-prop'
+import { testIdProp } from '../shared/test-ids'
 
 const styles = (theme) => {
   const { colors } = theme.palette

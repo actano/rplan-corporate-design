@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import { sanitizeRichText } from '@rplan/rich-text-sanitization'
 
-import { testIdProp } from '../../utils/test-id-prop'
+import { testIdProp } from '../../shared/test-ids'
 import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
@@ -26,20 +26,20 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
 }))
 
+type TestIds = {
+  content?: string
+  placeholder?: string
+}
+
 interface RichTextDisplayProps {
   value: string
-  testIds: {
-    content: string
-    placeholder: string
-  }
+  testIds?: TestIds,
   placeholder: string
 }
 
 export const RichTextDisplay: React.FunctionComponent<RichTextDisplayProps> = ({
-  value = '', testIds = {
-    content: '',
-    placeholder: '',
-  },
+  value = '',
+  testIds = {},
   placeholder = '',
 }) => {
   const classes = useStyles()

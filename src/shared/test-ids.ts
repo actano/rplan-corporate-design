@@ -1,4 +1,4 @@
-const testIdProp = (id: string): object => ({ 'data-test-id': id })
+const testIdProp = (id: string | undefined = ''): object => ({ 'data-test-id': id })
 
 export {
   testIdProp,

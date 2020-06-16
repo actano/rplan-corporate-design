@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { DatePicker as DatePickerMui, MuiPickersContext } from '@material-ui/pickers'
 
-import { testIdProp } from '../utils/test-id-prop'
+import { testIdProp } from '../shared/test-ids'
 import { useTranslation } from '../i18n'
 
 const DatePicker = ({
