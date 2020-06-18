@@ -64,7 +64,7 @@ const _UserAvatar = ({
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
-        !email || gravatarNotFound ? calcInitials(firstName, lastName, email)
+        gravatarNotFound ? calcInitials(firstName, lastName, email)
           : (
             <img
               alt={email}
