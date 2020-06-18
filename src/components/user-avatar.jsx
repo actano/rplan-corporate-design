@@ -54,7 +54,7 @@ const _UserAvatar = ({
 
   useEffect(() => {
     setGravatarNotFound(false)
-  }, [email])
+  }, [email, profilePictureUrl])
 
   const avatarSize = AVATAR_SIZES[size]
   const requestedGravatarSize = avatarSize * 2
