@@ -41,6 +41,38 @@ const styles = theme => ({
   },
 })
 
+const AvatarImage = ({
+  email,
+  className,
+  src,
+  width,
+  height,
+  onError,
+}) => (
+  <img
+    alt={email}
+    className={className}
+    src={src}
+    onError={onError}
+    width={width}
+    height={height}
+  />
+)
+
+AvatarImage.propTypes = {
+  email: PropTypes.string,
+  className: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  onError: PropTypes.func,
+}
+AvatarImage.defaultProps = {
+  email: '',
+  className: undefined,
+  onError: () => { },
+}
+
 const _UserAvatar = ({
   classes,
   firstName,
@@ -50,6 +82,7 @@ const _UserAvatar = ({
   className,
   profilePictureUrl,
   forceGravatar,
+  ImageComponent,
 }) => {
   const [gravatarNotFound, setGravatarNotFound] = useState(false)
 
@@ -64,15 +97,15 @@ const _UserAvatar = ({
 
   const imageSrc = forceGravatar
     ? getGravatarUrl()
-    : profilePictureUrl || getGravatarUrl()
+    : (profilePictureUrl || getGravatarUrl())
 
   return (
     <MUIAvatar className={classnames(classes[`avatar-${size}`], className)}>
       {
         gravatarNotFound ? calcInitials(firstName, lastName, email)
           : (
-            <img
-              alt={email}
+            <ImageComponent
+              email={email}
               className={classes.gravatar}
               src={imageSrc}
               onError={() => setGravatarNotFound(true)}
@@ -94,6 +127,7 @@ _UserAvatar.propTypes = {
   size: PropTypes.oneOf(['small', 'small-2', 'regular']),
   className: PropTypes.string,
   forceGravatar: PropTypes.bool,
+  ImageComponent: PropTypes.func,
 }
 
 _UserAvatar.defaultProps = {
@@ -104,6 +138,7 @@ _UserAvatar.defaultProps = {
   className: '',
   profilePictureUrl: '',
   forceGravatar: false,
+  ImageComponent: AvatarImage,
 }
 
 const UserAvatar = withStyles(styles)(_UserAvatar)
