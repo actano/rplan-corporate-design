@@ -8,7 +8,7 @@ import React from 'react'
 import sinon from 'sinon'
 
 import { themeConfig } from '../../src/theme/theme-config'
-import { UserAvatar } from '../../src/components/user-avatar'
+import { UserAvatar, calcInitials } from '../../src/components/user-avatar'
 
 
 const theme = createMuiTheme(themeConfig)
@@ -112,6 +112,69 @@ describe('UserAvatar component', () => {
 
           expect(wrapper.find(UserAvatar).find(TestImageWithError)).to.not.be.present()
           expect(wrapper.find(UserAvatar).text()).to.contain('JD')
+        })
+      })
+    })
+  })
+})
+
+describe('calcInitials', () => {
+  context('when firstName is set', () => {
+    context('when lastName is set', () => {
+      context('when email is set', () => {
+        it('should create initials using firstName and lastName', () => {
+          const initials = calcInitials('John', 'Doe', 'john.doe@allex.ai')
+          expect(initials).to.equal('JD')
+        })
+      })
+      context('when email is not set', () => {
+        it('should create initials using firstName and lastName', () => {
+          const initials = calcInitials('John', 'Doe', '')
+          expect(initials).to.equal('JD')
+        })
+      })
+    })
+    context('when lastName is not set', () => {
+      context('when email is set', () => {
+        it('should create initials using only firstName', () => {
+          const initials = calcInitials('John', '', 'john.doe@allex.ai')
+          expect(initials).to.equal('J')
+        })
+      })
+      context('when email is not set', () => {
+        it('should create initials using only firstName', () => {
+          const initials = calcInitials('John', '', '')
+          expect(initials).to.equal('J')
+        })
+      })
+    })
+  })
+  context('when firstName is not set', () => {
+    context('when lastName is set', () => {
+      context('when email is set', () => {
+        it('should create initials using only lastName', () => {
+          const initials = calcInitials('', 'Doe', 'john.doe@allex.ai')
+          expect(initials).to.equal('D')
+        })
+      })
+      context('when email is not set', () => {
+        it('should create initials using only lastName', () => {
+          const initials = calcInitials('', 'Doe', '')
+          expect(initials).to.equal('D')
+        })
+      })
+    })
+    context('when lastName is not set', () => {
+      context('when email is set', () => {
+        it('should create initials using email', () => {
+          const initials = calcInitials('', '', 'john.doe@allex.ai')
+          expect(initials).to.equal('J')
+        })
+      })
+      context('when email is not set', () => {
+        it('should create empty initials', () => {
+          const initials = calcInitials('', '', '')
+          expect(initials).to.equal('')
         })
       })
     })
