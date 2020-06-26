@@ -7,12 +7,14 @@ interface NumberInputProps {
   originalValue: number | null
   onSave: (n: number) => void
   getValidationError: (n: number | null) => any
+  supportFloat: boolean
 }
 
 export const NumberInput: React.FunctionComponent<NumberInputProps> = ({
   originalValue: originalNumberValue = null,
   getValidationError = () => null,
   onSave = () => {},
+  supportFloat = false,
   ...otherProps
 }) => {
   const [controlledNumberValue, setControlledNumberValue] = useState(originalNumberValue)
@@ -24,26 +26,28 @@ export const NumberInput: React.FunctionComponent<NumberInputProps> = ({
     [setControlledNumberValue, originalNumberValue],
   )
 
+  const translateValueHandler = useCallback(stringValue => (supportFloat ? parseFloat(stringValue.replace(',', '.')) : parseInt(stringValue, 10)), [supportFloat])
+
   const onChangeHandler = useCallback(
     (event) => {
       const stringValue = event.target.value
       if (stringValue) {
-        setControlledNumberValue(parseInt(stringValue, 10))
+        setControlledNumberValue(translateValueHandler(stringValue))
       } else {
         setControlledNumberValue(null)
       }
     },
-    [setControlledNumberValue],
+    [translateValueHandler],
   )
 
   const onSaveHandler = useCallback(
     (stringValue) => {
-      const newNumberValue = isEmpty(stringValue) ? null : parseInt(stringValue, 10)
+      const newNumberValue = isEmpty(stringValue) ? null : translateValueHandler(stringValue)
       if (getValidationError(newNumberValue) == null) {
         onSave(newNumberValue as number)
       }
     },
-    [getValidationError, onSave],
+    [getValidationError, onSave, translateValueHandler],
   )
 
   const originalStringValue = originalNumberValue != null ? `${originalNumberValue}` : ''
