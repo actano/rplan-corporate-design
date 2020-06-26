@@ -7,7 +7,7 @@ interface NumberInputProps {
   originalValue: number | null
   onSave: (n: number) => void
   getValidationError: (n: number | null) => any
-  supportFloat: boolean
+  supportFloat?: boolean
 }
 
 export const NumberInput: React.FunctionComponent<NumberInputProps> = ({
