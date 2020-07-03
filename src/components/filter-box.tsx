@@ -30,6 +30,8 @@ interface FilterBoxProps<T> {
   filterBy: (keyof T)[],
   setFilteredItems?: (filteredItems: T[]) => void,
   placeholder?: string,
+  startAdornment?: JSX.Element,
+  classNames?: Record<string, string>[],
   testId?: string,
 }
 
@@ -39,6 +41,8 @@ function FilterBox<T>({
   setFilteredItems = noop,
   placeholder = 'Search and filter',
   testId = testIds.filterBox,
+  startAdornment,
+  classNames = [],
 }: FilterBoxProps<T>) {
   const classes = useStyles()
 
@@ -61,11 +65,12 @@ function FilterBox<T>({
     <>
       <DefaultDialogBoxInputAsAny
         autoFocus
-        className={classes.searchTermInput}
+        className={[classes.searchTermInput, ...classNames]}
         originalValue={searchTerm}
         onSave={(value) => { setSearchTermDelayed(value) }}
         onChange={(event) => { setSearchTermDelayed(event.target.value) }}
         placeholder={placeholder}
+        startAdornment={startAdornment}
         {...testIdProp(testId)}
       />
     </>
