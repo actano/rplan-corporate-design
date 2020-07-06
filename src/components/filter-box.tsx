@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
+import _uniq from 'lodash/uniq'
+import _isEqual from 'lodash/isEqual'
+
 import { makeStyles } from '@material-ui/styles'
 
 import { DefaultDialogBoxInput } from '../inputs'
@@ -21,15 +24,22 @@ const DefaultDialogBoxInputAsAny = DefaultDialogBoxInput as any
 
 const filterPropsForSearchTerm = (props, searchTerm, andFilterRules) => (item) => {
   if (andFilterRules) {
-    return props.some((prop) => {
+    const acc: string[] = []
+    const searchKeys = searchTerm.split(' ').filter(e => e.length)
+
+    props.forEach((prop) => {
       const itemProp = item[prop] || ''
-      return itemProp.toLowerCase().includes(searchTerm)
+      searchKeys.some((key) => {
+        const eq = itemProp.toLowerCase().includes(key)
+        if (eq) acc.push(key)
+        return eq
+      })
     })
+    return _isEqual(searchKeys.sort(), _uniq(acc).sort())
   }
   return props.some((prop) => {
     const itemProp = item[prop] || ''
-    const searchKeys = searchTerm.split(' ')
-    return searchKeys.some(key => itemProp.toLowerCase().includes(key))
+    return itemProp.toLowerCase().includes(searchTerm)
   })
 }
 
@@ -39,7 +49,7 @@ interface FilterBoxProps<T> {
   setFilteredItems?: (filteredItems: T[]) => void,
   placeholder?: string,
   startAdornment?: JSX.Element,
-  classNames?: Record<string, string>[],
+  classNames?: string[],
   testId?: string,
   andFilterRules?: boolean,
 }
@@ -52,7 +62,7 @@ function FilterBox<T>({
   testId = testIds.filterBox,
   startAdornment,
   classNames = [],
-  andFilterRules = true,
+  andFilterRules = false,
 }: FilterBoxProps<T>) {
   const classes = useStyles()
 
