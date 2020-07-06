@@ -32,6 +32,7 @@ const DatePicker = ({
 
   return (
     <DatePickerMui
+      clearLabel={translate('Clear')}
       cancelLabel={translate('Cancel')}
       leftArrowButtonProps={{
         ...leftArrowButtonProps,
