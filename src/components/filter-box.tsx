@@ -19,11 +19,19 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 // TODO: Remove this ugly workaround after ts conversion of DefaultDialogBoxInput
 const DefaultDialogBoxInputAsAny = DefaultDialogBoxInput as any
 
-const filterPropsForSearchTerm = (props, searchTerm) => item =>
-  props.some((prop) => {
+const filterPropsForSearchTerm = (props, searchTerm, andFilterRules) => (item) => {
+  if (andFilterRules) {
+    return props.some((prop) => {
+      const itemProp = item[prop] || ''
+      return itemProp.toLowerCase().includes(searchTerm)
+    })
+  }
+  return props.some((prop) => {
     const itemProp = item[prop] || ''
-    return itemProp.toLowerCase().includes(searchTerm)
+    const searchKeys = searchTerm.split(' ')
+    return searchKeys.some(key => itemProp.toLowerCase().includes(key))
   })
+}
 
 interface FilterBoxProps<T> {
   items?: T[],
@@ -33,6 +41,7 @@ interface FilterBoxProps<T> {
   startAdornment?: JSX.Element,
   classNames?: Record<string, string>[],
   testId?: string,
+  andFilterRules?: boolean,
 }
 
 function FilterBox<T>({
@@ -43,6 +52,7 @@ function FilterBox<T>({
   testId = testIds.filterBox,
   startAdornment,
   classNames = [],
+  andFilterRules = true,
 }: FilterBoxProps<T>) {
   const classes = useStyles()
 
@@ -56,9 +66,9 @@ function FilterBox<T>({
   useEffect(
     () => {
       setFilteredItems(items
-        .filter(filterPropsForSearchTerm(filterBy, searchTerm.toLowerCase())))
+        .filter(filterPropsForSearchTerm(filterBy, searchTerm.toLowerCase(), andFilterRules)))
     },
-    [filterBy, items, searchTerm, setFilteredItems],
+    [andFilterRules, filterBy, items, searchTerm, setFilteredItems],
   )
 
   return (
