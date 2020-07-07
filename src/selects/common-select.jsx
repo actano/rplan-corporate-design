@@ -120,6 +120,7 @@ const CommonSelect = ({
   fullWidth,
   size,
   label,
+  renderOption,
 }) => {
   const isOutlined = variant === 'outlined'
   const ownClasses = useStyles({ size, isOutlined, fullWidth })
@@ -216,7 +217,7 @@ const CommonSelect = ({
                   selected: ownClasses.selectMenuItemSelected,
                 }}
               >
-                {option.value}
+                {renderOption(option)}
               </MenuItem>
             ))
           }
@@ -225,6 +226,9 @@ const CommonSelect = ({
     </CommonTooltip>
   )
 }
+
+const renderText = option =>
+  option.value
 
 CommonSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
@@ -244,6 +248,7 @@ CommonSelect.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['regular', 'small']),
   label: PropTypes.string,
+  renderOption: PropTypes.func,
 }
 
 CommonSelect.defaultProps = {
@@ -259,6 +264,7 @@ CommonSelect.defaultProps = {
   disabled: false,
   size: 'regular',
   label: undefined,
+  renderOption: renderText,
 }
 
 export { CommonSelect }
