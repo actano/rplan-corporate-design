@@ -4,7 +4,7 @@ import React from 'react'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 import { BaseSelectSize } from './base-select'
 
-interface BaseMenuItemProps {
+interface BaseSelectMenuItemProps {
   value: string,
   size: BaseSelectSize,
   children: React.ReactNode,
@@ -42,7 +42,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
   }
 })
 
-const BaseMenuItem = React.forwardRef<any, BaseMenuItemProps>((props, ref) => {
+const BaseSelectMenuItem = React.forwardRef<any, BaseSelectMenuItemProps>((props, ref) => {
   const {
     value,
     size,
@@ -67,6 +67,6 @@ const BaseMenuItem = React.forwardRef<any, BaseMenuItemProps>((props, ref) => {
 })
 
 export {
-  BaseMenuItem,
-  BaseMenuItemProps,
+  BaseSelectMenuItem,
+  BaseSelectMenuItemProps,
 }

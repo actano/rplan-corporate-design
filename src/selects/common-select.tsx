@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { BaseSelect, BaseSelectSize, BaseSelectVariant } from './base-select'
-import { BaseMenuItem } from './base-select-menu-item'
+import { BaseSelectMenuItem } from './base-select-menu-item'
 
 const renderText = (option: CommonSelectOption): React.ReactNode =>
   option.value
@@ -65,13 +65,13 @@ const CommonSelect: React.FunctionComponent<CommonSelectProps> = ({
   >
     {
       options.map(option => (
-        <BaseMenuItem
+        <BaseSelectMenuItem
           key={option.id}
           value={option.id}
           size={size}
         >
           {renderOption(option)}
-        </BaseMenuItem>
+        </BaseSelectMenuItem>
       ))
     }
   </BaseSelect>
