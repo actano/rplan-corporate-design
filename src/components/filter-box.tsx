@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
-import _uniq from 'lodash/uniq'
-import _isEqual from 'lodash/isEqual'
 
 import { makeStyles } from '@material-ui/styles'
 
@@ -28,18 +26,23 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 const DefaultDialogBoxInputAsAny = DefaultDialogBoxInput as any
 
 const andFilter = (item, props, searchTerm) => {
-  const acc: string[] = []
+  const getAllOptions = o => o.reduce((acc, e, i) => acc.concat(`${acc.slice(i - 1).join(' ')} ${e}`), []).map(e => e.substr(1))
   const searchKeys = searchTerm.split(' ').filter(e => e.length)
+  const allKeyOptions = searchKeys.reduce((acc, e, i) => acc.concat(
+    [getAllOptions(searchKeys.slice(i))],
+  ), [])
+  let hits = 0
 
-  props.forEach((prop) => {
-    const itemProp = item[prop] || ''
-    searchKeys.some((key) => {
-      const eq = itemProp.toLowerCase().includes(key)
-      if (eq) acc.push(key)
-      return eq
-    })
-  })
-  return _isEqual(searchKeys.sort(), _uniq(acc).sort())
+  for (const sk of allKeyOptions) {
+    if (props.some((p) => {
+      const itemProp = item[p] || ''
+      return sk.some(k => itemProp.toLowerCase().includes(k))
+    })) {
+      hits += 1
+    }
+  }
+
+  return hits === allKeyOptions.length
 }
 
 const filterPropsForSearchTerm = (props, searchTerm, rule) => (item) => {
