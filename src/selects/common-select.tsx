@@ -5,14 +5,59 @@ import ExpandIcon from '@material-ui/icons/ExpandMore'
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import { CommonTooltip } from '../components/common-tooltip'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 let nextId = 0
 
-const useStyles = makeStyles((theme) => {
+enum CommonSelectSize {
+  regular = 'regular',
+  small = 'small',
+}
+
+enum CommonSelectVariant {
+  default = 'default',
+  outlined = 'outlined',
+}
+
+const renderText = (option: CommonSelectOption): React.ReactNode =>
+  option.value
+
+
+interface CommonSelectOption {
+  id: string,
+  value: string,
+}
+
+interface CommonSelectProps {
+  options: CommonSelectOption[],
+  value: string,
+  variant?: CommonSelectVariant,
+  fullWidth?: boolean,
+  classes?: {
+    [key: string]: object,
+  },
+  className?: string,
+  tooltipText?: string,
+  onChange?: (value: string) => void,
+  onClick?: (event: React.MouseEvent) => void,
+  onOpen?: (event: React.ChangeEvent<{}>) => void,
+  onClose?: (event: React.ChangeEvent<{}>) => void,
+  disabled?: boolean,
+  size: CommonSelectSize,
+  label?: string,
+  renderOption?: (option: CommonSelectOption) => React.ReactNode,
+}
+
+interface StylesProps {
+  size: CommonSelectSize,
+  isOutlined: boolean,
+  fullWidth: boolean,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
   const { colors } = theme.palette
   const selectIconHeight = theme.spacing(2)
 
@@ -105,37 +150,38 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const CommonSelect = ({
+type MuiSelectChangeEvent = React.ChangeEvent<{ name?: string; value: unknown }>
+
+const CommonSelect: React.FunctionComponent<CommonSelectProps> = ({
   options,
   value,
-  classes,
+  classes = {},
   className,
-  tooltipText,
-  onChange,
-  onClick,
-  onOpen,
-  onClose,
-  disabled,
-  variant,
-  fullWidth,
-  size,
+  tooltipText = '',
+  onChange = () => {},
+  onClick = () => {},
+  onOpen = () => {},
+  onClose = () => {},
+  disabled = false,
+  variant = CommonSelectVariant.default,
+  fullWidth = false,
+  size = CommonSelectSize.regular,
   label,
-  renderOption,
+  renderOption = renderText,
 }) => {
-  const isOutlined = variant === 'outlined'
+  const isOutlined = variant === CommonSelectVariant.outlined
   const ownClasses = useStyles({ size, isOutlined, fullWidth })
-  const _onChange = useCallback(
+  const _onChange = useCallback<(event: MuiSelectChangeEvent, child: React.ReactNode) => void>(
     (event) => {
-      onChange(event.target.value)
+      onChange(event.target.value as string)
     },
-    [onChange],
-  )
+  [onChange])
 
   // This state handling is needed to prevent the tooltip staying open when the select is opened
-  const [isTooltipOpen, setIsTooltipOpen] = useState(false)
-  const inputLabel = useRef(null)
-  const [labelWidth, setLabelWidth] = useState(0)
-  const [inputId, setInputId] = useState()
+  const [isTooltipOpen, setIsTooltipOpen] = useState<boolean>(false)
+  const inputLabel = useRef<HTMLLabelElement>(null)
+  const [labelWidth, setLabelWidth] = useState<number>(0)
+  const [inputId, setInputId] = useState<string | undefined>()
 
   useEffect(
     () => {
@@ -186,7 +232,6 @@ const CommonSelect = ({
           input={
             isOutlined ? (
               <OutlinedInput
-                variant="outlined"
                 labelWidth={labelWidth}
                 id={inputId}
               />
@@ -225,46 +270,6 @@ const CommonSelect = ({
       </FormControl>
     </CommonTooltip>
   )
-}
-
-const renderText = option =>
-  option.value
-
-CommonSelect.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })).isRequired,
-  fullWidth: PropTypes.bool,
-  variant: PropTypes.oneOf(['default', 'outlined']),
-  value: PropTypes.string.isRequired,
-  classes: PropTypes.object,
-  className: PropTypes.string,
-  tooltipText: PropTypes.string,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-  onOpen: PropTypes.func,
-  onClose: PropTypes.func,
-  disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['regular', 'small']),
-  label: PropTypes.string,
-  renderOption: PropTypes.func,
-}
-
-CommonSelect.defaultProps = {
-  variant: 'default',
-  fullWidth: false,
-  classes: {},
-  className: undefined,
-  tooltipText: '',
-  onChange: () => {},
-  onClick: () => {},
-  onOpen: () => {},
-  onClose: () => {},
-  disabled: false,
-  size: 'regular',
-  label: undefined,
-  renderOption: renderText,
 }
 
 export { CommonSelect }
