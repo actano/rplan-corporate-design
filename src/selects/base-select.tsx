@@ -37,7 +37,7 @@ interface BaseSelectProps {
   label?: string,
   className?: string,
   classes?: {
-    [key: string]: object,
+    [key: string]: string,
   },
 }
 

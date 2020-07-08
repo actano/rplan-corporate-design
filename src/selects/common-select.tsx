@@ -17,7 +17,7 @@ interface CommonSelectProps {
   variant?: BaseSelectVariant,
   fullWidth?: boolean,
   classes?: {
-    [key: string]: object,
+    [key: string]: string,
   },
   className?: string,
   tooltipText?: string,

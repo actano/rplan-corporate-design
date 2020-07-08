@@ -8,6 +8,7 @@ interface BaseSelectMenuItemProps {
   value: string,
   size: BaseSelectSize,
   children: React.ReactNode,
+  [otherProp: string]: any,
 }
 
 interface StylesProps {
