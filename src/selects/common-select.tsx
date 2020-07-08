@@ -272,4 +272,10 @@ const CommonSelect: React.FunctionComponent<CommonSelectProps> = ({
   )
 }
 
-export { CommonSelect }
+export {
+  CommonSelect,
+  CommonSelectVariant,
+  CommonSelectOption,
+  CommonSelectSize,
+  CommonSelectProps,
+}
