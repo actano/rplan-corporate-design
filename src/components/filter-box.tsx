@@ -12,6 +12,11 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 import { testIds } from './test-ids'
 
+export enum FilterRule {
+  andFilter = 'andFilter',
+  exactMatch = 'exactMatch',
+}
+
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   searchTermInput: {
     width: '100%',
@@ -22,25 +27,32 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 // TODO: Remove this ugly workaround after ts conversion of DefaultDialogBoxInput
 const DefaultDialogBoxInputAsAny = DefaultDialogBoxInput as any
 
-const filterPropsForSearchTerm = (props, searchTerm, andFilterRules) => (item) => {
-  if (andFilterRules) {
-    const acc: string[] = []
-    const searchKeys = searchTerm.split(' ').filter(e => e.length)
+const andFilter = (item, props, searchTerm) => {
+  const acc: string[] = []
+  const searchKeys = searchTerm.split(' ').filter(e => e.length)
 
-    props.forEach((prop) => {
-      const itemProp = item[prop] || ''
-      searchKeys.some((key) => {
-        const eq = itemProp.toLowerCase().includes(key)
-        if (eq) acc.push(key)
-        return eq
-      })
-    })
-    return _isEqual(searchKeys.sort(), _uniq(acc).sort())
-  }
-  return props.some((prop) => {
+  props.forEach((prop) => {
     const itemProp = item[prop] || ''
-    return itemProp.toLowerCase().includes(searchTerm)
+    searchKeys.some((key) => {
+      const eq = itemProp.toLowerCase().includes(key)
+      if (eq) acc.push(key)
+      return eq
+    })
   })
+  return _isEqual(searchKeys.sort(), _uniq(acc).sort())
+}
+
+const filterPropsForSearchTerm = (props, searchTerm, rule) => (item) => {
+  switch (rule) {
+    case FilterRule.andFilter:
+      return andFilter(item, props, searchTerm)
+
+    default:
+      return props.some((prop) => {
+        const itemProp = item[prop] || ''
+        return itemProp.toLowerCase().includes(searchTerm)
+      })
+  }
 }
 
 interface FilterBoxProps<T> {
@@ -51,7 +63,7 @@ interface FilterBoxProps<T> {
   startAdornment?: JSX.Element,
   classNames?: string[],
   testId?: string,
-  andFilterRules?: boolean,
+  rule?: FilterRule,
 }
 
 function FilterBox<T>({
@@ -62,7 +74,7 @@ function FilterBox<T>({
   testId = testIds.filterBox,
   startAdornment,
   classNames = [],
-  andFilterRules = false,
+  rule = FilterRule.exactMatch,
 }: FilterBoxProps<T>) {
   const classes = useStyles()
 
@@ -76,9 +88,9 @@ function FilterBox<T>({
   useEffect(
     () => {
       setFilteredItems(items
-        .filter(filterPropsForSearchTerm(filterBy, searchTerm.toLowerCase(), andFilterRules)))
+        .filter(filterPropsForSearchTerm(filterBy, searchTerm.toLowerCase(), rule)))
     },
-    [andFilterRules, filterBy, items, searchTerm, setFilteredItems],
+    [rule, filterBy, items, searchTerm, setFilteredItems],
   )
 
   return (
