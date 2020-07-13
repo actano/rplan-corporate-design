@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
+import { isEmpty } from 'lodash'
 
 import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
@@ -86,14 +87,16 @@ const UserAvatarWithPlaceholder = ({
   disabled,
   variant,
   displayUserNameOnHover,
+  enablePlaceholder,
 }) => {
   const isClickable = !!onClick && !disabled
-  const hasUser = user != null
+  const hasUser = !isEmpty(user)
   const userName = getUserName(user)
   const ownClasses = useStyles({ isClickable, variant })
 
   const combinedAvatarClasses = classnames(className, ownClasses.avatar)
   const combinedPlaceholderClasses = classnames(className, ownClasses.placeholder)
+  const shouldShowAvatar = hasUser || !enablePlaceholder
 
   const avatarElement = (
     <div
@@ -101,7 +104,7 @@ const UserAvatarWithPlaceholder = ({
       onClick={isClickable ? onClick : undefined}
     >
       {
-        hasUser
+        shouldShowAvatar
           ? (
             <UserAvatar
               className={combinedAvatarClasses}
@@ -139,16 +142,18 @@ UserAvatarWithPlaceholder.propTypes = {
   variant: PropTypes.oneOf(['grey', 'white']),
   disabled: PropTypes.bool,
   displayUserNameOnHover: PropTypes.bool,
+  enablePlaceholder: PropTypes.bool,
 }
 
 UserAvatarWithPlaceholder.defaultProps = {
   className: '',
   onClick: undefined,
-  user: null,
+  user: {},
   size: 'regular',
   variant: 'grey',
   disabled: false,
   displayUserNameOnHover: false,
+  enablePlaceholder: true,
 }
 
 export { UserAvatarWithPlaceholder }
