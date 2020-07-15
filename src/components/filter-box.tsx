@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
+import classnames from 'classnames'
 
 import { makeStyles } from '@material-ui/styles'
 
@@ -64,7 +65,7 @@ interface FilterBoxProps<T> {
   setFilteredItems?: (filteredItems: T[]) => void,
   placeholder?: string,
   startAdornment?: JSX.Element,
-  classNames?: string[],
+  className?: string,
   testId?: string,
   rule?: FilterRule,
 }
@@ -76,7 +77,7 @@ function FilterBox<T>({
   placeholder = 'Search and filter',
   testId = testIds.filterBox,
   startAdornment,
-  classNames = [],
+  className,
   rule = FilterRule.exactMatch,
 }: FilterBoxProps<T>) {
   const classes = useStyles()
@@ -100,7 +101,7 @@ function FilterBox<T>({
     <>
       <DefaultDialogBoxInputAsAny
         autoFocus
-        className={[classes.searchTermInput, ...classNames]}
+        className={classnames(classes.searchTermInput, className)}
         originalValue={searchTerm}
         onSave={(value) => { setSearchTermDelayed(value) }}
         onChange={(event) => { setSearchTermDelayed(event.target.value) }}
