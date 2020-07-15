@@ -6,7 +6,7 @@ import { createMuiTheme } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 import { settleComponent } from '@rplan/testhelpers-webclient'
 
-import { FilterBox, FilterBoxProps } from '../../src/components/filter-box'
+import { FilterBox, FilterBoxProps, FilterRule } from '../../src/components/filter-box'
 import { testIdProp } from '../../src/shared/test-ids'
 import { testIds } from '../../src/components/test-ids'
 import { themeConfig } from '../../src/theme/theme-config'
@@ -92,6 +92,27 @@ describe('FilterBox component', () => {
       { foo: 'findme-foo-3', bar: 'bar-3' },
       { foo: 'foo-4', bar: 'findme-bar-4' },
       { foo: 'foo-5', bar: 'bar-5-findme' },
+    ])
+  })
+
+  it('should filter the item list for andFilter rule', async () => {
+    const setFilteredItemsSpy = sinon.spy()
+    const component = await renderComponent({
+      filterBy: ['foo', 'bar'],
+      items: testList,
+      setFilteredItems: setFilteredItemsSpy,
+      rule: FilterRule.andFilter,
+    })
+
+    const filterBox = component.find(testIdProp(testIds.filterBox)).first()
+
+    expect(filterBox).to.have.prop('onSave')
+    filterBox.props().onSave('foo bar-3')
+    await delay(150)
+    await settleComponent(component)
+
+    expect(setFilteredItemsSpy).to.have.been.calledWith([
+      { foo: 'findme-foo-3', bar: 'bar-3' },
     ])
   })
 })

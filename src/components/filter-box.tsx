@@ -11,7 +11,7 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 import { testIds } from './test-ids'
 
-export enum FilterRule {
+enum FilterRule {
   andFilter = 'andFilter',
   exactMatch = 'exactMatch',
 }
@@ -113,4 +113,4 @@ function FilterBox<T>({
   )
 }
 
-export { FilterBox, FilterBoxProps }
+export { FilterBox, FilterBoxProps, FilterRule }
