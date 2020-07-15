@@ -16,8 +16,8 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 }))
 
 interface InputWithLabelProps {
-  label: string
-  children: React.Component
+  label: string,
+  children: React.ReactElement,
 }
 
 const InputWithLabel: React.FunctionComponent<InputWithLabelProps> = ({
