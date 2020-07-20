@@ -27,23 +27,17 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 const DefaultDialogBoxInputAsAny = DefaultDialogBoxInput as any
 
 const andFilter = (item, props, searchTerm) => {
-  const getAllOptions = o => o.reduce((acc, e, i) => acc.concat(`${acc.slice(i - 1).join(' ')} ${e}`), []).map(e => e.substr(1))
-  const searchKeys = searchTerm.split(' ').filter(e => e.length)
-  const allKeyOptions = searchKeys.reduce((acc, e, i) => acc.concat(
-    [getAllOptions(searchKeys.slice(i))],
-  ), [])
-  let hits = 0
-
-  for (const sk of allKeyOptions) {
-    if (props.some((p) => {
+  const terms = searchTerm.split(' ')
+    .filter(e => e.length)
+    .map(term => term.toLowerCase())
+  for (const term of terms) {
+    if (!props.some((p) => {
       const itemProp = item[p] || ''
-      return sk.some(k => itemProp.toLowerCase().includes(k))
-    })) {
-      hits += 1
-    }
+      return itemProp.toLowerCase().includes(term)
+    })) return false
   }
 
-  return hits === allKeyOptions.length
+  return true
 }
 
 const filterPropsForSearchTerm = (props, searchTerm, rule) => (item) => {
