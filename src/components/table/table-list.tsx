@@ -39,14 +39,9 @@ const TableList = React.forwardRef<any, any>(({
           <col
             // eslint-disable-next-line react/no-array-index-key
             key={index}
-            style={
-              column.minWidth
-                ? {
-                  minWidth: column.minWidth,
-                } : {
-                  width: column.width,
-                }
-            }
+            style={{
+              width: column.width,
+            }}
           />
         ))}
       </colgroup>
@@ -56,14 +51,6 @@ const TableList = React.forwardRef<any, any>(({
           {
             columnDefinitions.map((column, index) => (
               <TableCell
-                style={
-                  column.minWidth
-                    ? {
-                      minWidth: column.minWidth,
-                    } : {
-                      width: column.width,
-                    }
-                }
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
               >
