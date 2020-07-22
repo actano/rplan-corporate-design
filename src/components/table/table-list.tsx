@@ -12,7 +12,7 @@ import { CorporateDesignTheme } from '../..'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   table: {
-    tableLayout: 'fixed',
+    // tableLayout: 'fixed',
     fontWeight: 'normal',
     borderSpacing: `0 ${theme.spacing(2)}px`,
     borderCollapse: 'separate',
@@ -39,9 +39,14 @@ const TableList = React.forwardRef<any, any>(({
           <col
             // eslint-disable-next-line react/no-array-index-key
             key={index}
-            style={{
-              width: column.width,
-            }}
+            style={
+              column.minWidth
+                ? {
+                  minWidth: column.minWidth,
+                } : {
+                  width: column.width,
+                }
+            }
           />
         ))}
       </colgroup>
@@ -51,6 +56,14 @@ const TableList = React.forwardRef<any, any>(({
           {
             columnDefinitions.map((column, index) => (
               <TableCell
+                style={
+                  column.minWidth
+                    ? {
+                      minWidth: column.minWidth,
+                    } : {
+                      width: column.width,
+                    }
+                }
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
               >
