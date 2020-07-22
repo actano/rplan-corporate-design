@@ -45,14 +45,6 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     '&:focus': {
       backgroundColor: theme.palette.colors.white,
     },
-    '&$selectMenuItemSelected': {
-      '&:hover': {
-        backgroundColor: theme.palette.colors.veryLightGrey,
-      },
-      '&:focus': {
-        backgroundColor: theme.palette.colors.white,
-      },
-    },
   },
   selectedText: {
     color: theme.palette.colors.black,
