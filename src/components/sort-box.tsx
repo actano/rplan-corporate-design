@@ -84,7 +84,7 @@ export interface SortField {
   sortFieldPath?: string[],
 }
 
-interface SortBoxProps<T> {
+export interface SortBoxProps<T> {
   data: T[],
   sortFields: SortField[],
   defaultSortFieldName: string,
