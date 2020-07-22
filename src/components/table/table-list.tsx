@@ -12,7 +12,7 @@ import { CorporateDesignTheme } from '../..'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   table: {
-    // tableLayout: 'fixed',
+    tableLayout: 'fixed',
     fontWeight: 'normal',
     borderSpacing: `0 ${theme.spacing(2)}px`,
     borderCollapse: 'separate',
