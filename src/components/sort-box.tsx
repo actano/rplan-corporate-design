@@ -62,6 +62,13 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     display: 'flex',
     flexDirection: 'row',
     padding: theme.spacing(0.75, 2),
+    '&:focus-within': {
+      borderColor: theme.palette.colors.lightGrey,
+    },
+
+    '&:hover': {
+      borderColor: theme.palette.colors.grey,
+    },
   },
 }))
 
