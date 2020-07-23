@@ -21,6 +21,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   select: {
     fontSize: theme.spacing(1.625),
     paddingLeft: theme.spacing(2),
+    whiteSpace: 'normal',
   },
   selectItemText: {
     color: theme.palette.colors.black,
@@ -54,7 +55,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     color: theme.palette.colors.darkGrey,
   },
   sortBox: {
-    minWidth: theme.spacing(22),
+    whiteSpace: 'nowrap',
     height: theme.spacing(4.75),
     borderWidth: theme.spacing(0.125),
     borderColor: theme.palette.colors.veryLightGrey,
