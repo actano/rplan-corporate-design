@@ -117,7 +117,9 @@ export function SortBox<T>({
 
   const getSortProperty = useCallback((t: T, sortField: string[]) :any => {
     let sortProperty = t
-    sortField.forEach((item) => { sortProperty = sortProperty[item] })
+    sortField.forEach((item) => {
+      sortProperty = sortProperty ? sortProperty[item] : null
+    })
     return sortProperty
   }, [])
 
