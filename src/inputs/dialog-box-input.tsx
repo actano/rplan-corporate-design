@@ -48,7 +48,7 @@ const DialogBoxInput = React.forwardRef<any, any>((
       {...otherProps}
       classes={{
         root: classes.inputRoot,
-        input: classes.input,
+        input: otherProps.inputStyle || classes.input,
       }}
     />
   )

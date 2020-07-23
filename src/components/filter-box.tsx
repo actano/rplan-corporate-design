@@ -21,6 +21,19 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     width: '100%',
     marginBottom: theme.spacing(3),
   },
+  input: {
+    fontSize: theme.spacing(1.625),
+    textOverflow: 'ellipsis',
+    lineHeight: '1.43',
+    padding: theme.spacing(1.25, 2.125),
+
+    backgroundColor: theme.palette.colors.white,
+    color: theme.palette.colors.darkestGrey,
+
+    '&::placeholder': {
+      color: theme.palette.colors.grey,
+    },
+  },
 }))
 
 // TODO: Remove this ugly workaround after ts conversion of DefaultDialogBoxInput
@@ -102,6 +115,7 @@ function FilterBox<T>({
         placeholder={placeholder}
         startAdornment={startAdornment}
         {...testIdProp(testId)}
+        inputStyle={classes.input}
       />
     </>
   )
