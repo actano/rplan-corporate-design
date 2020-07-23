@@ -115,7 +115,7 @@ function FilterBox<T>({
         placeholder={placeholder}
         startAdornment={startAdornment}
         {...testIdProp(testId)}
-        inputStyle={classes.input}
+        classes={{ input: classes.input }}
       />
     </>
   )

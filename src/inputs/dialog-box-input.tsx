@@ -37,18 +37,21 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
 })
 
 const DialogBoxInput = React.forwardRef<any, any>((
-  { ...otherProps },
+  {
+    classes = {},
+    ...otherProps
+  },
   ref,
 ) => {
-  const classes = useStyles()
+  const ownClasses = useStyles()
 
   return (
     <InputBase
       ref={ref}
       {...otherProps}
       classes={{
-        root: classes.inputRoot,
-        input: otherProps.inputStyle || classes.input,
+        root: classes.root || ownClasses.inputRoot,
+        input: classes.input || ownClasses.input,
       }}
     />
   )
