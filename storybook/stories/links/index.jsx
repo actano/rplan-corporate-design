@@ -52,4 +52,4 @@ const linkStories = () => {
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
 
-export default linkStories
+export { linkStories }

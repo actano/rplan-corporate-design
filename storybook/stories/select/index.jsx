@@ -31,7 +31,7 @@ const SelectStateWrapper = (props) => {
   )
 }
 
-const inputStories = () => {
+const selectStories = () => {
   storiesOf('Select', module)
     .add('Select', () => (
       <Providers>
@@ -172,4 +172,4 @@ const inputStories = () => {
     ))
 }
 
-export default inputStories
+export { selectStories }

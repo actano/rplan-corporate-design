@@ -113,4 +113,4 @@ const buttonStories = () => {
       ))
 }
 
-export default buttonStories
+export { buttonStories }

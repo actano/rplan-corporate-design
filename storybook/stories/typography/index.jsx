@@ -53,4 +53,4 @@ const typographyStories = () => {
       ))
 }
 
-export default typographyStories
+export { typographyStories }

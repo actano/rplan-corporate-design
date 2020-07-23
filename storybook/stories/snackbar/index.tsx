@@ -43,4 +43,4 @@ const snackBar = () => {
     })
 }
 
-export default snackBar
+export { snackBar }

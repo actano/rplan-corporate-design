@@ -12,4 +12,4 @@ const inputStories = () => {
     .add('Dialog Box Input', dialogBoxInputStory)
 }
 
-export default inputStories
+export { inputStories }

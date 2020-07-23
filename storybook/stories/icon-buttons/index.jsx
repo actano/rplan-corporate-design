@@ -46,4 +46,4 @@ const iconButtonStories = () => {
     ))
 }
 
-export default iconButtonStories
+export { iconButtonStories }

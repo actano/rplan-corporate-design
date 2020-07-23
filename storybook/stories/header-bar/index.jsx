@@ -41,7 +41,7 @@ const LayoutFix = ({ children }) => {
   return children(stateToReRender, onChangeTab)
 }
 
-const typographyStories = () => {
+const headerBarStories = () => {
   storiesOf('HeaderBar with TabBar', module)
     .add('HeaderBar with TabBar', () =>
       (
@@ -72,4 +72,4 @@ const typographyStories = () => {
       ))
 }
 
-export default typographyStories
+export { headerBarStories }

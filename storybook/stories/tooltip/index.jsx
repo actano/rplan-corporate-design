@@ -20,4 +20,4 @@ const tooltipStories = () => {
       ))
 }
 
-export default tooltipStories
+export { tooltipStories }

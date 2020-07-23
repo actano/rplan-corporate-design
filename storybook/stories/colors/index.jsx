@@ -28,7 +28,7 @@ const ColorItem = (entry, sizeInPx) => {
   )
 }
 
-const colorsStories = () => {
+const colorStories = () => {
   storiesOf('Colors', module)
     .add('Colors', () =>
       (
@@ -102,4 +102,4 @@ const colorsStories = () => {
       ))
 }
 
-export default colorsStories
+export { colorStories }

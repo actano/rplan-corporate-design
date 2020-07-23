@@ -125,4 +125,4 @@ const avatarStories = () => {
     })
 }
 
-export default avatarStories
+export { avatarStories }

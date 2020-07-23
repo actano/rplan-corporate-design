@@ -12,4 +12,4 @@ const modalDialogStories = () => {
     .add('Full Page Modal Dialog', () => <FullPageModalStory />)
 }
 
-export default modalDialogStories
+export { modalDialogStories }

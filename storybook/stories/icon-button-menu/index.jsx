@@ -44,7 +44,7 @@ const WhiteDotMenuOnBlueBackground = () => {
   )
 }
 
-const stories = () => {
+const iconButtonMenuStories = () => {
   storiesOf('Icon-Button Menu', module)
     .add('IconButtonMenu', () => (
       <Providers>
@@ -129,4 +129,4 @@ const stories = () => {
 }
 
 
-export default stories
+export { iconButtonMenuStories }

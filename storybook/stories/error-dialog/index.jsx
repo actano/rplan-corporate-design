@@ -29,4 +29,4 @@ const errorBoxStories = () => {
     ))
 }
 
-export default errorBoxStories
+export { errorBoxStories }

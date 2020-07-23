@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core'
 import { ErrorComponent } from '../../../src'
 import { Providers } from '../providers'
 
-const errorBoxStories = () => {
+const errorComponentStories = () => {
   storiesOf('Error Component', module)
     .add('Error Component', () => (
       <Providers>
@@ -23,4 +23,4 @@ const errorBoxStories = () => {
     ))
 }
 
-export default errorBoxStories
+export { errorComponentStories }
