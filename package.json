@@ -26,7 +26,7 @@
     "build:declarations": "tsc --project tsconfig.types.json",
     "clean": "rm -rf lib",
     "lint": "eslint --ext js,jsx,ts,tsx src test storybook",
-    "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\" \"test/**/*.unit.tsx\" \"test/**/*.unit.ts\"",
+    "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\" \"test/**/*.unit.tsx\" \"test/**/*.unit.ts\" --exit",
     "storybook": "start-storybook -c ./storybook/config -p 8085",
     "build-storybook": "build-storybook -c ./storybook/config",
     "typecheck": "tsc --noEmit --skipLibCheck"
