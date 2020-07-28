@@ -76,7 +76,7 @@ const getUserName = (user) => {
   if (user.firstName && user.lastName) {
     return `${user.firstName} ${user.lastName}`.trim()
   }
-  return user.email
+  return user.email || ''
 }
 
 const UserAvatarWithPlaceholder = ({
