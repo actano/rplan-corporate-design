@@ -75,6 +75,7 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
   const [data, setData] = useState(originalValue)
   const [isInputTooLong, setIsInputTooLong] = useState(false)
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+  const [isOwnButtonClick, setIsOwnButtonClick] = useState(false)
 
   const onOpen = useCallback(() => {
     setData(originalValue)
@@ -111,6 +112,12 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
     }
   }, [data, discardChanges, isInputTooLong, originalValue])
 
+  const handleBlur = useCallback(() => {
+    if (data !== originalValue && !isInputTooLong) {
+      setIsConfirmationOpen(!isOwnButtonClick)
+    }
+  }, [data, isInputTooLong, isOwnButtonClick, originalValue])
+
   if (disabled) {
     return (
       <div
@@ -145,7 +152,8 @@ export const withControls = (EditorComponent: React.FunctionComponent<RichTextEd
         <EditorComponent
           placeholder={placeholder}
           onChange={onChangeEditorData}
-          onBlur={handleCancel}
+          onBlur={handleBlur}
+          setIsOwnButtonClick={setIsOwnButtonClick}
           data={data}
           maxInputLength={maxInputLength}
           onMaxInputLengthExceeded={onMaxInputLengthExceeded}
