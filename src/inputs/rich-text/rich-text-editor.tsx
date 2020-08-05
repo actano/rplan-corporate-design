@@ -190,7 +190,7 @@ export interface RichTextEditorProps {
   maxInputLength?: number
   onMaxInputLengthExceeded: () => void
   onBlur: () => void
-  setIsOwnButtonClick: (isOwnClick: boolean) => void
+  preventConfirmationDialog: (isOwnClick: boolean) => void
 }
 
 export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
@@ -201,7 +201,7 @@ export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
   maxInputLength = DEFAULT_MAX_INPUT_LENGTH,
   onMaxInputLengthExceeded = () => {},
   onBlur = () => {},
-  setIsOwnButtonClick = () => {},
+  preventConfirmationDialog = () => {},
 
 }) => {
   const [, i18n] = useTranslation()
@@ -217,10 +217,6 @@ export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
     language: getLanguagePrefix(i18n.language),
   }
 
-  const handleOnClick = () => {
-    setIsOwnButtonClick(true)
-  }
-
   useStyles()
   return (
     <div
@@ -228,23 +224,24 @@ export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
         event.stopPropagation()
         onBlur()
       }}
-      onMouseDown={handleOnClick}
+      onMouseDown={() => preventConfirmationDialog(true)}
+      onFocus={() => preventConfirmationDialog(true)}
       role="presentation"
     >
       <CKEditor
         editor={ClassicEditor}
         data={data}
         onChange={(event, editor) => {
+          preventConfirmationDialog(false)
           const newData = editor.getData()
           if (newData.length <= maxInputLength) {
-            setIsOwnButtonClick(false)
             onChange(newData)
           } else {
             onMaxInputLengthExceeded()
           }
         }}
         config={editorConfig}
-        onFocus={() => setIsOwnButtonClick(false)}
+        onFocus={() => preventConfirmationDialog(false)}
       />
     </div>
   )
