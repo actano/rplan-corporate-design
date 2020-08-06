@@ -150,11 +150,11 @@ export function SortBoxTemp<T>({
       const getSortFieldByName = name => sortFields.find(item => item.sortName === name)
       const sortField = getSortFieldByName(activeSortFieldName)
       if (!sortField || (sortField.fieldType === SortFieldType.DEFAULT)) {
-        setSortedData({data, sortBy: activeSortFieldName})
+        setSortedData({ data, sortBy: activeSortFieldName })
       } else {
         const dataToSort = [...data]
         dataToSort.sort((t1, t2) => compareElements(t1, t2, sortField))
-        setSortedData({data: dataToSort, sortBy: activeSortFieldName})
+        setSortedData({ data: dataToSort, sortBy: activeSortFieldName })
       }
     },
     [activeSortFieldName, compareElements, data, setSortedData, sortFields],
