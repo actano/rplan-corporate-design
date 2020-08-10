@@ -220,8 +220,7 @@ export const RichTextEditor: React.FunctionComponent<RichTextEditorProps> = ({
   useStyles()
   return (
     <div
-      onBlur={(event) => {
-        event.stopPropagation()
+      onBlur={() => {
         onBlur()
       }}
       onMouseDown={() => preventConfirmationDialog(true)}
