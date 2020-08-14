@@ -82,6 +82,12 @@ export interface SortField {
   sortName: string,
   fieldType: SortFieldType,
   sortFieldPath?: string[],
+  order?: SortOrder,
+}
+
+export enum SortOrder {
+  ASC = 'asc',
+  DESC = 'desc',
 }
 
 export interface SortBoxProps<T> {
@@ -127,14 +133,16 @@ export function SortBox<T>({
   const compareElements = useCallback((t1: T, t2: T, sortField: SortField) => {
     const p1 = sortField.sortFieldPath ? getSortProperty(t1, sortField.sortFieldPath) : t1
     const p2 = sortField.sortFieldPath ? getSortProperty(t2, sortField.sortFieldPath) : t2
+    const order = sortField.order || SortOrder.ASC
+
     if (!p1 && !p2) return 0
-    if (!p1) return -1
-    if (!p2) return 1
+    if (!p1) return order === SortOrder.ASC ? -1 : 1
+    if (!p2) return order === SortOrder.ASC ? 1 : -1
     switch (sortField.fieldType) {
       case SortFieldType.STRING:
-        return p1.localeCompare(p2)
+        return order === SortOrder.ASC ? p1.localeCompare(p2) : p2.localeCompare(p1)
       case SortFieldType.LOCAL_DATE:
-        return p1.compareTo(p2)
+        return order === SortOrder.ASC ? p1.compareTo(p2) : p2.compareTo(p1)
       default: throw new Error('Missing or wrong sort field type.')
     }
   }, [getSortProperty])

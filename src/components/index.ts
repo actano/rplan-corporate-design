@@ -19,7 +19,9 @@ export { DueDateStatus, DUE_DATE_STATUS } from './due-date-status'
 export { AllexLogo } from './allex-logo'
 export { TableList, TableListRow } from './table'
 export { FilterBox } from './filter-box'
-export { SortBox, SortField, SortFieldType } from './sort-box'
+export {
+  SortBox, SortField, SortFieldType, SortOrder,
+} from './sort-box'
 export { SortBoxTemp, SortResult } from './sort-box-temp'
 export { HealthStatus, Health, HealthStatusType } from './health-status'
 export { SnackBar, SnackBarTypes } from './snackbar'

@@ -6,7 +6,9 @@ import {
 import { LocalDate } from '@js-joda/core'
 import { storiesOf } from '@storybook/react'
 import { Providers } from '../providers'
-import { SortBox, SortFieldType, SortField } from '../../../src'
+import {
+  SortBox, SortFieldType, SortField,
+} from '../../../src'
 
 interface Task {
   name: string,
