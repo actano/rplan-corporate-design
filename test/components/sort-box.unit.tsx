@@ -78,10 +78,10 @@ const testListSortedByTaskNameAsc: TestDataType[] = [
 ]
 
 const testListSortedByTaskStartDateAsc: TestDataType[] = [
-  testItem1,
-  testItem2,
-  testItem3,
   testItem4,
+  testItem2,
+  testItem1,
+  testItem3,
 ]
 
 const testListSortedByTaskNameDesc: TestDataType[] = [
