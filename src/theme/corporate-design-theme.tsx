@@ -1,84 +1,91 @@
-import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme'
+import { Theme, ThemeOptions } from '@material-ui/core/styles/createMuiTheme'
 import { Breakpoints } from '@material-ui/core/styles/createBreakpoints'
+import {
+  Palette,
+  PaletteOptions,
+  TypeBackground,
+  TypeText,
+} from '@material-ui/core/styles/createPalette'
 
-interface CorporateDesignPalette {
-  background: {
-    special: string,
-    normal: string,
-    modal: string,
-    default?: string,
-    paper?: string,
-  },
-  text: {
-    active: string,
-    title: string,
-    paragraph: string,
-    hint: string,
-    success: string,
-    secondary: string,
-    disabled: string,
-    primary: string,
-  },
-  error: {
-    main: string,
-    light: string,
-  },
-  primary: {
-    main: string,
-  },
-  support: {
-    deepBlue: string,
-    dullBlue: string,
-    cyan: string,
-    teal: string,
-    almond: string,
-    amber: string,
-  },
-  signal: {
-    green: string,
-    lightGreen: string,
-    red: string,
-    lightRed: string,
-  },
-  colors: {
-    lightestGrey: string,
-    veryLightGrey: string,
-    lightGrey: string,
-    grey: string,
-    darkGrey: string,
-    darkestGrey: string,
-    black: string,
-    lightestBlue: string,
-    lightBlue: string,
-    lighterBlue: string,
-    paleBlue: string,
-    blue: string,
-    strongerBlue: string,
-    darkBlue: string,
-    darkerBlue: string,
-    veryDarkBlue: string,
-    green: string,
-    turquoise: string,
-    lightRed: string,
-    red: string,
-    red60: string,
-    darkRed: string,
-    orange: string,
-    white: string,
-    nearWhite: string,
-  },
+type BackgroundPalette = TypeBackground & {
+  special: string,
+  normal: string,
+  modal: string,
 }
 
-export interface CorporateDesignTheme {
-  spacing: (...spaces: number[]) => number,
+type TextPalette = TypeText & {
+  active: string,
+  title: string,
+  paragraph: string,
+  success: string,
+}
+
+type SupportPalette = {
+  deepBlue: string,
+  dullBlue: string,
+  cyan: string,
+  teal: string,
+  almond: string,
+  amber: string,
+}
+
+type SignalPalette = {
+  green: string,
+  lightGreen: string,
+  red: string,
+  lightRed: string,
+}
+
+type ColorsPalette = {
+  lightestGrey: string,
+  veryLightGrey: string,
+  lightGrey: string,
+  grey: string,
+  darkGrey: string,
+  darkestGrey: string,
+  black: string,
+  lightestBlue: string,
+  lightBlue: string,
+  lighterBlue: string,
+  paleBlue: string,
+  blue: string,
+  strongerBlue: string,
+  darkBlue: string,
+  darkerBlue: string,
+  veryDarkBlue: string,
+  green: string,
+  turquoise: string,
+  lightRed: string,
+  red: string,
+  red60: string,
+  darkRed: string,
+  orange: string,
+  white: string,
+  nearWhite: string,
+}
+
+interface CorporateDesignPalette extends Palette {
+  background: BackgroundPalette,
+  text: TextPalette,
+  support: SupportPalette,
+  signal: SignalPalette,
+  colors: ColorsPalette,
+}
+
+interface CorporateDesignPaletteOptions extends PaletteOptions {
+  background: Partial<BackgroundPalette>,
+  text: Partial<TextPalette>,
+  support: Partial<SupportPalette>,
+  signal: Partial<SignalPalette>,
+  colors: Partial<ColorsPalette>,
+}
+
+export interface CorporateDesignTheme extends Theme {
   palette: CorporateDesignPalette,
   breakpoints: Breakpoints,
-  typography: {
-    fontFamily,
-  }
 }
 
 export interface CorporateDesignThemeOptions extends ThemeOptions {
-  palette: CorporateDesignPalette,
+  palette: CorporateDesignPaletteOptions,
   overrides: object,
 }
