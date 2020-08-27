@@ -94,7 +94,6 @@ export interface SortBoxProps<T> {
   sortFields: SortField[],
   defaultSortFieldName: string,
   setSortedData: (result: SortResult<T>) => void,
-  onClose: () => void,
   labelPrefix: string,
   classes?: string,
   testId?: string,
@@ -150,14 +149,14 @@ export function SortBoxTemp<T>({
       const getSortFieldByName = name => sortFields.find(item => item.sortName === name)
       const sortField = getSortFieldByName(activeSortFieldName)
       if (!sortField || (sortField.fieldType === SortFieldType.DEFAULT)) {
-        setSortedData({ data, sortBy: activeSortFieldName })
+        setSortedData({ data, sortBy: activeSortFieldName || defaultSortFieldName })
       } else {
         const dataToSort = [...data]
         dataToSort.sort((t1, t2) => compareElements(t1, t2, sortField))
         setSortedData({ data: dataToSort, sortBy: activeSortFieldName })
       }
     },
-    [activeSortFieldName, compareElements, data, setSortedData, sortFields],
+    [activeSortFieldName, compareElements, data, defaultSortFieldName, setSortedData, sortFields],
   )
 
   return (
