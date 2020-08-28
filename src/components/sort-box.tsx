@@ -90,11 +90,16 @@ export enum SortOrder {
   DESC = 'desc',
 }
 
+export interface SortResult<T> {
+  data: T[],
+  sortBy: string,
+}
+
 export interface SortBoxProps<T> {
   data: T[],
   sortFields: SortField[],
   defaultSortFieldName: string,
-  setSortedData: (sortedData: T[]) => void,
+  setSortedData: (result: SortResult<T>) => void,
   labelPrefix: string,
   classes?: string,
   testId?: string,
@@ -152,14 +157,14 @@ export function SortBox<T>({
       const getSortFieldByName = name => sortFields.find(item => item.sortName === name)
       const sortField = getSortFieldByName(activeSortFieldName)
       if (!sortField || (sortField.fieldType === SortFieldType.DEFAULT)) {
-        setSortedData(data)
+        setSortedData({ data, sortBy: activeSortFieldName || defaultSortFieldName })
       } else {
         const dataToSort = [...data]
         dataToSort.sort((t1, t2) => compareElements(t1, t2, sortField))
-        setSortedData(dataToSort)
+        setSortedData({ data: dataToSort, sortBy: activeSortFieldName })
       }
     },
-    [activeSortFieldName, compareElements, data, setSortedData, sortFields],
+    [activeSortFieldName, compareElements, data, setSortedData, sortFields, defaultSortFieldName],
   )
 
   return (
