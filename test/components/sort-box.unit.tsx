@@ -168,24 +168,30 @@ const createComponent = async (setSortedDataSpy, initialSort, sortFields = sortF
 describe('SortBox component', () => {
   it('default sort - should return unsorted input list on first render', async () => {
     const setSortedDataSpy = sinon.spy()
-    await createComponent(setSortedDataSpy, defaultSort.sortName)
+    const sortFieldName = defaultSort.sortName
+    await createComponent(setSortedDataSpy, sortFieldName)
 
-    expect(setSortedDataSpy).to.have.been.calledWith(testList)
+    expect(setSortedDataSpy).to.have.been
+      .calledWith({ data: testList, sortBy: sortFieldName })
   })
 
   context('sort order ASC', async () => {
     it('name sort - should return the input list sorted by name on first render', async () => {
       const setSortedDataSpy = sinon.spy()
-      await createComponent(setSortedDataSpy, 'task name')
+      const sortFieldName = 'task name'
+      await createComponent(setSortedDataSpy, sortFieldName)
 
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskNameAsc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskNameAsc, sortBy: sortFieldName })
     })
 
     it('date sort - should return the input list sorted by task name on first render', async () => {
       const setSortedDataSpy = sinon.spy()
-      await createComponent(setSortedDataSpy, 'start date')
+      const sortFieldName = 'start date'
+      await createComponent(setSortedDataSpy, sortFieldName)
 
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskStartDateAsc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskStartDateAsc, sortBy: sortFieldName })
     })
 
     it('change sort - should return the input list sorted by name', async () => {
@@ -199,23 +205,28 @@ describe('SortBox component', () => {
         await delay(150)
         await settleComponent(component)
       }
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskNameAsc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskNameAsc, sortBy: 'task name' })
     })
   })
 
   context('sort order DESC', async () => {
     it('name sort - should return the input list sorted by name on first render', async () => {
       const setSortedDataSpy = sinon.spy()
-      await createComponent(setSortedDataSpy, 'task name', sortFieldsDesc)
+      const sortFieldName = 'task name'
+      await createComponent(setSortedDataSpy, sortFieldName, sortFieldsDesc)
 
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskNameDesc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskNameDesc, sortBy: sortFieldName })
     })
 
     it('date sort - should return the input list sorted by task name on first render', async () => {
       const setSortedDataSpy = sinon.spy()
-      await createComponent(setSortedDataSpy, 'start date', sortFieldsDesc)
+      const sortFieldName = 'start date'
+      await createComponent(setSortedDataSpy, sortFieldName, sortFieldsDesc)
 
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskStartDateDesc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskStartDateDesc, sortBy: sortFieldName })
     })
 
     it('change sort - should return the input list sorted by name', async () => {
@@ -233,7 +244,8 @@ describe('SortBox component', () => {
         await delay(150)
         await settleComponent(component)
       }
-      expect(setSortedDataSpy).to.have.been.calledWith(testListSortedByTaskNameDesc)
+      expect(setSortedDataSpy).to.have.been
+        .calledWith({ data: testListSortedByTaskNameDesc, sortBy: 'task name' })
     })
   })
 })

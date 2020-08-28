@@ -22,6 +22,5 @@ export { FilterBox } from './filter-box'
 export {
   SortBox, SortField, SortFieldType, SortOrder,
 } from './sort-box'
-export { SortBoxTemp, SortResult } from './sort-box-temp'
 export { HealthStatus, Health, HealthStatusType } from './health-status'
 export { SnackBar, SnackBarTypes } from './snackbar'
