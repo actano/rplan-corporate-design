@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 
 import {
   Table, TableBody, TableCell, TableHead, TableRow, Typography,
@@ -83,13 +83,23 @@ const sortFields: SortField[] = [
 
 const DemoSortBoxWithResultList = () => {
   const [sortedItems, setSortedItems] = useState([] as TestDataType[])
+  const [sortedBy, setSortedBy] = useState(undefined)
+
+  const handleSetSortedData = useCallback(
+    ({ data, sortBy }) => {
+      setSortedItems(data)
+      setSortedBy(sortBy)
+    },
+    [setSortedItems],
+  )
+
   return (
     <>
       <SortBox<TestDataType>
         data={testList}
         sortFields={sortFields}
-        defaultSortFieldName={defaultSort.sortName}
-        setSortedData={setSortedItems}
+        defaultSortFieldName={sortedBy || defaultSort.sortName}
+        setSortedData={handleSetSortedData}
         labelPrefix="Sort on"
       />
       <Typography variant="h3">
@@ -128,7 +138,7 @@ const sortBoxStories = () => {
         <Typography variant="body1">
             This component sorts a given list of objects
             with respect to the given search term in specified keys.
-            It returns the filtered list via a callback.
+            It returns the filtered list and selected sort criteria via a callback.
         </Typography>
         <DemoSortBoxWithResultList />
       </Providers>
