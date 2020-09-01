@@ -277,6 +277,14 @@ const themeConfig: CorporateDesignThemeOptions = {
         },
       },
     },
+    MuiAccordionSummary: {
+      content: {
+        margin: `${SPACING * 1.5}px 0`,
+        '&$expanded': {
+          margin: `${SPACING * 1.5}px 0`,
+        },
+      },
+    },
     MuiSwitch: {
       track: {
         opacity: undefined,
