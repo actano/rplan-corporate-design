@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   Table,
@@ -6,9 +6,16 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TableCellProps,
 } from '@material-ui/core'
 import classNames from 'classnames'
 import { CorporateDesignTheme } from '../..'
+
+interface ColumnDefinition {
+  name: string,
+  width: number,
+  headerAlignment?: TableCellProps['align'],
+}
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   table: {
@@ -22,10 +29,17 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
 }))
 
-const TableList = React.forwardRef<any, any>(({
+interface TableListProps {
+  className?: object
+  columnDefinitions: ColumnDefinition[]
+  showHeaders?: boolean
+  children: ReactNode
+}
+
+const TableList = React.forwardRef<any, TableListProps>(({
   className,
   columnDefinitions,
-  showHeaders,
+  showHeaders = false,
   children,
 }, ref) => {
   const classes = useStyles()
@@ -53,6 +67,7 @@ const TableList = React.forwardRef<any, any>(({
               <TableCell
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
+                align={column.headerAlignment || 'inherit'}
               >
                 { column.name }
               </TableCell>
@@ -68,9 +83,4 @@ const TableList = React.forwardRef<any, any>(({
   )
 })
 
-TableList.defaultProps = {
-  className: undefined,
-  showHeaders: false,
-}
-
-export { TableList }
+export { TableList, ColumnDefinition, TableListProps }
