@@ -33,6 +33,7 @@ interface TableListProps {
   className?: object
   columnDefinitions: TableListColumnDefinition[]
   showHeaders?: boolean
+  children?: React.ReactNode
 }
 
 const TableList = React.forwardRef<any, TableListProps>(({
