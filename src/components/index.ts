@@ -19,7 +19,7 @@ export { NonCollapsingAccordionSummary } from './non-collapsing-accordion-summar
 export { Skeleton } from './skeleton'
 export { DueDateStatus, DUE_DATE_STATUS } from './due-date-status'
 export { AllexLogo } from './allex-logo'
-export { TableList, TableListRow } from './table'
+export { TableList, TableListColumnDefinition, TableListRow } from './table'
 export { FilterBox } from './filter-box'
 export {
   SortBox, SortField, SortFieldType, SortOrder,

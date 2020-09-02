@@ -11,7 +11,7 @@ import {
 import classNames from 'classnames'
 import { CorporateDesignTheme } from '../..'
 
-interface ColumnDefinition {
+interface TableListColumnDefinition {
   name: string,
   width: number,
   headerAlignment?: TableCellProps['align'],
@@ -31,7 +31,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 
 interface TableListProps {
   className?: object
-  columnDefinitions: ColumnDefinition[]
+  columnDefinitions: TableListColumnDefinition[]
   showHeaders?: boolean
   children: ReactNode
 }
@@ -83,4 +83,4 @@ const TableList = React.forwardRef<any, TableListProps>(({
   )
 })
 
-export { TableList, ColumnDefinition, TableListProps }
+export { TableList, TableListColumnDefinition }
