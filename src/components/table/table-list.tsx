@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import {
   Table,
@@ -33,7 +33,6 @@ interface TableListProps {
   className?: object
   columnDefinitions: TableListColumnDefinition[]
   showHeaders?: boolean
-  children: ReactNode
 }
 
 const TableList = React.forwardRef<any, TableListProps>(({
