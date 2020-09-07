@@ -21,9 +21,8 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   table: {
     tableLayout: 'fixed',
     fontWeight: 'normal',
-    borderSpacing: `0 ${theme.spacing(2)}px`,
+    borderSpacing: theme.spacing(0, 1),
     borderCollapse: 'separate',
-    padding: '0px 1px', // exactly on px padding in order to show the borders of the rows
 
     overflow: 'hidden',
   },
