@@ -24,10 +24,10 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
       padding: size === 'regular' ? theme.spacing(0.5, 2) : theme.spacing(0.5),
       color: colors.darkGrey,
       '&:hover': {
-        backgroundColor: colors.veryLightGrey,
+        backgroundColor: colors.lightestGrey,
       },
       '&:focus': {
-        backgroundColor: colors.veryLightGrey,
+        backgroundColor: colors.lightestGrey,
       },
       '&$selectMenuItemSelected': {
         backgroundColor: colors.lightGrey,
