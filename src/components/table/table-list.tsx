@@ -12,8 +12,8 @@ import classNames from 'classnames'
 import { CorporateDesignTheme } from '../..'
 
 interface TableListColumnDefinition {
-  name: string,
-  width: number,
+  name?: string,
+  width?: number,
   headerAlignment?: TableCellProps['align'],
 }
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 }))
 
 interface TableListProps {
-  className?: object
+  className?: string
   columnDefinitions: TableListColumnDefinition[]
   showHeaders?: boolean
   children?: React.ReactNode
