@@ -18,6 +18,13 @@ interface TableListColumnDefinition {
 }
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
+  header: {
+    fontSize: '0.75rem',
+    lineHeight: '1rem',
+    color: theme.palette.colors.grey,
+    border: 'none',
+    padding: theme.spacing(0, 2),
+  },
   table: {
     tableLayout: 'fixed',
     fontWeight: 'normal',
@@ -32,6 +39,7 @@ interface TableListProps {
   className?: string
   columnDefinitions: TableListColumnDefinition[]
   showHeaders?: boolean
+  useNewHeaderStyle?: boolean
   children?: React.ReactNode
 }
 
@@ -39,6 +47,7 @@ const TableList = React.forwardRef<any, TableListProps>(({
   className,
   columnDefinitions,
   showHeaders = false,
+  useNewHeaderStyle = false, // TODO Remove when all usages are updated
   children,
 }, ref) => {
   const classes = useStyles()
@@ -66,6 +75,9 @@ const TableList = React.forwardRef<any, TableListProps>(({
               <TableCell
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
+                className={classNames({
+                  [classes.header]: useNewHeaderStyle,
+                })}
                 align={column.headerAlignment || 'inherit'}
               >
                 { column.name }
