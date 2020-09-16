@@ -27,7 +27,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
         backgroundColor: colors.lightestGrey,
       },
       '&:focus': {
-        backgroundColor: colors.lightestGrey,
+        backgroundColor: colors.lightGrey,
       },
       '&$selectMenuItemSelected': {
         backgroundColor: colors.lightGrey,
