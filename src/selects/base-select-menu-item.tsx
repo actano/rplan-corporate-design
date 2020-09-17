@@ -1,5 +1,5 @@
 import { MenuItem, makeStyles } from '@material-ui/core'
-import React from 'react'
+import React, { ReactText } from 'react'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 import { BaseSelectSize } from './base-select'
@@ -7,22 +7,35 @@ import { BaseSelectSize } from './base-select'
 interface BaseSelectMenuItemProps {
   value: string,
   size: BaseSelectSize,
+  isIcon?: boolean,
   children: React.ReactNode,
   [otherProp: string]: any,
 }
 
 interface StylesProps {
   size: BaseSelectSize,
+  isIcon: boolean,
+}
+
+const getPadding = (
+  theme: CorporateDesignTheme,
+  size: BaseSelectSize,
+  isIcon: boolean,
+): ReactText => {
+  if (isIcon) {
+    return theme.spacing(2, 2)
+  }
+  return size === 'regular' ? theme.spacing(0.5, 2) : theme.spacing(0.5)
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
   const { colors } = theme.palette
 
   return {
-    selectMenuItem: ({ size }) => ({
+    selectMenuItem: ({ size, isIcon }) => ({
       fontSize: size === 'regular' ? '0.8125rem' : '0.75rem',
-      padding: size === 'regular' ? theme.spacing(0.5, 2) : theme.spacing(0.5),
-      color: colors.darkGrey,
+      padding: getPadding(theme, size, isIcon),
+      color: isIcon ? colors.grey : colors.darkGrey,
       '&:hover': {
         backgroundColor: colors.lightestGrey,
       },
@@ -30,6 +43,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
         backgroundColor: colors.lightGrey,
       },
       '&$selectMenuItemSelected': {
+        color: isIcon ? colors.blue : colors.darkGrey,
         backgroundColor: colors.lightGrey,
         '&:hover': {
           backgroundColor: colors.lightGrey,
@@ -47,11 +61,11 @@ const BaseSelectMenuItem = React.forwardRef<any, BaseSelectMenuItemProps>((props
   const {
     value,
     size,
+    isIcon = false,
     children,
     ...otherProps
   } = props
-  const ownClasses = useStyles({ size })
-
+  const ownClasses = useStyles({ size, isIcon })
   return (
     <MenuItem
       ref={ref}
