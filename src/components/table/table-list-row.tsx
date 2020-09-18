@@ -8,11 +8,13 @@ import { CorporateDesignTheme, rgbaString } from '../..'
 
 interface StyleProps {
   isClickable: boolean,
+  height: string,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
-  row: ({ isClickable }) => ({
+  row: ({ isClickable, height }) => ({
     backgroundColor: theme.palette.colors.white,
+    height,
     boxShadow: 'none',
     '&:hover': {
       boxShadow: `0 3px 5px ${theme.palette.colors.veryLightGrey}`,
@@ -45,9 +47,10 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
 const TableListRow = React.forwardRef<any, any>(({
   children,
   onClick,
+  height,
   ...otherProps
 }, ref) => {
-  const classes = useStyles({ isClickable: onClick != null })
+  const classes = useStyles({ isClickable: onClick != null, height })
   return (
     <TableRow
       {...otherProps}
