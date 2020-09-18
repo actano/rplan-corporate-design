@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import {
   TableRow,
@@ -8,14 +9,12 @@ import { CorporateDesignTheme, rgbaString } from '../..'
 
 interface StyleProps {
   isClickable: boolean,
-  height?: string,
+  className?: string,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
-  row: ({ isClickable, height }) => ({
+  row: ({ isClickable }) => ({
     backgroundColor: theme.palette.colors.white,
-    height,
-    minHeight: height,
     boxShadow: 'none',
     '&:hover': {
       boxShadow: `0 3px 5px ${theme.palette.colors.veryLightGrey}`,
@@ -24,7 +23,6 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
     '& > *': {
       borderBottom: 'unset',
     },
-
     '& td': {
       transition: 'border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
       borderColor: theme.palette.colors.veryLightGrey,
@@ -48,16 +46,17 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
 const TableListRow = React.forwardRef<any, any>(({
   children,
   onClick,
-  height,
+  className,
   ...otherProps
 }, ref) => {
-  const classes = useStyles({ isClickable: onClick != null, height })
+  const classes = useStyles({ isClickable: onClick != null })
+
   return (
     <TableRow
       {...otherProps}
       ref={ref}
       onClick={onClick}
-      className={classes.row}
+      className={classnames(classes.row, className)}
     >
       {children}
     </TableRow>
