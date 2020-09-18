@@ -8,13 +8,14 @@ import { CorporateDesignTheme, rgbaString } from '../..'
 
 interface StyleProps {
   isClickable: boolean,
-  height: string,
+  height?: string,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   row: ({ isClickable, height }) => ({
     backgroundColor: theme.palette.colors.white,
     height,
+    minHeight: height,
     boxShadow: 'none',
     '&:hover': {
       boxShadow: `0 3px 5px ${theme.palette.colors.veryLightGrey}`,
