@@ -50,6 +50,8 @@ type ColorsPalette = {
   paleBlue: string,
   blue: string,
   strongerBlue: string,
+  lightDeepBlue: string,
+  deepBlue: string,
   darkBlue: string,
   darkerBlue: string,
   veryDarkBlue: string,

@@ -28,6 +28,7 @@ const COLOR_NAMES = {
   orange: '#FCB239',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
+  lightDeepBlue: '#D9D9F4',
   deepBlue: '#4040C7',
   dullBlue: '#4078C7',
   cyan: '#00BCD4',
