@@ -238,6 +238,18 @@ const themeConfig: CorporateDesignThemeOptions = {
         color: COLOR_NAMES.darkestGrey,
         lineHeight: 1.5,
       },
+      h6: {
+        fontFamily: 'Open Sans',
+        fontSize: '0.9375rem',
+        color: COLOR_NAMES.darkestGrey,
+        lineHeight: 1.5,
+      },
+      h7: {
+        fontFamily: 'Open Sans',
+        fontSize: '0.875rem',
+        color: COLOR_NAMES.darkestGrey,
+        lineHeight: 1.5,
+      },
       body1: {
         fontFamily: 'Open Sans',
         fontSize: '0.8125rem',
