@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Typography, makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   title: {
     fontWeight: 700,
     fontSize: theme.typography.pxToRem(64),
@@ -21,13 +21,21 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ErrorComponent = ({
-  title,
-  description,
+interface ErrorComponentProps {
+  title?: string,
+  description?: string | React.ReactNode,
+  containerClassName?: string,
+  titleClassName?: string,
+  descriptionClassName?: string,
+}
+
+const ErrorComponent: React.FunctionComponent<ErrorComponentProps> = ({
+  title = '',
+  description = '',
   children,
-  containerClassName,
-  titleClassName,
-  descriptionClassName,
+  containerClassName = '',
+  titleClassName = '',
+  descriptionClassName = '',
 }) => {
   const classes = useStyles()
   return (
@@ -59,27 +67,6 @@ const ErrorComponent = ({
       </Grid>
     </Grid>
   )
-}
-
-ErrorComponent.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  containerClassName: PropTypes.string,
-  titleClassName: PropTypes.string,
-  descriptionClassName: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-}
-
-ErrorComponent.defaultProps = {
-  title: '',
-  description: '',
-  containerClassName: '',
-  titleClassName: '',
-  descriptionClassName: '',
-  children: [],
 }
 
 export { ErrorComponent }
