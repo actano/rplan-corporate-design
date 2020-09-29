@@ -307,6 +307,7 @@ const themeConfig: CorporateDesignThemeOptions = {
       input: {
         '&::placeholder': {
           color: COLOR_NAMES.darkestGrey,
+          opacity: 1,
         },
       },
     },
