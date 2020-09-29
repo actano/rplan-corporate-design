@@ -30,12 +30,12 @@ const COLOR_NAMES = {
   nearWhite: '#F6F6FA',
   lightDeepBlue: '#D9D9F4',
   deepBlue: '#4040C7',
+  veryDarkDeepBlue: '#0A0A51',
   dullBlue: '#4078C7',
   cyan: '#00BCD4',
   teal: '#009688',
   almond: '#80BFB3',
   amber: '#FFC107',
-
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
