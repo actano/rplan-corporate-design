@@ -1,0 +1,35 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../decorators'
+
+import { ExampleComponent } from './example-component'
+
+<Meta
+  title="_Templates/ExampleComponentMDX"
+  component={ExampleComponent}
+  decorators={decorators}
+/>
+
+export const Template = (args) => <ExampleComponent {...args} />
+
+# Some documentation headline
+Some documentation text
+
+<Story
+  name="ExampleStory1"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# Some other headline
+Some other text
+<Story
+  name="ExampleStory2"
+  args={{ someValue: "foo" }}
+>
+  {Template.bind({})}
+</Story>
+
+# Automatically list all typed properties of the comoponent
+<ArgsTable of={ExampleComponent} />
