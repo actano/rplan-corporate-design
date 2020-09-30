@@ -1,0 +1,27 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { SortBox } from '../../../../src'
+import { decorators } from '../../decorators'
+import { SortBoxWithSampleList } from './sort-box-with-sample-list'
+
+<Meta
+  title="Components/SortBox"
+  component={SortBox}
+  decorators={decorators}
+/>
+
+export const Template = (args) => <SortBoxWithSampleList {...args} />
+
+# Sort box with a list of example items
+This component sorts a given list of objects
+with respect to the given search term in specified keys.
+It returns the filtered list and selected sort criteria via a callback.
+
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable of={SortBox} />
