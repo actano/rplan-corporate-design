@@ -1,7 +1,7 @@
 import { rgbaString } from '../utils/color-conversion'
-import { CorporateDesignThemeOptions } from './corporate-design-theme'
+import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 
-const COLOR_NAMES = {
+const COLOR_NAMES: ColorsPalette = {
   lightestGrey: '#F5F7FE',
   veryLightGrey: '#E8E8F1',
   lightGrey: '#D1D2E3',
