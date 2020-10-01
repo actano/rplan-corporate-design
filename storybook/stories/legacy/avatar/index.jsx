@@ -4,6 +4,7 @@ import { actions } from '@storybook/addon-actions'
 import { boolean, select } from '@storybook/addon-knobs'
 import { UserAvatar } from '../../../../src/components/user-avatar'
 import { UserAvatarWithPlaceholder } from '../../../../src/components/user-avatar-with-placeholder'
+import { decorators } from '../../decorators'
 
 import { Providers } from '../../providers'
 
@@ -25,6 +26,7 @@ const UserAvatarWithPlaceholderWithDefaults = ({
 
 export default {
   title: 'Legacy/User Avatar',
+  decorators,
 }
 
 export const avatarStory = () => {
