@@ -1,3 +1,6 @@
+import flatMap from 'lodash/flatMap'
+import map from 'lodash/map'
+
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
 import { themeConfig } from '../../../../src/theme/theme-config'
@@ -155,7 +158,17 @@ const colorCategories: ColorCategoryMap = {
   },
 }
 
+const categorizedColors: ColorInfo[] = flatMap(colorCategories, cat => cat.colors)
+const allColors: ColorInfo[] = map(
+  theme.palette.colors,
+  (value, name): ColorInfo => ({ value, name }),
+)
+
+const uncategorizedColors: ColorInfo[] = allColors.filter(
+  ({ value }) => !categorizedColors.some(other => other.value === value),
+)
 
 export {
   colorCategories,
+  uncategorizedColors,
 }

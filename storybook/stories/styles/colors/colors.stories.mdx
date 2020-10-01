@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core'
 
 import { ColorItem, theme } from './color-item'
 import { decorators } from '../../decorators'
-import { colorCategories } from './color-categories'
+import { colorCategories, uncategorizedColors } from './color-categories'
 
 <Meta
   title="Styles/Colors"
@@ -37,5 +37,12 @@ import { colorCategories } from './color-categories'
 <Story name="Signal">
   <Grid container spacing={1} direction="row">
     { colorCategories.signal.colors.map(ColorItem) }
+  </Grid>
+</Story>
+
+## Uncategorized
+<Story name="Uncategorized">
+  <Grid container spacing={1} direction="row">
+    { uncategorizedColors.map(ColorItem) }
   </Grid>
 </Story>
