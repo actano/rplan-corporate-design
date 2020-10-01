@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core'
 
 import { ColorItem, theme } from './color-item'
 import { decorators } from '../../decorators'
+import { colorCategories } from './color-categories'
 
 <Meta
   title="Styles/Colors"
@@ -11,51 +12,30 @@ import { decorators } from '../../decorators'
 
 # Colors
 
-## Named colors
-<Story name="Named colors">
+## Neutrals
+<Story name="Neutrals">
   <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.colors).map(entry => ColorItem(entry, '150px'))}
+    { colorCategories.neutrals.colors.map(ColorItem) }
   </Grid>
 </Story>
 
-## Background colors
-<Story name="Background colors">
+## Signature palette
+<Story name="Signature palette">
   <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.background).map(entry => ColorItem(entry, '150px'))}
+    { colorCategories.signature.colors.map(ColorItem) }
   </Grid>
 </Story>
 
-## Primary main color
-<Story name="Primary main color">
+## Support
+<Story name="Support">
   <Grid container spacing={1} direction="row">
-    {ColorItem(['primary main', theme.palette.primary.main], '100px')}
+    { colorCategories.support.colors.map(ColorItem) }
   </Grid>
 </Story>
 
-## Text colors
-<Story name="Text colors">
+## Signal
+<Story name="Signal">
   <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.text).map(entry => ColorItem(entry, '100px'))}
-  </Grid>
-</Story>
-
-## Error colors
-<Story name="Error colors">
-  <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.error).map(entry => ColorItem(entry, '100px'))}
-  </Grid>
-</Story>
-
-## Support colors
-<Story name="Support colors">
-  <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.support).map(entry => ColorItem(entry, '100px'))}
-  </Grid>
-</Story>
-
-## Signal colors
-<Story name="Signal colors">
-  <Grid container spacing={1} direction="row">
-    {Object.entries(theme.palette.signal).map(entry => ColorItem(entry, '100px'))}
+    { colorCategories.signal.colors.map(ColorItem) }
   </Grid>
 </Story>

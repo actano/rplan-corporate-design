@@ -1,15 +1,12 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
-import themeConfig from '../../../../src'
+import { ColorInfo } from './color-categories'
 
-const theme = createMuiTheme(themeConfig)
-
-const ColorItem = (entry, sizeInPx) => {
-  const [key, value] = entry
+const ColorItem: React.FC<ColorInfo> = ({ name, value }) => {
+  const sizeInPx = '150px'
   return (
-    <Grid item key={key}>
+    <Grid item key={name}>
       <div
         style={{
           width: `${sizeInPx}`,
@@ -20,10 +17,13 @@ const ColorItem = (entry, sizeInPx) => {
         title={`${value}`}
       />
       <Typography variant="h5" align="center">
-        {`${key}`}
+        {`${name}`}
+      </Typography>
+      <Typography variant="h6" align="center">
+        {`${value}`}
       </Typography>
     </Grid>
   )
 }
 
-export { ColorItem, theme }
+export { ColorItem }
