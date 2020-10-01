@@ -6,9 +6,9 @@ module.exports = {
   addons: [
     '@storybook/preset-typescript',
     '@storybook/addon-docs',
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-knobs',
+    '@storybook/addon-actions/register',
+    '@storybook/addon-links/register',
+    '@storybook/addon-knobs/register',
   ],
   parameters: {
     options: {
