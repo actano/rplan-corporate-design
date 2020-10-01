@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react'
+import { LocalDate } from '@js-joda/core'
 
 import {
   Table, TableBody, TableCell, TableHead, TableRow,
 } from '@material-ui/core'
-import { LocalDate } from '@js-joda/core'
+
 import {
   SortBox, SortFieldType, SortField,
-} from '../../../../src'
+} from '../../../../../src'
 
 interface Task {
   name: string,
