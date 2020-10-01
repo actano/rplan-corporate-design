@@ -143,4 +143,9 @@ _UserAvatar.defaultProps = {
 
 const UserAvatar = withStyles(styles)(_UserAvatar)
 
-export { UserAvatar, calcInitials }
+export {
+  UserAvatar,
+  _UserAvatar,
+  calcInitials,
+  AVATAR_SIZES,
+}

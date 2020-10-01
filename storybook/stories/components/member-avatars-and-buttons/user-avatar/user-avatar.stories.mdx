@@ -1,0 +1,50 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
+
+import { UserAvatar, _UserAvatar } from '../../../../../src/components/user-avatar'
+
+import { decorators } from '../../../decorators'
+import { makeSampleUser, forEachSize } from '../utils'
+
+<Meta
+  title="Components/Member avatars and buttons/UserAvatar"
+  decorators={decorators}
+/>
+
+# User avatar
+
+## Component API
+<ArgsTable of={_UserAvatar} />
+
+## Avatar Initials
+<Story name="Avatar Initials">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => (
+        <UserAvatar size={sizeName} {...makeSampleUser(false, false)} />
+      ))
+    }
+  </Grid>
+</Story>
+
+## Avatar Photos (giphy)
+<Story name="Avatar Photos (giphy)">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => (
+        <UserAvatar size={sizeName} {...makeSampleUser(true, false)} />
+      ))
+    }
+  </Grid>
+</Story>
+
+## Avatar Photos (uploaded)
+<Story name="Avatar Photos (uploaded)">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => (
+        <UserAvatar size={sizeName} {...makeSampleUser(false, true)} />
+      ))
+    }
+  </Grid>
+</Story>

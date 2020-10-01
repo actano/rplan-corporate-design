@@ -1,0 +1,94 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+import { actions } from '@storybook/addon-actions'
+import { Grid } from '@material-ui/core'
+
+import { UserAvatarWithPlaceholder } from '../../../../../src/components/user-avatar-with-placeholder'
+
+import { decorators } from '../../../decorators'
+import { makeSampleUser, forEachSize } from '../utils'
+
+<Meta
+  title="Components/Member avatars and buttons/UserAvatarWithPlaceholder"
+  decorators={decorators}
+/>
+
+# User avatar with placeholder
+
+## Component API
+<ArgsTable of={UserAvatarWithPlaceholder} />
+
+## User is present
+<Story name="User is present">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => (
+        <UserAvatarWithPlaceholder
+          size={sizeName}
+          user={makeSampleUser(false, false)}
+          disabled={false}
+          displayUserNameOnHover={true}
+          variant="grey"
+        />
+      ))
+    }
+  </Grid>
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => (
+        <UserAvatarWithPlaceholder
+          size={sizeName}
+          user={makeSampleUser(true, false)}
+          disabled={false}
+          displayUserNameOnHover={true}
+          variant="grey"
+        />
+      ))
+    }
+  </Grid>
+</Story>
+
+## User is not present (gray)
+<Story name="User is not present (gray)">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => {
+        const onClick = actions('onClick')
+        return (
+          <UserAvatarWithPlaceholder
+            size={sizeName}
+            user={null}
+            disabled={false}
+            variant="grey"
+            {...onClick}
+          />
+        )
+      })
+    }
+  </Grid>
+</Story>
+
+## User is not present (white)
+<Story name="User is not present (white)">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    {
+      forEachSize(sizeName => {
+        const onClick = actions('onClick')
+        return (
+          <div
+            style={{
+              backgroundColor:'#466ADA',
+            }}
+          >
+            <UserAvatarWithPlaceholder
+              size={sizeName}
+              user={null}
+              disabled={false}
+              variant="white"
+              {...onClick}
+            />
+          </div>
+        )
+      })
+    }
+  </Grid>
+</Story>

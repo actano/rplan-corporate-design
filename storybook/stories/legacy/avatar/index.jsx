@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Grid, Typography } from '@material-ui/core'
 import { actions } from '@storybook/addon-actions'
 import { boolean, select } from '@storybook/addon-knobs'
+
 import { UserAvatar } from '../../../../src/components/user-avatar'
 import { UserAvatarWithPlaceholder } from '../../../../src/components/user-avatar-with-placeholder'
 import { decorators } from '../../decorators'
