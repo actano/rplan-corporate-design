@@ -18,15 +18,15 @@ const ModalWrapperToHandleOpenState = ({ children }) => {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleOpen}
-      >
+      <Button variant="contained" color="primary" onClick={handleOpen}>
         Open Modal
       </Button>
       <ModalDialogWithLogo
-        Buttons={<Button variant="contained" color="primary">Confirm the dialog.</Button>}
+        Buttons={(
+          <Button variant="contained" color="primary">
+            Confirm the dialog.
+          </Button>
+)}
         Logo={<div>Logo here</div>}
         open={open}
         onClose={handleClose}
@@ -41,13 +41,13 @@ ModalWrapperToHandleOpenState.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const FullPageModalStory = () => (
+export default {
+  title: 'Legacy/Modal Dialog',
+}
+
+export const fullPageModal = () => (
   <Providers>
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-    >
+    <Grid container spacing={2} direction="column">
       <Grid item>
         <Typography variant="h2" align="left">
           Modal Dialog with logo
@@ -56,16 +56,10 @@ const FullPageModalStory = () => (
           Dumb Modal component only. Handling state needs to be done in parent component.
         </Typography>
         <ModalWrapperToHandleOpenState>
-          <Typography variant="h4">
-            This is a Modal Dialog.
-          </Typography>
-          <Typography variant="body1">
-            You can close it by clicking the cancel button.
-          </Typography>
+          <Typography variant="h4">This is a Modal Dialog.</Typography>
+          <Typography variant="body1">You can close it by clicking the cancel button.</Typography>
         </ModalWrapperToHandleOpenState>
       </Grid>
     </Grid>
   </Providers>
 )
-
-export { FullPageModalStory }

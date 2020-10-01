@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import {
   Table, TableBody, TableCell, TableHead, TableRow, Typography,
 } from '@material-ui/core'
-import { storiesOf } from '@storybook/react'
 import { Providers } from '../../providers'
 import { FilterBox } from '../../../../src/components/filter-box'
 
@@ -354,22 +353,20 @@ const DemoFilterBoxWithResultList = () => {
   )
 }
 
+export default {
+  title: 'Legacy/Filter Box',
+}
 
-const filterBoxStories = () => {
-  storiesOf('Filter Box', module)
-    .add('Filter Box', () => (
-      <Providers>
-        <Typography variant="h2">
+export const filterBoxStories = () => (
+  <Providers>
+    <Typography variant="h2">
             Filter Box
-        </Typography>
-        <Typography variant="body1">
+    </Typography>
+    <Typography variant="body1">
             This component filters a given list of objects
             with respect to the given search term in specified keys.
             It returns the filtered list via a callback.
-        </Typography>
-        <DemoFilterBoxWithResultList />
-      </Providers>
-    ))
-}
-
-export { filterBoxStories }
+    </Typography>
+    <DemoFilterBoxWithResultList />
+  </Providers>
+)

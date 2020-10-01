@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import { storiesOf } from '@storybook/react'
 
 import { CommonHeaderBar, TabBar } from '../../../../src/components'
 import { Providers } from '../../providers'
@@ -41,35 +40,25 @@ const LayoutFix = ({ children }) => {
   return children(stateToReRender, onChangeTab)
 }
 
-const headerBarStories = () => {
-  storiesOf('HeaderBar with TabBar', module)
-    .add('HeaderBar with TabBar', () =>
-      (
-        <LayoutFix>
-          {(tabIndex, onChangeTab) => (
-            <Providers>
-              <Typography variant="h3" align="left">
-                HeaderBar with TabBar
-              </Typography>
-              <Grid
-                container
-                spacing={2}
-                direction="column"
-              >
-                <Grid item>
-                  <CommonHeaderBar>
-                    <TabBar
-                      tabs={tabs}
-                      selectedTabIndex={tabIndex}
-                      onChange={onChangeTab}
-                    />
-                  </CommonHeaderBar>
-                </Grid>
-              </Grid>
-            </Providers>
-          )}
-        </LayoutFix>
-      ))
+export default {
+  title: 'Legacy/HeaderBar',
 }
 
-export { headerBarStories }
+export const headerBarWithTabBar = () => (
+  <LayoutFix>
+    {(tabIndex, onChangeTab) => (
+      <Providers>
+        <Typography variant="h3" align="left">
+            HeaderBar with TabBar
+        </Typography>
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <CommonHeaderBar>
+              <TabBar tabs={tabs} selectedTabIndex={tabIndex} onChange={onChangeTab} />
+            </CommonHeaderBar>
+          </Grid>
+        </Grid>
+      </Providers>
+    )}
+  </LayoutFix>
+)

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import { storiesOf } from '@storybook/react'
 
 import { TabBar } from '../../../../src/components'
 import { Providers } from '../../providers'
@@ -40,41 +39,34 @@ const LayoutFix = ({ children }) => {
 
   return children(stateToReRender, onChangeTab)
 }
-export function tabBarStories() {
-  storiesOf('TabBar', module)
-    .add('TabBar', () =>
-      (
-        <LayoutFix>
-          {(tabIndex, onChangeTab) => (
-            <Providers>
-              <Typography variant="h3" align="left">
-                HeaderBar with TabBar
-              </Typography>
-              <Grid
-                container
-                spacing={2}
-                direction="column"
-              >
-                <Grid item>
-                  <h4>Tabbar standard layout</h4>
-                  <TabBar
-                    tabs={tabs}
-                    selectedTabIndex={tabIndex}
-                    onChange={onChangeTab}
-                  />
-                </Grid>
-                <Grid item>
-                  <h4>Tabbar fullWidth layout</h4>
-                  <TabBar
-                    tabs={tabs}
-                    selectedTabIndex={tabIndex}
-                    onChange={onChangeTab}
-                    tabsFullWidth
-                  />
-                </Grid>
-              </Grid>
-            </Providers>
-          )}
-        </LayoutFix>
-      ))
+
+export default {
+  title: 'Legacy/TabBar',
 }
+
+export const tabBar = () => (
+  <LayoutFix>
+    {(tabIndex, onChangeTab) => (
+      <Providers>
+        <Typography variant="h3" align="left">
+            HeaderBar with TabBar
+        </Typography>
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <h4>Tabbar standard layout</h4>
+            <TabBar tabs={tabs} selectedTabIndex={tabIndex} onChange={onChangeTab} />
+          </Grid>
+          <Grid item>
+            <h4>Tabbar fullWidth layout</h4>
+            <TabBar
+              tabs={tabs}
+              selectedTabIndex={tabIndex}
+              onChange={onChangeTab}
+              tabsFullWidth
+            />
+          </Grid>
+        </Grid>
+      </Providers>
+    )}
+  </LayoutFix>
+)

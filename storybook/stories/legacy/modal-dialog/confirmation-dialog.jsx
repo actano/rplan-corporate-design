@@ -22,11 +22,7 @@ const ConfirmationDialogWithState = () => {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleOpen}
-      >
+      <Button variant="contained" color="primary" onClick={handleOpen}>
         Open confirmation dialog
       </Button>
 
@@ -43,26 +39,22 @@ const ConfirmationDialogWithState = () => {
   )
 }
 
-const ConfirmationDialogStory = () => (
+export default {
+  title: 'Legacy/Modal Dialog',
+}
+
+export const confirmationDialog = () => (
   <Providers>
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-    >
+    <Grid container spacing={2} direction="column">
       <Grid item>
-        <Typography variant="h2">
-          Confirmation Dialog
-        </Typography>
+        <Typography variant="h2">Confirmation Dialog</Typography>
         <Typography variant="h3">
           Confirmation dialog component with headline, info text, confirm and cancel buttons.
-          Callbacks for confirm and cancel buttons and all texts are passed in as props.
-          Open/Closed state to be done in parent component.
+          Callbacks for confirm and cancel buttons and all texts are passed in as props. Open/Closed
+          state to be done in parent component.
         </Typography>
         <ConfirmationDialogWithState />
       </Grid>
     </Grid>
   </Providers>
 )
-
-export { ConfirmationDialogStory }
