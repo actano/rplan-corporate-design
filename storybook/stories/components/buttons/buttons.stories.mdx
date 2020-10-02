@@ -1,0 +1,37 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import { renderButtons } from './render-buttons'
+
+<Meta
+  title="Components/Buttons"
+  decorators={decorators}
+/>
+
+export const Template = (args = {}) => (
+  renderButtons(args)
+)
+
+# Buttons / Large
+<Story
+  name="Buttons / Large"
+  args={{ size: 'large' }}
+>
+  {Template.bind({})}
+</Story>
+
+# Buttons / Medium
+<Story
+  name="Buttons / Medium"
+  args={{ size: 'medium' }}
+>
+  {Template.bind({})}
+</Story>
+
+# Buttons / Small
+<Story
+  name="Buttons / Small"
+  args={{ size: 'small' }}
+>
+  {Template.bind({})}
+</Story>
