@@ -1,0 +1,32 @@
+import { Grid } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { WarningIcon, WarningIconWithTooltip } from '../../../../src/icons'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Icons"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item xs={1} container direction="row" spacing={1}>
+      <Grid item>
+        <WarningIcon {...args} />
+      </Grid>
+      <Grid item>
+        <WarningIconWithTooltip {...args} tooltipText="A description of the warning" />
+      </Grid>
+    </Grid>
+  </Grid>
+)
+
+# Icons
+<Story
+  name="Icons"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
