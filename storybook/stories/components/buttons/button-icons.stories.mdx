@@ -1,0 +1,22 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import { renderIconButtons } from './render-icon-buttons'
+
+<Meta
+  title="Components/Buttons/Button Icons"
+  decorators={decorators}
+/>
+
+export const Template = (args = {}) => (
+  renderIconButtons(args)
+)
+
+# Button Icons
+<Story
+  name="Button Icons"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
