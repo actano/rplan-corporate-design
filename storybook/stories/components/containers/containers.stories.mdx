@@ -1,0 +1,20 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Containers"
+  decorators={decorators}
+/>
+
+export const Template = (args) => <div {...args} />
+
+# TODO
+
+<Story
+  name="Containers"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
