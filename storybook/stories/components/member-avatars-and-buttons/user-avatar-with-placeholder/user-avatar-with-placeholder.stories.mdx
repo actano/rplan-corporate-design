@@ -1,5 +1,6 @@
 import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
 import { actions } from '@storybook/addon-actions'
+import { boolean } from '@storybook/addon-knobs'
 import { Grid } from '@material-ui/core'
 
 import { UserAvatarWithPlaceholder } from '../../../../../src/components/user-avatar-with-placeholder'
@@ -21,28 +22,40 @@ import { makeSampleUser, forEachSize } from '../utils'
 <Story name="User is present">
   <Grid container direction="row" alignItems="center" spacing={2}>
     {
-      forEachSize(sizeName => (
-        <UserAvatarWithPlaceholder
-          size={sizeName}
-          user={makeSampleUser(false, false)}
-          disabled={false}
-          displayUserNameOnHover={true}
-          variant="grey"
-        />
-      ))
+      forEachSize(sizeName => {
+        const onClick = actions('onClick')
+        const displayUserNameTooltip = boolean('Display user name tooltip', true)
+        const disabled = boolean('Disabled', false)
+        return (
+          <UserAvatarWithPlaceholder
+            size={sizeName}
+            user={makeSampleUser(false, false)}
+            disabled={disabled}
+            displayUserNameOnHover={displayUserNameTooltip}
+            variant="grey"
+            {...onClick}
+          />
+        )
+      })
     }
   </Grid>
   <Grid container direction="row" alignItems="center" spacing={2}>
     {
-      forEachSize(sizeName => (
-        <UserAvatarWithPlaceholder
-          size={sizeName}
-          user={makeSampleUser(true, false)}
-          disabled={false}
-          displayUserNameOnHover={true}
-          variant="grey"
-        />
-      ))
+      forEachSize(sizeName => {
+        const onClick = actions('onClick')
+        const displayUserNameTooltip = boolean('Display user name tooltip', true)
+        const disabled = boolean('Disabled', false)
+        return (
+          <UserAvatarWithPlaceholder
+            size={sizeName}
+            user={makeSampleUser(true, false)}
+            disabled={disabled}
+            displayUserNameOnHover={displayUserNameTooltip}
+            variant="grey"
+            {...onClick}
+          />
+        )
+      })
     }
   </Grid>
 </Story>
@@ -53,11 +66,12 @@ import { makeSampleUser, forEachSize } from '../utils'
     {
       forEachSize(sizeName => {
         const onClick = actions('onClick')
+        const disabled = boolean('Disabled', false)
         return (
           <UserAvatarWithPlaceholder
             size={sizeName}
             user={null}
-            disabled={false}
+            disabled={disabled}
             variant="grey"
             {...onClick}
           />
@@ -69,24 +83,27 @@ import { makeSampleUser, forEachSize } from '../utils'
 
 ## User is not present (white)
 <Story name="User is not present (white)">
-  <Grid container direction="row" alignItems="center" spacing={2}>
+  <Grid
+    container
+    direction="row"
+    alignItems="center"
+    spacing={2}
+    style={{
+      backgroundColor:'#466ADA',
+    }}
+  >
     {
       forEachSize(sizeName => {
-        const onClick = actions('onClick')
-        return (
-          <div
-            style={{
-              backgroundColor:'#466ADA',
-            }}
-          >
-            <UserAvatarWithPlaceholder
-              size={sizeName}
-              user={null}
-              disabled={false}
-              variant="white"
-              {...onClick}
-            />
-          </div>
+      const onClick = actions('onClick')
+      const disabled = boolean('Disabled', false)
+      return (
+          <UserAvatarWithPlaceholder
+            size={sizeName}
+            user={null}
+            disabled={disabled}
+            variant="white"
+            {...onClick}
+          />
         )
       })
     }
