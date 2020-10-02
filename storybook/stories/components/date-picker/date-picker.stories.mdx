@@ -1,0 +1,49 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { actions } from '@storybook/addon-actions'
+
+import { DatePickerButton, ChangeOnAcceptDatePicker } from '../../../../src/date-pickers'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Date Pickers"
+  decorators={decorators}
+/>
+
+export const TemplateDatePickerButton = (args) => {
+  const onSelectDate = actions('onSelectDate')
+  return (
+    <DatePickerButton
+      {...args}
+      pickerProps={{
+        value: '2020-10-25',
+      }}
+      renderButton={showPicker => (
+        <button onClick={showPicker}>Show Picker</button>
+      )}
+      {...onSelectDate}
+    />
+  )
+}
+
+export const TemplateDatePicker = (args) => {
+  const onSelectDate = actions('onSelectDate')
+  return (
+    <ChangeOnAcceptDatePicker {...args} {...onSelectDate} />
+  )
+}
+
+<Story
+  name="Date Picker Button"
+  args={{}}
+>
+  {TemplateDatePickerButton.bind({})}
+</Story>
+
+<Story
+  name="Date Picker"
+  args={{}}
+>
+  {TemplateDatePicker.bind({})}
+</Story>
+
