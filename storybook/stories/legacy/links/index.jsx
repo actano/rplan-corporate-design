@@ -29,16 +29,6 @@ export const links = () => (
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
-        <Typography variant="h3" align="left">
-            Ghost button
-        </Typography>
-        <Grid container spacing={1} direction="row">
-          <Grid item>
-            <Link component="button">Ghost button</Link>
-          </Grid>
-        </Grid>
-      </Grid>
     </Grid>
   </Providers>
 )
