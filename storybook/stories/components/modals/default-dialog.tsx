@@ -1,12 +1,11 @@
 import Button from '@material-ui/core/Button'
 import React, { useState } from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { ReportProblemOutlined } from '@material-ui/icons'
 import { boolean } from '@storybook/addon-knobs'
 
-import { DangerousButton, PrimaryButton, TertiaryButton } from '../../../../src/buttons'
+import { DangerousButton, PrimaryButton, TertiaryButton } from '../../../../src/buttons/index'
 import { DefaultDialog } from '../../../../src/dialogs/default-dialog'
-import { Providers } from '../../providers'
 
 const DefaultDialogWithState = () => {
   const [open, setOpen] = useState(false)
@@ -23,18 +22,18 @@ const DefaultDialogWithState = () => {
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleOpen}>
-        Open Modal
+        Open Default Dialog
       </Button>
 
       <DefaultDialog
         title="Some Title Text"
         buttons={(
           <>
-            <TertiaryButton onClick={handleClose}> Cancel </TertiaryButton>
-            <DangerousButton onClick={handleClose}>Dangerous</DangerousButton>
+            <TertiaryButton onClick={handleClose}>Cancel</TertiaryButton>
+            <DangerousButton onClick={handleClose}>Delete</DangerousButton>
             <PrimaryButton onClick={handleClose}>Confirm</PrimaryButton>
           </>
-)}
+        )}
         open={open}
         icon={withIcon ? <ReportProblemOutlined /> : undefined}
         onClose={handleClose}
@@ -46,21 +45,4 @@ const DefaultDialogWithState = () => {
   )
 }
 
-export default {
-  title: 'Legacy/Modal Dialog',
-}
-
-export const defaultDialog = () => (
-  <Providers>
-    <Grid container spacing={2} direction="column">
-      <Grid item>
-        <Typography variant="h2">Default Dialog</Typography>
-        <Typography variant="h3">
-          Default Dialog component with headline and any number of buttons. Open/Closed state to be
-          done in parent component.
-        </Typography>
-        <DefaultDialogWithState />
-      </Grid>
-    </Grid>
-  </Providers>
-)
+export { DefaultDialogWithState }

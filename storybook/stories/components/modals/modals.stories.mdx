@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import { DefaultDialogWithState } from './default-dialog'
+import { ConfirmationDialogWithState } from './confirmation-dialog'
+import { FullPageDialogWithState } from './full-page-modal'
+
+<Meta
+  title="Components/Modals"
+  decorators={decorators}
+/>
+
+# Default Dialog
+
+<Story
+  name="Default Dialog"
+  args={{}}
+>
+  {DefaultDialogWithState.bind({})}
+</Story>
+
+# Confirmation Dialog
+
+<Story
+  name="Confirmation Dialog"
+  args={{}}
+>
+  {ConfirmationDialogWithState.bind({})}
+</Story>
+
+# Full Page Dialog
+
+<Story
+  name="Full Page Dialog"
+  args={{}}
+>
+  {FullPageDialogWithState.bind({})}
+</Story>
