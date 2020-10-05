@@ -1,0 +1,35 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
+
+import { decorators } from '../../decorators'
+import { TabBarWithDefaultState } from './tab-bar'
+
+<Meta
+  title="Components/Tabbed Navigation"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+    </Grid>
+  </Grid>
+)
+
+# Default
+
+<Story
+  name="Default"
+  args={{}}
+>
+  {TabBarWithDefaultState.bind({})}
+</Story>
+
+# Tabs with full width
+<Story
+  name="Tabs with full width"
+  args={{ tabsFullWidth: true }}
+>
+  {TabBarWithDefaultState.bind({})}
+</Story>
+
