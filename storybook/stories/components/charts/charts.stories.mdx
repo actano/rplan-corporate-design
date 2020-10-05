@@ -1,18 +1,16 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import { decorators } from '../../decorators'
 
 <Meta
-  title="Components/Cards"
+  title="Components/Charts/Chart"
   decorators={decorators}
 />
 
 export const Template = (args) => <div {...args} />
 
-# TODO
-
 <Story
-  name="Cards"
+  name="Default"
   args={{}}
 >
   {Template.bind({})}
