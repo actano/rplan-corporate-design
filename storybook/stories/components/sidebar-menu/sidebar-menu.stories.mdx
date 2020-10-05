@@ -1,0 +1,27 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/SidebarMenu"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      TODO
+    </Grid>
+  </Grid>
+)
+
+# TODO
+
+<Story
+  name="SidebarMenu"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
