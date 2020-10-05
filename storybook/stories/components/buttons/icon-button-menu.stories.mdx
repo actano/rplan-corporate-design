@@ -1,0 +1,37 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import ExpandMore from '@material-ui/icons/ExpandMore'
+
+import { decorators } from '../../decorators'
+import {
+  IconButtonMenu, MenuItem,
+} from '../../../../src'
+
+<Meta
+  title="Components/Buttons/Icon Button Menu"
+  decorators={decorators}
+/>
+
+export const Template = (args = {}) => (
+  <IconButtonMenu {...args}>
+    <MenuItem onClick={() => {}}>Item one</MenuItem>
+    <MenuItem onClick={() => {}}>Item two</MenuItem>
+  </IconButtonMenu>
+)
+
+# Default
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# Custom Icon
+<Story
+  name="Custom Icon"
+  args={{
+    icon: ExpandMore,
+  }}
+>
+  {Template.bind({})}
+</Story>

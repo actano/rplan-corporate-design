@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import {
+  DotMenu, DotMenuItem
+} from '../../../../src'
+
+<Meta
+  title="Components/Buttons/Dot Menu"
+  decorators={decorators}
+/>
+
+export const Template = (args = {}) => (
+  <DotMenu {...args}>
+    <DotMenuItem onClick={() => {}}>Item one</DotMenuItem>
+    <DotMenuItem onClick={() => {}}>Item two</DotMenuItem>
+  </DotMenu>
+)
+
+# Default
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
