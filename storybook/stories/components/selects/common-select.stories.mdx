@@ -1,0 +1,64 @@
+import { Grid } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { boolean } from '@storybook/addon-knobs'
+
+import { decorators } from '../../decorators'
+import { SelectStateWrapper } from './state-wrapper'
+
+<Meta
+  title="Components/Selects/CommonSelect"
+  decorators={decorators}
+/>
+
+export const Template = (args) => {
+  const fullWidth = boolean('full width', false)
+  return (
+    <Grid container direction="column" spacing={1}>
+      <Grid item>
+        <SelectStateWrapper fullWidth={fullWidth} {...args} />
+      </Grid>
+      <Grid item>
+        <SelectStateWrapper fullWidth={fullWidth} disabled {...args} />
+      </Grid>
+    </Grid>
+  )
+}
+
+# Regular
+<Story
+  name="Regular"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# Small
+<Story
+  name="Small"
+  args={{
+    size: 'small',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Outlined
+<Story
+  name="Outlined"
+  args={{
+    variant: 'outlined',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Outlined with label
+<Story
+ name="Outlined with label"
+  args={{
+    variant: 'outlined',
+    label: "some label"
+  }}
+>
+  {Template.bind({})}
+</Story>
