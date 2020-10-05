@@ -1,0 +1,44 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
+
+import { SnackBarTypes } from '../../../../../src'
+import { decorators } from '../../../decorators'
+import { SnackBarWithButton } from './snackbar'
+
+<Meta
+  title="Components/Snackbars/Snackbar"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <SnackBarWithButton {...args} />
+    </Grid>
+  </Grid>
+)
+
+# Info
+
+<Story
+  name="Info"
+  args={{
+    type: SnackBarTypes.info,
+    message: '"Organize supplier day" is now planned with flexible dates. Open task to review details.',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Error
+
+<Story
+  name="Error"
+  args={{
+    type: SnackBarTypes.error,
+    message: 'Warning: A dependent predecessor is still in progress. Set predecessor to done to keep your project plan safe.',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
