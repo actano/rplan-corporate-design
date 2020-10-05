@@ -1,0 +1,46 @@
+import { Grid, Typography } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import { CustomControlledInput } from './controlled-input'
+
+<Meta
+  title="Components/Input"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="row" spacing={1}>
+    <Grid item xs={3} container direction="column" spacing={1}>
+      <Grid item>
+        <Typography>
+          TODO: Extract corporate design input that encapsulates the basic styling
+        </Typography>
+      </Grid>
+      <Grid item>
+        <CustomControlledInput
+          fullWidth
+          originalValue="Some text"
+          {...args}
+        />
+      </Grid>
+      <Grid item>
+        <CustomControlledInput
+          fullWidth
+          originalValue="Some text"
+          disabled
+          {...args}
+        />
+      </Grid>
+    </Grid>
+  </Grid>
+)
+
+# Controlled Input
+<Story
+  name="Controlled Input"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+

@@ -11,7 +11,7 @@ export default {
 export const dueDateStatusStory = () => (
   <Providers>
     <Typography variant="h2" align="left">
-        Due Date Status
+      Due Date Status
     </Typography>
     <Grid container spacing={2} direction="column">
       <Grid item>
