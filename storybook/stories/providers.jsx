@@ -8,6 +8,8 @@ import { ThemeProvider } from '@material-ui/styles'
 import React from 'react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 
+import { getNamespace } from '../../src/i18n'
+import translations from '../../static/i18n/en-US/translations.json'
 import themeConfig from '../../src'
 
 const theme = createMuiTheme(themeConfig)
@@ -18,17 +20,16 @@ i18n
     lng: 'en',
     fallbackLng: 'en',
 
-    // have a common namespace used around the full app
-    ns: ['translations'],
-    defaultNS: 'translations',
+    ns: [getNamespace('translations')],
+    defaultNS: getNamespace('translations'),
 
     debug: true,
 
     interpolation: {
-      escapeValue: false, // not needed for react!!
+      escapeValue: false,
     },
 
-    resources: { en: { translations: {} } },
+    resources: { en: { [getNamespace('translations')]: translations } },
   })
 
 // eslint-disable-next-line react/prop-types
