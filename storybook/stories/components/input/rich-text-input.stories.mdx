@@ -1,0 +1,46 @@
+import { Grid } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { RichTextInput } from '../../../../src/inputs/rich-text/rich-text-input'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Input/Rich Text Input"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <RichTextInput
+        placeholder="type something"
+        maxInputLength={50}
+        onSave={() => {}}
+        {...args}
+      />
+    </Grid>
+  </Grid>
+)
+
+# Default
+<Story
+  name="Default"
+  args={{
+    disabled: false,
+    originalValue: '<h1>Some headline</h1><br />\nSome text',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Empty
+<Story
+  name="Empty"
+  args={{
+    disabled: false,
+    originalValue: '',
+  }}
+>
+  {Template.bind({})}
+</Story>
+

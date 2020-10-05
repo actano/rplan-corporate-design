@@ -1,0 +1,34 @@
+import { Grid } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { DefaultDialog } from '../../../../src/dialogs'
+import { DialogBoxInput } from '../../../../src/inputs'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Input/Dialog Box Input"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <DefaultDialog title="Some Dialog" buttons={[]} open>
+        <DialogBoxInput
+          style={{
+            width: '100%',
+          }}
+          placeholder="Some input"
+          {...args}
+        />
+      </DefaultDialog>
+    </Grid>
+  </Grid>
+)
+
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>

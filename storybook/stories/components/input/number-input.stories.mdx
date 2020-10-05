@@ -1,0 +1,42 @@
+import { Grid } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { NumberInput } from '../../../../src/inputs/number-input'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Input/Number Input"
+  decorators={decorators}
+/>
+
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <NumberInput
+        getValidationError={n => (n < 42 ? 'Number must be above 42' : null)}
+        {...args}
+      />
+    </Grid>
+  </Grid>
+)
+
+# Default
+<Story
+  name="Default"
+  args={{
+    originalValue: 100,
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Validation error
+<Story
+  name="Validation error"
+  args={{
+    originalValue: 10,
+  }}
+>
+  {Template.bind({})}
+</Story>
+
