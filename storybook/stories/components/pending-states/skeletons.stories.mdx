@@ -1,0 +1,35 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { Skeleton } from '../../../../src/components/skeleton'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Pending States/Skeletons"
+  decorators={decorators}
+/>
+
+export const Template = (args) => <Skeleton {...args} />
+
+# Rectangular
+<Story
+  name="Rectangular"
+  args={{
+    width: '50em',
+    height: '5em',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Spherical
+<Story
+  name="Spherical"
+  args={{
+    width: '5em',
+    height: '5em',
+    variant: 'circle'
+  }}
+>
+  {Template.bind({})}
+</Story>
+
