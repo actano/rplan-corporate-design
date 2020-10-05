@@ -1,0 +1,30 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../decorators'
+import { ExampleTable } from './table-components'
+
+<Meta
+  title="Components/Tables/Table Components"
+  decorators={decorators}
+/>
+
+export const Template = (args) => <ExampleTable {...args} />
+
+# Default
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# With headers
+<Story
+  name="With headers"
+  args={{
+    showHeaders: true,
+  }}
+>
+  {Template.bind({})}
+</Story>
+

@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import { TableCell, Typography } from '@material-ui/core'
-import { actions } from '@storybook/addon-actions'
-import { boolean } from '@storybook/addon-knobs'
+import { TableCell } from '@material-ui/core'
+
 import {
   ChangeOnAcceptDatePicker, CommonSelect, TableList, UserAvatar,
 } from '../../../../src'
-
-import { Providers } from '../../providers'
 import { TableListRow } from '../../../../src/components/table/table-list-row'
 
 const columnDefinitions = [
@@ -15,8 +12,6 @@ const columnDefinitions = [
   { name: 'Responsible', width: '12.5%' },
   { name: 'Due date', width: '12.5%' },
 ]
-
-const onSaveHandler = actions('onSelectDate')
 
 const options = [
   {
@@ -41,7 +36,6 @@ const SelectStateWrapper = (props) => {
   return <CommonSelect value={value} onChange={onChange} {...props} />
 }
 
-// eslint-disable-next-line react/prop-types
 const ExampleRow = ({ taskName }) => (
   <TableListRow>
     <TableCell>{taskName}</TableCell>
@@ -52,30 +46,18 @@ const ExampleRow = ({ taskName }) => (
       <UserAvatar size="small" firstName="Example" lastName="Smith" email="marie.omann@actano.de" />
     </TableCell>
     <TableCell>
-      <ChangeOnAcceptDatePicker {...onSaveHandler} />
+      <ChangeOnAcceptDatePicker onSelectDate={() => {}} />
     </TableCell>
   </TableListRow>
 )
 
-export default {
-  title: 'Legacy/Tables',
-}
+const ExampleTable = args => (
+  <TableList columnDefinitions={columnDefinitions} {...args}>
+    <ExampleRow taskName="Task 1" />
+    <ExampleRow taskName="Task 2" />
+    <ExampleRow taskName="Task 3" />
+    <ExampleRow taskName="Task 4" />
+  </TableList>
+)
 
-export const tables = () => {
-  const showHeaders = boolean('with table header', true)
-  return (
-    <Providers>
-      <div>
-        <Typography variant="h2" align="left">
-            Table
-        </Typography>
-        <TableList columnDefinitions={columnDefinitions} showHeaders={showHeaders}>
-          <ExampleRow taskName="Task 1" />
-          <ExampleRow taskName="Task 2" />
-          <ExampleRow taskName="Task 3" />
-          <ExampleRow taskName="Task 4" />
-        </TableList>
-      </div>
-    </Providers>
-  )
-}
+export { ExampleTable }
