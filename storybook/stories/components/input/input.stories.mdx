@@ -5,41 +5,39 @@ import { decorators } from '../../decorators'
 import { CustomControlledInput } from './controlled-input'
 
 <Meta
-  title="Components/Input"
+  title="Components/Input/Controlled Input"
   decorators={decorators}
 />
 
+**TODO: Extract corporate design input that encapsulates the basic styling**
+
 export const Template = (args) => (
-  <Grid container direction="row" spacing={1}>
-    <Grid item xs={3} container direction="column" spacing={1}>
-      <Grid item>
-        <Typography>
-          TODO: Extract corporate design input that encapsulates the basic styling
-        </Typography>
-      </Grid>
-      <Grid item>
-        <CustomControlledInput
-          fullWidth
-          originalValue="Some text"
-          {...args}
-        />
-      </Grid>
-      <Grid item>
-        <CustomControlledInput
-          fullWidth
-          originalValue="Some text"
-          disabled
-          {...args}
-        />
-      </Grid>
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <CustomControlledInput
+        fullWidth
+        originalValue="Some text"
+        style={{
+          border: '1px solid black',
+        }}
+        {...args}
+      />
     </Grid>
   </Grid>
 )
 
-# Controlled Input
+# Default
 <Story
-  name="Controlled Input"
+  name="Default"
   args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# Disabled
+<Story
+  name="Disabled"
+  args={{ disabled: true }}
 >
   {Template.bind({})}
 </Story>

@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { ErrorComponent } from '../../../../src'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Errors/Error Boundary"
+  decorators={decorators}
+/>
+
+export const TemplateErrorBoundary = (args) => (
+  <ErrorComponent
+    {...args}
+    title="Some Error"
+    description="Some error description"
+  >
+    Custom content
+  </ErrorComponent>
+)
+
+<Story
+  name="Default"
+  args={{}}
+>
+  {TemplateErrorBoundary.bind({})}
+</Story>

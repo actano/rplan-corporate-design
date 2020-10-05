@@ -1,19 +1,16 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
-import { Grid } from '@material-ui/core'
 
 import { decorators } from '../../decorators'
+import { FullPageDialogWithState } from './full-page-modal'
 
 <Meta
-  title="Components/Toggle/Toggle Button"
+  title="Components/Modals/Full Page Dialog"
   decorators={decorators}
 />
-
-export const Template = (args) => <div {...args}> TODO </div>
 
 <Story
   name="Default"
   args={{}}
 >
-  {Template.bind({})}
+  {FullPageDialogWithState.bind({})}
 </Story>
-

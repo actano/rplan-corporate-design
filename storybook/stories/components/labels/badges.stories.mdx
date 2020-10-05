@@ -1,27 +1,30 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 import { Grid } from '@material-ui/core'
+import { Badge } from '../../../../src'
 
 import { decorators } from '../../decorators'
 
 <Meta
-  title="Components/Timeline"
+  title="Components/Labels/Badges"
   decorators={decorators}
 />
 
-export const Template = (args) => (
+export const TemplateBadges = (args) => (
   <Grid container direction="column" spacing={1}>
     <Grid item>
-      TODO
+      <Badge text="responsible" {...args} />
+    </Grid>
+    <Grid item>
+      <Badge text="custom badge text" {...args} />
     </Grid>
   </Grid>
 )
 
-# TODO
+# Badges
 
 <Story
-  name="Timeline"
+  name="Default"
   args={{}}
 >
-  {Template.bind({})}
+  {TemplateBadges.bind({})}
 </Story>
-

@@ -92,7 +92,7 @@ export const SortBoxWithSampleList = () => {
   )
 
   return (
-    <>
+    <div style={{ border: '1px solid grey', padding: '8px' }}>
       <SortBox<TestDataType>
         data={testList}
         sortFields={sortFields}
@@ -120,6 +120,6 @@ export const SortBoxWithSampleList = () => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   )
 }

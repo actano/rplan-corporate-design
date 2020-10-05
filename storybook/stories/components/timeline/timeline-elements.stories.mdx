@@ -4,22 +4,14 @@ import { Grid } from '@material-ui/core'
 import { decorators } from '../../decorators'
 
 <Meta
-  title="Components/Sidebar"
+  title="Components/Timeline/Timeline Elements"
   decorators={decorators}
 />
 
-export const Template = (args) => (
-  <Grid container direction="column" spacing={1}>
-    <Grid item>
-      TODO
-    </Grid>
-  </Grid>
-)
-
-# TODO
+export const Template = (args) => <div {...args}> TODO </div>
 
 <Story
-  name="Sidebar"
+  name="Default"
   args={{}}
 >
   {Template.bind({})}

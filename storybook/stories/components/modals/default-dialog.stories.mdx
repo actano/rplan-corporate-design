@@ -1,19 +1,17 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
-import { Grid } from '@material-ui/core'
 
 import { decorators } from '../../decorators'
+import { DefaultDialogWithState } from './default-dialog'
 
 <Meta
-  title="Components/Toggle/Toggle Button"
+  title="Components/Modals/Default Dialog"
   decorators={decorators}
 />
-
-export const Template = (args) => <div {...args}> TODO </div>
 
 <Story
   name="Default"
   args={{}}
 >
-  {Template.bind({})}
+  {DefaultDialogWithState.bind({})}
 </Story>
 

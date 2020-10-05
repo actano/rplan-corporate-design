@@ -1,25 +1,13 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 import { Grid } from '@material-ui/core'
-import { Badge } from '../../../../src'
 import { DueDateStatus, DUE_DATE_STATUS } from '../../../../src/components'
 
 import { decorators } from '../../decorators'
 
 <Meta
-  title="Components/Labels"
+  title="Components/Labels/Time Status"
   decorators={decorators}
 />
-
-export const TemplateBadges = (args) => (
-  <Grid container direction="column" spacing={1}>
-    <Grid item>
-      <Badge text="responsible" />
-    </Grid>
-    <Grid item>
-      <Badge text="custom badge text" />
-    </Grid>
-  </Grid>
-)
 
 export const TemplateTimeStatus = (args) => (
   <Grid container direction="column" spacing={1}>
@@ -27,43 +15,38 @@ export const TemplateTimeStatus = (args) => (
       <DueDateStatus
         state={DUE_DATE_STATUS.ON_TIME}
         delta={0}
+        {...args}
       />
     </Grid>
     <Grid item xs={2}>
       <DueDateStatus
         state={DUE_DATE_STATUS.AT_RISK}
         delta={2}
+        {...args}
       />
     </Grid>
     <Grid item xs={2}>
       <DueDateStatus
         state={DUE_DATE_STATUS.OVERDUE}
         delta={4}
+        {...args}
       />
     </Grid>
     <Grid item xs={2}>
       <DueDateStatus
         state={DUE_DATE_STATUS.INAPPLICABLE}
         delta={0}
+        {...args}
       />
     </Grid>
   </Grid>
 )
 
 
-# Badges
-
-<Story
-  name="Badges"
-  args={{}}
->
-  {TemplateBadges.bind({})}
-</Story>
-
 # Time Status
 
 <Story
-  name="Time Status"
+  name="Default"
   args={{}}
 >
   {TemplateTimeStatus.bind({})}
