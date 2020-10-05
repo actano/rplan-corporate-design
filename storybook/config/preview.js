@@ -5,7 +5,7 @@ export default {
     options: {
       showPanel: true,
       panelPosition: 'right',
-      stortStory: {
+      sortStory: {
         method: 'alphabetical',
       },
     },
