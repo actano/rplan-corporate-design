@@ -1,0 +1,23 @@
+import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { decorators } from '../../../decorators'
+import { FilterBox } from '../../../../../src/components/filter-box'
+import { DemoFilterBoxWithResultList } from './filter-box'
+
+<Meta
+  title="Components/Selection Menus/Filtering"
+  decorators={decorators}
+/>
+
+export const Template = (args) => <DemoFilterBoxWithResultList {...args} />
+
+# Filter box with a list of example items
+<Story
+  name="Default"
+  args={{}}
+>
+  {Template.bind({})}
+</Story>
+
+# Component API
+<ArgsTable of={FilterBox} />

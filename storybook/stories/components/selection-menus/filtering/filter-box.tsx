@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import {
   Table, TableBody, TableCell, TableHead, TableRow, Typography,
 } from '@material-ui/core'
-import { Providers } from '../../providers'
-import { FilterBox } from '../../../../src/components/filter-box'
+
+import { FilterBox } from '../../../../../src/components/filter-box'
 
 interface TestDataType {
   id: string,
@@ -318,15 +318,16 @@ const testList = [
 
 const testFilters: (keyof TestDataType)[] = ['name', 'email']
 
-const DemoFilterBoxWithResultList = () => {
+const DemoFilterBoxWithResultList = (args) => {
   const [filteredItems, setFilteredItems] = useState([] as TestDataType[])
   return (
-    <>
+    <div style={{ border: '1px solid grey', padding: '8px' }}>
       <FilterBox<TestDataType>
         filterBy={testFilters}
         items={testList}
         setFilteredItems={setFilteredItems}
         placeholder="Filter by name or email"
+        {...args}
       />
       <Typography variant="h3">
         Filtered list (clear search term for full list)
@@ -349,24 +350,8 @@ const DemoFilterBoxWithResultList = () => {
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   )
 }
 
-export default {
-  title: 'Legacy/Filter Box',
-}
-
-export const filterBoxStories = () => (
-  <Providers>
-    <Typography variant="h2">
-            Filter Box
-    </Typography>
-    <Typography variant="body1">
-            This component filters a given list of objects
-            with respect to the given search term in specified keys.
-            It returns the filtered list via a callback.
-    </Typography>
-    <DemoFilterBoxWithResultList />
-  </Providers>
-)
+export { DemoFilterBoxWithResultList }

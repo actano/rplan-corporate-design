@@ -1,0 +1,39 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import { CommonCheckbox } from '../../../../src'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Checkboxes/CommonCheckbox"
+  decorators={decorators}
+/>
+
+export const Template = (args) => <CommonCheckbox {...args} />
+
+<Story
+  name="Checked"
+  args={{ checked: true }}
+>
+  {Template.bind({})}
+</Story>
+
+<Story
+  name="Unchecked"
+  args={{ checked: false }}
+>
+  {Template.bind({})}
+</Story>
+
+<Story
+  name="Disabled Checked"
+  args={{ disabled: true, checked: true }}
+>
+  {Template.bind({})}
+</Story>
+
+<Story
+  name="Disabled Unchecked"
+  args={{ disabled: true, checked: false }}
+>
+  {Template.bind({})}
+</Story>

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Grid, Typography } from '@material-ui/core'
 
 import { CommonHeaderBar, TabBar } from '../../../../src/components'
-import { Providers } from '../../providers'
 
 const tabs = [
   {
@@ -40,25 +38,14 @@ const LayoutFix = ({ children }) => {
   return children(stateToReRender, onChangeTab)
 }
 
-export default {
-  title: 'Legacy/HeaderBar',
-}
-
-export const headerBarWithTabBar = () => (
+const HeaderBarWithTabBar = () => (
   <LayoutFix>
     {(tabIndex, onChangeTab) => (
-      <Providers>
-        <Typography variant="h3" align="left">
-            HeaderBar with TabBar
-        </Typography>
-        <Grid container spacing={2} direction="column">
-          <Grid item>
-            <CommonHeaderBar>
-              <TabBar tabs={tabs} selectedTabIndex={tabIndex} onChange={onChangeTab} />
-            </CommonHeaderBar>
-          </Grid>
-        </Grid>
-      </Providers>
+      <CommonHeaderBar>
+        <TabBar tabs={tabs} selectedTabIndex={tabIndex} onChange={onChangeTab} />
+      </CommonHeaderBar>
     )}
   </LayoutFix>
 )
+
+export { HeaderBarWithTabBar }
