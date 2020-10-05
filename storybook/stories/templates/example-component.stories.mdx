@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
 
 import { decorators } from '../decorators'
 
@@ -10,7 +11,16 @@ import { ExampleComponent } from './example-component'
   decorators={decorators}
 />
 
-export const Template = (args) => <ExampleComponent {...args} />
+export const Template = (args) => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item>
+      <ExampleComponent {...args} />
+    </Grid>
+    <Grid item>
+      <ExampleComponent {...args} />
+    </Grid>
+  </Grid>
+)
 
 # Some documentation headline
 Some documentation text
