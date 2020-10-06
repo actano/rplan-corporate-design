@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { decorators } from '../../decorators'
 
-import { Providers } from '../../providers'
 import { AllexLogo } from '../../../../src/components'
 
 export default {
@@ -49,11 +48,9 @@ export const allexLogoLight = () => {
   const classes = useStyles()
 
   return (
-    <Providers>
-      <div className={classes.lightBackground}>
-        <AllexLogo className={classes.logo} />
-      </div>
-    </Providers>
+    <div className={classes.lightBackground}>
+      <AllexLogo className={classes.logo} />
+    </div>
   )
 }
 
@@ -62,11 +59,9 @@ export const allexLogoDark = () => {
   const classes = useStyles()
 
   return (
-    <Providers>
-      <div className={classes.darkBackground}>
-        <AllexLogo className={classes.logo} />
-      </div>
-    </Providers>
+    <div className={classes.darkBackground}>
+      <AllexLogo className={classes.logo} />
+    </div>
   )
 }
 
@@ -75,10 +70,8 @@ export const allexLogoOnColor = () => {
   const classes = useStyles()
 
   return (
-    <Providers>
-      <div className={classes.colorBackground}>
-        <AllexLogo className={classes.logo} />
-      </div>
-    </Providers>
+    <div className={classes.colorBackground}>
+      <AllexLogo className={classes.logo} />
+    </div>
   )
 }
