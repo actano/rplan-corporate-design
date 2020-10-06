@@ -1,11 +1,12 @@
+
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import {
-  Accordion, AccordionDetails, Typography, Grid,
+  Accordion, AccordionDetails, Typography,
 } from '@material-ui/core'
 
 import {
-  MultilineAccordionSummary
+  MultilineAccordionSummary,
 } from '../../../../src/components'
 import { decorators } from '../../decorators'
 
@@ -14,7 +15,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const Template = (args) => (
+export const Template = args => (
   <Accordion {...args}>
     <MultilineAccordionSummary>
       This headline is rendered as first line
@@ -52,4 +53,3 @@ export const Template = (args) => (
 >
   {Template.bind({})}
 </Story>
-

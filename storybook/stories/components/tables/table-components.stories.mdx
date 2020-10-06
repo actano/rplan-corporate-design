@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story } from '@storybook/addon-docs/blocks'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import { decorators } from '../../decorators'
 import { ExampleTable } from './table-components'
@@ -8,7 +8,7 @@ import { ExampleTable } from './table-components'
   decorators={decorators}
 />
 
-export const Template = (args) => <ExampleTable {...args} />
+export const Template = args => <ExampleTable {...args} />
 
 # Default
 <Story
@@ -27,4 +27,3 @@ export const Template = (args) => <ExampleTable {...args} />
 >
   {Template.bind({})}
 </Story>
-

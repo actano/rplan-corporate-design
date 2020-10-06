@@ -1,3 +1,4 @@
+
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import { LogoPage, LogoPageHeadline } from '../../../../src/components'
@@ -8,7 +9,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const Template = (args) => (
+export const Template = () => (
   <LogoPage>
     <LogoPageHeadline>This is a headline</LogoPageHeadline>
   </LogoPage>
@@ -20,4 +21,3 @@ export const Template = (args) => (
 >
   {Template.bind({})}
 </Story>
-

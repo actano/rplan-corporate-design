@@ -22,7 +22,7 @@ import { makeSampleUser, forEachSize } from '../utils'
 <Story name="User is present">
   <Grid container direction="row" alignItems="center" spacing={2}>
     {
-      forEachSize(sizeName => {
+      forEachSize((sizeName) => {
         const onClick = actions('onClick')
         const displayUserNameTooltip = boolean('Display user name tooltip', true)
         const disabled = boolean('Disabled', false)
@@ -41,7 +41,7 @@ import { makeSampleUser, forEachSize } from '../utils'
   </Grid>
   <Grid container direction="row" alignItems="center" spacing={2}>
     {
-      forEachSize(sizeName => {
+      forEachSize((sizeName) => {
         const onClick = actions('onClick')
         const displayUserNameTooltip = boolean('Display user name tooltip', true)
         const disabled = boolean('Disabled', false)
@@ -64,7 +64,7 @@ import { makeSampleUser, forEachSize } from '../utils'
 <Story name="User is not present (gray)">
   <Grid container direction="row" alignItems="center" spacing={2}>
     {
-      forEachSize(sizeName => {
+      forEachSize((sizeName) => {
         const onClick = actions('onClick')
         const disabled = boolean('Disabled', false)
         return (
@@ -89,14 +89,14 @@ import { makeSampleUser, forEachSize } from '../utils'
     alignItems="center"
     spacing={2}
     style={{
-      backgroundColor:'#466ADA',
+      backgroundColor: '#466ADA',
     }}
   >
     {
-      forEachSize(sizeName => {
-      const onClick = actions('onClick')
-      const disabled = boolean('Disabled', false)
-      return (
+      forEachSize((sizeName) => {
+        const onClick = actions('onClick')
+        const disabled = boolean('Disabled', false)
+        return (
           <UserAvatarWithPlaceholder
             size={sizeName}
             user={null}

@@ -11,7 +11,7 @@ import { ExampleComponent } from './example-component'
   decorators={decorators}
 />
 
-export const Template = (args) => (
+export const Template = args => (
   <Grid container direction="column" spacing={1}>
     <Grid item>
       <ExampleComponent {...args} />
@@ -36,7 +36,7 @@ Some documentation text
 Some other text
 <Story
   name="ExampleStory2"
-  args={{ someValue: "foo" }}
+  args={{ someValue: 'foo' }}
 >
   {Template.bind({})}
 </Story>

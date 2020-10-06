@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
-import { Grid } from '@material-ui/core'
 
 import { decorators } from '../../decorators'
 
@@ -8,7 +7,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const Template = (args) => <div {...args}>TODO</div>
+export const Template = args => <div {...args}>TODO</div>
 
 <Story
   name="Default"
@@ -16,4 +15,3 @@ export const Template = (args) => <div {...args}>TODO</div>
 >
   {Template.bind({})}
 </Story>
-

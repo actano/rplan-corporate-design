@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { decorators } from '../decorators'
 
 import { ExampleComponent } from './example-component'

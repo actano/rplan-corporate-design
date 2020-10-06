@@ -2,7 +2,7 @@ import { Paper } from '@material-ui/core'
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import { ErrorBox } from '../../../../src'
-import { ErrorComponent } from '../../../../src'
+
 import { decorators } from '../../decorators'
 
 <Meta
@@ -10,7 +10,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const TemplateErrorBox = (args) => (
+export const TemplateErrorBox = args => (
   <Paper style={{ width: '600px', padding: '50px', display: 'flex' }}>
     <ErrorBox {...args}>This is an Error. Please stand by!</ErrorBox>
   </Paper>
@@ -23,4 +23,3 @@ export const TemplateErrorBox = (args) => (
 >
   {TemplateErrorBox.bind({})}
 </Story>
-

@@ -7,7 +7,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const Template = (args) => <div {...args} />
+export const Template = args => <div {...args} />
 
 <Story
   name="Default"
@@ -15,4 +15,3 @@ export const Template = (args) => <div {...args} />
 >
   {Template.bind({})}
 </Story>
-

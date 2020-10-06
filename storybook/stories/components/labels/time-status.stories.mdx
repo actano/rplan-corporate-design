@@ -9,7 +9,7 @@ import { decorators } from '../../decorators'
   decorators={decorators}
 />
 
-export const TemplateTimeStatus = (args) => (
+export const TemplateTimeStatus = args => (
   <Grid container direction="column" spacing={1}>
     <Grid item xs={2}>
       <DueDateStatus
@@ -51,4 +51,3 @@ export const TemplateTimeStatus = (args) => (
 >
   {TemplateTimeStatus.bind({})}
 </Story>
-
