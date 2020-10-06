@@ -119,12 +119,28 @@ const colorCategories: ColorCategoryMap = {
         value: theme.palette.colors.dullTurquoise,
       },
       {
+        name: 'Cyan',
+        value: theme.palette.colors.cyan,
+      },
+      {
         name: 'Turquoise',
         value: theme.palette.colors.turquoise,
       },
       {
+        name: 'Almond',
+        value: theme.palette.colors.almond,
+      },
+      {
         name: 'Teal',
         value: theme.palette.colors.teal,
+      },
+      {
+        name: 'Amber',
+        value: theme.palette.colors.amber,
+      },
+      {
+        name: 'Orange',
+        value: theme.palette.colors.orange,
       },
     ],
   },
@@ -141,6 +157,10 @@ const colorCategories: ColorCategoryMap = {
       {
         name: 'Light Green',
         value: theme.palette.colors.lightGreen,
+      },
+      {
+        name: 'Dark Red',
+        value: theme.palette.colors.darkRed,
       },
       {
         name: 'Red',
