@@ -26,3 +26,4 @@ export {
 } from './sort-box'
 export { HealthStatus, Health, HealthStatusType } from './health-status'
 export { SnackBar, SnackBarTypes } from './snackbar'
+export { DragHandle } from './drag-handle'
