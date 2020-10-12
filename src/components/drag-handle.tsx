@@ -8,6 +8,7 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 interface DragHandleProps {
   className?: string,
   dragHandleProps: DraggableProvidedDragHandleProps,
+  [otherProp: string]: any,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
@@ -25,6 +26,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 const DragHandle: React.FC<DragHandleProps> = ({
   className,
   dragHandleProps,
+  ...otherProps
 }) => {
   const classes = useStyles()
 
@@ -32,6 +34,7 @@ const DragHandle: React.FC<DragHandleProps> = ({
     <div
       className={className}
       {...dragHandleProps}
+      {...otherProps}
     >
       <DragIndicator className={classes.dragIndicator} />
     </div>
