@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core'
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 
-import { WarningIcon, WarningIconWithTooltip } from '../../../../src/icons'
+import { WarningIcon, WarningIconWithTooltip, MilestoneIcon, SummaryIcon } from '../../../../src/icons'
 import { decorators } from '../../decorators'
 
 <Meta
@@ -17,6 +17,28 @@ export const Template = args => (
       </Grid>
       <Grid item>
         <WarningIconWithTooltip {...args} tooltipText="A description of the warning" />
+      </Grid>
+    </Grid>
+    <Grid item xs={2} container direction="row" spacing={2}>
+      <Grid item>
+        <Typography>Fixed Milestone</Typography>
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon isFlexible={false} />
+      </Grid>
+      <Grid item>
+        <Typography>Flexible Milestone</Typography>
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon isFlexible />
+      </Grid>
+    </Grid>
+    <Grid item xs={2} container direction="row" spacing={2}>
+      <Grid item>
+        <Typography>Summary</Typography>
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <SummaryIcon />
       </Grid>
     </Grid>
   </Grid>
