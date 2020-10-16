@@ -4,13 +4,19 @@ import { SvgIcon } from '@material-ui/core'
 interface MilestoneIconProps {
   className?: string,
   isFlexible: boolean,
+  [otherProp: string]: any,
 }
 
-const MilestoneIcon: React.FunctionComponent<MilestoneIconProps> = ({
+const MilestoneIcon = React.forwardRef<any, MilestoneIconProps>(({
   className,
   isFlexible,
-}) => (
-  <SvgIcon className={className}>
+  ...otherProps
+}, ref) => (
+  <SvgIcon
+    {...otherProps}
+    ref={ref}
+    className={className}
+  >
     {
       isFlexible
         ? (
@@ -28,6 +34,6 @@ const MilestoneIcon: React.FunctionComponent<MilestoneIconProps> = ({
         )
     }
   </SvgIcon>
-)
+))
 
 export { MilestoneIcon }
