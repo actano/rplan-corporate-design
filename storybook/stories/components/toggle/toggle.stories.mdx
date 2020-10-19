@@ -1,17 +1,29 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 
 import { decorators } from '../../decorators'
+import { renderToggles } from './render-toggles'
 
 <Meta
-  title="Components/Toggle/Toggle Button"
+  title="Components/Toggle/Common Toggles"
   decorators={decorators}
 />
 
-export const Template = args => <div {...args}> TODO </div>
+export const Template = (args = {}) => (
+  renderToggles(args)
+)
 
+# Toggle / Large
 <Story
-  name="Default"
-  args={{}}
+  name="Toggle / Large"
+  args={{ size: 'large' }}
+>
+  {Template.bind({})}
+</Story>
+
+# Toggle / Small
+<Story
+  name="Toggle / Small"
+  args={{ size: 'small' }}
 >
   {Template.bind({})}
 </Story>
