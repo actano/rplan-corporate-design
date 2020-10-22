@@ -14,9 +14,15 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 import { testIds } from './test-ids'
 
-const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
+export interface SortBoxStyleProps {
+  disabled: boolean,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => ({
   sortIcon: {
-    color: theme.palette.colors.blue,
+    color: ({ disabled }) => (disabled
+      ? theme.palette.colors.lightGrey
+      : theme.palette.colors.blue),
   },
   select: {
     fontSize: theme.spacing(1.625),
@@ -24,7 +30,10 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     whiteSpace: 'normal',
   },
   selectItemText: {
-    color: theme.palette.colors.black,
+    color: ({ disabled }) => (disabled
+      ? theme.palette.colors.lightGrey
+      : theme.palette.colors.black),
+
     fontWeight: 600,
     padding: 'unset',
     '&:focus': {
@@ -54,6 +63,15 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   defaultText: {
     color: theme.palette.colors.darkGrey,
   },
+  enabled: {
+    '&:focus-within': {
+      borderColor: theme.palette.colors.lightGrey,
+    },
+
+    '&:hover': {
+      borderColor: theme.palette.colors.grey,
+    },
+  },
   sortBox: {
     whiteSpace: 'nowrap',
     height: theme.spacing(4.75),
@@ -63,13 +81,6 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     display: 'flex',
     flexDirection: 'row',
     padding: theme.spacing(0.75, 2),
-    '&:focus-within': {
-      borderColor: theme.palette.colors.lightGrey,
-    },
-
-    '&:hover': {
-      borderColor: theme.palette.colors.grey,
-    },
   },
 }))
 
@@ -103,6 +114,7 @@ export interface SortBoxProps<T> {
   labelPrefix: string,
   classes?: string,
   testId?: string,
+  disabled?: boolean,
 }
 
 export function SortBox<T>({
@@ -113,8 +125,9 @@ export function SortBox<T>({
   labelPrefix,
   classes,
   testId = testIds.sortBox,
+  disabled = false,
 }: SortBoxProps<T>) {
-  const ownClasses = useStyles()
+  const ownClasses = useStyles({ disabled })
 
   const [activeSortFieldName, setActiveSortFieldName] = useState('')
   useEffect(() => {
@@ -168,12 +181,19 @@ export function SortBox<T>({
   )
 
   return (
-    <div className={ownClasses.sortBox}>
+    <div
+      className={classnames(ownClasses.sortBox, {
+        [ownClasses.enabled]: !disabled,
+      })}
+    >
       <Sort className={ownClasses.sortIcon} />
       <Select
         disableUnderline
         className={classnames(classes, ownClasses.select)}
-        classes={{ icon: ownClasses.selectItemIcon, select: ownClasses.selectItemText }}
+        classes={{
+          icon: ownClasses.selectItemIcon,
+          select: ownClasses.selectItemText,
+        }}
         MenuProps={{
           getContentAnchorEl: null,
           anchorOrigin: {
@@ -191,6 +211,7 @@ export function SortBox<T>({
           changeSortName(event.target.value)
         }}
         renderValue={() => `${labelPrefix} ${activeSortFieldName}`}
+        disabled={disabled}
         {...testIdProp(testId)}
       >
         {
