@@ -1,36 +1,56 @@
 import React from 'react'
-import { Switch, FormControlLabel } from '@material-ui/core'
+import {
+  Switch, FormControlLabel, makeStyles, SwitchProps,
+} from '@material-ui/core'
 
 interface CommonToggleProps {
-  checked: boolean,
+  checked?: boolean,
+  classes?: {},
+  disabled?: boolean,
+  inputRef?: any,
+  label?: React.ReactNode,
+  labelPlacement?: 'bottom' | 'end' | 'start' | 'top',
   onChange: () => void,
-  label: string,
-  className: any,
-  [otherProp: string]: any,
+  switchProps?: SwitchProps,
 }
+
+const useStyles = makeStyles(() => ({
+  label: {
+    fontSize: '0.8125rem',
+    fontWeight: 400,
+  },
+}))
 
 const CommonToggle: React.FunctionComponent<CommonToggleProps> = ({
   checked,
   onChange,
   label,
-  className,
+  classes,
+  switchProps,
+  labelPlacement,
   ...otherProps
 }) => {
-  const classes = {
-    formControlLabel: {
-      label: className,
-    },
-  }
+  const ownClasses = useStyles()
 
   return (
     <FormControlLabel
-      classes={classes.formControlLabel}
-      value="start"
-      control={<Switch checked={checked} color="primary" onChange={onChange} {...otherProps} />}
+      classes={{
+        ...ownClasses,
+        ...classes,
+      }}
+      control={(
+        <Switch
+          checked={checked}
+          color="primary"
+          onChange={onChange}
+          {...switchProps}
+        />
+)}
       label={label}
-      labelPlacement="start"
+      labelPlacement={labelPlacement || 'start'}
+      {...otherProps}
     />
   )
 }
 
-export { CommonToggle }
+export { CommonToggle, CommonToggleProps }

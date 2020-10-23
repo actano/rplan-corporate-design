@@ -15,7 +15,7 @@ export const Template = (args = {}) => (
 # Toggle / Large
 <Story
   name="Toggle / Large"
-  args={{ size: 'large' }}
+  args={{ switchProps: { size: 'large' } }}
 >
   {Template.bind({})}
 </Story>
@@ -23,7 +23,11 @@ export const Template = (args = {}) => (
 # Toggle / Small
 <Story
   name="Toggle / Small"
-  args={{ size: 'small' }}
+  args={{ switchProps: { size: 'small' } }}
 >
   {Template.bind({})}
 </Story>
+
+# CSS
+
+Rule names which can be handed over to `classes` prop: [`classes` of `<FormControlLabel /\>` (Link)](https://material-ui.com/api/form-control-label/#css)
