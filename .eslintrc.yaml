@@ -50,6 +50,7 @@ overrides:
     rules:
       react/jsx-indent: 'off'
       react/react-in-jsx-scope: 'off'
+      max-len: 'off'
   - files:
       - 'test/**/*.js'
       - 'test/**/*.jsx'
