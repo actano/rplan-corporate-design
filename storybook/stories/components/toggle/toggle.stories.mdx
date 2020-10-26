@@ -28,6 +28,19 @@ export const Template = (args = {}) => (
   {Template.bind({})}
 </Story>
 
+# Props
+
+* The root element is a `<FormControlLabel />`
+* `<FormControlLabel />` has no `classname` prop. Thus, the `<CommonToggle />` does not have a `classname` prop, too.
+* The component has the props of `<FormControlLabel />` [(Link)](https://material-ui.com/api/form-control-label/#props) (except `control` and `checked`).
+* Additionally, the component has the following props:
+
+Name|Type|Default|Description
+---|---|---|---
+`checked`|`bool`||The value is not used for the `checked` prop for `<FormControlLabel />` but for the `checked` prop of the control `<Switch />` component.
+`switchProps`|`object`||Props given to the control `<Switch />` component
+`labelPlacement`|`'bottom'` \| `'end'` \| `'start'` \| `'top'`|`'start'`|Different default value than the default value for `<FormControlLabel />`
+
 # CSS
 
-Rule names which can be handed over to `classes` prop: [`classes` of `<FormControlLabel /\>` (Link)](https://material-ui.com/api/form-control-label/#css)
+* Rule names which can be handed over to `classes` prop: `classes` of `<FormControlLabel />` [(Link)](https://material-ui.com/api/form-control-label/#css)
