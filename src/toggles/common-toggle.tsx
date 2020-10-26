@@ -4,8 +4,9 @@ import {
 } from '@material-ui/core'
 
 interface CommonToggleProps {
-  checked?: boolean,
+  className?: string,
   classes?: {},
+  checked?: boolean,
   disabled?: boolean,
   inputRef?: any,
   label?: React.ReactNode,
@@ -22,10 +23,11 @@ const useStyles = makeStyles(() => ({
 }))
 
 const CommonToggle: React.FunctionComponent<CommonToggleProps> = ({
+  className,
+  classes,
   checked,
   onChange,
   label,
-  classes,
   switchProps,
   labelPlacement,
   ...otherProps
@@ -34,6 +36,7 @@ const CommonToggle: React.FunctionComponent<CommonToggleProps> = ({
 
   return (
     <FormControlLabel
+      className={className}
       classes={{
         ...ownClasses,
         ...classes,
