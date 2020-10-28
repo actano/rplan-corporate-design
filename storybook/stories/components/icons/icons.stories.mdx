@@ -5,8 +5,12 @@ import {
   WarningIcon,
   WarningIconWithTooltip,
   MilestoneIcon,
+  MilestoneIcon24,
   SummaryIcon,
 } from '../../../../src/icons'
+import {
+  MilestoneIconType,
+} from '../../../../src/icons/milestone-constants'
 import { decorators } from '../../decorators'
 
 <Meta
@@ -44,6 +48,26 @@ export const Template = args => (
       </Grid>
       <Grid item style={{ color: '#466ADA' }}>
         <SummaryIcon />
+      </Grid>
+    </Grid>
+    <Grid item xs={6} container direction="row" spacing={3}>
+      <Grid item>
+        <Typography>Milestones 24px</Typography>
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon24 type={MilestoneIconType.NORMAL} />
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon24 type={MilestoneIconType.FLEXIBLE} />
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon24 type={MilestoneIconType.WITH_BUFFER} />
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon24 type={MilestoneIconType.WITH_DELAY} />
+      </Grid>
+      <Grid item style={{ color: '#466ADA' }}>
+        <MilestoneIcon24 type={MilestoneIconType.COMPLETED} />
       </Grid>
     </Grid>
   </Grid>
