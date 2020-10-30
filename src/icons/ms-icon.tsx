@@ -1,9 +1,8 @@
 import React from 'react'
 import { SvgIcon } from '@material-ui/core'
 import { MilestoneIconType } from './milestone-constants'
-import { height } from '../../lib/components/user-avatar.d'
 
-interface MilestoneIcon24Props {
+interface MsIconProps {
   className?: string,
   type: MilestoneIconType,
   [otherProp: string]: any,
@@ -85,7 +84,7 @@ const getContent = (type: MilestoneIconType) => {
   return result
 }
 
-const MilestoneIcon24 = React.forwardRef<any, MilestoneIcon24Props>(({
+const MsIcon = React.forwardRef<any, MsIconProps>(({
   className,
   type = MilestoneIconType.NORMAL,
   ...otherProps
@@ -104,4 +103,4 @@ const MilestoneIcon24 = React.forwardRef<any, MilestoneIcon24Props>(({
   </SvgIcon>
 ))
 
-export { MilestoneIcon24, MilestoneIconType }
+export { MsIcon, MilestoneIconType }
