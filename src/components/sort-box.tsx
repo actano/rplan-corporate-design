@@ -70,6 +70,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
 
     '&:hover': {
       borderColor: theme.palette.colors.grey,
+      cursor: 'pointer',
     },
   },
   sortBox: {
@@ -81,6 +82,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
     display: 'flex',
     flexDirection: 'row',
     padding: theme.spacing(0.75, 2),
+    '&:focus': { outline: 0 },
   },
 }))
 
@@ -140,7 +142,7 @@ export function SortBox<T>({
     }
   }, [activeSortFieldName])
 
-  const getSortProperty = useCallback((t: T, sortField: string[]) :any => {
+  const getSortProperty = useCallback((t: T, sortField: string[]): any => {
     let sortProperty = t
     sortField.forEach((item) => {
       sortProperty = sortProperty ? sortProperty[item] : null
@@ -180,15 +182,25 @@ export function SortBox<T>({
     [activeSortFieldName, compareElements, data, setSortedData, sortFields, defaultSortFieldName],
   )
 
+  const [isSortMenuOpen, setIsSortMenuOpen] = useState(false)
+  const openCloseSortMenu = useCallback(() => {
+    setIsSortMenuOpen(!isSortMenuOpen)
+  }, [isSortMenuOpen])
+
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       className={classnames(ownClasses.sortBox, {
         [ownClasses.enabled]: !disabled,
       })}
+      onClick={() => !disabled && openCloseSortMenu()}
+      role="button"
+      tabIndex={0}
     >
       <Sort className={ownClasses.sortIcon} />
       <Select
         disableUnderline
+        open={isSortMenuOpen}
         className={classnames(classes, ownClasses.select)}
         classes={{
           icon: ownClasses.selectItemIcon,
