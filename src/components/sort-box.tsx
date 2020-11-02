@@ -22,7 +22,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
   sortIcon: {
     color: ({ disabled }) => (disabled
       ? theme.palette.colors.lightGrey
-      : theme.palette.colors.blue),
+      : theme.palette.colors.grey),
   },
   select: {
     fontSize: theme.spacing(1.625),
@@ -34,7 +34,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
       ? theme.palette.colors.lightGrey
       : theme.palette.colors.black),
 
-    fontWeight: 600,
+    fontWeight: theme.spacing(75),
     padding: 'unset',
     '&:focus': {
       backgroundColor: 'unset',
@@ -58,7 +58,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
   },
   selectedText: {
     color: theme.palette.colors.black,
-    fontWeight: 600,
+    fontWeight: theme.spacing(75),
   },
   defaultText: {
     color: theme.palette.colors.darkGrey,
@@ -79,6 +79,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
     borderWidth: theme.spacing(0.125),
     borderColor: theme.palette.colors.veryLightGrey,
     borderStyle: 'solid',
+    borderRadius: theme.spacing(0.25),
     display: 'flex',
     flexDirection: 'row',
     padding: theme.spacing(0.75, 2),
