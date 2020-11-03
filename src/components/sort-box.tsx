@@ -69,10 +69,6 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
     color: theme.palette.colors.darkGrey,
   },
   enabled: {
-    '&:focus-within': {
-      borderColor: theme.palette.colors.lightGrey,
-    },
-
     '&:hover': {
       borderColor: theme.palette.colors.grey,
       cursor: 'pointer',
@@ -82,7 +78,9 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
     whiteSpace: 'nowrap',
     height: theme.spacing(4.75),
     borderWidth: theme.spacing(0.125),
-    borderColor: theme.palette.colors.veryLightGrey,
+    borderColor: ({ disabled }) => (disabled
+      ? theme.palette.colors.veryLightGrey
+      : theme.palette.colors.lightGrey),
     borderStyle: 'solid',
     borderRadius: theme.spacing(0.25),
     display: 'flex',
