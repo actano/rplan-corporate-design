@@ -29,6 +29,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
     fontSize: theme.spacing(1.625),
     paddingLeft: theme.spacing(2),
     whiteSpace: 'normal',
+    cursor: ({ disabled }) => (disabled ? 'arrow' : 'pointer'),
   },
   selectItemText: {
     color: ({ disabled }) => (disabled
