@@ -1,6 +1,11 @@
 import React from 'react'
-import { SvgIcon } from '@material-ui/core'
 
+import { SvgIcon } from '@material-ui/core'
+import Warning from '@material-ui/icons/Warning'
+
+import { DefaultIcon, makeDefaultIcon } from './default-icon'
+
+// @deprecated use MdiWarningIcon
 export const WarningIcon = props => (
   <SvgIcon
     color="error"
@@ -11,3 +16,9 @@ export const WarningIcon = props => (
     />
   </SvgIcon>
 )
+
+export const MdiWarningIcon = makeDefaultIcon(Warning)
+
+// export const MdiWarningIcon = props => (
+//   <DefaultIcon Component={Warning} {...props} />
+// )

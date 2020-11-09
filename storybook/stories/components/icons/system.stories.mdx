@@ -1,0 +1,30 @@
+import { Grid, Typography } from '@material-ui/core'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+
+import {
+  MdiWarningIcon,
+} from '../../../../src/icons'
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Icons/System Icons"
+  decorators={decorators}
+/>
+
+export const Notification = args => (
+  <Grid container direction="row" spacing={1}>
+    <Grid item>
+      <MdiWarningIcon {...args} />
+    </Grid>
+  </Grid>
+)
+
+# System Icons
+
+## Notification
+<Story
+  name="Notification"
+  args={{}}
+>
+  {Notification.bind({})}
+</Story>
