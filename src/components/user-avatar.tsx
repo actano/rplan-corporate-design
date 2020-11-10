@@ -6,17 +6,16 @@ import { makeStyles } from '@material-ui/styles'
 import MUIAvatar from '@material-ui/core/Avatar'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import { UserAvatarSize } from './types'
 
-const calcInitials = (firstName, lastName, email) => {
+const calcInitials = (
+  firstName: string,
+  lastName: string,
+  email: string,
+): string => {
   const initialsFromName = `${firstName && firstName[0]}${lastName && lastName[0]}`
   const initials = initialsFromName || (email && email[0])
   return (initials || '').toUpperCase()
-}
-
-enum UserAvatarSize {
-  small = 'small',
-  small2 = 'small-2',
-  regular = 'regular',
 }
 
 type AvatarSizeMap = {
@@ -138,7 +137,8 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
 
 export {
   UserAvatar,
+  UserAvatarProps,
+  AvatarImageProps,
   calcInitials,
   AVATAR_SIZES,
-  UserAvatarSize,
 }

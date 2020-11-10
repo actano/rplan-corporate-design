@@ -5,7 +5,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Person from '@material-ui/icons/Person'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
-import { UserAvatarSize } from './user-avatar'
+import { UserAvatarSize } from './types'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   main: {

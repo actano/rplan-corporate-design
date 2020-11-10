@@ -3,22 +3,15 @@ import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { isEmpty } from 'lodash'
 
-import { UserAvatar, UserAvatarSize } from './user-avatar'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import { UserAvatar } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 import { CommonTooltip } from './common-tooltip'
-import { CorporateDesignTheme } from '../theme/corporate-design-theme'
-
-interface User {
-  firstName?: string,
-  lastName?: string,
-  email?: string,
-  profilePictureUrl?: string,
-}
-
-enum UserAvatarWithPlaceholderVariant {
-  grey = 'grey',
-  white = 'white',
-}
+import {
+  User,
+  UserAvatarWithPlaceholderVariant,
+  UserAvatarSize,
+} from './types'
 
 interface StylesProps {
   variant: UserAvatarWithPlaceholderVariant,
@@ -159,6 +152,4 @@ const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
 
 export {
   UserAvatarWithPlaceholder,
-  UserAvatarWithPlaceholderVariant,
-  User,
 }
