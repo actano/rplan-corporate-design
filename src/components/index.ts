@@ -38,3 +38,4 @@ export {
 export { HealthStatus, Health, HealthStatusType } from './health-status'
 export { SnackBar, SnackBarTypes } from './snackbar'
 export { DragHandle } from './drag-handle'
+export * from './types'
