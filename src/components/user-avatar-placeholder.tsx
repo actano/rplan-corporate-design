@@ -1,11 +1,12 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Person from '@material-ui/icons/Person'
 
-const useStyles = makeStyles(theme => ({
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   main: {
     backgroundColor: 'transparent',
     border: '1px dashed',
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     width: `${theme.spacing(7)}px`,
     height: `${theme.spacing(7)}px`,
   },
-  // A icon font size of 18px results in a hight of 12px for the very person,
+  // A icon font size of 18px results in a height of 12px for the very person,
   // as wished for 'small' in https://actano.atlassian.net/browse/PA-2755 .
   // The other values are proportional to the avatar width/height.
   'person-small': {
@@ -38,31 +39,38 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const UserAvatarPlaceholder = (props) => {
+enum UserAvatarSize {
+  small = 'small',
+  small2 = 'small-2',
+  regular = 'regular',
+}
+
+interface UserAvatarPlaceholderProps {
+  size: UserAvatarSize,
+  className?: string,
+}
+
+const UserAvatarPlaceholder: React.FC<UserAvatarPlaceholderProps> = ({
+  size,
+  className,
+}) => {
   const classes = useStyles()
 
   return (
     <Avatar
       className={
-      classnames(
-        classes[`avatar-${props.size}`],
-        classes.main,
-        props.className,
-      )}
+        classnames(
+          classes[`avatar-${size}`],
+          classes.main,
+          className,
+        )}
     >
-      <Person className={classnames(classes[`person-${props.size}`])} />
+      <Person className={classnames(classes[`person-${size}`])} />
     </Avatar>
   )
 }
 
-UserAvatarPlaceholder.propTypes = {
-  className: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
+export {
+  UserAvatarPlaceholder,
+  UserAvatarSize,
 }
-
-UserAvatarPlaceholder.defaultProps = {
-  className: undefined,
-  size: 'regular',
-}
-
-export { UserAvatarPlaceholder }
