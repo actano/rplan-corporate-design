@@ -152,4 +152,5 @@ const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
 
 export {
   UserAvatarWithPlaceholder,
+  UserAvatarWithPlaceholderProps,
 }

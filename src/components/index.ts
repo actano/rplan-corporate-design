@@ -5,8 +5,19 @@ export { CommonHeaderBar } from './common-header-bar'
 export { CommonTooltip } from './common-tooltip'
 export { TabBar } from './tab-bar'
 export { ModalDialogWithLogo } from './modal-dialog-with-logo'
-export { UserAvatar } from './user-avatar'
-export { UserAvatarWithPlaceholder } from './user-avatar-with-placeholder'
+export {
+  UserAvatar,
+  UserAvatarProps,
+  AvatarImageProps,
+} from './user-avatar'
+export {
+  UserAvatarWithPlaceholder,
+  UserAvatarWithPlaceholderProps,
+} from './user-avatar-with-placeholder'
+export {
+  UserAvatarPlaceholder,
+  UserAvatarPlaceholderProps,
+} from './user-avatar-placeholder'
 export { LogoPage } from './logo-page/logo-page'
 export { LogoPageHeadline } from './logo-page/logo-page-headline'
 export { DefaultCard } from './card'

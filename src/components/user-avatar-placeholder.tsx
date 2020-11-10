@@ -67,4 +67,5 @@ const UserAvatarPlaceholder: React.FC<UserAvatarPlaceholderProps> = ({
 
 export {
   UserAvatarPlaceholder,
+  UserAvatarPlaceholderProps,
 }
