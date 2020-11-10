@@ -1,10 +1,11 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import gravatar from 'gravatar'
 
+import { makeStyles } from '@material-ui/styles'
 import MUIAvatar from '@material-ui/core/Avatar'
-import withStyles from '@material-ui/core/styles/withStyles'
+
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 const calcInitials = (firstName, lastName, email) => {
   const initialsFromName = `${firstName && firstName[0]}${lastName && lastName[0]}`
@@ -12,13 +13,51 @@ const calcInitials = (firstName, lastName, email) => {
   return (initials || '').toUpperCase()
 }
 
-const AVATAR_SIZES = {
+enum UserAvatarSize {
+  small = 'small',
+  small2 = 'small-2',
+  regular = 'regular',
+}
+
+type AvatarSizeMap = {
+  [size in UserAvatarSize]: number
+}
+
+const AVATAR_SIZES: AvatarSizeMap = {
   small: 32,
   'small-2': 40,
   regular: 56,
 }
 
-const styles = theme => ({
+interface AvatarImageProps {
+  email?: string,
+  className?: string,
+  src: string,
+  width: number,
+  height: number,
+  // TODO: consider error type
+  onError: (error: any) => void,
+}
+
+const AvatarImage: React.FC<AvatarImageProps> = ({
+  email = '',
+  className,
+  src,
+  width,
+  height,
+  onError = () => {},
+}) => (
+  <img
+    alt={email}
+    className={className}
+    src={src}
+    onError={onError}
+    width={width}
+    height={height}
+  />
+)
+
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   gravatar: {
     backgroundColor: 'transparent',
   },
@@ -39,52 +78,31 @@ const styles = theme => ({
     height: `${theme.spacing(7)}px`,
     fontWeight: 600,
   },
-})
+}))
 
-const AvatarImage = ({
-  email,
-  className,
-  src,
-  width,
-  height,
-  onError,
-}) => (
-  <img
-    alt={email}
-    className={className}
-    src={src}
-    onError={onError}
-    width={width}
-    height={height}
-  />
-)
-
-AvatarImage.propTypes = {
-  email: PropTypes.string,
-  className: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  onError: PropTypes.func,
-}
-AvatarImage.defaultProps = {
-  email: '',
-  className: undefined,
-  onError: () => { },
+interface UserAvatarProps {
+  firstName?: string,
+  lastName?: string,
+  email?: string,
+  profilePictureUrl?: string,
+  size?: UserAvatarSize,
+  forceGravatar?: boolean
+  ImageComponent?: React.FC<AvatarImageProps>,
+  className?: string,
 }
 
-const _UserAvatar = ({
-  classes,
-  firstName,
-  lastName,
-  email,
-  size,
+const UserAvatar: React.FC<UserAvatarProps> = ({
+  firstName = '',
+  lastName = '',
+  email = '',
+  size = UserAvatarSize.regular,
+  profilePictureUrl = '',
+  forceGravatar = false,
+  ImageComponent = AvatarImage,
   className,
-  profilePictureUrl,
-  forceGravatar,
-  ImageComponent,
 }) => {
   const [gravatarNotFound, setGravatarNotFound] = useState(false)
+  const classes = useStyles()
 
   useEffect(() => {
     setGravatarNotFound(false)
@@ -118,34 +136,9 @@ const _UserAvatar = ({
   )
 }
 
-_UserAvatar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
-  email: PropTypes.string,
-  profilePictureUrl: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
-  className: PropTypes.string,
-  forceGravatar: PropTypes.bool,
-  ImageComponent: PropTypes.func,
-}
-
-_UserAvatar.defaultProps = {
-  firstName: '',
-  lastName: '',
-  size: 'regular',
-  email: '',
-  className: '',
-  profilePictureUrl: '',
-  forceGravatar: false,
-  ImageComponent: AvatarImage,
-}
-
-const UserAvatar = withStyles(styles)(_UserAvatar)
-
 export {
   UserAvatar,
-  _UserAvatar,
   calcInitials,
   AVATAR_SIZES,
+  UserAvatarSize,
 }

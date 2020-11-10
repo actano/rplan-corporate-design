@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Person from '@material-ui/icons/Person'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import { UserAvatarSize } from './user-avatar'
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   main: {
@@ -39,12 +40,6 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
 }))
 
-enum UserAvatarSize {
-  small = 'small',
-  small2 = 'small-2',
-  regular = 'regular',
-}
-
 interface UserAvatarPlaceholderProps {
   size: UserAvatarSize,
   className?: string,
@@ -72,5 +67,4 @@ const UserAvatarPlaceholder: React.FC<UserAvatarPlaceholderProps> = ({
 
 export {
   UserAvatarPlaceholder,
-  UserAvatarSize,
 }
