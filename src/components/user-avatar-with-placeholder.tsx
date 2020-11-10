@@ -1,24 +1,41 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { makeStyles } from '@material-ui/styles'
 import { isEmpty } from 'lodash'
 
-import { UserAvatar } from './user-avatar'
+import { UserAvatar, UserAvatarSize } from './user-avatar'
 import { UserAvatarPlaceholder } from './user-avatar-placeholder'
 import { CommonTooltip } from './common-tooltip'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles(theme => ({
+interface User {
+  firstName?: string,
+  lastName?: string,
+  email?: string,
+  profilePictureUrl?: string,
+}
+
+enum UserAvatarWithPlaceholderVariant {
+  grey = 'grey',
+  white = 'white',
+}
+
+interface StylesProps {
+  variant: UserAvatarWithPlaceholderVariant,
+  isClickable: boolean,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
   avatar: ({ variant, isClickable }) => {
     switch (variant) {
-      case 'grey': {
+      case UserAvatarWithPlaceholderVariant.grey: {
         return {
           cursor: isClickable ? 'pointer' : 'auto',
           color: theme.palette.colors.white,
           borderColor: theme.palette.colors.lightGrey,
         }
       }
-      case 'white': {
+      case UserAvatarWithPlaceholderVariant.white: {
         return {
           cursor: isClickable ? 'pointer' : 'auto',
           color: theme.palette.colors.white,
@@ -69,7 +86,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const getUserName = (user) => {
+const getUserName = (user: User): string => {
   if (!user) {
     return ''
   }
@@ -79,15 +96,26 @@ const getUserName = (user) => {
   return user.email || ''
 }
 
-const UserAvatarWithPlaceholder = ({
+interface UserAvatarWithPlaceholderProps {
+  className?: string,
+  onClick?: () => void,
+  user?: User,
+  size?: UserAvatarSize,
+  variant?: UserAvatarWithPlaceholderVariant,
+  disabled?: boolean,
+  displayUserNameOnHover?: boolean
+  enablePlaceholder?: boolean,
+}
+
+const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
   className,
   onClick,
-  user,
-  size,
-  disabled,
-  variant,
-  displayUserNameOnHover,
-  enablePlaceholder,
+  user = {},
+  size = UserAvatarSize.regular,
+  disabled = false,
+  variant = UserAvatarWithPlaceholderVariant.grey,
+  displayUserNameOnHover = false,
+  enablePlaceholder = true,
 }) => {
   const isClickable = !!onClick && !disabled
   const hasUser = !isEmpty(user)
@@ -129,31 +157,8 @@ const UserAvatarWithPlaceholder = ({
   return <CommonTooltip title={userName}>{avatarElement}</CommonTooltip>
 }
 
-UserAvatarWithPlaceholder.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-  user: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
-    profilePictureUrl: PropTypes.string,
-  }),
-  size: PropTypes.oneOf(['small', 'small-2', 'regular']),
-  variant: PropTypes.oneOf(['grey', 'white']),
-  disabled: PropTypes.bool,
-  displayUserNameOnHover: PropTypes.bool,
-  enablePlaceholder: PropTypes.bool,
+export {
+  UserAvatarWithPlaceholder,
+  UserAvatarWithPlaceholderVariant,
+  User,
 }
-
-UserAvatarWithPlaceholder.defaultProps = {
-  className: '',
-  onClick: undefined,
-  user: {},
-  size: 'regular',
-  variant: 'grey',
-  disabled: false,
-  displayUserNameOnHover: false,
-  enablePlaceholder: true,
-}
-
-export { UserAvatarWithPlaceholder }
