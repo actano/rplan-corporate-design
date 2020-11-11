@@ -1,25 +1,12 @@
-import mapKeys from 'lodash/mapKeys'
 import mapValues from 'lodash/mapValues'
-import camelcase from 'camelcase'
 
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 import TokenColors from '../../design-tokens/build/js/colors'
 
-// @ts-ignore
 const COLOR_NAMES: ColorsPalette = {
-  black: '#11141C',
-  lightBlue: '#EAEFFE', // alternative name for backwards compatibility
-  blue: '#527BFE',
-  dullTurquoise: '#46ADC5',
-  red60: '#F66D6B99',
-  white: '#FFFFFF',
-  nearWhite: '#F6F6FA',
   ...mapValues(
-    mapKeys(
-      TokenColors.color,
-      (color, name) => camelcase(name.replace('(', '').replace(')', '')),
-    ),
+    TokenColors,
     color => color.value,
   ),
 }

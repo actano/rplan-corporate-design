@@ -22,7 +22,7 @@
   "scripts": {
     "build": "yarn build:design-tokens && yarn build:src && yarn build:declarations",
     "build:design-tokens": "rm -rf design-tokens/build && cd design-tokens && style-dictionary build",
-    "download-design-tokens": "curl https://allex.zeroheight.com/api/token_file/55730748e474/share --output design-tokens/properties/tokens.json",
+    "download-design-tokens": "curl https://allex.zeroheight.com/api/token_file/8614c7e411c8/share --output design-tokens/properties/colors/tokens.json",
     "build:clean": "yarn clean && yarn build",
     "build:src": "babel -d lib src --extensions .js,.ts,.jsx,.tsx",
     "build:src:watch": "babel --watch -d lib src --extensions .js,.ts,.jsx,.tsx",
