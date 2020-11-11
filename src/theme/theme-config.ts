@@ -1,45 +1,18 @@
+import mapValues from 'lodash/mapValues'
+
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
+import TokenColors from '../../design-tokens/build/js/colors'
 
 const COLOR_NAMES: ColorsPalette = {
-  lightestGrey: '#F5F7FE',
-  veryLightGrey: '#E8E8F1',
-  lightGrey: '#D1D2E3',
-  grey: '#A3ABC7',
-  darkGrey: '#5F6887',
-  darkestGrey: '#414A69',
   black: '#11141C',
-  lightestBlue: '#EAEFFE',
   lightBlue: '#EAEFFE', // alternative name for backwards compatibility
-  lighterBlue: '#ACBBFD',
-  paleBlue: '#7B9AFE',
   blue: '#527BFE',
-  strongerBlue: '#466ADA',
-  darkBlue: '#354A90',
-  darkerBlue: '#2c3555',
-  darkerGrey: '#7F869F',
   dullTurquoise: '#46ADC5',
-  paleGreen: '#C2F3E3',
-  paleRed: '#FCDADA',
-  veryDarkBlue: '#1C274A',
-  lightGreen: '#ECFBF6',
-  green: '#0ED08F',
-  turquoise: '#40c7b9',
-  lightRed: '#FEF0F0',
   red60: '#F66D6B99',
-  red: '#F66D6B',
-  darkRed: '#F55353',
-  orange: '#FCB239',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
-  lightDeepBlue: '#D9D9F4',
-  deepBlue: '#4040C7',
-  veryDarkDeepBlue: '#0A0A51',
-  dullBlue: '#4078C7',
-  cyan: '#00BCD4',
-  teal: '#009688',
-  almond: '#80BFB3',
-  amber: '#FFC107',
+  ...mapValues(TokenColors.color, color => color.value),
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
