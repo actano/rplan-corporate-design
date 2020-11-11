@@ -2,7 +2,7 @@ import mapValues from 'lodash/mapValues'
 
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
-import TokenColors from '../../design-tokens/build/js/colors'
+import TokenColors from '../../design-tokens/build/js/color'
 
 const COLOR_NAMES: ColorsPalette = {
   ...mapValues(
