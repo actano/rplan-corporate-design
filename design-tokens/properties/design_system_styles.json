@@ -1,0 +1,112 @@
+{
+  "color": {
+    "almond": { "value": "#80bfb3" },
+    "amber": "#ffc107",
+    "blueSignature": "#527bfe",
+    "cyan": "#00bcd4",
+    "darkBlue": "#354a90",
+    "darkGrey": "#5f6887",
+    "darkRed": "#f55353",
+    "darkerBlue": "#2c3555",
+    "darkerGrey": "#7f869f",
+    "darkestGrey": "#414a69",
+    "deepBlue": "#4040c7",
+    "dullBlue": "#4078c7",
+    "dullTurqoise": "#46adc5",
+    "green": "#0ed08f",
+    "grey": "#a3abc7",
+    "lightDeepBlue": "#d9d9f4",
+    "lightGreen": "#ecfbf6",
+    "lightGrey": "#d1d2e3",
+    "lightRed": "#fef0f0",
+    "lighterBlue": "#acbbfd",
+    "lightestBlue": "#eaeffe",
+    "lightestGrey": "#f5f7fe",
+    "orange": "#fcb239",
+    "paleBlue": "#7b9afe",
+    "paleGreen": "#c2f3e3",
+    "paleRed": "#fcdada",
+    "red": "#f66d6b",
+    "springGreen": "#48e0ae",
+    "strongerBlue": "#466ada",
+    "teal": "#009688",
+    "turquoise": "#40c7b9",
+    "veryDarkBlue": "#1c274a",
+    "veryDarkDeepBlue": "#0a0a51",
+    "veryLightGrey": "#e8e8f1"
+  },
+  "fonts": {
+    "body1": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "13px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "body2": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "12px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "h1": {
+      "fontFamily": "'Open Sans', 'OpenSans-Light'",
+      "fontSize": "40px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 300,
+      "color": "black"
+    },
+    "h2": {
+      "fontFamily": "'Open Sans', 'OpenSans-Light'",
+      "fontSize": "32px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 300,
+      "color": "black"
+    },
+    "h3": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "24px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "h4": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "20px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "h5": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "16px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "h6": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "15px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    },
+    "h7": {
+      "fontFamily": "'Open Sans', 'OpenSans'",
+      "fontSize": "14px",
+      "letterSpacing": "0px",
+      "lineHeight": "140%",
+      "fontWeight": 400,
+      "color": "black"
+    }
+  }
+}
