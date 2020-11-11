@@ -1,9 +1,12 @@
+import mapKeys from 'lodash/mapKeys'
 import mapValues from 'lodash/mapValues'
+import camelcase from 'camelcase'
 
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 import TokenColors from '../../design-tokens/build/js/colors'
 
+// @ts-ignore
 const COLOR_NAMES: ColorsPalette = {
   black: '#11141C',
   lightBlue: '#EAEFFE', // alternative name for backwards compatibility
@@ -12,7 +15,13 @@ const COLOR_NAMES: ColorsPalette = {
   red60: '#F66D6B99',
   white: '#FFFFFF',
   nearWhite: '#F6F6FA',
-  ...mapValues(TokenColors.color, color => color.value),
+  ...mapValues(
+    mapKeys(
+      TokenColors.color,
+      (color, name) => camelcase(name.replace('(', '').replace(')', '')),
+    ),
+    color => color.value,
+  ),
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
