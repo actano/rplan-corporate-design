@@ -20,12 +20,13 @@
     "static"
   ],
   "scripts": {
-    "build": "yarn build:src && yarn build:declarations",
+    "build": "yarn build:design-tokens && yarn build:src && yarn build:declarations",
+    "build:design-tokens": "rm -rf design-tokens/build && cd design-tokens && style-dictionary build",
     "build:clean": "yarn clean && yarn build",
     "build:src": "babel -d lib src --extensions .js,.ts,.jsx,.tsx",
     "build:src:watch": "babel --watch -d lib src --extensions .js,.ts,.jsx,.tsx",
     "build:declarations": "tsc --project tsconfig.types.json",
-    "clean": "rm -rf lib",
+    "clean": "rm -rf lib && rm -rf design-tokens/build",
     "lint": "eslint --ext js,jsx,ts,tsx,mdx src test storybook",
     "test": "mocha \"test/**/*.unit.jsx\" \"test/**/*.unit.js\" \"test/**/*.unit.tsx\" \"test/**/*.unit.ts\" --exit",
     "storybook": "start-storybook -c ./storybook/config -p 8085",

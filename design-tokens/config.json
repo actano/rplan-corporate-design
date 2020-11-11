@@ -5,8 +5,8 @@
       "transformGroup": "js",
       "buildPath": "build/js/",
       "files": [{
-        "destination": "color.js",
-        "format": "javascript/es6"
+        "destination": "colors.js",
+        "format": "javascript/module"
       }],
       "filter": {
         "attributes": {
