@@ -2,12 +2,12 @@
   "source": ["properties/**/*.json"],
   "platforms": {
     "js": {
-      "transformGroup": "js",
       "buildPath": "build/js/",
       "files": [{
-        "destination": "color.js",
-        "format": "javascript/module"
+        "destination": "color.ts",
+        "format": "javascript/es6"
       }],
+      "transforms": ["attribute/cti", "name/cti/camel", "color/hex"],
       "filter": {
         "attributes": {
           "category": "color"

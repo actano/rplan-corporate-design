@@ -1,14 +1,19 @@
-import mapValues from 'lodash/mapValues'
-
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
-import TokenColors from '../../design-tokens/build/js/color'
+import * as TokenColors from '../../design-tokens/build/js/color'
 
 const COLOR_NAMES: ColorsPalette = {
-  ...mapValues(
-    TokenColors,
-    color => color.value,
-  ),
+  almond: '',
+  amber: '',
+  black: '',
+  cyan: '',
+  dullBlue: '',
+  dullTurquoise: '',
+  lightBlue: '',
+  nearWhite: '',
+  red60: '',
+  white: '',
+  ...TokenColors,
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
