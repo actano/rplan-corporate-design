@@ -1,0 +1,65 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
+import { FormattedDateDisplay, Display } from '../../../../src/components/formatted-date-display'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Labels/Formatted Date Display"
+  decorators={decorators}
+/>
+
+export const TemplateFormattedDateDisplay = args => (
+  <Grid container direction="column" spacing={1}>
+    <Grid item xs={2}>
+      <FormattedDateDisplay
+        formattedDate={{
+          display: Display.NORMAL,
+          text: '25.11.2020 - 26.11.2020',
+          tooltip: 'Starts in 1 day',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDateDisplay
+        formattedDate={{
+          display: Display.WARN,
+          text: '21.11.2020 - 22.11.2020',
+          tooltip: 'Overdue by x days',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDateDisplay
+        formattedDate={{
+          display: Display.NORMAL,
+          text: 'Starts in 1 day',
+          tooltip: '25.11.2020 - 26.11.2020',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDateDisplay
+        formattedDate={{
+          display: Display.WARN,
+          text: 'Overdue by x days',
+          tooltip: '21.11.2020 - 22.11.2020',
+        }}
+        {...args}
+      />
+    </Grid>
+  </Grid>
+)
+
+
+# Formatted Date Display
+
+<Story
+  name="Default"
+  args={{}}
+>
+  {TemplateFormattedDateDisplay.bind({})}
+</Story>
