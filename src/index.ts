@@ -11,6 +11,7 @@ export * from './date-pickers'
 export * from './checkboxes'
 export * from './dialogs'
 export * from './toggles'
+export * from './components/formatted-date-display'
 export { CorporateDesignTheme } from './theme/corporate-design-theme'
 
 export default themeConfig
