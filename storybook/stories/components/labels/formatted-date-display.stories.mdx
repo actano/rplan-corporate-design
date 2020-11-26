@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks'
 import { Grid } from '@material-ui/core'
-import { FormattedDateDisplay, Display } from '../../../../src/components/formatted-date-display'
+import { FormattedDisplay, Display } from '../../../../src/components/formatted-display'
+import { FormattedDateDisplay } from '../../../../src/components/formatted-date-display'
 
 import { decorators } from '../../decorators'
 
@@ -11,6 +12,54 @@ import { decorators } from '../../decorators'
 
 export const TemplateFormattedDateDisplay = args => (
   <Grid container direction="column" spacing={1}>
+    <Grid item xs={2}>
+      <FormattedDisplay
+        displayElements={{
+          elements: [
+            { text: '25.11.2020', display: Display.NORMAL },
+            { text: '-', display: Display.NORMAL },
+            { text: '26.11.2020', display: Display.NORMAL },
+          ],
+          tooltip: 'Starts in 1 day',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDisplay
+        displayElements={{
+          elements: [
+            { text: '21.11.2020', display: Display.NORMAL },
+            { text: '-', display: Display.NORMAL },
+            { text: '22.11.2020', display: Display.WARN },
+          ],
+          tooltip: 'Overdue by x days',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDisplay
+        displayElements={{
+          elements: [
+            { text: 'Starts in 1 day', display: Display.NORMAL },
+          ],
+          tooltip: '25.11.2020 - 26.11.2020',
+        }}
+        {...args}
+      />
+    </Grid>
+    <Grid item xs={2}>
+      <FormattedDisplay
+        displayElements={{
+          elements: [
+            { text: 'Overdue by x days', display: Display.WARN },
+          ],
+          tooltip: '21.11.2020 - 22.11.2020',
+        }}
+        {...args}
+      />
+    </Grid>
     <Grid item xs={2}>
       <FormattedDateDisplay
         formattedDate={{

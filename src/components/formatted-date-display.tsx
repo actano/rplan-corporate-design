@@ -5,11 +5,7 @@ import { Typography } from '@material-ui/core'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 import { CommonTooltip } from './common-tooltip'
-
-export enum Display {
-  NORMAL = 'normal',
-  WARN = 'warn',
-}
+import { Display } from './formatted-display'
 
 export type FormattedDate = {
   display: Display,
