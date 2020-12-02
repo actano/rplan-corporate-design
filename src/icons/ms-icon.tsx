@@ -72,7 +72,7 @@ const getContent = (type: MilestoneIconType) => {
             fill="white"
             strokeWidth="2"
           />
-          <rect x="9.99999" y="5" width="6" height="15.5" rx="3" fill="white" />
+          <rect x="9.99999" y="5" width="6" height="15.5" rx="3" fill="white" stroke="none" />
         </>
       )
       break
