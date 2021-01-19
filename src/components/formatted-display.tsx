@@ -19,6 +19,7 @@ export type DisplayElement = {
 export type DisplayElementContainer = {
   elements: DisplayElement[],
   tooltip: string,
+  onClick?: () => void,
 }
 
 interface FormattedDisplayProps {
@@ -50,7 +51,11 @@ const FormattedDisplay: React.FC<FormattedDisplayProps> = ({
   const classes = useStyles()
   return (
     <CommonTooltip title={displayElements.tooltip}>
-      <div className={classes.root}>
+      <div
+        className={classes.root}
+        onClick={displayElements.onClick}
+        role="presentation"
+      >
         {displayElements.elements.map((element, index) => (
           <Typography
             /* eslint-disable-next-line react/no-array-index-key */
