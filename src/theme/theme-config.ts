@@ -24,7 +24,10 @@ const COLOR_NAMES: ColorsPalette = {
   veryDarkBlue: '#1C274A',
   lightGreen: '#ECFBF6',
   green: '#0ED08F',
+  darkGreen: '#2D9E73',
   turquoise: '#40c7b9',
+  turquoise20: '#40c7b933',
+  darkTurquoise: '#20A99B',
   lightRed: '#FEF0F0',
   red60: '#F66D6B99',
   red: '#F66D6B',
@@ -40,6 +43,8 @@ const COLOR_NAMES: ColorsPalette = {
   teal: '#009688',
   almond: '#80BFB3',
   amber: '#FFC107',
+  lightOrange: '#FFE9B9',
+  lightPeach: '#FEE2D6',
 }
 
 // This is the default but we want to make sure to base our measurements on it here as well
@@ -71,11 +76,22 @@ const themeConfig: CorporateDesignThemeOptions = {
     },
     support: {
       deepBlue: COLOR_NAMES.deepBlue,
+      strongerBlue: COLOR_NAMES.strongerBlue,
       dullBlue: COLOR_NAMES.dullBlue,
       cyan: COLOR_NAMES.cyan,
       teal: COLOR_NAMES.teal,
       almond: COLOR_NAMES.almond,
       amber: COLOR_NAMES.amber,
+      lightestBlue: COLOR_NAMES.lightestBlue,
+      lightRed: COLOR_NAMES.lightRed,
+      darkRed: COLOR_NAMES.darkRed,
+      turquoise: COLOR_NAMES.turquoise,
+      darkTurquoise: COLOR_NAMES.darkTurquoise,
+      turquoise20: COLOR_NAMES.turquoise20,
+      lightOrange: COLOR_NAMES.lightOrange,
+      lightPeach: COLOR_NAMES.lightPeach,
+      darkGreen: COLOR_NAMES.darkGreen,
+      orange: COLOR_NAMES.orange,
     },
     signal: {
       green: COLOR_NAMES.green,

@@ -22,11 +22,22 @@ type TextPalette = TypeText & {
 
 type SupportPalette = {
   deepBlue: string,
+  strongerBlue: string,
   dullBlue: string,
   cyan: string,
   teal: string,
   almond: string,
   amber: string,
+  lightestBlue: string,
+  lightRed: string,
+  darkRed: string,
+  turquoise: string,
+  darkTurquoise: string,
+  turquoise20: string,
+  lightOrange: string,
+  lightPeach: string,
+  darkGreen: string,
+  orange: string,
 }
 
 type SignalPalette = {
@@ -75,6 +86,11 @@ export type ColorsPalette = {
   orange: string,
   white: string,
   nearWhite: string,
+  lightOrange: string,
+  lightPeach: string,
+  darkGreen: string,
+  darkTurquoise: string,
+  turquoise20: string,
 }
 
 interface CorporateDesignPalette extends Palette {
