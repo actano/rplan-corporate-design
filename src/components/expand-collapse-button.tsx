@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import ExpandIcon from '@material-ui/icons/ExpandMore'
+import ExpandIcon from '@material-ui/icons/ChevronRight'
 import { makeStyles } from '@material-ui/styles'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
       transform: 'rotate(0deg)',
       transition: theme.transitions.create('transform', transition),
       '&$expanded': {
-        transform: 'rotate(180deg)',
+        transform: 'rotate(90deg)',
       },
     },
   })
