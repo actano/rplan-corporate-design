@@ -14,6 +14,7 @@ export enum Display {
 export type DisplayElement = {
   text: string,
   display: Display,
+  onClick?: () => void,
 }
 
 export type DisplayElementContainer = {
@@ -69,6 +70,7 @@ const FormattedDisplay: React.FC<FormattedDisplayProps> = ({
             )}
             variant="body1"
             noWrap
+            onClick={element.onClick}
           >
             {element.text}
             {'\u00A0'}
