@@ -25,6 +25,7 @@ export type DisplayElementContainer = {
 interface FormattedDisplayProps {
   displayElements: DisplayElementContainer,
   className?: string,
+  rootClassName?: string,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
@@ -46,13 +47,14 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
 
 const FormattedDisplay: React.FC<FormattedDisplayProps> = ({
   displayElements,
+  rootClassName,
   className,
 }) => {
   const classes = useStyles()
   return (
     <CommonTooltip title={displayElements.tooltip}>
       <div
-        className={classes.root}
+        className={classnames(classes.root, rootClassName)}
         onClick={displayElements.onClick}
         role="presentation"
       >
