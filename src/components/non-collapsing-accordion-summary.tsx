@@ -5,7 +5,9 @@ import classnames from 'classnames'
 import { AccordionSummary, makeStyles } from '@material-ui/core'
 import ExpandIcon from '@material-ui/icons/ChevronRight'
 
-const useStyles = makeStyles((theme) => {
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+
+const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   const transition = {
     duration: theme.transitions.duration.shortest,
   }
@@ -18,6 +20,9 @@ const useStyles = makeStyles((theme) => {
       transition: theme.transitions.create('transform', transition),
       '&$expanded': {
         transform: 'rotate(90deg)',
+      },
+      '&:hover': {
+        color: theme.palette.colors.darkerGrey,
       },
     },
     expanded: {},
