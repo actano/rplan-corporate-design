@@ -55,12 +55,12 @@ const ExpandCollapseButton: React.FC<ExpandCollapseButtonProps> = ({
 
   return (
     <IconButton
+      onClick={onClick}
       className={classnames(className, classes.iconButton)}
       size="small"
       {...props}
     >
       <ExpandIcon
-        onClick={onClick}
         className={classnames(
           classes.icon,
           {
