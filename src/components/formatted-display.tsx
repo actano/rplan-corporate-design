@@ -44,6 +44,9 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   normal: {
     color: theme.palette.colors.grey,
   },
+  canClick: {
+    cursor: 'pointer',
+  },
 }))
 
 const FormattedDisplay: React.FC<FormattedDisplayProps> = ({
@@ -64,9 +67,9 @@ const FormattedDisplay: React.FC<FormattedDisplayProps> = ({
             /* eslint-disable-next-line react/no-array-index-key */
             key={index}
             className={classnames(
-              classes.formattedText,
               className,
               element.display === Display.WARN ? classes.warning : classes.normal,
+              element.onClick != null ? classes.canClick : undefined,
             )}
             variant="body1"
             noWrap
