@@ -42,16 +42,17 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   })
 })
 
-const ExpandCollapseButton: React.FC<ExpandCollapseButtonProps> = ({
+const ExpandCollapseButton = React.forwardRef<any, ExpandCollapseButtonProps>(({
   isExpanded,
   onClick,
   className,
   ...props
-}) => {
+}, ref) => {
   const classes = useStyles()
 
   return (
     <IconButton
+      ref={ref}
       onClick={onClick}
       className={classnames(className, classes.iconButton)}
       size="small"
@@ -67,7 +68,7 @@ const ExpandCollapseButton: React.FC<ExpandCollapseButtonProps> = ({
       />
     </IconButton>
   )
-}
+})
 
 export {
   ExpandCollapseButton,
