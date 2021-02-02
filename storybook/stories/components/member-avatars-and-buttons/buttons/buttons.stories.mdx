@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { Grid } from '@material-ui/core'
 
 import { decorators } from '../../../decorators'
+import { AddMembersButton } from '../../../../../src'
 
 <Meta
   title="Components/Member avatars and buttons/Buttons"
@@ -10,7 +12,13 @@ import { decorators } from '../../../decorators'
 # Buttons
 
 TODO: Extract a corporate design components for the following icons:
-- "add members"
 - "assign member"
 - "reassign member"
 - "more members"
+
+## Add Members Button
+<Story name="Add Members Button">
+  <Grid container direction="row" alignItems="center" spacing={2}>
+    <AddMembersButton />
+  </Grid>
+</Story>
