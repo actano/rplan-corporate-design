@@ -21,6 +21,13 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    position: 'relative',
+  },
+  headerButtons: {
+    top: '0px',
+    right: '0px',
+    padding: theme.spacing(5, 6),
+    position: 'absolute',
   },
   headline: ({ hasIcon }) => ({
     flex: 'none',
@@ -47,6 +54,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
 
 interface DefaultDialogProps {
   title: string,
+  headerButtons?: React.ReactNode,
   children: React.ReactNode,
   buttons: React.ReactNode,
   open: boolean,
@@ -60,6 +68,7 @@ interface DefaultDialogProps {
 const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
   open,
   title,
+  headerButtons,
   children,
   buttons,
   onClose,
@@ -80,6 +89,9 @@ const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
       fullWidth={fullWidth}
     >
       <DialogContent className={classes.content}>
+        <div className={classes.headerButtons}>
+          { headerButtons }
+        </div>
         { icon }
         <Typography
           className={classes.headline}
