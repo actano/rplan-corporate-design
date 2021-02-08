@@ -107,7 +107,7 @@ pipeline {
             script {
               npm.withAuth() {
                 buildAndPush("rplan-corporate-design", "--build-arg NPM_TOKEN=${env.NPM_TOKEN}")
-                scanImage(rplan-corporate-design)
+                scanImage("rplan-corporate-design")
               }
             }
           }
