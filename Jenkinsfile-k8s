@@ -1,4 +1,4 @@
-library 'jenkins-k8s-pipeline-scripts@v2'
+library 'jenkins-k8s-pipeline-scripts@v3'
 final webclientName = 'corporate-design'
 
 pipeline {
@@ -107,6 +107,7 @@ pipeline {
             script {
               npm.withAuth() {
                 buildAndPush("rplan-corporate-design", "--build-arg NPM_TOKEN=${env.NPM_TOKEN}")
+                scanImage(imageName)
               }
             }
           }
@@ -115,6 +116,13 @@ pipeline {
     }
   }
   post {
+    always {
+      container('nodejs') {
+        script {
+          scanImage.archive()
+        }
+      }
+    }
     failure {
       sendNotification currentBuild.result
     }
