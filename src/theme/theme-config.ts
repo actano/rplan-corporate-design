@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 
@@ -117,6 +118,27 @@ const themeConfig: CorporateDesignThemeOptions = {
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        html: {
+          // Scrollbar
+          // Following two properties are for non webkit browsers (i.e. firefox)
+          scrollbarColor: `${COLOR_NAMES.lightGrey} ${COLOR_NAMES.white}`,
+          scrollbarWidth: 'thin',
+        },
+        '*::-webkit-scrollbar': {
+          width: SPACING * 0.5,
+          height: SPACING * 0.5,
+        },
+        '*::-webkit-scrollbar-track': {
+          background: COLOR_NAMES.white,
+        },
+        '*::-webkit-scrollbar-thumb': {
+          background: COLOR_NAMES.lightGrey,
+          borderRadius: SPACING * 0.5,
+        },
+      },
+    },
     MuiAvatar: {
       colorDefault: {
         backgroundColor: COLOR_NAMES.deepBlue,
