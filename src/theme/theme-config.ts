@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 
