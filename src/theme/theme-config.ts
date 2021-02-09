@@ -119,15 +119,16 @@ const themeConfig: CorporateDesignThemeOptions = {
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        html: {
+        '*': {
           // Scrollbar
           // Following two properties are for non webkit browsers (i.e. firefox)
-          scrollbarColor: `${COLOR_NAMES.lightGrey} ${COLOR_NAMES.white}`,
           scrollbarWidth: 'thin',
+          scrollbarColor: `${COLOR_NAMES.lightGrey} ${COLOR_NAMES.white}`,
+
         },
         '*::-webkit-scrollbar': {
-          width: SPACING * 0.8,
-          height: SPACING * 0.8,
+          width: SPACING * 0.5,
+          height: SPACING * 0.5,
         },
         '*::-webkit-scrollbar-track': {
           background: COLOR_NAMES.white,
