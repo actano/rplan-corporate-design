@@ -89,7 +89,6 @@ export interface IconButtonMenuProps extends Omit<Partial<MenuProps>, 'classes'>
   icon?: React.FunctionComponent<IconProps> | React.FunctionComponent<SvgIconProps>,
   getContentAnchorEl?: ((element: Element) => Element) | null,
   buttonProps?: Partial<IconButtonProps>,
-  children?: ReactElement,
   className?: string,
   classes?: {
     button?: string,
