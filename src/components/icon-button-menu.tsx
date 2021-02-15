@@ -1,10 +1,13 @@
-import React, { useCallback, useState } from 'react'
+import React, { ReactElement, useCallback, useState } from 'react'
 import classnames from 'classnames'
 import {
   IconButton,
   Menu,
   MenuItem as MaterialMenuItem,
   makeStyles,
+  IconButtonProps,
+  IconProps,
+  PopoverOrigin, MenuProps, SvgIconProps,
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
@@ -45,16 +48,41 @@ function extendCallback(originalCallback, extension) {
   }
 }
 
-const IconButtonMenu = React.forwardRef<any, any>(({
+const useStyles = makeStyles<CorporateDesignTheme>(() => ({
+  button: {
+  },
+}))
+
+export enum IconButtonMenuSize {
+  Default = 'default',
+  Small = 'small',
+}
+
+export interface IconButtonMenuProps extends Omit<Partial<MenuProps>, 'classes'> {
+  anchorOrigin?: PopoverOrigin,
+  size?: IconButtonMenuSize,
+  icon?: React.FunctionComponent<IconProps> | React.FunctionComponent<SvgIconProps>,
+  getContentAnchorEl?: ((element: Element) => Element) | null,
+  buttonProps?: Partial<IconButtonProps>,
+  children?: ReactElement,
+  className?: string,
+  classes?: {
+    button?: string,
+  },
+}
+
+const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
   className,
-  classes,
+  classes: externalClasses = {},
+  size = IconButtonMenuSize.Default,
   children,
-  buttonProps,
-  icon: Icon,
-  getContentAnchorEl,
-  anchorOrigin,
+  buttonProps = {},
+  icon: Icon = DotIcon,
+  getContentAnchorEl = null,
+  anchorOrigin = { vertical: 'bottom', horizontal: 'left' },
   ...otherProps
 }, ref) => {
+  const classes = useStyles()
   const [menuAnchor, setMenuAnchor] = useState<null | any>(null)
 
   const openMenu = useCallback(
@@ -79,10 +107,12 @@ const IconButtonMenu = React.forwardRef<any, any>(({
   )
 
   // automatically close the menu when a child (i.e. menu item) is clicked
-  const _children = React.Children.map(children, (child) => {
+  const _children = React.Children.map<ReactElement, ReactElement>(children as any, (child) => {
     const onClick = extendCallback(child.props.onClick, closeMenu)
     return React.cloneElement(child, { onClick })
   })
+
+  console.log('size', size)
 
   return (
     <div
@@ -93,7 +123,7 @@ const IconButtonMenu = React.forwardRef<any, any>(({
     >
       <IconButton
         onClick={openMenu}
-        className={classes.button}
+        className={classnames(classes.button, externalClasses.button)}
         size="small"
         {...buttonProps}
       >
@@ -112,18 +142,5 @@ const IconButtonMenu = React.forwardRef<any, any>(({
     </div>
   )
 })
-
-IconButtonMenu.defaultProps = {
-  className: undefined,
-  classes: {},
-  children: undefined,
-  buttonProps: {},
-  icon: DotIcon,
-  anchorOrigin: {
-    vertical: 'bottom',
-    horizontal: 'left',
-  },
-  getContentAnchorEl: null,
-}
 
 export { IconButtonMenu, MenuItem }

@@ -1,6 +1,6 @@
 import React from 'react'
 import DotIcon from '@material-ui/icons/MoreVert'
-import { IconButtonMenu, MenuItem } from './icon-button-menu'
+import { IconButtonMenu, IconButtonMenuProps, MenuItem } from './icon-button-menu'
 
 const DotMenuItem = React.forwardRef<any, any>(({ children, ...props }, ref) => (
   <MenuItem
@@ -11,7 +11,13 @@ const DotMenuItem = React.forwardRef<any, any>(({ children, ...props }, ref) => 
   </MenuItem>
 ))
 
-const DotMenu = React.forwardRef<any, any>(({ children, ...props }, ref) => (
+interface DotMenuProps extends Partial<IconButtonMenuProps> {
+}
+
+const DotMenu = React.forwardRef<any, DotMenuProps>(({
+  children,
+  ...props
+}, ref) => (
   <IconButtonMenu
     ref={ref}
     icon={DotIcon}
@@ -25,12 +31,5 @@ const DotMenu = React.forwardRef<any, any>(({ children, ...props }, ref) => (
     {children}
   </IconButtonMenu>
 ))
-
-DotMenu.defaultProps = {
-  className: undefined,
-  classes: {},
-  children: undefined,
-  buttonProps: {},
-}
 
 export { DotMenu, DotMenuItem }
