@@ -10,6 +10,9 @@ import {
   PopoverOrigin, MenuProps, SvgIconProps,
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
+
+import { assertNever } from '@rplan/allex-type-helpers/lib/assert'
+
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 
@@ -48,15 +51,37 @@ function extendCallback(originalCallback, extension) {
   }
 }
 
-const useStyles = makeStyles<CorporateDesignTheme>(() => ({
-  button: {
-  },
-}))
-
 export enum IconButtonMenuSize {
   Default = 'default',
   Small = 'small',
 }
+
+interface StylesProps {
+  size: IconButtonMenuSize,
+}
+
+const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
+  button: ({ size }) => {
+    let dimensions: number | undefined
+    switch (size) {
+      case IconButtonMenuSize.Default: {
+        dimensions = theme.spacing(4)
+        break
+      }
+      case IconButtonMenuSize.Small: {
+        dimensions = theme.spacing(2.5)
+        break
+      }
+      default: {
+        assertNever(size)
+      }
+    }
+    return {
+      width: dimensions,
+      height: dimensions,
+    }
+  },
+}))
 
 export interface IconButtonMenuProps extends Omit<Partial<MenuProps>, 'classes'> {
   anchorOrigin?: PopoverOrigin,
@@ -82,7 +107,9 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
   anchorOrigin = { vertical: 'bottom', horizontal: 'left' },
   ...otherProps
 }, ref) => {
-  const classes = useStyles()
+  const classes = useStyles({
+    size,
+  })
   const [menuAnchor, setMenuAnchor] = useState<null | any>(null)
 
   const openMenu = useCallback(
@@ -111,8 +138,6 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
     const onClick = extendCallback(child.props.onClick, closeMenu)
     return React.cloneElement(child, { onClick })
   })
-
-  console.log('size', size)
 
   return (
     <div

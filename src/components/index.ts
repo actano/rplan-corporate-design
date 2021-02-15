@@ -21,8 +21,17 @@ export {
 export { LogoPage } from './logo-page/logo-page'
 export { LogoPageHeadline } from './logo-page/logo-page-headline'
 export { DefaultCard } from './card'
-export { DotMenu, DotMenuItem } from './dot-menu'
-export { IconButtonMenu, MenuItem } from './icon-button-menu'
+export {
+  DotMenu,
+  DotMenuItem,
+  DotMenuProps,
+} from './dot-menu'
+export {
+  IconButtonMenu,
+  MenuItem,
+  IconButtonMenuSize,
+  IconButtonMenuProps,
+} from './icon-button-menu'
 export { MultilineExpansionPanelSummary } from './multiline-expansion-panel-summary'
 export { MultilineAccordionSummary } from './multiline-accordion-summary'
 export { NonCollapsingExpansionPanelSummary } from './non-collapsing-expansion-panel-summary'

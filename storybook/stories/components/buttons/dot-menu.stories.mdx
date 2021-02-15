@@ -17,10 +17,22 @@ export const Template = (args = {}) => (
   </DotMenu>
 )
 
-# Default
+# Size default
 <Story
-  name="Default"
-  args={{}}
+  name="Size default"
+  args={{
+    size: 'default',
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+# Size small
+<Story
+  name="Size Small"
+  args={{
+    size: 'small',
+  }}
 >
   {Template.bind({})}
 </Story>
