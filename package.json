@@ -39,6 +39,7 @@
     "@js-joda/core": "^3.0.0",
     "@mdi/js": "^4.7.95",
     "@mdi/react": "^1.2.1",
+    "@rplan/allex-type-helpers": "^2.1.0",
     "@rplan/rich-text-sanitization": "^1.0.2",
     "classnames": "^2.2.6",
     "date-fns": "2.1.0",

@@ -11,7 +11,7 @@ const DotMenuItem = React.forwardRef<any, any>(({ children, ...props }, ref) => 
   </MenuItem>
 ))
 
-interface DotMenuProps extends Partial<IconButtonMenuProps> {
+interface DotMenuProps extends Omit<Partial<IconButtonMenuProps>, 'icon' | 'getContentAnchorEl'> {
 }
 
 const DotMenu = React.forwardRef<any, DotMenuProps>(({

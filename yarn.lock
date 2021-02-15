@@ -1869,6 +1869,11 @@
     react-i18next "^11.4.0"
     sinon "^9.0.2"
 
+"@rplan/allex-type-helpers@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@rplan/allex-type-helpers/-/allex-type-helpers-2.1.0.tgz#c9224594c0f286981bdef094139a7debbb6202f9"
+  integrity sha512-/wsGiZ5QKcC7XiCOovs0/tAH2gTZwr2qUBadRxjph49ffq2Vof38kiGERIw4eORBAYUrTlWaU6IagOqsgxmKdA==
+
 "@rplan/rich-text-sanitization@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@rplan/rich-text-sanitization/-/rich-text-sanitization-1.0.2.tgz#97c779ed6a7c8034e0298b9fc65ce624a93ceb51"
