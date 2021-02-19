@@ -123,18 +123,18 @@ const themeConfig: CorporateDesignThemeOptions = {
           // Scrollbar
           // Following two properties are for non webkit browsers (i.e. firefox)
           scrollbarWidth: 'thin',
-          scrollbarColor: `${COLOR_NAMES.lightGrey} ${COLOR_NAMES.white}`,
+          scrollbarColor: `${COLOR_NAMES.darkerGrey} ${COLOR_NAMES.white}`,
 
         },
         '*::-webkit-scrollbar': {
-          width: SPACING * 0.5,
+          width: SPACING,
           height: SPACING * 0.5,
         },
         '*::-webkit-scrollbar-track': {
           background: COLOR_NAMES.white,
         },
         '*::-webkit-scrollbar-thumb': {
-          background: COLOR_NAMES.lightGrey,
+          background: COLOR_NAMES.darkerGrey,
           borderRadius: SPACING * 0.5,
         },
       },
