@@ -128,7 +128,7 @@ const themeConfig: CorporateDesignThemeOptions = {
         },
         '*::-webkit-scrollbar': {
           width: SPACING,
-          height: SPACING * 0.5,
+          height: SPACING,
         },
         '*::-webkit-scrollbar-track': {
           background: COLOR_NAMES.white,
