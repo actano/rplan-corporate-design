@@ -14,7 +14,7 @@ import DotIcon from '@material-ui/icons/MoreVert'
 import { assertNever } from '@rplan/allex-type-helpers/lib/assert'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
-
+import { CommonTooltip } from './common-tooltip'
 
 const useMenuItemStyles = makeStyles<CorporateDesignTheme>(theme => ({
   menuItem: {
@@ -93,7 +93,11 @@ export interface IconButtonMenuProps extends Omit<Partial<MenuProps>, 'classes'>
   classes?: {
     button?: string,
   },
+  tooltip?: string
 }
+
+const ConditionalWrapper = ({ condition, wrapper, children }) =>
+  (condition ? wrapper(children) : children)
 
 const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
   className,
@@ -104,6 +108,7 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
   icon: Icon = DotIcon,
   getContentAnchorEl = null,
   anchorOrigin = { vertical: 'bottom', horizontal: 'left' },
+  tooltip,
   ...otherProps
 }, ref) => {
   const classes = useStyles({
@@ -145,14 +150,16 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
       onClick={preventClickThrough}
       role="presentation"
     >
-      <IconButton
-        onClick={openMenu}
-        className={classnames(classes.button, externalClasses.button)}
-        size="small"
-        {...buttonProps}
-      >
-        <Icon />
-      </IconButton>
+      <ConditionalWrapper condition={typeof tooltip !== 'undefined'} wrapper={children => <CommonTooltip title={tooltip}>{children}</CommonTooltip>}>
+        <IconButton
+          onClick={openMenu}
+          className={classnames(classes.button, externalClasses.button)}
+          size="small"
+          {...buttonProps}
+        >
+          <Icon />
+        </IconButton>
+      </ConditionalWrapper>
       <Menu
         open={menuAnchor != null}
         onClose={closeMenu}
