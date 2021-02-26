@@ -150,7 +150,7 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
       onClick={preventClickThrough}
       role="presentation"
     >
-      <ConditionalWrapper condition={typeof tooltip !== 'undefined'} wrapper={children => <CommonTooltip title={tooltip}>{children}</CommonTooltip>}>
+      <ConditionalWrapper condition={typeof tooltip !== 'undefined'} wrapper={(wrapperChildren: React.ReactNode) => <CommonTooltip title={tooltip}>{wrapperChildren}</CommonTooltip>}>
         <IconButton
           onClick={openMenu}
           className={classnames(classes.button, externalClasses.button)}
