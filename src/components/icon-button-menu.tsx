@@ -139,8 +139,12 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
 
   // automatically close the menu when a child (i.e. menu item) is clicked
   const _children = React.Children.map<ReactElement, ReactElement>(children as any, (child) => {
-    const onClick = extendCallback(child.props.onClick, closeMenu)
-    return React.cloneElement(child, { onClick })
+    if (child) {
+      const onClick = extendCallback(child.props.onClick, closeMenu)
+      return React.cloneElement(child, { onClick })
+    }
+
+    return child
   })
 
   return (
