@@ -178,7 +178,7 @@ const createMinMaxHeightPlugin = (height) => {
   return MinMaxHeightPlugin
 }
 
-const DEFAULT_MAX_INPUT_LENGTH = 4000
+const DEFAULT_MAX_INPUT_LENGTH = 5000
 
 const getLanguagePrefix = language => (language ? language.split('-')[0] : 'en')
 
