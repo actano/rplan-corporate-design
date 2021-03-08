@@ -31,7 +31,6 @@ type TestIds = {
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   editorContainer: {
-    maxHeight: theme.spacing(50),
     paddingRight: theme.spacing(2),
     overflowY: 'auto',
     overflowX: 'hidden',
