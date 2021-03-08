@@ -14,7 +14,6 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     '&::placeholder': {
       color: theme.palette.colors.grey,
     },
-    maxHeight: theme.spacing(50),
 
     overflowY: 'auto',
     overflowX: 'hidden',
