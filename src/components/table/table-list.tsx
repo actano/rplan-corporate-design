@@ -21,7 +21,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   header: {
     fontSize: '0.75rem',
     lineHeight: '1rem',
-    color: theme.palette.colors.grey,
+    color: theme.palette.colors.darkerGrey,
     border: 'none',
     padding: theme.spacing(0, 2),
   },
