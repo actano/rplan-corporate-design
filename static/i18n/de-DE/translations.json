@@ -15,5 +15,6 @@
     "Do you want to save the changes?": "Möchten Sie die Änderungen speichern?",
     "Don't save": "Nicht speichern",
     "Save changes": "Änderungen speichern",
-    "Otherwise your changes will not be saved.": "Ihre Änderungen im Textfeld werden sonst nicht gespeichert."
+    "Otherwise your changes will not be saved.": "Ihre Änderungen im Textfeld werden sonst nicht gespeichert.",
+    "Calendar week":"Kalenderwoche"
 }

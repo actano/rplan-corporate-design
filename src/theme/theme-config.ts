@@ -117,6 +117,23 @@ const themeConfig: CorporateDesignThemeOptions = {
     },
   },
   overrides: {
+    MuiPickersCalendarHeader: {
+      daysHeader: {
+        marginLeft: '15px',
+      },
+      dayLabel: {
+        color: COLOR_NAMES.darkerGrey,
+      },
+    },
+    MuiPickersCalendar: {
+      week: {
+        '& > div:first-child': {
+          width: '58px',
+          justifyContent: 'flex-end',
+          display: 'inherit',
+        },
+      },
+    },
     MuiCssBaseline: {
       '@global': {
         '*': {
