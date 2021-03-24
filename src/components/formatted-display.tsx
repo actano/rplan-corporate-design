@@ -40,9 +40,15 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
   },
   warning: {
     color: theme.palette.colors.red,
+    '&:hover': {
+      color: theme.palette.colors.darkRed,
+    },
   },
   normal: {
-    color: theme.palette.colors.grey,
+    color: theme.palette.colors.darkGrey,
+    '&:hover': {
+      color: theme.palette.colors.black,
+    },
   },
   canClick: {
     cursor: 'pointer',
