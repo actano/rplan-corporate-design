@@ -49,4 +49,7 @@ const ChangeOnAcceptDatePicker: React.FC<ChangeOnAcceptDatePickerProps> = ({
   )
 }
 
-export { ChangeOnAcceptDatePicker }
+export {
+  ChangeOnAcceptDatePicker,
+  ChangeOnAcceptDatePickerProps,
+}
