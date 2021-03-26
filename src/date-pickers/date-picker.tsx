@@ -1,7 +1,11 @@
 import { LocalDate, nativeJs } from '@js-joda/core'
 import React, { useCallback, useContext } from 'react'
-import PropTypes from 'prop-types'
-import { DatePicker as DatePickerMui, Day, MuiPickersContext } from '@material-ui/pickers'
+import {
+  DatePicker as DatePickerMui,
+  DatePickerProps as DatePickerPropsMui,
+  Day,
+  MuiPickersContext,
+} from '@material-ui/pickers'
 
 import {
   getDate, getDay, getISOWeek, isSameDay, isToday,
@@ -10,8 +14,9 @@ import { makeStyles } from '@material-ui/styles'
 import { testIdProp } from '../shared/test-ids'
 import { useTranslation } from '../i18n'
 import { CommonTooltip } from '../components'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   const { colors } = theme.palette
   return {
     root: {},
@@ -31,12 +36,19 @@ const useStyles = makeStyles((theme) => {
   }
 })
 
-const DatePicker = ({
-  leftArrowButtonProps,
-  rightArrowButtonProps,
+interface DatePickerProps extends DatePickerPropsMui {
+  // we intentionally limit the type options of the mui-picker here
+  maxDate: string | undefined,
+  minDate: string | undefined,
+  value: string | undefined,
+}
+
+const DatePicker: React.FC<DatePickerProps> = ({
   renderDay,
   maxDate,
   minDate,
+  leftArrowButtonProps = {},
+  rightArrowButtonProps = {},
   ...props
 }) => {
   const [translate] = useTranslation()
@@ -47,6 +59,9 @@ const DatePicker = ({
   const minDateJoda = minDate != null ? LocalDate.parse(minDate) : null
 
   const renderDayMerged = renderDay || ((date, selectedDate) => {
+    if (date == null) {
+      return <div />
+    }
     const dateJoda = LocalDate.from(nativeJs(date))
 
     return (
@@ -60,10 +75,10 @@ const DatePicker = ({
         )}
         <Day
           current={isToday(date)}
-          selected={isSameDay(date, selectedDate)}
+          selected={!!selectedDate && isSameDay(date, selectedDate)}
           disabled={
-            (maxDateJoda && dateJoda.isAfter(maxDateJoda))
-            || (minDateJoda && dateJoda.isBefore(minDateJoda))
+            (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
+            || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
           }
         >
           {getDate(date)}
@@ -76,7 +91,7 @@ const DatePicker = ({
     (day, selectedDate, dayInCurrentMonth, dayComponent) => {
       const elementWithData = React.cloneElement(
         dayComponent,
-        { 'data-date': dateUtils.format(day, 'yyyy-MM-dd') },
+        { 'data-date': dateUtils?.format(day, 'yyyy-MM-dd') },
       )
 
       if (renderDayMerged != null) {
@@ -104,22 +119,6 @@ const DatePicker = ({
       {...props}
     />
   )
-}
-
-DatePicker.propTypes = {
-  leftArrowButtonProps: PropTypes.objectOf(PropTypes.string),
-  rightArrowButtonProps: PropTypes.objectOf(PropTypes.string),
-  renderDay: PropTypes.func,
-  maxDate: PropTypes.string,
-  minDate: PropTypes.string,
-}
-
-DatePicker.defaultProps = {
-  leftArrowButtonProps: {},
-  rightArrowButtonProps: {},
-  renderDay: undefined,
-  maxDate: undefined,
-  minDate: undefined,
 }
 
 export {
