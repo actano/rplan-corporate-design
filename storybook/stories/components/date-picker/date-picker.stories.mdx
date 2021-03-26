@@ -24,3 +24,15 @@ export const TemplateDatePicker = (args) => {
 >
   {TemplateDatePicker.bind({})}
 </Story>
+
+# With min and max date
+<Story
+  name="With min and max date"
+  args={{
+    minDate: '2021-01-05',
+    maxDate: '2021-01-15',
+    value: '2021-01-08',
+  }}
+>
+  {TemplateDatePicker.bind({})}
+</Story>
