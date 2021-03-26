@@ -38,8 +38,8 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
 
 interface DatePickerProps extends DatePickerPropsMui {
   // we intentionally limit the type options of the mui-picker here
-  maxDate: string | undefined,
-  minDate: string | undefined,
+  maxDate?: string,
+  minDate?: string,
   value: Date | string | undefined,
 }
 

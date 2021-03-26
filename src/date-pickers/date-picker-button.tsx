@@ -1,21 +1,28 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-import { DatePicker } from './date-picker'
+import { DatePicker, DatePickerProps } from './date-picker'
+import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles<CorporateDesignTheme>(() => ({
   root: {},
   datePicker: {
     display: 'none',
   },
 }))
 
-const DatePickerButton = ({
-  onSelectDate,
+interface DatePickerButtonProps {
+  renderButton: (showPicker: () => void) => React.ReactNode,
+  onSelectDate: (date: Date | null) => void,
+  pickerProps?: DatePickerProps,
+  className?: string,
+}
+
+const DatePickerButton: React.FC<DatePickerButtonProps> = ({
   renderButton,
-  pickerProps,
+  onSelectDate,
+  pickerProps = {},
   className,
 }) => {
   const classes = useStyles()
@@ -35,6 +42,7 @@ const DatePickerButton = ({
     <div className={classnames(classes.root, className)}>
       <DatePicker
         {...pickerProps}
+        value={pickerProps?.value || undefined}
         className={classes.datePicker}
         variant="dialog"
         open={datePickerVisible}
@@ -49,16 +57,7 @@ const DatePickerButton = ({
   )
 }
 
-DatePickerButton.propTypes = {
-  renderButton: PropTypes.func.isRequired,
-  onSelectDate: PropTypes.func.isRequired,
-  pickerProps: PropTypes.shape({}),
-  className: PropTypes.string,
+export {
+  DatePickerButton,
+  DatePickerButtonProps,
 }
-
-DatePickerButton.defaultProps = {
-  className: undefined,
-  pickerProps: undefined,
-}
-
-export { DatePickerButton }
