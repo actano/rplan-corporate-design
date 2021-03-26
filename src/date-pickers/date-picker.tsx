@@ -40,7 +40,7 @@ interface DatePickerProps extends DatePickerPropsMui {
   // we intentionally limit the type options of the mui-picker here
   maxDate: string | undefined,
   minDate: string | undefined,
-  value: string | undefined,
+  value: Date | string | undefined,
 }
 
 const DatePicker: React.FC<DatePickerProps> = ({
@@ -123,4 +123,5 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
 export {
   DatePicker,
+  DatePickerProps,
 }
