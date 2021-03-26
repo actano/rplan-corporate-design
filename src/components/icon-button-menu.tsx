@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core'
 import DotIcon from '@material-ui/icons/MoreVert'
 
-import { assertNever } from '@rplan/allex-type-helpers/lib/assert'
+import { assertNever } from '@rplan/allex-type-helpers'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 import { CommonTooltip } from './common-tooltip'
