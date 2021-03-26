@@ -87,7 +87,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     )
   })
 
-  const _renderDay = useCallback(
+  const _renderDay = useCallback<NonNullable<DatePickerPropsMui['renderDay']>>(
     (day, selectedDate, dayInCurrentMonth, dayComponent) => {
       const elementWithData = React.cloneElement(
         dayComponent,
