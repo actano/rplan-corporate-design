@@ -60,6 +60,7 @@
     "@material-ui/pickers": "^3.2.7",
     "@material-ui/styles": "^4.10.0",
     "@rplan/allex-i18n-tools": "^1.2.0",
+    "@rplan/sentry-webclient": "^1.7.3",
     "@rplan/testhelpers-webclient": "^3.2.0",
     "@storybook/addon-actions": "^6.0.22",
     "@storybook/addon-docs": "^6.0.22",
@@ -120,6 +121,7 @@
     "i18next": "^19.4.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.3.4"
+    "react-i18next": "^11.3.4",
+    "@rplan/sentry-webclient": "^1.7.3"
   }
 }
