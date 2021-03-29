@@ -8,6 +8,8 @@ import Sort from '@material-ui/icons/Sort'
 import {
   Select, ListItemText, MenuItem,
 } from '@material-ui/core'
+
+import { client as sentryClient } from '@rplan/sentry-webclient'
 import { testIdProp } from '../shared/test-ids'
 import { noop } from '../shared/type-utils'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
@@ -156,6 +158,20 @@ export function SortBox<T>({
     return sortProperty
   }, [])
 
+  const logToSentry = (entity, property, pathToProperty) => {
+    sentryClient.withScope((scope) => {
+      scope.setTag('type', 'sortBox')
+      scope.setExtra('module', 'corporate-design')
+      scope.setLevel(sentryClient.Severity.Warning)
+      sentryClient.captureException(new Error(
+        `Call sort on field type String with property === ${property} === `
+        + `of type === ${typeof property} === `
+        + `from entity === ${entity} === `
+        + `with sort path === ${pathToProperty}`,
+      ))
+    })
+  }
+
   const compareElements = useCallback((t1: T, t2: T, sortField: SortField) => {
     const p1 = sortField.sortFieldPath ? getSortProperty(t1, sortField.sortFieldPath) : t1
     const p2 = sortField.sortFieldPath ? getSortProperty(t2, sortField.sortFieldPath) : t2
@@ -165,8 +181,15 @@ export function SortBox<T>({
     if (!p1) return order === SortOrder.ASC ? -1 : 1
     if (!p2) return order === SortOrder.ASC ? 1 : -1
     switch (sortField.fieldType) {
-      case SortFieldType.STRING:
+      case SortFieldType.STRING: {
+        if (!(p1 instanceof String)) {
+          logToSentry(t1, p1, sortField.sortFieldPath)
+        }
+        if (!(p2 instanceof String)) {
+          logToSentry(t2, p2, sortField.sortFieldPath)
+        }
         return order === SortOrder.ASC ? p1.localeCompare(p2) : p2.localeCompare(p1)
+      }
       case SortFieldType.LOCAL_DATE:
         return order === SortOrder.ASC ? p1.compareTo(p2) : p2.compareTo(p1)
       default: throw new Error('Missing or wrong sort field type.')
