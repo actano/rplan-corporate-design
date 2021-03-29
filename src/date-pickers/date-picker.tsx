@@ -19,10 +19,6 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   const { colors } = theme.palette
   return {
-    root: {},
-    datePicker: {
-      display: 'none',
-    },
     week: {
       flex: 'none',
       fontSize: 'unset',
