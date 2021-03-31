@@ -180,6 +180,8 @@ export function SortBox<T>({
     if (!p1 && !p2) return 0
     if (!p1) return order === SortOrder.ASC ? -1 : 1
     if (!p2) return order === SortOrder.ASC ? 1 : -1
+    let s1
+    let s2
     switch (sortField.fieldType) {
       case SortFieldType.STRING: {
         if (!(p1 instanceof String)) {
@@ -188,7 +190,11 @@ export function SortBox<T>({
         if (!(p2 instanceof String)) {
           logToSentry(t2, p2, sortField.sortFieldPath)
         }
-        return order === SortOrder.ASC ? p1.localeCompare(p2) : p2.localeCompare(p1)
+        s1 = JSON.stringify(p1)
+        s2 = JSON.stringify(p2)
+        return order === SortOrder.ASC
+          ? s1.localeCompare(s2)
+          : s2.localeCompare(s1)
       }
       case SortFieldType.LOCAL_DATE:
         return order === SortOrder.ASC ? p1.compareTo(p2) : p2.compareTo(p1)
