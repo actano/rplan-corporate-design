@@ -1,6 +1,6 @@
 {
   "name": "@rplan/corporate-design",
-  "version": "2.87.1",
+  "version": "2.87.2",
   "description": "Theme for Material UI and components based on the corporate design.",
   "author": {
     "name": "Actano GmbH",
@@ -118,10 +118,10 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/pickers": "^3.2.7",
     "@material-ui/styles": "^4.10.0",
+    "@rplan/sentry-webclient": "^1.7.3",
     "i18next": "^19.4.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.3.4",
-    "@rplan/sentry-webclient": "^1.7.3"
+    "react-i18next": "^11.3.4"
   }
 }
