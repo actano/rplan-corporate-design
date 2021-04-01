@@ -53,12 +53,15 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   const maxDateJoda = maxDate != null ? LocalDate.parse(maxDate) : null
   const minDateJoda = minDate != null ? LocalDate.parse(minDate) : null
-
   const renderDayMerged = renderDay || ((date, selectedDate, dayInCurrentMonth) => {
     if (date == null) {
       return <div />
     }
+
     const dateJoda = LocalDate.from(nativeJs(date))
+    const dayIsDisabled = (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
+      || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
+      || !dayInCurrentMonth
 
     return (
       <div className={classes.container}>
@@ -72,11 +75,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         <Day
           current={isToday(date)}
           selected={!!selectedDate && isSameDay(date, selectedDate)}
-          disabled={
-            (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
-            || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
-              || !dayInCurrentMonth
-          }
+          disabled={dayIsDisabled}
         >
           {getDate(date)}
         </Day>
@@ -113,6 +112,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
         ...testIdProp('date-picker-right-arrow'),
       }}
       renderDay={_renderDay}
+      minDate={minDate}
+      maxDate={maxDate}
       {...props}
     />
   )
