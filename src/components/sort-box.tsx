@@ -9,7 +9,6 @@ import {
   Select, ListItemText, MenuItem,
 } from '@material-ui/core'
 
-import { client as sentryClient } from '@rplan/sentry-webclient'
 import { testIdProp } from '../shared/test-ids'
 import { noop } from '../shared/type-utils'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
@@ -158,20 +157,6 @@ export function SortBox<T>({
     return sortProperty
   }, [])
 
-  const logToSentry = (entity, property, pathToProperty) => {
-    sentryClient.withScope((scope) => {
-      scope.setTag('type', 'sortBox')
-      scope.setExtra('module', 'corporate-design')
-      scope.setLevel(sentryClient.Severity.Warning)
-      sentryClient.captureException(new Error(
-        `Call sort on field type String with property === ${property} === `
-        + `of type === ${typeof property} === `
-        + `from entity === ${entity} === `
-        + `with sort path === ${pathToProperty}`,
-      ))
-    })
-  }
-
   const compareElements = useCallback((t1: T, t2: T, sortField: SortField) => {
     const p1 = sortField.sortFieldPath ? getSortProperty(t1, sortField.sortFieldPath) : t1
     const p2 = sortField.sortFieldPath ? getSortProperty(t2, sortField.sortFieldPath) : t2
@@ -184,12 +169,6 @@ export function SortBox<T>({
     let s2
     switch (sortField.fieldType) {
       case SortFieldType.STRING: {
-        if (!(p1 instanceof String)) {
-          logToSentry(t1, p1, sortField.sortFieldPath)
-        }
-        if (!(p2 instanceof String)) {
-          logToSentry(t2, p2, sortField.sortFieldPath)
-        }
         s1 = JSON.stringify(p1)
         s2 = JSON.stringify(p2)
         return order === SortOrder.ASC
