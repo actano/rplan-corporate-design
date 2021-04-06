@@ -1,6 +1,12 @@
 # MVP corporate design
 A theme for Material UI to implement the corporate design across all components.
 
+## Versions
+Before pushing a new version tag make sure to check if the storybook is working:
+- `yarn storybook`
+
+This is only built for new version tags and sometimes breaks
+
 ## How to use
 ```
 yarn add @rplan/corporate-design
