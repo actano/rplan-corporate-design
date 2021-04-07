@@ -62,6 +62,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     const dayIsDisabled = (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
       || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
       || !dayInCurrentMonth
+      || (minDateJoda ? date.getDay() === 0 || date.getDay() === 6 : false)
 
     return (
       <div className={classes.container}>
