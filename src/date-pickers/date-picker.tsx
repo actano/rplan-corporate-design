@@ -36,6 +36,7 @@ interface DatePickerProps extends DatePickerPropsMui {
   // we intentionally limit the type options of the mui-picker here
   maxDate?: string,
   minDate?: string,
+  disableWeekends?: boolean,
   value: Date | string | undefined,
 }
 
@@ -43,6 +44,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   renderDay,
   maxDate,
   minDate,
+  disableWeekends = false,
   leftArrowButtonProps = {},
   rightArrowButtonProps = {},
   ...props
@@ -62,7 +64,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     const dayIsDisabled = (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
       || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
       || !dayInCurrentMonth
-      || (minDateJoda ? date.getDay() === 0 || date.getDay() === 6 : false)
+      || (disableWeekends ? date.getDay() === 0 || date.getDay() === 6 : false)
 
     return (
       <div className={classes.container}>
