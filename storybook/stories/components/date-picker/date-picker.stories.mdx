@@ -36,3 +36,14 @@ export const TemplateDatePicker = (args) => {
 >
   {TemplateDatePicker.bind({})}
 </Story>
+
+# With disableWeekends
+<Story
+  name="With disabled weekends"
+  args={{
+    value: '2021-01-08',
+    disableWeekends: true,
+  }}
+>
+  {TemplateDatePicker.bind({})}
+</Story>

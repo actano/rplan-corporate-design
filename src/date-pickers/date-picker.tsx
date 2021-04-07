@@ -6,6 +6,7 @@ import {
   Day,
   MuiPickersContext,
 } from '@material-ui/pickers'
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
 
 import {
   getDate, getDay, getISOWeek, isSameDay, isToday,
@@ -32,6 +33,8 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
   }
 })
 
+const isWeekendDate = (date: MaterialUiPickersDate) => date?.getDay() === 0 || date?.getDay() === 6
+
 interface DatePickerProps extends DatePickerPropsMui {
   // we intentionally limit the type options of the mui-picker here
   maxDate?: string,
@@ -42,6 +45,7 @@ interface DatePickerProps extends DatePickerPropsMui {
 
 const DatePicker: React.FC<DatePickerProps> = ({
   renderDay,
+  shouldDisableDate,
   maxDate,
   minDate,
   disableWeekends = false,
@@ -52,6 +56,17 @@ const DatePicker: React.FC<DatePickerProps> = ({
   const [translate] = useTranslation()
   const dateUtils = useContext(MuiPickersContext)
   const classes = useStyles()
+
+  const shouldDisableDateMerged = (date: MaterialUiPickersDate): boolean => {
+    let result = false
+    if (shouldDisableDate != null) {
+      result = shouldDisableDate(date)
+    }
+    if (disableWeekends) {
+      result = result || isWeekendDate(date)
+    }
+    return result
+  }
 
   const maxDateJoda = maxDate != null ? LocalDate.parse(maxDate) : null
   const minDateJoda = minDate != null ? LocalDate.parse(minDate) : null
@@ -64,7 +79,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     const dayIsDisabled = (!!maxDateJoda && dateJoda.isAfter(maxDateJoda))
       || (!!minDateJoda && dateJoda.isBefore(minDateJoda))
       || !dayInCurrentMonth
-      || (disableWeekends ? date.getDay() === 0 || date.getDay() === 6 : false)
+      || shouldDisableDateMerged(date)
 
     return (
       <div className={classes.container}>
@@ -117,6 +132,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       renderDay={_renderDay}
       minDate={minDate}
       maxDate={maxDate}
+      shouldDisableDate={shouldDisableDateMerged}
       {...props}
     />
   )
