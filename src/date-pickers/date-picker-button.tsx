@@ -15,7 +15,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(() => ({
 interface DatePickerButtonProps {
   renderButton: (showPicker: () => void) => React.ReactNode,
   onSelectDate: (date: Date | null) => void,
-  pickerProps?: DatePickerProps,
+  pickerProps?: Partial<DatePickerProps>,
   className?: string,
 }
 
