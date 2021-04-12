@@ -63,13 +63,16 @@ interface StylesProps {
 const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
   button: ({ size }) => {
     let dimensions: number | undefined
+    let fontSize: string | undefined
     switch (size) {
       case IconButtonMenuSize.Default: {
         dimensions = theme.spacing(4)
+        fontSize = `${theme.spacing(3)}px`
         break
       }
       case IconButtonMenuSize.Small: {
         dimensions = theme.spacing(2.5)
+        fontSize = `${theme.spacing(2)}px`
         break
       }
       default: {
@@ -79,6 +82,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
     return {
       width: dimensions,
       height: dimensions,
+      fontSize,
     }
   },
 }))
@@ -161,7 +165,7 @@ const IconButtonMenu = React.forwardRef<any, IconButtonMenuProps>(({
           size="small"
           {...buttonProps}
         >
-          <Icon />
+          <Icon fontSize="inherit" />
         </IconButton>
       </ConditionalWrapper>
       <Menu
