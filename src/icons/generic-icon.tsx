@@ -49,11 +49,16 @@ export enum IconColor {
     grey = 'grey',
     darkGrey = 'darkGrey',
     red = 'red',
-    white = 'white'
+    white = 'white',
+    lightGrey = 'lightGrey',
+    turquoise = 'turquoise',
+    orange = 'orange',
+    blue = 'blue'
 }
 
 export enum IconHoverColor {
     strongerBlue = 'strongerBlue',
+    blue = 'blue',
 }
 
 interface IconProps {
