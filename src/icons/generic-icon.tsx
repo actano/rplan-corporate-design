@@ -21,7 +21,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
     margin,
     flex,
     '&:hover': {
-      color: theme.palette.colors[hoverColor],
+      color: color !== 'inherit' ? theme.palette.colors[hoverColor] : color,
     },
   }),
 }))
@@ -53,10 +53,12 @@ export enum IconColor {
     lightGrey = 'lightGrey',
     turquoise = 'turquoise',
     orange = 'orange',
-    blue = 'blue'
+    blue = 'blue',
+    inherit = 'inherit',
 }
 
 export enum IconHoverColor {
+    grey = 'grey',
     strongerBlue = 'strongerBlue',
     blue = 'blue',
 }
@@ -84,13 +86,13 @@ const GenericIcon = React.forwardRef<any, IconProps>(({
   marginLeft = IconMargin.zero,
   marginTop = IconMargin.zero,
   flex = '',
-}) => {
+}, ref) => {
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
     color, size, hoverColor, margin, flex,
   })
   return (
-    <Icon className={classes.iconStyle} />
+    <Icon className={classes.iconStyle} ref={ref} />
   )
 })
 
