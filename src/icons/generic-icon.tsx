@@ -6,20 +6,20 @@ interface StyleProps {
     size: string,
     color: string,
     hoverColor: string,
-    margin: string
-    flex: string
+    margin: string,
+    flex: string,
+    cursor: string,
 }
-
-const compareSizes = (condition, then, otherwise) => (condition ? then : otherwise)
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   iconStyle: ({
-    color, size, hoverColor, margin, flex,
+    color, size, hoverColor, margin, flex, cursor,
   }) => ({
     color: theme.palette.colors[color],
-    fontSize: size === 'small' ? 16 : compareSizes(size === 'medium', 20, 24),
+    fontSize: size,
     margin,
     flex,
+    cursor,
     '&:hover': {
       color: color !== 'inherit' ? theme.palette.colors[hoverColor] : color,
     },
@@ -27,22 +27,28 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
 }))
 
 export enum IconSize {
-    small = 'small',
-    medium = 'medium',
-    large = 'large',
+    small = '16px',
+    medium = '20px',
+    large = '24px',
+    largePlus = '32px'
 }
 
 export enum IconMargin {
+    auto = 'auto ',
     zero = '0px ',
-    twelvePixel = '12px ',
-    forteenPixel = '14px ',
+    eigthPixel = '8px ',
     sixteenPixel = '16px ',
+    twentyfourPixel = '24px ',
 }
 
 export enum IconFlex {
     none = 'none',
     auto = 'auto',
     initial = 'initial',
+}
+
+export enum IconCursor {
+    pointer = 'pointer',
 }
 
 export enum IconColor {
@@ -73,10 +79,13 @@ interface IconProps {
     marginDown?: IconMargin,
     marginLeft?: IconMargin,
     marginTop?: IconMargin,
-    flex?: IconFlex
+    flex?: IconFlex,
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void,
+    cursor?: IconCursor,
 }
 
 const GenericIcon = React.forwardRef<any, IconProps>(({
+  onClick,
   Icon,
   color = IconColor.grey,
   size = IconSize.large,
@@ -86,13 +95,14 @@ const GenericIcon = React.forwardRef<any, IconProps>(({
   marginLeft = IconMargin.zero,
   marginTop = IconMargin.zero,
   flex = '',
+  cursor = '',
 }, ref) => {
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
-    color, size, hoverColor, margin, flex,
+    color, size, hoverColor, margin, flex, cursor,
   })
   return (
-    <Icon className={classes.iconStyle} ref={ref} />
+    <Icon className={classes.iconStyle} ref={ref} onClick={onClick} />
   )
 })
 
