@@ -87,12 +87,16 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
   },
 }))
 
+interface TestIdProp {
+  'data-test-id'?: string,
+}
+
 export interface IconButtonMenuProps extends Omit<Partial<MenuProps>, 'classes'> {
   anchorOrigin?: PopoverOrigin,
   size?: IconButtonMenuSize,
   icon?: React.FunctionComponent<IconProps> | React.FunctionComponent<SvgIconProps>,
   getContentAnchorEl?: ((element: Element) => Element) | null,
-  buttonProps?: Partial<IconButtonProps>,
+  buttonProps?: Partial<IconButtonProps> & TestIdProp,
   className?: string,
   classes?: {
     button?: string,
