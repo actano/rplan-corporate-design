@@ -5,11 +5,18 @@ import {
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import classNames from 'classnames'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
+interface Classes {
+  buttonContainer?: string
+  childContainer?: string
+  content?: string
+  headerButtons?: string
+  headline?: string
+}
 interface StyleProps {
   hasIcon: boolean,
+  classes?: Classes,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
@@ -63,14 +70,7 @@ interface DefaultDialogProps {
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false,
   fullWidth?: boolean,
   icon?: React.ReactNode,
-  classes?: {
-    buttonContainer: string
-    childContainer: string
-    content: string
-    headerButtons: string
-    headline: string
-
-  },
+  classes?: Classes,
   [x: string]: any,
 }
 
@@ -88,7 +88,7 @@ const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
   ...otherProps
 }) => {
   const hasIcon = icon != null
-  const ownClasses = useStyles({ hasIcon })
+  const ownClasses = useStyles({ hasIcon, classes })
 
   return (
     <Dialog
@@ -98,22 +98,22 @@ const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
       maxWidth={maxWidth}
       fullWidth={fullWidth}
     >
-      <DialogContent className={classNames(ownClasses.content, classes?.content)}>
-        <div className={classNames(ownClasses.headerButtons, classes?.headerButtons)}>
+      <DialogContent className={ownClasses.content}>
+        <div className={ownClasses.headerButtons}>
           { headerButtons }
         </div>
         { icon }
         <Typography
-          className={classNames(ownClasses.headline, classes?.headline)}
+          className={ownClasses.headline}
           component="h1"
           variant="h3"
         >
           { title }
         </Typography>
-        <div className={classNames(ownClasses.childContainer, classes?.childContainer)}>
+        <div className={ownClasses.childContainer}>
           { children }
         </div>
-        <div className={classNames(ownClasses.buttonContainer, classes?.buttonContainer)}>
+        <div className={ownClasses.buttonContainer}>
           { buttons }
         </div>
       </DialogContent>
