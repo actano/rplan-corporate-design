@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
+import classNames from 'classnames'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 interface StyleProps {
@@ -62,6 +63,14 @@ interface DefaultDialogProps {
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false,
   fullWidth?: boolean,
   icon?: React.ReactNode,
+  classes?: {
+    buttonContainer: string
+    childContainer: string
+    content: string
+    headerButtons: string
+    headline: string
+
+  },
   [x: string]: any,
 }
 
@@ -75,10 +84,11 @@ const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
   maxWidth = 'sm',
   fullWidth = true,
   icon,
+  classes,
   ...otherProps
 }) => {
   const hasIcon = icon != null
-  const classes = useStyles({ hasIcon })
+  const ownClasses = useStyles({ hasIcon })
 
   return (
     <Dialog
@@ -88,22 +98,22 @@ const DefaultDialog: React.FunctionComponent<DefaultDialogProps> = ({
       maxWidth={maxWidth}
       fullWidth={fullWidth}
     >
-      <DialogContent className={classes.content}>
-        <div className={classes.headerButtons}>
+      <DialogContent className={classNames(ownClasses.content, classes?.content)}>
+        <div className={classNames(ownClasses.headerButtons, classes?.headerButtons)}>
           { headerButtons }
         </div>
         { icon }
         <Typography
-          className={classes.headline}
+          className={classNames(ownClasses.headline, classes?.headline)}
           component="h1"
           variant="h3"
         >
           { title }
         </Typography>
-        <div className={classes.childContainer}>
+        <div className={classNames(ownClasses.childContainer, classes?.childContainer)}>
           { children }
         </div>
-        <div className={classes.buttonContainer}>
+        <div className={classNames(ownClasses.buttonContainer, classes?.buttonContainer)}>
           { buttons }
         </div>
       </DialogContent>
