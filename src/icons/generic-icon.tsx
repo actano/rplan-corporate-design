@@ -36,7 +36,10 @@ export enum IconSize {
 export enum IconMargin {
     auto = 'auto ',
     zero = '0px ',
+    fourPixel = '4px ',
+    /** @deprecated typo use eightPixel */
     eigthPixel = '8px ',
+    eightPixel = '8px ',
     sixteenPixel = '16px ',
     twentyfourPixel = '24px ',
 }
@@ -60,6 +63,7 @@ export enum IconColor {
     turquoise = 'turquoise',
     orange = 'orange',
     blue = 'blue',
+    lighterBlue = 'lighterBlue',
     inherit = 'inherit',
 }
 
