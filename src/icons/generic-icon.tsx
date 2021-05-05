@@ -1,7 +1,6 @@
 import React, { ComponentType } from 'react'
 import { makeStyles } from '@material-ui/core'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
-import { MilestoneIconType } from './milestone-constants'
 
 interface StyleProps {
     size: string,
@@ -74,7 +73,7 @@ export enum IconHoverColor {
     blue = 'blue',
 }
 
-interface IconProps {
+interface IconProps<T = {}> {
     size?: IconSize,
     Icon: ComponentType<any>,
     color?: IconColor,
@@ -88,29 +87,26 @@ interface IconProps {
     onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
     onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
     cursor?: IconCursor,
-    type?: MilestoneIconType,
-    linked?: boolean,
-    tooltipText?: string,
+    iconProps: Omit<T, 'className' | 'classes' | 'styles'>,
 }
 
-const GenericIcon = React.forwardRef<any, IconProps>(({
-  onClick,
-  onMouseEnter,
-  onMouseLeave,
-  Icon,
-  color = IconColor.grey,
-  size = IconSize.large,
-  hoverColor = color,
-  marginRight = IconMargin.zero,
-  marginDown = IconMargin.zero,
-  marginLeft = IconMargin.zero,
-  marginTop = IconMargin.zero,
-  flex = '',
-  cursor = '',
-  type,
-  linked,
-  tooltipText,
-}, ref) => {
+function GenericIcon_<T>(props: IconProps<T>, ref) {
+  const {
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
+    Icon,
+    color = IconColor.grey,
+    size = IconSize.large,
+    hoverColor = color,
+    marginRight = IconMargin.zero,
+    marginDown = IconMargin.zero,
+    marginLeft = IconMargin.zero,
+    marginTop = IconMargin.zero,
+    flex = '',
+    cursor = '',
+    iconProps,
+  } = props
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
     color, size, hoverColor, margin, flex, cursor,
@@ -118,16 +114,16 @@ const GenericIcon = React.forwardRef<any, IconProps>(({
   return (
     <Icon
       className={classes.iconStyle}
-      type={type}
       ref={ref}
-      linked={linked}
       color={color}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      tooltipText={tooltipText}
+      {...iconProps}
     />
   )
-})
+}
+
+const GenericIcon = React.forwardRef(GenericIcon_)
 
 export { GenericIcon }
