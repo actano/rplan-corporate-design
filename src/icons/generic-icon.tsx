@@ -87,7 +87,7 @@ interface IconProps<T = {}> {
     onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
     onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
     cursor?: IconCursor,
-    iconProps: Omit<T, 'className' | 'classes' | 'styles'>,
+    iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
 }
 
 function GenericIcon_<T>(props: IconProps<T>, ref) {
