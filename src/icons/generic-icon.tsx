@@ -1,6 +1,7 @@
 import React, { ComponentType } from 'react'
 import { makeStyles } from '@material-ui/core'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import { MilestoneIconType } from './milestone-constants'
 
 interface StyleProps {
     size: string,
@@ -77,7 +78,6 @@ interface IconProps {
     size?: IconSize,
     Icon: ComponentType<any>,
     color?: IconColor,
-    className?: string,
     hoverColor?: IconHoverColor,
     marginRight?: IconMargin,
     marginDown?: IconMargin,
@@ -85,11 +85,18 @@ interface IconProps {
     marginTop?: IconMargin,
     flex?: IconFlex,
     onClick?: (event: React.MouseEvent<HTMLElement>) => void,
+    onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
+    onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
     cursor?: IconCursor,
+    type?: MilestoneIconType,
+    linked?: boolean,
+    tooltipText?: string,
 }
 
 const GenericIcon = React.forwardRef<any, IconProps>(({
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   Icon,
   color = IconColor.grey,
   size = IconSize.large,
@@ -100,13 +107,26 @@ const GenericIcon = React.forwardRef<any, IconProps>(({
   marginTop = IconMargin.zero,
   flex = '',
   cursor = '',
+  type,
+  linked,
+  tooltipText,
 }, ref) => {
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
     color, size, hoverColor, margin, flex, cursor,
   })
   return (
-    <Icon className={classes.iconStyle} ref={ref} onClick={onClick} />
+    <Icon
+      className={classes.iconStyle}
+      type={type}
+      ref={ref}
+      linked={linked}
+      color={color}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      tooltipText={tooltipText}
+    />
   )
 })
 
