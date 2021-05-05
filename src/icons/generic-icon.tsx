@@ -105,7 +105,7 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
     marginTop = IconMargin.zero,
     flex = '',
     cursor = '',
-    iconProps,
+    iconProps = {},
   } = props
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
