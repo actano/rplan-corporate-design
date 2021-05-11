@@ -1,0 +1,34 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { actions } from '@storybook/addon-actions'
+
+import { DateRangeBox } from '../../../../src/date-pickers/date-range-box'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Date Pickers/Date Range Picker"
+  decorators={decorators}
+/>
+
+export const TemplateDateRangePicker = (args) => {
+  const onAcceptStart = actions('onAcceptStart')
+  const onAcceptEnd = actions('onAcceptEnd')
+  return (
+    <DateRangeBox
+      {...args}
+      {...onAcceptStart}
+      {...onAcceptEnd}
+    />
+  )
+}
+
+# Date Range Picker
+<Story
+  name="Default"
+  args={{
+    start: '2021-05-11',
+    end: '2021-05-11',
+  }}
+>
+  {TemplateDateRangePicker.bind({})}
+</Story>
