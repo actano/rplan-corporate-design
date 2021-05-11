@@ -1,6 +1,6 @@
 {
   "name": "@rplan/corporate-design",
-  "version": "2.88.9",
+  "version": "2.89.0",
   "description": "Theme for Material UI and components based on the corporate design.",
   "author": {
     "name": "Actano GmbH",
@@ -37,9 +37,9 @@
     "@ckeditor/ckeditor5-react": "^2.1.0",
     "@date-io/core": "^1.3.11",
     "@js-joda/core": "^3.2.0",
-    "@js-joda/timezone": "^2.3.0",
     "@js-joda/locale_de": "^3.2.0",
     "@js-joda/locale_en": "^3.2.0",
+    "@js-joda/timezone": "^2.3.0",
     "@mdi/js": "^4.7.95",
     "@mdi/react": "^1.2.1",
     "@rplan/allex-type-helpers": "^2.1.0",
