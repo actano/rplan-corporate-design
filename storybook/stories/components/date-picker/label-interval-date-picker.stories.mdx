@@ -1,0 +1,37 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { actions } from '@storybook/addon-actions'
+
+import { LabelIntervalDatePicker } from '../../../../src/date-pickers/label-interval-date-picker'
+
+import { decorators } from '../../decorators'
+
+<Meta
+  title="Components/Date Pickers/Interval Date Picker"
+  decorators={decorators}
+/>
+
+export const TemplateIntervalDatePicker = (args) => {
+  const onSelectStartDate = actions('onSelectStartDate')
+  const onSelectEndDate = actions('onSelectEndDate')
+  return (
+    <LabelIntervalDatePicker 
+      {...args}
+      {...onSelectStartDate}
+      {...onSelectEndDate}
+    />
+  )
+}
+
+# Date Picker
+<Story
+  name="Default"
+  args={{
+    label: 'Select date interval',
+    valueStartDate: '2021-05-11',
+    valueEndDate: '2021-05-11',
+  }}
+>
+  {TemplateIntervalDatePicker.bind({})}
+</Story>
+
+
