@@ -115,7 +115,6 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
     <Icon
       className={classes.iconStyle}
       ref={ref}
-      color={color}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
