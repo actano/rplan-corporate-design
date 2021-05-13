@@ -34,8 +34,8 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
 
-    fontWeight: 600,
-    fontSize: '0.75rem',
+    fontWeight: 400,
+    fontSize: '0.8125rem',
     lineHeight: 1.2,
   },
   box: ({ noBorderLeft, noBorderRight }) => ({
@@ -53,9 +53,8 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
     border: `1px solid ${theme.palette.colors.lightGrey}`,
     borderRight: noBorderRight ? 'none' : undefined,
     borderLeft: noBorderLeft ? 'none' : undefined,
-    padding: theme.spacing(1.625),
+    padding: theme.spacing(1.5),
     fontSize: '1rem',
-    lineHeight: 1.1875,
 
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'center',
