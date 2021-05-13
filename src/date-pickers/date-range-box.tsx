@@ -36,6 +36,7 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
 
     fontWeight: 400,
     fontSize: '0.8125rem',
+    color: theme.palette.colors.darkestGrey,
   },
   box: ({ noBorderLeft, noBorderRight }) => ({
     flex: 'none',
@@ -53,7 +54,7 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
     borderRight: noBorderRight ? 'none' : undefined,
     borderLeft: noBorderLeft ? 'none' : undefined,
     padding: theme.spacing(1.5),
-    fontSize: '1rem',
+    fontSize: '0.8125rem',
 
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'center',
