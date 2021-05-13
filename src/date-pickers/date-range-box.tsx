@@ -1,8 +1,7 @@
 import React, { ReactNode, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core'
-import { Locale as LocaleEn } from '@js-joda/locale_en'
-import { Locale as LocaleDe } from '@js-joda/locale_de'
-import { DateTimeFormatter, LocalDate } from '@js-joda/core'
+import * as _locale from 'date-fns/locale'
+import { format } from 'date-fns'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 import { CommonTooltip } from '../components'
 import { DatePickerButton } from './date-picker-button'
@@ -176,15 +175,15 @@ const DateRangeBox: React.FC<DateRangeBoxProps> = ({
 
   const formatDate = useCallback((isoDate) => {
     let datePattern = 'MMM d yyyy'
-    let locale = LocaleEn.US
+    let locale = _locale.enUS
+    console.log('language:', language)
+    console.log(language.split('-')[0])
     if (isGerman(language)) {
       datePattern = 'd. MMM yyyy'
-      locale = LocaleDe.DE
+      locale = _locale.de
     }
-    const formatter = DateTimeFormatter
-      .ofPattern(datePattern)
-      .withLocale(locale)
-    return LocalDate.parse(isoDate).format(formatter)
+
+    return format(Date.parse(isoDate), datePattern, { locale })
   }, [language])
 
   const withStartTooltip = withOptionalTooltip(startTooltip)
