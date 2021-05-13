@@ -104,7 +104,6 @@ interface DateRangeBoxProps extends DateRangeBoxContainerProps {
   disabled?: boolean,
   onAcceptStart?: (date?: Date | null) => void,
   onAcceptEnd?: (date?: Date | null) => void,
-  clearable?: boolean,
   startTooltip?: string,
   endTooltip?: string,
   language?: string,
@@ -164,7 +163,6 @@ const DateRangeBox: React.FC<DateRangeBoxProps> = ({
   noBorderRight = false,
   onAcceptStart = () => {},
   onAcceptEnd = () => {},
-  clearable = false,
   startTooltip,
   endTooltip,
   language = 'en-US',
@@ -176,8 +174,6 @@ const DateRangeBox: React.FC<DateRangeBoxProps> = ({
   const formatDate = useCallback((isoDate) => {
     let datePattern = 'MMM d yyyy'
     let locale = _locale.enUS
-    console.log('language:', language)
-    console.log(language.split('-')[0])
     if (isGerman(language)) {
       datePattern = 'd. MMM yyyy'
       locale = _locale.de
@@ -206,7 +202,7 @@ const DateRangeBox: React.FC<DateRangeBoxProps> = ({
             <DatePickerButton
               pickerProps={{
                 value: start,
-                clearable,
+                clearable: false,
               }}
               renderButton={showPicker => withStartTooltip(
                 <button
@@ -238,7 +234,7 @@ const DateRangeBox: React.FC<DateRangeBoxProps> = ({
             <DatePickerButton
               pickerProps={{
                 value: end,
-                clearable,
+                clearable: false,
               }}
               renderButton={showPicker => withEndTooltip(
                 <button
