@@ -53,7 +53,7 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
     border: `1px solid ${theme.palette.colors.lightGrey}`,
     borderRight: noBorderRight ? 'none' : undefined,
     borderLeft: noBorderLeft ? 'none' : undefined,
-    padding: theme.spacing(1.5),
+    padding: theme.spacing(1.75),
     fontSize: '0.8125rem',
 
     [theme.breakpoints.down('xs')]: {
@@ -75,7 +75,7 @@ const useContentStyles = makeStyles<CorporateDesignTheme, ContentStylesProps>(th
     padding: 0,
 
     color: theme.palette.colors.darkestGrey,
-    fontSize: '1rem',
+    fontSize: '0.8125rem',
     cursor: 'pointer',
     outline: 'none',
 
