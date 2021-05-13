@@ -27,7 +27,7 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
   },
   label: {
     flex: 'none',
-    marginBottom: theme.spacing(0.75),
+    marginBottom: theme.spacing(1),
     width: '100%',
 
     overflow: 'hidden',
@@ -36,7 +36,6 @@ const useContainerStyles = makeStyles<CorporateDesignTheme, ContainerStylesProps
 
     fontWeight: 400,
     fontSize: '0.8125rem',
-    lineHeight: 1.2,
   },
   box: ({ noBorderLeft, noBorderRight }) => ({
     flex: 'none',
