@@ -78,7 +78,7 @@ const useStyles = makeStyles<CorporateDesignTheme, SortBoxStyleProps>(theme => (
   },
   sortBox: {
     whiteSpace: 'nowrap',
-    height: theme.spacing(4.75),
+    height: theme.spacing(6),
     borderWidth: theme.spacing(0.125),
     borderColor: ({ disabled }) => (disabled
       ? theme.palette.colors.veryLightGrey
