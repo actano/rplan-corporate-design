@@ -1,4 +1,4 @@
-# MVP corporate design
+# Corporate design
 A theme for Material UI to implement the corporate design across all components.
 
 ## Versions
