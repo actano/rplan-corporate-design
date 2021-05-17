@@ -96,7 +96,7 @@ describe('DateRangeBox', async () => {
       expect(saveStub).to.have.been.calledWith(selectedDate)
     })
   })
-  context.only('if disabled is true', () => {
+  context('if disabled is true', () => {
     it('should render the dates with english(default) format', async () => {
       const component = await renderComponent({
         ...defaultProps,
