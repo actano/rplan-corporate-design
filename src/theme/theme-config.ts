@@ -1,7 +1,7 @@
 import { rgbaString } from '../utils/color-conversion'
 import { CorporateDesignThemeOptions, ColorsPalette } from './corporate-design-theme'
 
-const COLOR_NAMES: ColorsPalette = {
+export const COLOR_NAMES: ColorsPalette = {
   lightestGrey: '#F5F7FE',
   veryLightGrey: '#E8E8F1',
   lightGrey: '#D1D2E3',
@@ -50,7 +50,7 @@ const COLOR_NAMES: ColorsPalette = {
 // This is the default but we want to make sure to base our measurements on it here as well
 const SPACING = 8
 
-const themeConfig: CorporateDesignThemeOptions = {
+export const themeConfig: CorporateDesignThemeOptions = {
   palette: {
     background: {
       special: 'linear-gradient(128deg, #5352B2 0%, #4983BD 100%, #4983BD 100%)',
@@ -372,5 +372,3 @@ const themeConfig: CorporateDesignThemeOptions = {
     },
   },
 }
-
-export { themeConfig }
