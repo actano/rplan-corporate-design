@@ -8,6 +8,7 @@ import {
   MsIcon,
   SummaryIcon,
   FixedDatesIcon,
+  VacationSmileyIcon,
 } from '../../../../src/icons'
 import { IconColor, IconSize } from '../../../../src/icons/generic-icon'
 import {
@@ -105,6 +106,14 @@ export const Template = args => (
         <FixedDatesIcon
           darkBackgroud= {true} 
         />
+      </Grid>
+    </Grid>
+    <Grid item xs={2} container direction="row" spacing={2}>
+      <Grid item>
+        <Typography>Vacation smiley</Typography>
+      </Grid>
+      <Grid item>
+        <VacationSmileyIcon/>
       </Grid>
     </Grid>
   </Grid>
