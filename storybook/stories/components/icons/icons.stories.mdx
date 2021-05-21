@@ -7,7 +7,9 @@ import {
   MilestoneIcon,
   MsIcon,
   SummaryIcon,
+  FixedDatesIcon,
 } from '../../../../src/icons'
+import { IconColor, IconSize } from '../../../../src/icons/generic-icon'
 import {
   MilestoneIconType,
 } from '../../../../src/icons/milestone-constants'
@@ -88,6 +90,21 @@ export const Template = args => (
       </Grid>
       <Grid item>
         <MsIcon fontSize="small" type={MilestoneIconType.COMPLETED} />
+      </Grid>
+    </Grid>
+    <Grid item xs={2} container direction="row" spacing={2}>
+      <Grid item>
+        <Typography>Fixed dates</Typography>
+      </Grid>
+      <Grid item>
+        <FixedDatesIcon
+          darkBackgroud= {false} 
+        />
+      </Grid>
+      <Grid item style={{backgroundColor: '#354A90'}}>
+        <FixedDatesIcon
+          darkBackgroud= {true} 
+        />
       </Grid>
     </Grid>
   </Grid>
