@@ -10,7 +10,6 @@ import {
   FixedDatesIcon,
   VacationSmileyIcon,
 } from '../../../../src/icons'
-import { IconColor, IconSize } from '../../../../src/icons/generic-icon'
 import {
   MilestoneIconType,
 } from '../../../../src/icons/milestone-constants'
@@ -99,12 +98,12 @@ export const Template = args => (
       </Grid>
       <Grid item>
         <FixedDatesIcon
-          darkBackgroud= {false} 
+          darkBackgroud={false}
         />
       </Grid>
-      <Grid item style={{backgroundColor: '#354A90'}}>
+      <Grid item style={{ backgroundColor: '#354A90' }}>
         <FixedDatesIcon
-          darkBackgroud= {true} 
+          darkBackgroud
         />
       </Grid>
     </Grid>
@@ -113,7 +112,7 @@ export const Template = args => (
         <Typography>Vacation smiley</Typography>
       </Grid>
       <Grid item>
-        <VacationSmileyIcon/>
+        <VacationSmileyIcon />
       </Grid>
     </Grid>
   </Grid>
