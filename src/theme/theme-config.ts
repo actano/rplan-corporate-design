@@ -12,6 +12,7 @@ export const COLOR_NAMES: ColorsPalette = {
   lightestBlue: '#EAEFFE',
   lightBlue: '#EAEFFE', // alternative name for backwards compatibility
   lighterBlue: '#ACBBFD',
+  veryLightBlue: '#CDD6FE',
   paleBlue: '#7B9AFE',
   blue: '#527BFE',
   strongerBlue: '#466ADA',

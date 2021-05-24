@@ -60,6 +60,7 @@ export type ColorsPalette = {
   lightGreen: string,
   lightBlue: string,
   lighterBlue: string,
+  veryLightBlue: string,
   dullBlue: string,
   paleBlue: string,
   cyan: string,
