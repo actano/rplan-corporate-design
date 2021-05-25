@@ -45,15 +45,15 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>(theme => ({
       case 'grey': {
         return {
           cursor: isClickable ? 'pointer' : 'auto',
-          color: theme.palette.colors.grey,
-          borderColor: theme.palette.colors.lightGrey,
+          color: theme.palette.colors.darkerGrey,
+          borderColor: theme.palette.colors.grey,
 
           '&:hover': isClickable ? {
             color: theme.palette.colors.blue,
             borderColor: theme.palette.colors.blue,
           } : {
-            color: theme.palette.colors.grey,
-            borderColor: theme.palette.colors.lightGrey,
+            color: theme.palette.colors.darkerGrey,
+            borderColor: theme.palette.colors.grey,
           },
         }
       }

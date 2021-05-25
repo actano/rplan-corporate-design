@@ -229,7 +229,7 @@ export const themeConfig: CorporateDesignThemeOptions = {
     },
     MuiIconButton: {
       root: {
-        color: COLOR_NAMES.grey,
+        color: COLOR_NAMES.darkerGrey,
       },
     },
     MuiOutlinedInput: {
