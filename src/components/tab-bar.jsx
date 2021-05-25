@@ -20,7 +20,7 @@ const styles = (theme) => {
       textTransform: 'initial',
       lineHeight: `${theme.spacing(2)}px`,
       letterSpacing: `${theme.spacing(0.0625)}px`,
-      color: colors.grey,
+      color: colors.darkGrey,
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
       padding: theme.spacing(0, 0, 1.625, 0),
@@ -46,6 +46,7 @@ const _TabBar = ({
       tabs.map(tab => (
         <Tab
           label={tab.text}
+          textColor="red"
           key={tab.text}
           classes={{
             root: classnames(
