@@ -4,7 +4,6 @@ import { Meta, Story } from '@storybook/addon-docs/blocks'
 import {
   WarningIcon,
   WarningIconWithTooltip,
-  MilestoneIcon,
   MsIcon,
   SummaryIcon,
   FixedDatesIcon,
@@ -34,14 +33,8 @@ export const Template = args => (
       <Grid item>
         <Typography>Fixed Milestone</Typography>
       </Grid>
-      <Grid item style={{ color: '#466ADA' }}>
-        <MilestoneIcon isFlexible={false} />
-      </Grid>
       <Grid item>
         <Typography>Flexible Milestone</Typography>
-      </Grid>
-      <Grid item style={{ color: '#466ADA' }}>
-        <MilestoneIcon isFlexible />
       </Grid>
     </Grid>
     <Grid item xs={2} container direction="row" spacing={2}>

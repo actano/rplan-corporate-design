@@ -7,18 +7,17 @@ interface StyleProps {
     color: string,
     hoverColor: string,
     margin: string,
-    flex: string,
     cursor: string,
 }
 
 const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   iconStyle: ({
-    color, size, hoverColor, margin, flex, cursor,
+    color, size, hoverColor, margin, cursor,
   }) => ({
     color: theme.palette.colors[color],
     fontSize: size,
     margin,
-    flex,
+    flex: 'none',
     cursor,
     '&:hover': {
       color: color !== 'inherit' ? theme.palette.colors[hoverColor] : color,
@@ -37,17 +36,9 @@ export enum IconMargin {
     auto = 'auto ',
     zero = '0px ',
     fourPixel = '4px ',
-    /** @deprecated typo use eightPixel */
-    eigthPixel = '8px ',
     eightPixel = '8px ',
     sixteenPixel = '16px ',
     twentyfourPixel = '24px ',
-}
-
-export enum IconFlex {
-    none = 'none',
-    auto = 'auto',
-    initial = 'initial',
 }
 
 export enum IconCursor {
@@ -82,7 +73,6 @@ interface IconProps<T = {}> {
     marginDown?: IconMargin,
     marginLeft?: IconMargin,
     marginTop?: IconMargin,
-    flex?: IconFlex,
     onClick?: (event: React.MouseEvent<HTMLElement>) => void,
     onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
     onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
@@ -103,13 +93,12 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
     marginDown = IconMargin.zero,
     marginLeft = IconMargin.zero,
     marginTop = IconMargin.zero,
-    flex = '',
     cursor = '',
     iconProps = {},
   } = props
   const margin = marginTop + marginRight + marginDown + marginLeft
   const classes = useStyles({
-    color, size, hoverColor, margin, flex, cursor,
+    color, size, hoverColor, margin, cursor,
   })
   return (
     <Icon
