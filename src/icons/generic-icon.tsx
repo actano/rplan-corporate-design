@@ -47,6 +47,7 @@ export enum IconCursor {
 
 export enum IconColor {
     grey = 'grey',
+    darkerGrey = 'darkerGrey',
     darkGrey = 'darkGrey',
     red = 'red',
     white = 'white',
@@ -86,7 +87,7 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
     onMouseEnter,
     onMouseLeave,
     Icon,
-    color = IconColor.grey,
+    color = IconColor.darkerGrey,
     size = IconSize.large,
     hoverColor = color,
     marginRight = IconMargin.zero,
