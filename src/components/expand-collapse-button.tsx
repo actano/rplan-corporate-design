@@ -32,9 +32,9 @@ const useStyles = makeStyles<CorporateDesignTheme>((theme) => {
     iconButton: {
       cursor: 'pointer',
       padding: 0,
-      color: theme.palette.colors.grey,
+      color: theme.palette.colors.darkerGrey,
       '&:hover': {
-        color: theme.palette.colors.darkerGrey,
+        color: theme.palette.colors.darkGrey,
         backgroundColor: 'transparent',
       },
       marginRight: theme.spacing(0.5),
