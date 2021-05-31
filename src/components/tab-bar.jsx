@@ -21,12 +21,19 @@ const styles = (theme) => {
       lineHeight: `${theme.spacing(2)}px`,
       letterSpacing: `${theme.spacing(0.0625)}px`,
       color: colors.darkGrey,
+      opacity: '1',
       minWidth: 'initial',
       minHeight: theme.spacing(3.5),
       padding: theme.spacing(0, 0, 1.625, 0),
     },
     standardVariant: {
       marginRight: theme.spacing(5),
+    },
+    selectedTab: {
+      color: colors.strongerBlue,
+    },
+    indicator: {
+      border: `1px solid ${colors.strongerBlue}`,
     },
   }
 }
@@ -35,24 +42,23 @@ const _TabBar = ({
   className, tabs, onChange, classes, selectedTabIndex, tabsFullWidth,
 }) => (
   <Tabs
+    classes={{ indicator: classes.indicator }}
     className={classnames(className, classes.menuRow)}
     value={selectedTabIndex}
     onChange={onChange}
-    indicatorColor="primary"
-    textColor="primary"
     variant={tabsFullWidth ? 'fullWidth' : 'standard'}
   >
     {
       tabs.map(tab => (
         <Tab
           label={tab.text}
-          textColor="red"
           key={tab.text}
           classes={{
             root: classnames(
               classes.menuEntryRoot,
               !tabsFullWidth ? classes.standardVariant : null,
             ),
+            selected: classes.selectedTab,
           }}
           {...testIdProp(tab.testId)}
         />
