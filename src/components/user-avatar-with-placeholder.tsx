@@ -97,7 +97,9 @@ interface UserAvatarWithPlaceholderProps {
   variant?: UserAvatarWithPlaceholderVariant,
   disabled?: boolean,
   displayUserNameOnHover?: boolean
+  projectResponsible?: boolean,
   enablePlaceholder?: boolean,
+  tooltipText?: string | ((userName: string) => string),
 }
 
 const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
@@ -109,6 +111,7 @@ const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
   variant = UserAvatarWithPlaceholderVariant.grey,
   displayUserNameOnHover = false,
   enablePlaceholder = true,
+  tooltipText,
 }) => {
   const isClickable = !!onClick && !disabled
   const hasUser = !isEmpty(user)
@@ -147,7 +150,8 @@ const UserAvatarWithPlaceholder: React.FC<UserAvatarWithPlaceholderProps> = ({
   if (!displayUserNameOnHover) {
     return avatarElement
   }
-  return <CommonTooltip title={userName}>{avatarElement}</CommonTooltip>
+  const tooltipValue = typeof tooltipText === 'function' ? tooltipText(userName) : tooltipText || userName
+  return (<CommonTooltip title={tooltipValue}>{avatarElement}</CommonTooltip>)
 }
 
 export {
