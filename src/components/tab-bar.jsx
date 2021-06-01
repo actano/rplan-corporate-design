@@ -34,6 +34,7 @@ const styles = (theme) => {
     },
     indicator: {
       border: `1px solid ${colors.strongerBlue}`,
+      backgroundColor: colors.strongerBlue,
     },
   }
 }
