@@ -96,8 +96,7 @@ interface UserAvatarWithPlaceholderProps {
   size?: UserAvatarSize,
   variant?: UserAvatarWithPlaceholderVariant,
   disabled?: boolean,
-  displayUserNameOnHover?: boolean
-  projectResponsible?: boolean,
+  displayUserNameOnHover?: boolean,
   enablePlaceholder?: boolean,
   tooltipText?: string | ((userName: string) => string),
 }
