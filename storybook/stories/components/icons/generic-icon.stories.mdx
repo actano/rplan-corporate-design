@@ -1,0 +1,83 @@
+import {ArgsTable, Meta, Story} from '@storybook/addon-docs/blocks'
+import {boolean} from '@storybook/addon-knobs'
+import {Grid} from '@material-ui/core'
+
+import { GenericIcon } from '../../../../src/icons'
+import { decorators } from '../../decorators'
+import {IconCursor, IconHoverColor, IconSize, SummaryIcon} from "../../../../lib";
+import {assertNever} from "@rplan/allex-type-helpers";
+
+<Meta
+    title="Components/Icons/GenericIcon"
+    decorators={decorators}
+/>
+
+export const Template = () => {
+    const small = IconSize.small
+    const medium = IconSize.medium
+    const large = IconSize.large
+    const largePlus = IconSize.largePlus
+    const hoverColor = IconHoverColor.blue
+    const withHover = boolean('with hover effect', false)
+    const cursor = boolean('with pointer by IconButton', false)
+    return (
+        <Grid container direction="row" spacing={3}>
+            <Grid item>
+                <GenericIcon
+                    size={small}
+                    Icon={SummaryIcon}
+                    cursor={cursor ? IconCursor.pointer : null}
+                    hoverColor={withHover ? hoverColor : null}
+                />
+                <Typography>
+                    small
+                </Typography>
+            </Grid>
+            <Grid item>
+                <GenericIcon
+                    size={medium}
+                    Icon={SummaryIcon}
+                    cursor={cursor ? IconCursor.pointer : null}
+                    hoverColor={withHover ? hoverColor : null}
+                />
+                <Typography>
+                    medium
+                </Typography>
+            </Grid>
+            <Grid item>
+                <GenericIcon
+                    size={large}
+                    Icon={SummaryIcon}
+                    cursor={cursor ? IconCursor.pointer : null}
+                    hoverColor={withHover ? hoverColor : null}
+                />
+                <Typography>
+                    large
+                </Typography>
+            </Grid>
+            <Grid item>
+                <GenericIcon
+                    size={largePlus}
+                    Icon={SummaryIcon}
+                    cursor={cursor ? IconCursor.pointer : null}
+                    hoverColor={withHover ? hoverColor : null}
+                />
+                <Typography>
+                    largePlus
+                </Typography>
+            </Grid>
+        </Grid>
+    )
+}
+
+# Generic icon
+
+## Component API
+<ArgsTable of={GenericIcon}/>
+
+<Story
+    name="GenericIcon"
+>
+    {Template.bind({})}
+</Story>
+
