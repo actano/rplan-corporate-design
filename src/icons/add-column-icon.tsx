@@ -42,7 +42,7 @@ const Icon = React.forwardRef<any, AddColumnIconProps>((props, ref) => (
              12.00,18.00 12.00,16.00 12.00,16.00
              12.00,16.00 15.00,16.00 15.00,16.00
              15.00,16.00 15.00,13.00 15.00,13.00 Z"
-      fill={props.hover ? COLOR_NAMES.blue : COLOR_NAMES.grey}
+      fill={props.hover ? COLOR_NAMES.blue : COLOR_NAMES.darkerGrey}
     />
   </SvgIcon>
 ))
