@@ -67,7 +67,7 @@ export enum IconHoverColor {
 
 export type SupportedGenericIconProps = MaterialUiIconProps | SvgIconProps
 
-interface IconProps<T extends SupportedGenericIconProps = {}> {
+interface GenericIconProps<T extends SupportedGenericIconProps = {}> {
     size?: IconSize,
     Icon: ComponentType<T>,
     color?: IconColor,
@@ -83,7 +83,7 @@ interface IconProps<T extends SupportedGenericIconProps = {}> {
     iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
 }
 
-function GenericIcon_<T extends SupportedGenericIconProps>(props: IconProps<T>, ref) {
+function GenericIcon_<T extends SupportedGenericIconProps>(props: GenericIconProps<T>, ref) {
   const {
     onClick,
     onMouseEnter,
@@ -119,10 +119,13 @@ function GenericIcon_<T extends SupportedGenericIconProps>(props: IconProps<T>, 
 
 const GenericIconRef = React.forwardRef(GenericIcon_)
 
-function GenericIcon<T extends SupportedGenericIconProps>(props: IconProps<T>) {
+function GenericIcon<T extends SupportedGenericIconProps>(props: GenericIconProps<T>) {
   // @ts-ignore
   // `forwardRef` replaces the generic type T with `unknown`, therefore we must cast here
   return <GenericIconRef {...props} />
 }
 
-export { GenericIcon }
+export {
+  GenericIcon,
+  GenericIconProps,
+}
