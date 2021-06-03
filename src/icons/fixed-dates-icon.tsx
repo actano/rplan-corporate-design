@@ -1,14 +1,18 @@
 import React from 'react'
-import { SvgIcon } from '@material-ui/core'
+import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import { COLOR_NAMES } from '../theme/theme-config'
 import { GenericIcon } from './generic-icon'
 
-type FixedDatesIconProps = {
+interface FixedDatesIconProps extends SvgIconProps {
   darkBackgroud: boolean,
 }
 
-const Icon = React.forwardRef<any, FixedDatesIconProps>((props, ref) => (
+const Icon = React.forwardRef<any, FixedDatesIconProps>((
+  props,
+  ref,
+) => (
   <SvgIcon
+    {...props}
     ref={ref}
   >
     <path

@@ -1,14 +1,15 @@
 import React from 'react'
-import { SvgIcon } from '@material-ui/core'
+import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import { COLOR_NAMES } from '../theme/theme-config'
 import { GenericIcon } from './generic-icon'
 
-type AddColumnIconProps = {
+interface AddColumnIconProps extends SvgIconProps {
   hover?: boolean,
 }
 
 const Icon = React.forwardRef<any, AddColumnIconProps>((props, ref) => (
   <SvgIcon
+    {...props}
     ref={ref}
   >
     <path

@@ -1,5 +1,5 @@
 import React, { ComponentType } from 'react'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, SvgIconProps, IconProps as MaterialUiIconProps } from '@material-ui/core'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 interface StyleProps {
@@ -65,9 +65,11 @@ export enum IconHoverColor {
     blue = 'blue',
 }
 
-interface IconProps<T = {}> {
+export type SupportedGenericIconProps = MaterialUiIconProps | SvgIconProps
+
+interface IconProps<T extends SupportedGenericIconProps = {}> {
     size?: IconSize,
-    Icon: ComponentType<any>,
+    Icon: ComponentType<T>,
     color?: IconColor,
     hoverColor?: IconHoverColor,
     marginRight?: IconMargin,
@@ -81,7 +83,7 @@ interface IconProps<T = {}> {
     iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
 }
 
-function GenericIcon_<T>(props: IconProps<T>, ref) {
+function GenericIcon_<T extends SupportedGenericIconProps>(props: IconProps<T>, ref) {
   const {
     onClick,
     onMouseEnter,
@@ -102,6 +104,8 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
     color, size, hoverColor, margin, cursor,
   })
   return (
+    // We cannot ensure that `iconProps` is satisfying all properties of generic subtype T.
+    // @ts-ignore-next-line
     <Icon
       className={classes.iconStyle}
       ref={ref}
@@ -113,6 +117,12 @@ function GenericIcon_<T>(props: IconProps<T>, ref) {
   )
 }
 
-const GenericIcon = React.forwardRef(GenericIcon_)
+const GenericIconRef = React.forwardRef(GenericIcon_)
+
+function GenericIcon<T extends SupportedGenericIconProps>(props: IconProps<T>) {
+  // @ts-ignore
+  // `forwardRef` replaces the generic type T with `unknown`, therefore we must cast here
+  return <GenericIconRef {...props} />
+}
 
 export { GenericIcon }
