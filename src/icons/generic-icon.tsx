@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react'
+import React, { ComponentType, Ref } from 'react'
 import { makeStyles, SvgIconProps, IconProps as MaterialUiIconProps } from '@material-ui/core'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
@@ -25,14 +25,14 @@ const useStyles = makeStyles<CorporateDesignTheme, StyleProps>(theme => ({
   }),
 }))
 
-export enum IconSize {
+enum IconSize {
     small = '16px',
     medium = '20px',
     large = '24px',
     largePlus = '32px'
 }
 
-export enum IconMargin {
+enum IconMargin {
     auto = 'auto ',
     zero = '0px ',
     fourPixel = '4px ',
@@ -41,11 +41,11 @@ export enum IconMargin {
     twentyfourPixel = '24px ',
 }
 
-export enum IconCursor {
+enum IconCursor {
     pointer = 'pointer',
 }
 
-export enum IconColor {
+enum IconColor {
     grey = 'grey',
     darkerGrey = 'darkerGrey',
     darkGrey = 'darkGrey',
@@ -59,31 +59,33 @@ export enum IconColor {
     inherit = 'inherit',
 }
 
-export enum IconHoverColor {
+enum IconHoverColor {
     grey = 'grey',
     strongerBlue = 'strongerBlue',
     blue = 'blue',
 }
 
-export type SupportedGenericIconProps = MaterialUiIconProps | SvgIconProps
+type SupportedWrappedIconProps = MaterialUiIconProps | SvgIconProps
 
-interface GenericIconProps<T extends SupportedGenericIconProps = {}> {
-    size?: IconSize,
-    Icon: ComponentType<T>,
-    color?: IconColor,
-    hoverColor?: IconHoverColor,
-    marginRight?: IconMargin,
-    marginDown?: IconMargin,
-    marginLeft?: IconMargin,
-    marginTop?: IconMargin,
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void,
-    onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
-    onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
-    cursor?: IconCursor,
-    iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
+interface GenericIconProps<T extends SupportedWrappedIconProps = {}> {
+  Icon: ComponentType<T>,
+  iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
+  size?: IconSize,
+  color?: IconColor,
+  hoverColor?: IconHoverColor,
+  marginRight?: IconMargin,
+  marginDown?: IconMargin,
+  marginLeft?: IconMargin,
+  marginTop?: IconMargin,
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void,
+  onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void,
+  onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void,
+  cursor?: IconCursor,
 }
 
-function GenericIcon_<T extends SupportedGenericIconProps>(props: GenericIconProps<T>, ref) {
+type GenericIconPropsWithRef<T> = GenericIconProps<T> & { ref?: Ref<any> }
+
+function GenericIcon_<T extends SupportedWrappedIconProps>(props: GenericIconProps<T>, ref) {
   const {
     onClick,
     onMouseEnter,
@@ -117,15 +119,29 @@ function GenericIcon_<T extends SupportedGenericIconProps>(props: GenericIconPro
   )
 }
 
-const GenericIconRef = React.forwardRef(GenericIcon_)
+const GenericIconForwardRef = React.forwardRef(GenericIcon_)
 
-function GenericIcon<T extends SupportedGenericIconProps>(props: GenericIconProps<T>) {
+function GenericIcon<T extends SupportedWrappedIconProps>(
+  props: GenericIconPropsWithRef<T>,
+) {
   // @ts-ignore
   // `forwardRef` replaces the generic type T with `unknown`, therefore we must cast here
-  return <GenericIconRef {...props} />
+  return <GenericIconForwardRef {...props} />
 }
+
+/**
+ * This type can be used for a Component that wraps a `GenericIcon` with a specific icon.
+ */
+type GenericIconWrapperProps<T extends SupportedWrappedIconProps> = Omit<GenericIconProps<T>, 'Icon'>
 
 export {
   GenericIcon,
   GenericIconProps,
+  GenericIconWrapperProps,
+  SupportedWrappedIconProps,
+  IconSize,
+  IconMargin,
+  IconCursor,
+  IconColor,
+  IconHoverColor,
 }
