@@ -1,16 +1,13 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@material-ui/core'
 
-import { COLOR_NAMES } from '../theme/theme-config'
-import { GenericIcon } from './generic-icon'
+import { GenericIcon, IconColor, IconHoverColor } from './generic-icon'
 
 interface AddColumnIconProps {
   hover?: boolean,
 }
 
-type IconProps = AddColumnIconProps & SvgIconProps
-
-const Icon = React.forwardRef<any, IconProps>((props, ref) => (
+const Icon = React.forwardRef<any, SvgIconProps>((props, ref) => (
   <SvgIcon
     {...props}
     ref={ref}
@@ -46,11 +43,14 @@ const Icon = React.forwardRef<any, IconProps>((props, ref) => (
              12.00,18.00 12.00,16.00 12.00,16.00
              12.00,16.00 15.00,16.00 15.00,16.00
              15.00,16.00 15.00,13.00 15.00,13.00 Z"
-      fill={props.hover ? COLOR_NAMES.blue : COLOR_NAMES.darkerGrey}
     />
   </SvgIcon>
 ))
 
 export const AddColumnIcon = (props: AddColumnIconProps) => (
-  <GenericIcon Icon={Icon} iconProps={props} />
+  <GenericIcon
+    Icon={Icon}
+    color={props.hover ? IconColor.blue : IconColor.darkerGrey}
+    hoverColor={IconHoverColor.blue}
+  />
 )
