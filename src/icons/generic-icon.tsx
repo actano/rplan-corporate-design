@@ -67,7 +67,7 @@ enum IconHoverColor {
 
 type SupportedWrappedIconProps = MaterialUiIconProps | SvgIconProps
 
-interface GenericIconProps<T extends SupportedWrappedIconProps = {}> {
+interface GenericIconProps<T extends SupportedWrappedIconProps> {
   Icon: ComponentType<T>,
   iconProps?: Omit<T, 'className' | 'classes' | 'styles'>,
   size?: IconSize,
