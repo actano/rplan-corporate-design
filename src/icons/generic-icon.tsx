@@ -124,13 +124,17 @@ const GenericIconForwardRef = React.forwardRef(GenericIcon_)
 function GenericIcon<T extends SupportedWrappedIconProps>(
   props: GenericIconPropsWithRef<T>,
 ) {
-  // @ts-ignore
-  // `forwardRef` replaces the generic type T with `unknown`, therefore we must cast here
+  // `forwardRef` replaces the generic type T with `unknown`.
+  // To circumvent that, we wrap the forward-ref-component with a component
+  // that provides the correct generic type parameter `T`.
+  // @ts-ignore-next-line
   return <GenericIconForwardRef {...props} />
 }
 
 /**
- * This type can be used for a Component that wraps a `GenericIcon` with a specific icon.
+ * This type can be used for a specific icon component,
+ * that uses the `GenericIcon` internally and provides
+ * the same API externally (excluding the `Icon` property).
  */
 type GenericIconWrapperProps<T extends SupportedWrappedIconProps> = Omit<GenericIconProps<T>, 'Icon'>
 
