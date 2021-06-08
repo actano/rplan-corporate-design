@@ -35,45 +35,45 @@ export const Template = () => {
   const marginBottom = select('margin bottom', iconMargin, iconMargin.zero)
   const marginLeft = select('margin left', iconMargin, iconMargin.zero)
   return (
-        <Grid container spacing={2}>
-            {
-                Object.keys(IconSize).map((sizeKey) => {
-                  const size = IconSize[sizeKey]
-                  const onClick = actions('onClick')
-                  const onMouseEnter = actions('onMouseEnter')
-                  const onMouseLeave = actions('onMouseLeave')
-                  return (
-                        <>
-                            <Grid item>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                    <Typography>
-                                        {sizeKey}
-                                        :
-                                        {size}
-                                    </Typography>
-                                    <div style={{ border: '1px solid grey' }}>
-                                        <GenericIcon
-                                          size={size}
-                                          Icon={SummaryIcon}
-                                          color={colors}
-                                          cursor={cursor ? IconCursor.pointer : null}
-                                          hoverColor={colorsOnHover}
-                                          marginLeft={marginLeft}
-                                          marginTop={marginTop}
-                                          marginDown={marginBottom}
-                                          marginRight={marginRight}
-                                          {...onClick}
-                                          {...onMouseEnter}
-                                          {...onMouseLeave}
-                                        />
-                                    </div>
-                                </div>
-                            </Grid>
-                        </>
-                  )
-                })
-            }
-        </Grid>
+    <Grid container spacing={2}>
+    {
+      Object.keys(IconSize).map((sizeKey) => {
+        const size = IconSize[sizeKey]
+        const onClick = actions('onClick')
+        const onMouseEnter = actions('onMouseEnter')
+        const onMouseLeave = actions('onMouseLeave')
+        return (
+          <>
+            <Grid item>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Typography>
+                  {sizeKey}
+                  :
+                  {size}
+                </Typography>
+                <div style={{ border: '1px solid grey' }}>
+                  <GenericIcon
+                    size={size}
+                    Icon={SummaryIcon}
+                    color={colors}
+                    cursor={cursor ? IconCursor.pointer : null}
+                    hoverColor={colorsOnHover}
+                    marginLeft={marginLeft}
+                    marginTop={marginTop}
+                    marginDown={marginBottom}
+                    marginRight={marginRight}
+                    {...onClick}
+                    {...onMouseEnter}
+                    {...onMouseLeave}
+                  />
+                </div>
+              </div>
+            </Grid>
+          </>
+        )
+      })
+    }
+    </Grid>
   )
 }
 
