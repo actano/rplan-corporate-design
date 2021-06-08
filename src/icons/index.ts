@@ -1,3 +1,4 @@
+export * from './edit-icon'
 export * from './warning-icon'
 export * from './warning-icon-with-tooltip'
 export * from './summary-icon'
