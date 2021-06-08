@@ -9,8 +9,9 @@ import {
 
 export const GroupIcon = (props: GenericIconWrapperProps<SvgIconProps>) => (
   <GenericIcon
+    color={IconColor.inherit}
+    size={IconSize.medium}
     {...props}
-    {...{ color: IconColor.inherit, size: IconSize.medium }}
     Icon={Icon}
   />
 )

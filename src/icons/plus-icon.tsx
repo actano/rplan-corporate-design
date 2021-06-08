@@ -7,8 +7,8 @@ import { GenericIcon, GenericIconWrapperProps, IconColor } from './generic-icon'
 
 export const PlusIcon = (props: GenericIconWrapperProps<SvgIconProps>) => (
   <GenericIcon
+    color={IconColor.blue}
     {...props}
-    {...{ color: IconColor.blue }}
     Icon={Icon}
   />
 )
