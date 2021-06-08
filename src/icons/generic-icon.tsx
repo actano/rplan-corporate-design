@@ -101,7 +101,7 @@ function GenericIcon_<T extends SupportedWrappedIconProps>(props: GenericIconPro
     cursor = '',
     iconProps = {},
   } = props
-  const margin = marginTop + marginRight + marginDown + marginLeft
+  const margin = `${marginTop} ${marginRight} ${marginDown} ${marginLeft}`
   const classes = useStyles({
     color, size, hoverColor, margin, cursor,
   })

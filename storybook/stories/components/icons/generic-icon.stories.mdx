@@ -4,6 +4,8 @@ import { actions } from '@storybook/addon-actions'
 import { Grid } from '@material-ui/core'
 import keyBy from 'lodash/keyBy'
 import mapValues from 'lodash/mapValues'
+import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined'
+import DeleteOutlined from '@material-ui/icons/DeleteOutlined'
 
 import Typography from '@material-ui/core/Typography'
 import { decorators } from '../../decorators'
@@ -23,7 +25,29 @@ import {
 />
 
 export const Template = () => {
+  const icons = {
+    SummaryIcon: 'SummaryIcon',
+    GroupAddOutlinedIcon: 'GroupAddOutlinedIcon',
+    DeleteOutlined: 'DeleteOutlined',
+  }
+  // helper functions
+  const showBorder = boolean('show border for reference', false)
   const mapEnum = e => mapValues(keyBy(Object.keys(e), x => x), x => e[x])
+  const getIcon = (icon) => {
+    switch (icon) {
+      default:
+      case 'SummaryIcon': {
+        return SummaryIcon
+      }
+      case 'GroupAddOutlinedIcon': {
+        return GroupAddOutlinedIcon
+      }
+      case 'DeleteOutlined': {
+        return DeleteOutlined
+      }
+    }
+  }
+  // properties
   const cursor = boolean('with pointer', false)
   const iconColors = mapEnum(IconColor)
   const hoverColors = mapEnum(IconHoverColor)
@@ -34,6 +58,8 @@ export const Template = () => {
   const marginRight = select('margin right', iconMargin, iconMargin.zero)
   const marginBottom = select('margin bottom', iconMargin, iconMargin.zero)
   const marginLeft = select('margin left', iconMargin, iconMargin.zero)
+  const iconSelect = select('choose icon', icons, icons.SummaryIcon)
+  const selectedIcon = getIcon(iconSelect)
   return (
     <Grid container spacing={2}>
     {
@@ -51,10 +77,10 @@ export const Template = () => {
                   :
                   {size}
                 </Typography>
-                <div style={{ border: '1px solid grey' }}>
+                <div style={{ border: showBorder ? '1px solid grey' : '' }}>
                   <GenericIcon
                     size={size}
-                    Icon={SummaryIcon}
+                    Icon={selectedIcon}
                     color={colors}
                     cursor={cursor ? IconCursor.pointer : null}
                     hoverColor={colorsOnHover}
