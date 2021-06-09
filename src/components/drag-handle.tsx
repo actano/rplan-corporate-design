@@ -1,13 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { DraggableProvidedDragHandleProps } from 'react-beautiful-dnd'
 import DragIndicator from '@material-ui/icons/DragIndicator'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 interface DragHandleProps {
   className?: string,
-  dragHandleProps: DraggableProvidedDragHandleProps,
+  dragHandleProps: object,
   [otherProp: string]: any,
 }
 
