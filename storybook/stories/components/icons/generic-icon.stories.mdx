@@ -15,7 +15,7 @@ import {
   IconHoverColor,
   IconMargin,
   IconSize,
-  SummaryIcon,
+  GenericIcon,
 } from '../../../../src/icons'
 
 <Meta
@@ -25,7 +25,6 @@ import {
 
 export const Template = () => {
   const icons = {
-    SummaryIcon: 'SummaryIcon',
     GroupAddOutlinedIcon: 'GroupAddOutlinedIcon',
     DeleteOutlined: 'DeleteOutlined',
   }
@@ -35,9 +34,6 @@ export const Template = () => {
   const getIcon = (icon) => {
     switch (icon) {
       default:
-      case 'SummaryIcon': {
-        return SummaryIcon
-      }
       case 'GroupAddOutlinedIcon': {
         return GroupAddOutlinedIcon
       }
@@ -57,7 +53,7 @@ export const Template = () => {
   const marginRight = select('margin right', iconMargin, iconMargin.zero)
   const marginBottom = select('margin bottom', iconMargin, iconMargin.zero)
   const marginLeft = select('margin left', iconMargin, iconMargin.zero)
-  const iconSelect = select('choose icon', icons, icons.SummaryIcon)
+  const iconSelect = select('choose icon', icons, icons.GenericIcon)
   const selectedIcon = getIcon(iconSelect)
   return (
     <Grid container spacing={2}>
@@ -77,7 +73,7 @@ export const Template = () => {
                   {size}
                 </Typography>
                 <div style={{ border: showBorder ? '1px solid grey' : '' }}>
-                  <SummaryIcon
+                  <GenericIcon
                     size={size}
                     Icon={selectedIcon}
                     color={colors}
