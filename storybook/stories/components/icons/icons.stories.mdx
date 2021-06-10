@@ -8,6 +8,8 @@ import {
   SummaryIcon,
   FixedDatesIcon,
   VacationSmileyIcon,
+  EditIcon,
+  IconHoverColor,
 } from '../../../../src/icons'
 import {
   MilestoneIconType,
@@ -110,6 +112,14 @@ export const Template = args => (
       </Grid>
       <Grid item>
         <AddColumnIcon />
+      </Grid>
+    </Grid>
+    <Grid item xs={12} container direction="row" spacing={2}>
+      <Grid item>
+        <Typography>EditIcon</Typography>
+      </Grid>
+      <Grid item>
+        <EditIcon hoverColor={IconHoverColor.blue} />
       </Grid>
     </Grid>
   </Grid>
