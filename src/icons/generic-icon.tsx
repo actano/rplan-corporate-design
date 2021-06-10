@@ -138,6 +138,7 @@ type GenericIconWrapperProps<T extends SupportedWrappedIconProps> = Omit<Generic
 
 export {
   GenericIcon,
+  GenericIcon_,
   GenericIconProps,
   GenericIconWrapperProps,
   SupportedWrappedIconProps,
