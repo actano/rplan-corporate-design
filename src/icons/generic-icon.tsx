@@ -2,6 +2,16 @@ import React, { ComponentType } from 'react'
 import { makeStyles, SvgIconProps, IconProps as MaterialUiIconProps } from '@material-ui/core'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
+/*
+Workaround approved by Christoph Vitz:
+
+Reacts definition of the "forwardRef" replaces the generic
+type T with `unknown`. Therefore the type information is lost. This
+redefinition fixes the problem so that the type can correctly inferred.
+
+// link: React with Typescript — Generics while using React.forwardRef
+Detailed description about the problem: https://stackoverflow.com/a/58473012
+ */
 declare module 'react' {
   function forwardRef<T, P = {}>(
     render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
