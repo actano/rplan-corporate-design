@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import { CommonTooltip } from '../components'
+import { CommonTooltip } from '../components/common-tooltip'
 import { WarningIcon } from './warning-icon'
 
 const WarningIconWithRef = React.forwardRef((props, ref) => (

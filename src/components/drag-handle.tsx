@@ -1,8 +1,12 @@
+import classnames from 'classnames'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import DragIndicator from '@material-ui/icons/DragIndicator'
 
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import {
+  GenericIcon, IconColor, IconHoverColor, IconSize,
+} from '../icons'
 
 interface DragHandleProps {
   className?: string,
@@ -11,14 +15,12 @@ interface DragHandleProps {
 }
 
 const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
-  dragIndicator: {
-    width: '16px',
-    flex: 'none',
-    color: theme.palette.colors.grey,
+  dragHandle: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
 
-    '&:hover': {
-      color: theme.palette.colors.blue,
-    },
+    height: theme.spacing(3),
   },
 }))
 
@@ -28,14 +30,18 @@ const DragHandle: React.FC<DragHandleProps> = ({
   ...otherProps
 }) => {
   const classes = useStyles()
-
   return (
     <div
-      className={className}
+      className={classnames(className, classes.dragHandle)}
       {...dragHandleProps}
       {...otherProps}
     >
-      <DragIndicator className={classes.dragIndicator} />
+      <GenericIcon
+        Icon={DragIndicator}
+        size={IconSize.small}
+        color={IconColor.grey}
+        hoverColor={IconHoverColor.blue}
+      />
     </div>
   )
 }
