@@ -6,7 +6,6 @@ import {
 } from './generic-icon'
 
 interface LinkedIconProps {
-  className?: string,
   linked?: boolean,
 }
 

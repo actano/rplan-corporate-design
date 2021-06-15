@@ -1,11 +1,6 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@material-ui/core'
-import { GenericIcon } from './generic-icon'
-
-interface SummaryIconProps {
-  className?: string,
-  [otherProp: string]: any,
-}
+import { GenericIcon, GenericIconWrapperProps } from './generic-icon'
 
 const Icon = React.forwardRef<any, SvgIconProps>((props, ref) => (
   <SvgIcon {...props} ref={ref}>
@@ -13,6 +8,6 @@ const Icon = React.forwardRef<any, SvgIconProps>((props, ref) => (
   </SvgIcon>
 ))
 
-export const SummaryIcon = (props: SummaryIconProps) => (
+export const SummaryIcon = (props: GenericIconWrapperProps<SvgIconProps>) => (
   <GenericIcon {...props} Icon={Icon} />
 )
