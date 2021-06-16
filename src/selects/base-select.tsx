@@ -105,7 +105,7 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
       ),
     }),
     dropdownIcon: ({ isOutlined }) => ({
-      color: colors.grey,
+      color: colors.darkerGrey,
       width: selectIconHeight,
       height: selectIconHeight,
       top: `calc(50% - (${selectIconHeight}px/2))`,

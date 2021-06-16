@@ -35,15 +35,16 @@ const useStyles = makeStyles<CorporateDesignTheme, StylesProps>((theme) => {
     selectMenuItem: ({ size, isIcon }) => ({
       fontSize: size === 'regular' ? '0.8125rem' : '0.75rem',
       padding: getPadding(theme, size, isIcon),
-      color: isIcon ? colors.grey : colors.darkGrey,
+      color: isIcon ? colors.darkerGrey : colors.darkGrey,
       '&:hover': {
         backgroundColor: colors.lightestGrey,
+        color: colors.darkestGrey,
       },
       '&:focus': {
         backgroundColor: colors.lightGrey,
       },
       '&$selectMenuItemSelected': {
-        color: isIcon ? colors.blue : colors.darkGrey,
+        color: isIcon ? colors.darkestGrey : colors.darkGrey,
         backgroundColor: colors.lightGrey,
         '&:hover': {
           backgroundColor: colors.lightGrey,
