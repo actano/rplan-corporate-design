@@ -1,0 +1,30 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { createMuiTheme, Grid } from '@material-ui/core'
+
+import { decorators } from '../../decorators'
+import themeConfig, { CustomFieldLabel } from '../../../../src'
+
+<Meta title="Components/Labels/Custom Fields" decorators={decorators} />
+
+export const TemplateCustomField = () => {
+  const theme = createMuiTheme(themeConfig)
+  return (
+    <Grid container direction="column" spacing={1}>
+      <Grid item>
+        <CustomFieldLabel bgColor={theme.palette.support.lightPeach}>Light</CustomFieldLabel>
+      </Grid>
+      <Grid item>
+        <CustomFieldLabel>Transparent</CustomFieldLabel>
+      </Grid>
+      <Grid item>
+        <CustomFieldLabel bgColor={theme.palette.support.dullBlue}>Dark</CustomFieldLabel>
+      </Grid>
+    </Grid>
+  )
+}
+
+# Badges
+
+<Story name="Default" args={{}}>
+  {TemplateCustomField.bind({})}
+</Story>
