@@ -169,7 +169,7 @@ const BaseSelect: React.FunctionComponent<BaseSelectProps> = ({
   )
 
   return (
-    <CommonTooltip title={tooltipText} open={isTooltipOpen}>
+    <CommonTooltip title={tooltipText} open={isTooltipOpen} leaveDelay={2000}>
       <FormControl
         variant={isOutlined ? 'outlined' : undefined}
         className={classnames(className, ownClasses.value)}
@@ -212,10 +212,13 @@ const BaseSelect: React.FunctionComponent<BaseSelectProps> = ({
             setIsTooltipOpen(false)
             onOpen(event)
           }}
-          onClose={event => onClose(event)}
+          onClose={onClose}
           onClick={(event) => {
             event.stopPropagation()
-            setIsTooltipOpen(false)
+            // this is a work around for a firefox bug
+            setTimeout(() => {
+              setIsTooltipOpen(false)
+            }, 50)
             onClick(event)
           }}
         >
