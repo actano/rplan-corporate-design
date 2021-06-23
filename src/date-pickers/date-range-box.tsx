@@ -1,10 +1,10 @@
-import React, { ReactNode, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core'
 import * as _locale from 'date-fns/locale'
 import { format } from 'date-fns'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
-import { CommonTooltip } from '../components'
 import { DatePickerButton } from './date-picker-button'
+import { withOptionalTooltip } from '../shared/with-optional-tooltip'
 
 interface ContainerStylesProps {
   noBorderLeft: boolean,
@@ -140,15 +140,6 @@ const DateRangeBoxContainer: React.FC<DateRangeBoxContainerProps> = ({
     </div>
   )
 }
-
-const withOptionalTooltip = (tooltip: string | undefined) =>
-  (node: ReactNode): ReactNode => (
-    tooltip != null ? (
-      <CommonTooltip title={tooltip}>
-        {node}
-      </CommonTooltip>
-    ) : node
-  )
 
 const isGerman = (language: string | undefined): boolean =>
   (language != null) && (language.split('-')[0] === 'de')

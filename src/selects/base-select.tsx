@@ -7,8 +7,8 @@ import {
 import ExpandIcon from '@material-ui/icons/ExpandMore'
 import classnames from 'classnames'
 
-import { CommonTooltip } from '../components/common-tooltip'
 import { CorporateDesignTheme } from '../theme/corporate-design-theme'
+import { withOptionalTooltip } from '../shared/with-optional-tooltip'
 
 let nextId = 0
 
@@ -146,7 +146,8 @@ const BaseSelect: React.FunctionComponent<BaseSelectProps> = ({
   [onChange])
 
   // This state handling is needed to prevent the tooltip staying open when the select is opened
-  const [isTooltipOpen, setIsTooltipOpen] = useState<boolean>(false)
+  const [selectIsOpen, setSelectIsOpen] = useState<boolean>(false)
+
   const inputLabel = useRef<HTMLLabelElement>(null)
   const [labelWidth, setLabelWidth] = useState<number>(0)
   const [inputId, setInputId] = useState<string | undefined>()
@@ -168,68 +169,75 @@ const BaseSelect: React.FunctionComponent<BaseSelectProps> = ({
     [],
   )
 
+  const withSelectTooltip = withOptionalTooltip(selectIsOpen ? undefined : tooltipText)
+
   return (
-    <CommonTooltip title={tooltipText} open={isTooltipOpen} leaveDelay={2000}>
-      <FormControl
-        variant={isOutlined ? 'outlined' : undefined}
-        className={classnames(className, ownClasses.value)}
-        disabled={disabled}
-      >
-        {
-          isOutlined ? (
-            <InputLabel ref={inputLabel} htmlFor={inputId}>
-              { label }
-            </InputLabel>
-          ) : undefined
-        }
-        <Select
-          value={value}
-          className={
-            classnames(
-              ownClasses.select,
-            )
-          }
-          classes={{
-            select: classnames(
-              ownClasses.selectElement,
-              classes.select,
-            ),
-            icon: ownClasses.dropdownIcon,
-          }}
-          input={
-            isOutlined ? (
-              <OutlinedInput
-                labelWidth={labelWidth}
-                id={inputId}
-              />
-            ) : undefined
-          }
-          onChange={_onChange}
-          IconComponent={ExpandIcon}
-          onMouseEnter={() => setIsTooltipOpen(true)}
-          onMouseLeave={() => setIsTooltipOpen(false)}
-          onOpen={(event) => {
-            setIsTooltipOpen(false)
-            onOpen(event)
-          }}
-          onClose={onClose}
-          onClick={(event) => {
-            event.stopPropagation()
-            // this is a work around for a firefox bug
-            setTimeout(() => {
-              setIsTooltipOpen(false)
-            }, 50)
-            onClick(event)
-          }}
-        >
-          { children }
-        </Select>
-      </FormControl>
-    </CommonTooltip>
+    <>
+      {
+        withSelectTooltip(
+          <FormControl
+            variant={isOutlined ? 'outlined' : undefined}
+            className={classnames(className, ownClasses.value)}
+            disabled={disabled}
+          >
+            {
+              isOutlined ? (
+                <InputLabel ref={inputLabel} htmlFor={inputId}>
+                  { label }
+                </InputLabel>
+              ) : undefined
+            }
+            <Select
+              open={selectIsOpen}
+              value={value}
+              className={
+                classnames(
+                  ownClasses.select,
+                )
+              }
+              classes={{
+                select: classnames(
+                  ownClasses.selectElement,
+                  classes.select,
+                ),
+                icon: ownClasses.dropdownIcon,
+              }}
+              input={
+                isOutlined ? (
+                  <OutlinedInput
+                    labelWidth={labelWidth}
+                    id={inputId}
+                  />
+                ) : undefined
+              }
+              onChange={_onChange}
+              IconComponent={ExpandIcon}
+              onOpen={(event) => {
+                setSelectIsOpen(true)
+                onOpen(event)
+              }}
+              onClose={(event) => {
+                setSelectIsOpen(false)
+                onClose(event)
+              }}
+              onAbort={() => {
+                setSelectIsOpen(false)
+              }}
+              onClick={(event) => {
+                event.stopPropagation()
+                onClick(event)
+              }}
+            >
+              {children}
+            </Select>
+          </FormControl>,
+        )}
+    </>
   )
 }
 
-export {
+export
+{
   BaseSelect,
   BaseSelectVariant,
   BaseSelectSize,
