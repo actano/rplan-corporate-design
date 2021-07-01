@@ -1,7 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react'
-import {
-  IconButton, Snackbar, SnackbarContent,
-} from '@material-ui/core'
+import { IconButton, Snackbar, SnackbarContent } from '@material-ui/core'
 import classNames from 'classnames'
 import CloseIcon from '@material-ui/icons/Close'
 import ErrorIcon from '@material-ui/icons/Error'
@@ -11,7 +9,7 @@ import { CorporateDesignTheme } from '../theme/corporate-design-theme'
 
 enum SnackBarTypes {
   error = 'error',
-  info = 'info'
+  info = 'info',
 }
 
 type SnackBarProps = {
@@ -19,11 +17,11 @@ type SnackBarProps = {
 }
 
 type Classes = {
-  root?: any,
-  content?: any,
-  message?: any,
-  icon?: any,
-  action?: any,
+  root?: any
+  content?: any
+  message?: any
+  icon?: any
+  action?: any
 }
 
 function getBackgroundColor(theme: CorporateDesignTheme, type: SnackBarTypes): string {
@@ -76,16 +74,18 @@ const useStyles = makeStyles<CorporateDesignTheme, SnackBarProps>(theme => ({
 }))
 
 const SnackBar: React.FunctionComponent<{
-  message?: JSX.Element | string,
-  type: SnackBarTypes,
-  open: boolean,
-  autoHideDuration?: number,
-  onClose?: Function,
-  classes?: Classes,
+  message?: JSX.Element | string
+  type: SnackBarTypes
+  open: boolean
+  autoHideDuration?: number
+  persistent?: boolean
+  onClose?: Function
+  classes?: Classes
 }> = ({
   message = '',
   type,
   open = true,
+  persistent,
   autoHideDuration,
   onClose = () => {},
   classes: userStyles = {},
@@ -96,15 +96,17 @@ const SnackBar: React.FunctionComponent<{
   useEffect(() => setIsOpen(open), [open])
 
   const hide = useCallback(() => {
-    setIsOpen(false)
+    if (!persistent) {
+      setIsOpen(false)
+    }
     onClose()
-  }, [onClose])
+  }, [onClose, persistent])
 
   return (
     <Snackbar
       className={classNames(userStyles.root, styles.root)}
       open={isOpen}
-      autoHideDuration={autoHideDuration}
+      autoHideDuration={persistent ? null : autoHideDuration}
       onClose={hide}
       anchorOrigin={{
         vertical: 'top',
@@ -117,22 +119,21 @@ const SnackBar: React.FunctionComponent<{
           message: classNames(userStyles.message, styles.message),
           action: classNames(userStyles.action, styles.action),
         }}
-        action={[
-          <IconButton
-            key="close"
-            color="inherit"
-            onClick={hide}
-            style={{}}
-          >
-            <CloseIcon />
-          </IconButton>,
-        ]}
+        action={
+          persistent
+            ? []
+            : [
+              <IconButton key="close" color="inherit" onClick={hide} style={{}}>
+                <CloseIcon />
+              </IconButton>,
+            ]
+        }
         message={(
           <React.Fragment>
             {getIcon(type, styles)}
             {message}
           </React.Fragment>
-        )}
+)}
       />
     </Snackbar>
   )
