@@ -81,6 +81,7 @@ const SnackBar: React.FunctionComponent<{
   persistent?: boolean
   onClose?: Function
   classes?: Classes
+  action?: React.ReactNode
 }> = ({
   message = '',
   type,
@@ -89,6 +90,7 @@ const SnackBar: React.FunctionComponent<{
   autoHideDuration,
   onClose = () => {},
   classes: userStyles = {},
+  action,
 }) => {
   const styles = useStyles({ type })
   const [isOpen, setIsOpen] = useState(open)
@@ -119,15 +121,14 @@ const SnackBar: React.FunctionComponent<{
           message: classNames(userStyles.message, styles.message),
           action: classNames(userStyles.action, styles.action),
         }}
-        action={
-          persistent
-            ? []
-            : [
-              <IconButton key="close" color="inherit" onClick={hide} style={{}}>
-                <CloseIcon />
-              </IconButton>,
-            ]
-        }
+        action={persistent ? action : (
+          <>
+            {action}
+            <IconButton key="close" color="inherit" onClick={hide} style={{}}>
+              <CloseIcon />
+            </IconButton>
+          </>
+        )}
         message={(
           <React.Fragment>
             {getIcon(type, styles)}
