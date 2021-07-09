@@ -24,6 +24,7 @@ const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
     color: theme.palette.colors.darkerGrey,
     border: 'none',
     padding: theme.spacing(0, 2),
+    whiteSpace: 'pre-line',
   },
   table: {
     tableLayout: 'fixed',
