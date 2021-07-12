@@ -100,8 +100,8 @@ const SnackBar: React.FunctionComponent<{
   const hide = useCallback(() => {
     if (!persistent) {
       setIsOpen(false)
+      onClose()
     }
-    onClose()
   }, [onClose, persistent])
 
   return (

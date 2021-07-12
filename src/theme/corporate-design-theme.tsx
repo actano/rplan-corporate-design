@@ -6,6 +6,7 @@ import {
   TypeBackground,
   TypeText,
 } from '@material-ui/core/styles/createPalette'
+import { ZIndex, ZIndexOptions } from '@material-ui/core/styles/zIndex'
 
 type BackgroundPalette = TypeBackground & {
   special: string,
@@ -110,12 +111,22 @@ interface CorporateDesignPaletteOptions extends PaletteOptions {
   colors: Partial<ColorsPalette>,
 }
 
+interface CorporateDesignZIndexOptions extends ZIndexOptions {
+  offlineSnackbar: number
+}
+
+interface CorporateDesignZIndex extends ZIndex {
+  offlineSnackbar: number
+}
+
 export interface CorporateDesignTheme extends Theme {
   palette: CorporateDesignPalette,
+  zIndex: CorporateDesignZIndex,
   breakpoints: Breakpoints,
 }
 
 export interface CorporateDesignThemeOptions extends ThemeOptions {
   palette: CorporateDesignPaletteOptions,
+  zIndex: CorporateDesignZIndexOptions,
   overrides: object,
 }

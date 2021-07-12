@@ -107,6 +107,9 @@ export const themeConfig: CorporateDesignThemeOptions = {
       'Open Sans',
     ].join(','),
   },
+  zIndex: {
+    offlineSnackbar: 1750,
+  },
   spacing: SPACING,
   shape: {
     borderRadius: 2,
