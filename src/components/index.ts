@@ -46,6 +46,7 @@ export {
 } from './sort-box'
 export { HealthStatus, Health, HealthStatusType } from './health-status'
 export { SnackBar, SnackBarTypes } from './snackbar'
+export { SnakeGameBox } from './snake-game-box'
 export { DragHandle } from './drag-handle'
 export * from './types'
 export { ExpandCollapseButton } from './expand-collapse-button'
