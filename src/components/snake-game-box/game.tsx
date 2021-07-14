@@ -113,6 +113,21 @@ const Game = () => {
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div onKeyDown={e => changeDirection(e)}>
+      <div className="scoreBox">
+        <table>
+          <tr className="highScore">
+            <td>High Score</td>
+            <td>:</td>
+            <td>{localStorage.getItem('snakeScore')}</td>
+          </tr>
+          <tr className="currentScore">
+            <td>Current Score</td>
+            <td>:</td>
+            <td>{score}</td>
+          </tr>
+        </table>
+      </div>
+
       <canvas
         className="playArea"
         ref={canvasRef}
@@ -130,16 +145,6 @@ const Game = () => {
         Play
       </button>
 
-      <div className="scoreBox">
-        <h2>
-          Score:
-          {score}
-        </h2>
-        <h2>
-          High Score:
-          {localStorage.getItem('snakeScore')}
-        </h2>
-      </div>
     </div>
   )
 }
