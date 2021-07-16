@@ -1,7 +1,64 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { makeStyles } from '@material-ui/styles'
 
-import './index.css'
+import { CorporateDesignTheme } from '../../theme/corporate-design-theme'
 import useInterval from './useInterval'
+
+// TODO: Add "Press Start 2P" font
+
+const useStyles = makeStyles<CorporateDesignTheme>(theme => ({
+  playArea: {
+    border: '5px solid',
+    borderColor: theme.palette.colors.blue,
+    width: '585px',
+    height: '440px',
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  },
+  gameOver: {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    color: theme.palette.colors.red,
+    fontSize: '60px',
+    textTransform: 'uppercase',
+  },
+  playButton: {
+    position: 'fixed',
+    top: '75%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    color: theme.palette.colors.orange,
+    background: '#502c7b',
+    border: '2px solid',
+    borderColor: theme.palette.colors.lightPeach,
+    padding: '10px',
+    fontSize: '30px',
+    boxShadow: '4px 4px 0px 0px #a3d001',
+    letterSpacing: '5px',
+    textTransform: 'uppercase',
+  },
+  scoreBox: {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    border: '5px solid',
+    borderColor: theme.palette.colors.blue,
+    padding: '30px',
+  },
+  highScore: {
+    fontSize: '24px',
+    color: theme.palette.colors.orange,
+  },
+  currentScore: {
+    fontSize: '24px',
+    color: '#a3d001',
+  },
+}))
 
 const canvasX = 1000
 const canvasY = 1000
@@ -11,6 +68,7 @@ const scale = 50
 const timeDelay = 100
 
 const SnakeGameBox = () => {
+  const classes = useStyles()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [snake, setSnake] = useState(initialSnake)
   const [apple, setApple] = useState(initialApple)
@@ -113,14 +171,14 @@ const SnakeGameBox = () => {
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div onKeyDown={e => changeDirection(e)}>
-      <div className="scoreBox">
+      <div className={classes.scoreBox}>
         <table>
-          <tr className="highScore">
+          <tr className={classes.highScore}>
             <td>High Score</td>
             <td>:</td>
             <td>{localStorage.getItem('snakeScore')}</td>
           </tr>
-          <tr className="currentScore">
+          <tr className={classes.currentScore}>
             <td>Current Score</td>
             <td>:</td>
             <td>{score}</td>
@@ -129,17 +187,23 @@ const SnakeGameBox = () => {
       </div>
 
       <canvas
-        className="playArea"
+        className={classes.playArea}
         ref={canvasRef}
         width={`${canvasX}px`}
         height={`${canvasY}px`}
       />
 
-      {gameOver && <div className="gameOver">Game Over</div>}
+      {
+        gameOver && (
+          <div className={classes.gameOver}>
+            Game Over
+          </div>
+        )
+      }
 
       <button
         type="button"
-        className="playButton"
+        className={classes.playButton}
         onClick={play}
       >
         Play
